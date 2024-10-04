@@ -1,0 +1,103 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-image: url(/../assets/images/hieroglyphs-bg.png);
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #EEC643;
+  #nav1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: 1em;
+      #logo{
+        width: 20%;
+        img{
+          width: 50%;
+        }
+     }
+      #search{
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        margin-left: 2em;
+        background-color: white;
+        border-radius: 99px;
+        padding: 1em;
+        border: #141414 1px solid;
+        form {
+          align-items: space-between;
+          width: 100%;
+          align-items: center;
+          input{
+            border: none;
+            width: 85%;
+            outline: none;
+            font-size: large;
+          }
+          button{
+            width: 10%;
+            background-color: transparent;
+            border: none;
+            img{
+              width: 25%;
+              background-color: transparent;
+            }
+          }
+          
+        }
+      }
+      #icons{
+        width: 20%;
+        display: flex;
+        justify-content: end;
+        a{
+          width: 20%;
+          align-items: center;
+          img{
+            width: 100%;
+          } 
+        }
+      }
+      #menu{
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+          background-color: gray;
+          border: none;
+        }
+      }
+    }
+  }
+  #nav2{
+    display: flex;
+    background-color: #141414;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: large;
+      margin-left: 2em;
+      &:hover{
+        color: #EEC643;
+      }
+    }
+
+
+  }
+

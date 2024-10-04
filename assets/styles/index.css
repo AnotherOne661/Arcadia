@@ -1,0 +1,18 @@
+@import url("global.css");
+
+
+.carousel-inner{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .carousel-item{
+        width: 100%;
+        justify-content: center;
+    }
+    .slider_image{
+        width: 50%;
+    }
+    
+}
