@@ -38,3 +38,6 @@
         </nav>
     </div>
 </header>
+
+
+TODO: FIX BROKEN LINKS WHEN HEADER IS ON INDEX/SUBPAGES
