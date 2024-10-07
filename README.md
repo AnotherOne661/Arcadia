@@ -7,11 +7,11 @@
 
 # TODO (Front-end part): 
 
-### - [] Fix assets path
+### - [ ] Fix assets path
 
-### - [] Finish new icon
+### - [ ] Finish new icon
 
-### - [] ***Finish landing page***
+### - [ ] ***Finish landing page***
 
 
 # TODO: (Back-end part):
