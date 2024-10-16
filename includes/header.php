@@ -4,7 +4,7 @@ $ABS_URL = "/assets/";
 <header>
     <div id="nav1">
         <div id="logo">
-            <img src="<?php echo $ABS_URL; ?>images/altern.png" alt="">
+            <a href="../index.php"><img src="<?php echo $ABS_URL; ?>images/altern.png" alt=""></a>
         </div>
         <div id="search">
             <form>

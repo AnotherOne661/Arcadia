@@ -143,24 +143,34 @@ footer {
     #socialmedia {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: flex-start; /* Changed from space-between to flex-start */
       width: 40%;
       border: inherit;
-
       padding: 2em;
       h4 {
         font-size: xx-large;
+        margin-bottom: 1em; /* Add some space below the h4 */
       }
       div {
         display: flex;
-        justify-content: space-between;
-        width: 80%;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         padding: 0.5em;
-        .iconholder {
-          width: 35%;
-        }
-      }
-    }
+        .icoholder {
+          width: 35px;
+          height: 35px;
+          margin: 0 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+           }
+          }
+        } 
+     }
     #contact {
       display: flex;
       flex-direction: column;
@@ -178,6 +188,24 @@ footer {
   #second-row {
     width: 100%;
     border: inherit;
+    display: flex;
+    justify-content: center;
+    ul{
+      margin: 2em;
+    }
+    h4{
+      margin: 2em;
+    }
+    a{
+      color: wheat;
+      text-decoration: none;
+      font-size: large;
+      margin-left: 1em;
+      margin-right: 1em;
+      &:hover {
+        color: #eec643;
+      }
+    }
   }
   #third-row {
     width: 100%;
@@ -185,13 +213,6 @@ footer {
     display: flex;
     justify-content: space-around;
     padding: 1em;
-    #newsletter {
-      border: inherit;
-      padding: 2em;
-    }
-    #terms {
-      border: inherit;
-      padding: 2em;
-    }
+      
   }
 }

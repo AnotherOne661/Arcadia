@@ -22,7 +22,17 @@
     </div>
   </div>
   <div id="second-row">
-    <h4>GOLA</h4>
+    <div>
+      <h4>Sobre nosotros:</h4>
+    </div>
+    <div>
+      <ul>
+        <li><a href="subpages/contact.php">Nosotros</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+        <li><a href="#">Política de cookies</a></li>
+        <li><a href="#">Términos y condiciones</a></li>
+      </ul>
+    </div>
   </div>
   <div id="third-row">
     <h6>© Arcadia 2024. Todos los derechos reservados</h6>
