@@ -1,9 +1,18 @@
+@font-face {
+  font-family: "rajdhani-light";
+  src: url(../fonts/Rajdhani/Rajdhani-Medium.ttf);
+}
+@font-face {
+  font-family: "rajdhani-bold";
+  src: url(../fonts/Rajdhani/Rajdhani-Bold.ttf);
+}
+
 * {
   padding: 0;
   margin: 0;
 }
 body {
-  background-image: url(/../assets/images/hieroglyphs-bg.png);
+  background-image: url(/../assets/images/hieloglyphs3.webp);
 }
 header {
   display: flex;
@@ -11,76 +20,90 @@ header {
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background-color: #EEC643;
-  #nav1{
+  background-color: #eec643;
+  font-family: "rajdhani-bold";
+
+  #nav1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 90%;
     margin: 1em;
-      #logo{
-        width: 20%;
-        img{
-          width: 50%;
-        }
-     }
-      #search{
-        display: flex;
-        justify-content: center;
+    #logo {
+      width: 20%;
+      img {
         width: 50%;
-        margin-left: 2em;
-        background-color: white;
-        border-radius: 99px;
-        padding: 1em;
-        border: #141414 1px solid;
-        form {
-          align-items: space-between;
-          width: 100%;
-          align-items: center;
-          input{
-            border: none;
-            width: 85%;
-            outline: none;
-            font-size: large;
-          }
-          button{
-            width: 10%;
-            background-color: transparent;
-            border: none;
-            img{
-              width: 25%;
-              background-color: transparent;
-            }
-          }
-          
-        }
       }
-      #icons{
-        width: 20%;
+    }
+    #search {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+      margin-left: 2em;
+      background-color: white;
+      border-radius: 99px;
+      padding: 1em;
+      border: #141414 1px solid;
+      form {
         display: flex;
-        justify-content: end;
-        a{
-          width: 20%;
-          align-items: center;
-          img{
-            width: 100%;
-          } 
-        }
-      }
-      #menu{
-        width: 10%;
-        display: flex;
-        justify-content: center;
+        width: 100%;
         align-items: center;
-        button {
-          background-color: gray;
+        input {
           border: none;
+          width: 100%;
+          outline: none;
+          font-size: large;
+        }
+        input:placeholder-shown + button img {
+          visibility: visible;
+        }
+        input::-webkit-search-cancel-button {
+          -webkit-appearance: none;
+          height: 16px;
+          width: 16px;
+          background: url("../images/icons/cancel-cross.svg") no-repeat center
+            center;
+          background-size: contain;
+          position: relative;
+          color: black;
+        }
+        button {
+          width: 10%;
+          background-color: transparent;
+          border: none;
+
+          img {
+            width: 25%;
+            background-color: transparent;
+          }
         }
       }
     }
+    #icons {
+      width: 20%;
+      display: flex;
+      justify-content: end;
+      a {
+        width: 20%;
+        align-items: center;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    #menu {
+      width: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      button {
+        background-color: gray;
+        border: none;
+      }
+    }
   }
-  #nav2{
+  #nav2 {
     display: flex;
     background-color: #141414;
     width: 100%;
@@ -89,15 +112,86 @@ header {
     padding-top: 2em;
     padding-bottom: 2em;
     a {
-      color: white;
+      color: wheat;
       text-decoration: none;
       font-size: large;
-      margin-left: 2em;
-      &:hover{
-        color: #EEC643;
+      margin-left: 1em;
+      margin-right: 1em;
+      &:hover {
+        color: #eec643;
       }
     }
-
-
   }
+}
 
+footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: wheat;
+  background-color: #141414;
+  border: solid #f5deb3 0.5px;
+  font-family: "rajdhani-bold";
+  p {
+    color: rgb(184, 184, 184);
+  }
+  #first-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    border: inherit;
+    #socialmedia {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 40%;
+      border: inherit;
+
+      padding: 2em;
+      h4 {
+        font-size: xx-large;
+      }
+      div {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+        padding: 0.5em;
+        .iconholder {
+          width: 35%;
+        }
+      }
+    }
+    #contact {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      border: inherit;
+      padding: 2em;
+      h4 {
+        font-size: xx-large;
+      }
+      p {
+        font-size: large;
+      }
+    }
+  }
+  #second-row {
+    width: 100%;
+    border: inherit;
+  }
+  #third-row {
+    width: 100%;
+    border: inherit;
+    display: flex;
+    justify-content: space-around;
+    padding: 1em;
+    #newsletter {
+      border: inherit;
+      padding: 2em;
+    }
+    #terms {
+      border: inherit;
+      padding: 2em;
+    }
+  }
+}
