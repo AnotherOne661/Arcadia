@@ -11,7 +11,11 @@ $style_url = "assets/styles/index.css";
 
 <body>
   <?php require_once 'includes/header.php' ?>
+
+
   <main>
+
+
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
@@ -44,36 +48,40 @@ $style_url = "assets/styles/index.css";
       </button>
     </div>
 
-    <div>
+    <section>
       <div id="novedades">
-        <div>
-          <div id="eve">
-            <h2>25 Aniversario Yu-Gi-Oh!</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas temporibus laboriosam autem iusto
-              doloribus dolores assumenda cum sed deleniti delectus? Illum, consectetur enim? Labore unde reiciendis sed
-              laudantium nam repudiandae.</p>
-            <a>¡No te lo pierdas!</a>
-          </div>
-          <div id="eveimg">
-            <img>
-          </div>
-        </div>
-        <div>
-          <div>
+        <div class="newproducts">
+          <figcaption class="newproducts-desc">
             <h3>Placeholder title</h3>
-          </div>
-          <section>
+          </figcaption>
+          <figure class="newproducts-img">
             <h3>Placeholder new obj</h3>
-          </section>
+          </figure>
         </div>
       </div>
       <div id="ofertas">
-        <h4>placeholder ofertas</h4>
+        <div class="sale">
+          <figcaption class="sale-desc">
+            <h3>Placeholder title</h3>
+          </figcaption>
+          <figure class="sale-img">
+            <h3>Placeholder new obj</h3>
+          </figure>
+        </div>
       </div>
-      <div id="trending">
-        <h4>placeholder trending</h4>
+      <div id="trend">
+        <div class="trending">
+          <figcaption class="trending-desc">
+            <h3>Placeholder title</h3>
+          </figcaption>
+          <figure class="trending-img">
+            <h3>Placeholder new obj</h3>
+          </figure>
+        </div>
       </div>
-    </div>
+    </section>
+
+
   </main>
   <?php
   require_once 'includes/footer.php'
