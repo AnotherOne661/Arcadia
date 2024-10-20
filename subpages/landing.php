@@ -1,6 +1,6 @@
 <?php
 $page_name = "Landing";
-$style_url = "../assets/styles/landing.php"
+$style_url = "/assets/styles/landing.php"
   ?>
 
 
@@ -15,7 +15,7 @@ require_once __DIR__ . '/../includes/head.php';
     </div>
     <div id="socialmedia">
 
-    </div>
+    </div>z
   </header>
   <main>
     <section>

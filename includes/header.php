@@ -50,6 +50,7 @@ $ABS_URL = "/assets/";
             <a href="login.php">One Piece TCG</a>
             <a href="login.php">Pokémon</a>
             <a href="calendar.php">Calendario</a>
+            <a href="subpages/collections.php">Colecciones</a>
         </nav>
     </div>
 </header>

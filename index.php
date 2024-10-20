@@ -1,10 +1,6 @@
 <?php
 $style_url = "assets/styles/index.css";
-
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
 
 <?php require_once 'includes/head.php' ?>
 
