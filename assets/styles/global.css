@@ -103,6 +103,15 @@ header {
         background-color: gray;
         border: none;
       }
+      .offcanvas-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        div {
+        }
+      }
     }
   }
   #nav2 {
