@@ -6,3 +6,4 @@
 - Terminar colecciones (css)
 - Botones carrusel
 - ENLACES ROTOS HEADER DESDE SUBPÁGINAS
+- Mejorar menú de footer
