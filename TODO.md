@@ -4,6 +4,5 @@
 - Calendario
 - Menú desplegable (falta estilos)
 - Terminar colecciones (css)
-- Comprimir el fondo
 - Botones carrusel
 - ENLACES ROTOS HEADER DESDE SUBPÁGINAS
