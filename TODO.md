@@ -1,0 +1,8 @@
+- Aprender lectura DB
+- Implementar DB
+- Implementar la lectura de la DB
+- Calendario
+- Menú desplegable
+- Terminar colecciones (css)
+- Comprimir el fondo
+- Botones carrusel
