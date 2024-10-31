@@ -6,3 +6,4 @@
 - Terminar colecciones (css)
 - Comprimir el fondo
 - Botones carrusel
+- ob_get_contents() 
