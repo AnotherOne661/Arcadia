@@ -1,8 +1,8 @@
-- Aprender lectura DB
+- Aprender lectura DB / half-way there!
 - Implementar DB
 - Implementar la lectura de la DB
 - Calendario
-- Menú desplegable
-- Terminar colecciones (css)
-- Comprimir el fondo
-- Botones carrusel
+- Menú desplegable // style
+- Terminar colecciones (css) // Atrasar porque esto se va a leer dinámicamente de la DB
+- Fix links
+- About page
