@@ -1,5 +1,4 @@
 @import url("global.css");
-
 #carouselExampleIndicators {
   height: 80vh; /* Adjust this value as needed */
 }
@@ -14,7 +13,7 @@
 }
 
 .carousel-item::before {
-  content: '';
+  content: "";
   display: inline-block;
   height: 100%;
   vertical-align: middle;
@@ -41,4 +40,3 @@
   border-radius: 50%;
   padding: 10px;
 }
-

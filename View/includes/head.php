@@ -7,12 +7,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <link rel="icon" href="../assets/images/altern-nobg_b.ico">
-  <style>
-    <?php require_once __DIR__ . "/../styles/global.css"; ?>
-  </style>
-  <style>
-    <?php include_once __DIR__ . $styleRoute; ?>
-    /* Additional CSS rules for this page go here */
-  </style>
+  <link rel="stylesheet" href="<?= styleURL('styles/global.css'); ?>">
+  <link rel="stylesheet" href="<?= styleURL("styles/$styleRoute"); ?>">
   <title><?php echo isset($page_name) ? $page_name : 'Arcadia - Tu tienda TCG' ?></title>
 </head>
