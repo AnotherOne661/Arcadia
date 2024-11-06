@@ -4,5 +4,4 @@
 - Calendario
 - Menú desplegable // style
 - Terminar colecciones (css) // Atrasar porque esto se va a leer dinámicamente de la DB
-- Fix links
 - About page
