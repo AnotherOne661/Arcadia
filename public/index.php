@@ -36,7 +36,12 @@
   require_once $file;
   $content = ob_get_clean();
 
-  require_once __DIR__ . "/../View/includes/layout/$layout.php";
+  if ($route != 'landing'){
+    require_once __DIR__ . "/../View/includes/layout/$layout.php";
+  } else{
+    require_once __DIR__ . "/../View/includes/layout/landingLayout.php";
+  }
+  
   ?>
 </body>
 

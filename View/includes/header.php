@@ -4,7 +4,7 @@ $ABS_URL = "/assets/";
 <header>
     <div id="nav1">
         <div id="logo">
-            <a href="../index.php"><img src="<?php echo $ABS_URL; ?>images/altern.png" alt=""></a>
+            <a href="/home"><img src="<?php echo $ABS_URL; ?>images/altern.png" alt=""></a>
         </div>
         <div id="search">
             <form>
@@ -237,14 +237,14 @@ $ABS_URL = "/assets/";
     <div id="nav2">
         <nav>
 
-            <a href="subpages/collections.php">Colecciones</a>
-            <a href="calendar.php">Eventos</a>
-            <a href="index.php">Accesorios</a>
-            <a href="products.php">Magic The Gathering</a>
-            <a href="subpages/contact.php">Yu-Gi-Oh</a>
-            <a href="cart.php">Lorcana</a>
-            <a href="login.php">One Piece TCG</a>
-            <a href="login.php">Pokémon</a>
+            <a href="/collections">Colecciones</a>
+            <a href="/calendar">Eventos</a>
+            <a href="/index">Accesorios</a>
+            <a href="/products">Magic The Gathering</a>
+            <a href="/contact">Yu-Gi-Oh</a>
+            <a href="/cart">Lorcana</a>
+            <a href="/login">One Piece TCG</a>
+            <a href="/login">Pokémon</a>
 
         </nav>
     </div>
