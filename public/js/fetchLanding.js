@@ -1,4 +1,9 @@
 const DATA_PATH = "../data/landingEx.json";
+
+function handleImageClick(event) { const url = event.target.getAttribute('data-url'); if (url) { window.location.href = url; } } 
+function initializeClickableImages() { document.querySelectorAll('.clickableimage').forEach(image => { image.addEventListener('click', handleImageClick); }); } 
+document.addEventListener('DOMContentLoaded', initializeClickableImages);
+
 async function fecthInformation(){
     const data = await fetch(DATA_PATH);
     const json = await data.json();
@@ -51,5 +56,6 @@ async function renderJson(json){
 }
 window.onload = function(){
     fecthInformation();
+    redirectImage();
  }
     

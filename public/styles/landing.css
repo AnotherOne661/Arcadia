@@ -2,27 +2,39 @@
 :root{
     --transitionCool : transform 0.3s ease-in-out;
 }
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
 header{
     position: relative;
-    width: 100%;
+    width: 80%;
     display: flex;
     flex-direction: row;
     padding: 1em;
     justify-content: space-around   ;
     #logocont{
-        min-width: 34%;
+        min-width: 36%;
         display: flex;
-
-
         justify-content: center;
-        img{
-            width: 30%;
-            align-self: center;
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            img{
+                width: 20%;
+            }
         }
     }
     #socialmedia{
         display: flex;
-        width: 30%;
+        width: 22%;
         justify-content: center;
         align-items: center;
         &:hover{
@@ -35,27 +47,141 @@ header{
         }
     }
     #header-spacer{
-        min-width: 28%;
+        min-width: 22%;
         justify-content: center;
     }
 }
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em;
+    
+section{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    min-width: 80%;
+    justify-content: center;
+    display: flex;
+    width: 600px;
+    height: 430px;
+    
+    img{
+        width: 0px;
+        flex-grow: 1;
+        object-fit: cover;
+        opacity: 0.8;
+        transition: 0.5s ease;
+        &:hover{
+            cursor: pointer;
+            width: 300px;
+            opacity: 1;
+            filter: contrast(120%);
+        }
+    }
+}
+
 .products{
     display: flex;
-    width: 100%;
+    width: 80%;
     flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 2em;
+    background-color: var(--af-white);
+    border: solid var(--night) 15px ;
+    align-self: center;
+    justify-self: center;
     .product{
-        background-color: white;
+        background-color: var(--night);
+        color: var(--madder);
         width: 25%;
         margin: 3em;
         padding: 2em;
         border-radius: 25px;
-        box-shadow: -5px 7px 10px rgba(255, 255, 255, 0.497); /* added a subtle box shadow for better visual appeal */
+        box-shadow: -5px 7px 10px rgba(3, 3, 3, 0.497); /* added a subtle box shadow for better visual appeal */
 
     }
 }
 
+.newsletter{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    margin: 2em;
+    border: solid var(--af-white) 15px ;
+    width: 80%;
+    background-color: var(--night);
+    color: var(--madder);
+
+
+    form{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--af-white);
+        padding: 2em;
+        border-radius: 25px;
+        width: 60%;
+        box-shadow: -5px 7px 10px rgba(255, 255, 255, 0.497); /* added a subtle box shadow for better visual appeal */
+        padding-top: 5em;
+        padding-bottom: 5em;
+        text-align: center;
+        label{
+            font-size: xx-large;
+            font-family: "rajdhani-bold";
+        }
+        input{
+            font-size: x-large;
+            font-family: "rajdhani-light";
+            margin: 1em;
+            padding: 0.5em;
+            border-radius: 25px;
+            transition: var(--transition);
+            box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.497);
+            &:hover{
+                box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.8);
+            }
+            &:focus{
+                outline: none;
+            }
+            &::placeholder{
+                font-family: "rajdhani-light";
+            }
+
+        }
+        button{
+            align-self: center;
+
+            width: 30%;
+            font-size: xx-large;
+            font-family: "rajdhani-bold";
+            background-color: var(--night);
+            color: var(--af-white);
+            border: none;
+            margin-top: 1em;
+            padding: 1em 2em;
+            border-radius: 75px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: -5px 7px 10px rgba(0, 0, 0, 0.497); 
+            &:hover{
+                box-shadow: -5px 20px 25px rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+                background-color: var(--madder);
+                transform: scale(1.1);
+            }
+            &:focus{
+                outline: none;
+            }
+
+        }
+    }
+}
+
+}
 
 
 footer{
@@ -63,37 +189,52 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     padding: 1em;
+    width: 80%;
     .learn{
         display: flex;
         flex-direction: column;
         width: 33%;
         text-align: center;
+        align-items: center;
         justify-content: center;
         gap: 1em;
         
         .learnbutton{
             display: flex;
+            width: 85%;
             flex-direction: row;
             align-items: center;
             padding: 1em;
             background-color: black;
             border-radius: 75px;
             a{
-                color: var(--saffron);
+                color: wheat;
                 text-decoration: none;
                 font-size: large;
+                &:hover{
+                    color: var(--saffron);
+                }
             }
         }
     }
     .logofooter{
         display: flex;
         min-width: 33%;
-
+        align-items: center;
         justify-content: center;
-        img{
-            width: 25%;
-            align-self: center;
+        a{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            img{
+                width: 40%;
+                align-self: center;
+                display: inline;
+            }
         }
+
     }
     #contact{
         display: flex;
