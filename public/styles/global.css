@@ -9,6 +9,10 @@
 
 :root{
   --saffron: #eec643;
+  --night: #141414;
+  --af-white: #EEF0F2;
+  --madder: #A41623;
+  --sub-text: #b8b8b8;
 }
 * {
   padding: 0;
@@ -23,7 +27,7 @@ header {
   align-items: center;
   justify-content: space-around;
   width: 100%;
-  background-color: #eec643;
+  background-color: var(--saffron);
   font-family: "rajdhani-bold";
   position: sticky;
   top: 0;
@@ -49,7 +53,7 @@ header {
       background-color: white;
       border-radius: 99px;
       padding: 1em;
-      border: #141414 1px solid;
+      border: var(--night) 1px solid;
       form {
         display: flex;
         width: 100%;
@@ -119,7 +123,7 @@ header {
   }
   #nav2 {
     display: flex;
-    background-color: #141414;
+    background-color: var(--night);
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -142,11 +146,11 @@ footer {
   flex-direction: column;
   width: 100%;
   color: wheat;
-  background-color: #141414;
-  border: solid #f5deb3 0.5px;
+  background-color: var(--night);
+  border: solid wheat 0.5px;
   font-family: "rajdhani-bold";
   p {
-    color: rgb(184, 184, 184);
+    color: var(--sub-text);
   }
   #first-row {
     display: flex;
@@ -216,7 +220,7 @@ footer {
       margin-left: 1em;
       margin-right: 1em;
       &:hover {
-        color: #eec643;
+        color: var(--saffron);
       }
     }
   }
