@@ -7,6 +7,9 @@
   src: url(../assets/fonts/Rajdhani/Rajdhani-Bold.ttf);
 }
 
+:root{
+  --saffron: #eec643;
+}
 * {
   padding: 0;
   margin: 0;
@@ -129,7 +132,7 @@ header {
       margin-left: 1em;
       margin-right: 1em;
       &:hover {
-        color: #eec643;
+        color: var(--saffron);
       }
     }
   }

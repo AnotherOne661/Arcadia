@@ -51,6 +51,5 @@ async function renderJson(json){
 }
 window.onload = function(){
     fecthInformation();
-    console.log("loading")
  }
     

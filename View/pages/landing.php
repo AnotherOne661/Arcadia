@@ -18,7 +18,7 @@
   <!-- A continuación el slider -->
   <main>
 
-
+  
 
 
 
@@ -27,79 +27,50 @@
   <!-- Productos del JSON -->
     <div>
         <div class="products">
-           <!-- 
-        <div class="product">
-          <figcaption class="product-desc">
-            <h3>Placeholder title</h3>
-          </figcaption>
-          <figure class="product-img">
-            <h3>Placeholder new obj</h3>
-          </figure>
-          <a class="buyprod" href="#">Comprar</a>
-        </div>
-        <div class="product">
-          <figcaption class="product-desc">
-            <h3>Placeholder title</h3>
-          </figcaption>
-          <figure class="product-img">
-            <h3>Placeholder new obj</h3>
-          </figure>
-          <a class="buyprod" href="#">Comprar</a>
-        </div>
-        <div class="product">
-          <figcaption class="product-desc">
-            <h3>Placeholder title</h3>
-          </figcaption>
-          <figure class="product-img">
-            <h3>Placeholder new obj</h3>
-          </figure>
-          <a class="buyprod" href="#">Comprar</a>
-        </div>
-      </div>
-      <div id="formulario">
-        <form>
-          <label for="email">¡Recibe nuestras novedades!</label>
-          <input type="email" id="email" name="email" required>
-          <button type="submit">Suscribirme</button>
-        </form>-->
       </div> 
     </div>
   </main>
-  <!-- Footer -->
-  <footer>
+<!-- Footer Section -->
+<footer>
+    <!-- Learn to Play -->
     <div class="learn">
-      <h3>Aprende a jugar</h3>
-      <div class="learnbutton">
-        <a href="#">Yu Gi Oh!</a>
-        <img src="" alt="">
-      </div>
-      <div class="learnbutton">
-        <a href="#">Lorcana</a>
-        <img src="" alt="">
-      </div>
-      <div class="learnbutton">
-        <a href="#">Magic</a>
-        <img src="" alt="">
-      </div>
-      <div class="learnbutton">
-        <a href="#">Pokémon</a>
-        <img src="" alt="">
-      </div>
+        <h3>Aprende a jugar</h3>
+        <div class="learnbutton">
+            <a href="#">Yu Gi Oh!</a>
+            <img src="" alt=""> <!-- Logo for Yu Gi Oh! -->
+        </div>
+        <div class="learnbutton">
+            <a href="#">Lorcana</a>
+            <img src="" alt=""> <!-- Logo for Lorcana -->
+        </div>
+        <div class="learnbutton">
+            <a href="#">Magic</a>
+            <img src="" alt=""> <!-- Logo for Magic: The Gathering -->
+        </div>
+        <div class="learnbutton">
+            <a href="#">Pokémon</a>
+            <img src="" alt=""> <!-- Logo for Pokémon -->
+        </div>
     </div>
     <div>
-      <div class="logofooter">
-        <img src="assets/images/altern.png" alt="">
-      </div>
+        <div class="logofooter">
+            <img src="assets/images/altern.png" alt=""> <!-- Logo image for the footer -->
+        </div>
     </div>
+    <!-- Contact Information -->
     <div id="contact">
-      <h3>Ven a jugar</h3>
-      <div>
-        <p><span><img src="/assets/images/icons/mail.svg" alt=""></span>placeholder@holder.com</p>
-        <p><span><img src="/assets/images/icons/phone.svg" alt=""></span>916 40 46 96</p>
-        <p><span><img src="/assets/images/icons/location-a.svg"></span>Calle Mirador de Montepinar, 1 - 28015, Madrid
-        </p>
-        <p><span><img src="/assets/images/icons/time.svg"></span>De lúnes a viernes ; 11:30 - 15:00 & 17:00 - 19:00
-        </p>
-      </div>
-  </footer>
+        <h3>Ven a jugar</h3>
+        <div>
+            <p><span><img src="/assets/images/icons/mail.svg" alt=""></span>placeholder@holder.com <!-- Placeholder email address -->
+            </p>
+            <p><span><img src="/assets/images/icons/phone.svg" alt=""></span>916 40 46 96 <!-- Phone number -->
+            </p>
+            <p><span><img src="/assets/images/icons/location-a.svg"></span>Calle Mirador de Montepinar, 1 - 28015, Madrid<!-- Address -->
+            </p>
+            <p><span><img src="/assets/images/icons/time.svg"></span>De lúnes a viernes ; 11:30 - 15:00 &amp; 17:00 - 19:00<!-- Opening hours -->
+            </p>
+        </div>
+    </div>
+</footer>
+
 </body>

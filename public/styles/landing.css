@@ -1,34 +1,40 @@
+:root{
+    --transitionCool : transform 0.3s ease-in-out;
+}
 header{
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: row;
     padding: 1em;
-    justify-content: space-between;
+    justify-content: space-around   ;
     #logocont{
-        width: 33%;
+        min-width: 34%;
         display: flex;
+
+
         justify-content: center;
         img{
             width: 30%;
+            align-self: center;
         }
     }
     #socialmedia{
         display: flex;
-        width: 33%;
+        width: 30%;
         justify-content: center;
         align-items: center;
         &:hover{
             img:hover{
                 transform: scale(1.1);
-                transition: transform 0.3s ease-in-out;
+                transition: var(--transition);
             }
 
             cursor: pointer;
         }
     }
-    #headerspacer{
-        min-width: 33%;
+    #header-spacer{
+        min-width: 28%;
         justify-content: center;
     }
 }
@@ -43,7 +49,9 @@ header{
         width: 25%;
         margin: 3em;
         padding: 2em;
-        border-radius: 99999px;
+        border-radius: 25px;
+        box-shadow: -5px 7px 10px rgba(255, 255, 255, 0.497); /* added a subtle box shadow for better visual appeal */
+
     }
 }
 
@@ -57,7 +65,7 @@ footer{
     .learn{
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 33%;
         justify-content: center;
         p{
             margin: 0;
@@ -65,17 +73,18 @@ footer{
     }
     .logofooter{
         display: flex;
-        width: 30%;
+        min-width: 33%;
+
         justify-content: center;
         img{
-            width: 75%;
+            width: 25%;
             align-self: center;
         }
     }
     #contact{
         display: flex;
         flex-direction: column;
-        width: 30%;
+        width: 33%;
         justify-content: center;
         p{
             margin: 0;
