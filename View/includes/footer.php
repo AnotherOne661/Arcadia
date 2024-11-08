@@ -27,10 +27,10 @@
     </div>
     <div>
       <ul>
-        <li><a href="subpages/contact.php">Nosotros</a></li>
-        <li><a href="#">Política de privacidad</a></li>
-        <li><a href="#">Política de cookies</a></li>
-        <li><a href="#">Términos y condiciones</a></li>
+        <li><a href="/contact">Nosotros</a></li>
+        <li><a href="/privacy">Política de privacidad</a></li>
+        <li><a href="/cookies">Política de cookies</a></li>
+        <li><a href="/terms">Términos y condiciones</a></li>
       </ul>
     </div>
   </div>

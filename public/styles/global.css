@@ -6,13 +6,55 @@
   font-family: "rajdhani-bold";
   src: url(../assets/fonts/Rajdhani/Rajdhani-Bold.ttf);
 }
-
-:root{
+@font-face {
+  font-family: "planeswalker-bold";
+  src: url(../assets/fonts/planewalker/Planewalker\ Bold.otf);
+}
+@font-face {
+  font-family: "planeswalker-light";
+  src: url(../assets/fonts/planewalker/Planewalker.otf);
+}
+@font-face {
+  font-family: "beleren-bold";
+  src: url(../assets/fonts/Beleren-Bold.ttf);
+}
+@font-face {
+  font-family: "flexo-bold";
+  src: url(../assets/fonts/Flexo-Demi/Flexo-Demi.ttf);
+}
+@font-face {
+  font-family: "flexo-light";
+  src: url(../assets/fonts/Flexo-Light/Flexo-Light.ttf);
+}
+@font-face {
+  font-family: "akaPosse";
+  src: url(../assets/fonts/akaPosse/akaPosse.ttf);
+}
+@font-face {
+  font-family: "roboto-light";
+  src: url(../assets/fonts/Roboto/Roboto-Light.ttf);
+}
+@font-face {
+  font-family: "roboto-bold";
+  src: url(../assets/fonts/Roboto/Roboto-Bold.ttf);
+}
+:root {
   --saffron: #eec643;
   --night: #141414;
-  --af-white: #EEF0F2;
-  --madder: #A41623;
+  --af-white: #eef0f2;
+  --madder: #a41623;
   --sub-text: #b8b8b8;
+
+  --magic-bold: "planeswalker-bold";
+  --magic-light: "planeswalker-light";
+  --magic-card: "beleren-bold";
+  --ygo-light: "rajdhani-light";
+  --ygo-bold: "rajdhani-bold";
+  --pok-light: "flexo-light";
+  --pok-bold: "flexo-bold";
+  --lor: "akaPosse";
+  --op-bold: "roboto-bold";
+  --op-light: "roboto-light";
 }
 * {
   padding: 0;
@@ -123,24 +165,48 @@ header {
   }
   #nav2 {
     display: flex;
-    background-color: var(--night);
+    background-color: #141414;
     width: 100%;
     align-items: center;
     justify-content: center;
     padding-top: 1em;
     padding-bottom: 1em;
+    color: wheat;
+
+    .btn-group {
+      align-items: center;
+      button {
+        background-color: transparent;
+        color: wheat;
+        border-color: transparent;
+        outline: none;
+        box-shadow: none;
+      }
+      .visually-hidden {
+        outline: var(--saffron);
+        box-shadow: var(--saffron);
+      }
+      .dropdown-divider {
+        color: var(--saffron);
+        border-bottom: 4px solid var(--saffron);
+      }
+    }
+
     a {
       color: wheat;
       text-decoration: none;
       font-size: large;
-      margin-left: 1em;
-      margin-right: 1em;
       &:hover {
+        background-color: #141414;
         color: var(--saffron);
       }
     }
+    .dropdown-menu {
+      background-color: #141414;
+    }
   }
 }
+
 footer {
   display: flex;
   flex-direction: column;

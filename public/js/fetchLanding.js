@@ -31,6 +31,29 @@ async function renderJson(json){
         productSet.textContent = product.set;
         productSet.classList.add("product-setdesc");
 
+        const game = product.game;
+        switch(game){
+            case "POK":
+                productSet.classList.add("POK");
+                break;
+            case "LOR":
+                productSet.classList.add("LOR");
+                break;
+            case "YGO":
+                productSet.classList.add("YGO");
+                break;
+            case "MTG":
+                productSet.classList.add("MTG");
+                break;
+            case "OP":
+                productSet.classList.add("OP");
+                break;
+            default:
+                productSet.classList.add("error");
+        }
+
+
+
         const productPrice = document.createElement("p");
         productPrice.textContent = `$${product.price}`;
         productPrice.classList.add("product-price");
