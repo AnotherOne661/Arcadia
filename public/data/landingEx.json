@@ -4,7 +4,8 @@
       "price": 3.99,
       "type": "Booster Pack",
       "set": "Pokémon TCG: Steven's Beldum & Metagross EX",
-      "image_path": "path/to/steven_beldum_metagross_ex.png",
+      "set_code": "SSSBM",
+      "image_path": "../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg",
       "game": "POK"
     },
     {
@@ -12,7 +13,7 @@
       "price": 3.99,
       "type": "Booster Pack",
       "set": "Pokémon TCG: Marnie's Morpeko & Grimmsnarl EX",
-      "image_path": "path/to/marnie_morpeko_grimmsnarl_ex.png",
+      "image_path": "../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.jpeg",
         "game": "POK"
     },
     {
