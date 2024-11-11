@@ -2,19 +2,7 @@ const DATA_PATH = "../data/landingEx.json";
 // JSON temporal
 
 // Evento de redireccion en las imagenes
-function handleImageClick(event) { 
-    // Obtener la URL de la imagen clickeada (está en el html element)
-    const url = event.target.getAttribute('data-url');
-     if (url) { 
-        window.location.href = url;
-    } 
-} 
-function initializeClickableImages() {
-    // Recorre las imágenes y les agrega a cada una un evento de click que llama a la función handleImageClick
-    document.querySelectorAll('.clickableimage').forEach(image => {
-         image.addEventListener('click', handleImageClick);
-         });
-} 
+
 // Añade el evento de la imagen clickeada, iniciando la función ClickableImages
 document.addEventListener('DOMContentLoaded', initializeClickableImages);
 

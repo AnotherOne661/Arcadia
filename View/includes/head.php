@@ -8,6 +8,7 @@
     crossorigin="anonymous"></script>
   <link rel="icon" href="/assets/images/altern.ico">
   <link rel="stylesheet" href="<?= styleURL('styles/global.css'); ?>">
+  <script defer src="<?= styleURL('js/global.js'); ?>"></script>
   <link rel="stylesheet" href="<?= styleURL("styles/$styleRoute"); ?>">
   <title><?php echo isset($page_name) ? $page_name : 'Arcadia - Tu tienda TCG' ?></title>
 </head>

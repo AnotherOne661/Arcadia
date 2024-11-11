@@ -35,6 +35,6 @@
     </div>
   </div>
   <div id="third-row">
-    <h6>© Arcadia <span curDate></span>. Todos los derechos reservados</h6>
+    <h6>© Arcadia <span data-curdate></span>. Todos los derechos reservados</h6>
   </div>
 </footer>

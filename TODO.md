@@ -5,3 +5,4 @@
 - Menú desplegable // style
 - Terminar colecciones (css) // Atrasar porque esto se va a leer dinámicamente de la DB
 - About page
+- Change footer about
