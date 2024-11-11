@@ -1,4 +1,6 @@
-CREATE DATABASE arcadia;
+CREATE DATABASE IF NOT EXISTS arcadia;
+
+USE arcadia;
 
 CREATE TABLE colecciones(
   codColeccion VARCHAR(10),

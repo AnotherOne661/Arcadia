@@ -1,5 +1,6 @@
 <?php
 $ABS_URL = "/assets/";
+require_once __DIR__ . '/../../Controllers/collectionRouter.php';
 ?>
 <header>
     <div id="nav1">
@@ -88,7 +89,7 @@ $ABS_URL = "/assets/";
 
                             <!-- Example split danger button -->
                             <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Colecciones</button>
+                                <button type="button" class="btn btn-danger" data-collections>Colecciones</button>
                                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -123,7 +124,7 @@ $ABS_URL = "/assets/";
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                     <li>
@@ -145,7 +146,7 @@ $ABS_URL = "/assets/";
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                     <li>
@@ -167,7 +168,7 @@ $ABS_URL = "/assets/";
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                     <li>
@@ -189,7 +190,7 @@ $ABS_URL = "/assets/";
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                     <li>
@@ -211,7 +212,7 @@ $ABS_URL = "/assets/";
                                     <span class="visually-hidden">Toggle Dropdown</span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                     <li>
@@ -238,7 +239,7 @@ $ABS_URL = "/assets/";
         <nav>
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Colecciones</button-->
-                <a href="collections">Colecciones</>
+                <a href="collections" data-collections>Colecciones</>
                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -304,7 +305,7 @@ $ABS_URL = "/assets/";
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -322,7 +323,7 @@ $ABS_URL = "/assets/";
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -340,7 +341,7 @@ $ABS_URL = "/assets/";
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -358,7 +359,7 @@ $ABS_URL = "/assets/";
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -376,7 +377,7 @@ $ABS_URL = "/assets/";
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Colecciones</a></li>
+                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
