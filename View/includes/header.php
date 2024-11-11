@@ -1,6 +1,6 @@
 <?php
 $ABS_URL = "/assets/";
-require_once __DIR__ . '/../../Controllers/collectionRouter.php';
+
 ?>
 <header>
     <div id="nav1">

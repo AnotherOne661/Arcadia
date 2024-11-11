@@ -1,21 +1,9 @@
 <?php
 require_once __DIR__ . '/../MODELS/connection.php';
+require_once __DIR__ . '/../MODELS/Model.php';
 
-function getSingleResult($idJuego) {
-    global $pdo;
+$model = new Model();
 
-    $query = "SELECT * FROM colecciones WHERE idJuego = :idJuego";
-    $stmt = $pdo->prepare($query);
-    $stmt->bindParam(':idJuego', $idJuego);
-    $stmt->execute();
-    return $stmt->fetch();
-}
+$fetch = $model->getAllResultConnection();
 
-function getAllResults() {
-    global $pdo;
-
-    $query = "SELECT * FROM colecciones";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
+print_r($fetch);
