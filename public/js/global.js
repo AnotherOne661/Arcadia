@@ -23,25 +23,3 @@ function initializeClickableImages() {
        });
 } 
 
-
-function fetchAllCollections(){
-  var colecciones = document.querySelector('[data-collections]');
-
-  colecciones.addEventListener('click', function(e) {
-    console.log('Link clicked'); // Debug log
-
-    e.preventDefault(); // Prevent default link behavior
-    console.log('Link clicked'); // Debug log
-
-    // Make AJAX call to collectionRouter.php
-    fetch('collectionRouter.php?action=getAllResults')
-        .then(response => response.json())
-        .then(data => {
-            // Handle the response data here
-            console.log(data);
-        })
-        .catch(error => {
-          console.error('Collections link not found'); // Debug log
-        });
-});
-}
