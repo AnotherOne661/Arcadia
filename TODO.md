@@ -1,3 +1,4 @@
+- STYLE LANDING MOBILE. FIX IMAGE & PRICE TAG
 - Aprender lectura DB / half-way there!
 - Implementar DB
 - Implementar la lectura de la DB
