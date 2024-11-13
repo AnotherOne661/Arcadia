@@ -13,7 +13,7 @@
       "price": 3.99,
       "type": "Booster Pack",
       "set": "Pokémon TCG: Marnie's Morpeko & Grimmsnarl EX",
-      "image_path": "../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.jpeg",
+      "image_path": "../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png",
         "game": "POK"
     },
     {
@@ -21,7 +21,7 @@
       "price": 19.99,
       "type": "Tin",
       "set": "Disney Lorcana: Ursula's Return",
-      "image_path": "path/to/ursulas_return.png",
+      "image_path": "../assets/images/product/LOR/tins/UR/ursula-tin.webp",
       "game": "LOR"
     },
     {
@@ -29,7 +29,7 @@
       "price": 55.00,
       "type": "Booster Box",
       "set": "Magic: The Gathering: Modern Horizons 3",
-      "image_path": "path/to/modern_horizons_3.png",
+      "image_path": "../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp",
       "game": "MTG"
     },
     {
@@ -37,7 +37,7 @@
       "price": 3.99,
       "type": "Booster Pack",
       "set": "Yu-Gi-Oh!: Phantom Nightmare",
-      "image_path": "path/to/phantom_nightmare.png",
+      "image_path": "../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg",
       "game": "YGO"
     },
     {
@@ -45,7 +45,7 @@
       "price": 35.99,
       "type": "Starter Deck",
       "set": "One Piece Card Game: Uta Starter Deck",
-      "image_path": "path/to/uta_starter_deck.png",
+      "image_path": "../assets/images/product/OP/packs/OP16/uta-starter-deck.webp",
       "game": "OP"
     }
   ]

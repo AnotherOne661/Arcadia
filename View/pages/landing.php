@@ -55,23 +55,35 @@
         <!-- Learn to Play -->
         <div class="learn">
             <h3>Aprende a jugar</h3>
-            <div class="learnbutton">
-                <a href="#">Yu Gi Oh!</a>
-                <img src="" alt=""> <!-- Logo de Yu Gi Oh! -->
-            </div>
-            <div class="learnbutton">
-                <a href="#">Lorcana</a>
-                <img src="" alt=""> <!-- Logo de Lorcana -->
-            </div>
-            <div class="learnbutton">
-                <a href="#">Magic</a>
-                <img src="" alt=""> <!-- Logo de Magic: The Gathering -->
-            </div>
-            <div class="learnbutton">
-                <a href="#">Pokémon</a>
-                <img src="" alt=""> <!-- Logo de Pokémon -->
-            </div>
+            <a href="/learn-ygo" class="learnbutton">
+                <div class="learnbutton">
+                    <p>Yu Gi Oh!</p>
+                    <img src="../assets/images/struc/land_footer/dark-magician.png" alt=""> <!-- Logo de Yu Gi Oh! -->
+                </div>
+            </a>
+
+            <a href="/learn-lor" class="learnbutton">
+                <div class="learnbutton">
+                    <p>Lorcana</p>
+                    <img src="../assets/images/struc/land_footer/lorcana.webp" alt=""> <!-- Logo de Lorcana -->
+                </div>
+            </a>
+
+            <a href="/learn-mtg" class="learnbutton">
+                <div class="learnbutton">
+                    <p>Magic</p>
+                    <img src="../assets/images/struc/land_footer/mtg.webp" alt=""> <!-- Logo de Magic: The Gathering -->
+                </div>
+            </a>
+
+            <a href="/learn-pok" class="learnbutton">
+                <div class="learnbutton">
+                    <p>Pokémon</p>
+                    <img src="../assets/images/struc/land_footer/pokemon.webp" alt=""> <!-- Logo de Pokémon -->
+                </div>
+            </a>
         </div>
+
         <div>
             <div class="logofooter">
                 <a href="/home"><img src="assets/images/altern.png" alt=""></a> <!-- Logo del footer -->

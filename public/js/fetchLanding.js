@@ -72,9 +72,9 @@ async function renderJson(json){
 
      });
 }
+
 // Se ejecuta al cargar la página
 window.onload = function(){
     fecthInformation();
-    redirectImage();
  }
     
