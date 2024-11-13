@@ -1,5 +1,5 @@
 document.getElementById('loadCollections').addEventListener('click', () => {
-  fetch('/../Controllers/collectionRouter.php') // Ruta correcta hacia tu archivo PHP
+  fetch('http://localhost:7000/Controllers/collectionRouter.php') // Ruta correcta hacia tu archivo PHP
     .then(response => response.json())
     .then(data => {
       // Obtener el contenedor donde se mostrará la información
