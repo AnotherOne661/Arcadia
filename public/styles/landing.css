@@ -85,6 +85,7 @@ main {
         color: var(--af-white);
         font-size: small;
       }
+
       .POK {
         font-family: var(--pok-bold);
       }
@@ -101,6 +102,51 @@ main {
       }
       .YGO {
         font-family: var(--ygo-bold);
+      }
+      figure {
+        display: flex;
+        margin-top: 2em;
+        justify-content: space-around;
+        width: 100%;
+        img {
+          width: 50%;
+          &:hover {
+            transform: scale(1.2);
+            transition: var(--transitionCool);
+          }
+        }
+        .product-price {
+          width: 25%;
+          font-size: xx-large;
+          font-weight: bold;
+          color: var(--saffron); /* A contrasting color */
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+          align-self: center;
+          padding: 1em;
+          &:hover {
+            transform: scale(1.2);
+            transition: var(--transitionCool);
+          }
+        }
+      }
+    }
+    button {
+      justify-content: end;
+      align-self: flex-end;
+      text-align: center;
+      font-size: x-large;
+      font-family: var(--ygo-bold);
+      margin-top: 2em;
+      padding: 1em;
+      border: none;
+      border-radius: 99px;
+      background-color: var(--madder);
+      color: var(--af-white);
+      cursor: pointer;
+      transition: var(--transitionCool);
+      &:hover {
+        box-shadow: 0px 1px 15px var(--af-white);
+        transition: var(--transitionCool);
       }
     }
   }

@@ -63,10 +63,10 @@ async function renderJson(json){
         const productImageContainer = document.createElement("figure");
         const productImage = document.createElement("img");
         productImage.src = product.image_path;
-        productImageContainer.appendChild(productImage);
+        productImageContainer.append(productImage,productPrice);
 
         // Agregamos los elementos al div producto
-        productDiv.append(productName, productSet, productPrice, productImageContainer, productButton); 
+        productDiv.append(productName, productSet, productImageContainer, productButton); 
         productsDiv.append(productDiv); // Append the product div to the products div
 
 
