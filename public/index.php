@@ -1,15 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arcadia - Tu tienda TCG</title>
-</head>
-
-<body>
   <?php
+
+require_once __DIR__ . '/../app/controllers/HomeController.php';
+require_once __DIR__ . '/../app/controllers/SiteController.php';
+  require_once __DIR__ . '/../app/controllers/CollectionController.php';
+require_once __DIR__ . '/../app/controllers/JsonController.php';
+  require_once __DIR__ . '/../app/core/http/Request.php';
+  require_once __DIR__ . '/../app/core/http/Response.php';
+
+
   $requestUri = trim($_SERVER['REQUEST_URI'], '/');
+  $requestUri = explode('?', $requestUri)[0];
+
+  $controller = null;
+
+  $request = new Request();
+  $response = new Response($request);
+
+  switch($requestUri){
+    case '':
+      $controller = new HomeController();
+      break;
+    case 'contact':
+      $controller = new SiteController();
+      break;
+    case 'collections':
+      $controller = new CollectionController();
+      break;
+    case 'jsontest':
+      $controller = new JsonController();
+      break;
+    default:
+      $controller = new HomeController();
+      break;
+  }
+
+/*
   $baseDir = __DIR__ . '/../View/pages/';
 
   $route = 'home';
@@ -31,6 +57,4 @@
 
   require_once __DIR__ . "/../View/includes/layout/$layout.php";
   ?>
-</body>
-
-</html>
+*/

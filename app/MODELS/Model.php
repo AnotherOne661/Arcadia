@@ -1,43 +1,23 @@
 <?php
-require_once __DIR__ . '/connection.php';
-
-
-class Model
+// Clase abstracta que implementa serializable para poder pasarlo a json en caso de necesitarlo
+abstract class Model implements JsonSerializable
 {
-    public $con;
+  // "sobreescribimos" la función
+  public function jsonSerialize()
+  {
+    // Creamos una instancia de reflection, que nos permitirá obtener las propiedades de el modelo que la llame
+    $reflection = new ReflectionClass($this);
+    $properties = $reflection->getProperties();
 
-    public function __construct()
-    {
-        // Database connection can be initialized here
-        $c = new Connection();
-        $c->connect();
-        $this->con = $c->getConnection();
-
+    // Creamos el array que almacenará los datos
+    $data = [];
+    // Recorremos las propiedades, las hacemos accesibles, y construimos en espacios del array con el nombre de la propiediad
+    // y el valor de la misma propiedad
+    foreach ($properties as $property) {
+      $property->setAccessible(true);
+      $data[$property->getName()] = $property->getValue($this);
     }
-
-    public function getSingleResultCollections($idJuego)
-    {
-
-        $query = "SELECT * FROM colecciones WHERE idJuego = :idJuego";
-        $stmt = $this->con->prepare($query);
-        $stmt->bindParam(':idJuego', $idJuego);
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public function getAllResultsCollections()
-    {
-
-        $query = "SELECT * FROM colecciones";
-        $stmt = $this->con->prepare($query);
-        $stmt->execute();
-        $json = $stmt->fetchAll(PDO::FETCH_ASSOC); // Use PDO::FETCH_ASSOC to get associative arrays
-        /*
-        // Create the JSON file
-        $jsonFilePath = 'collections.json'; // Specify the desired file path
-        file_put_contents($jsonFilePath, json_encode($json, JSON_PRETTY_PRINT));
-        */
-        return json_encode($json, JSON_PRETTY_PRINT);
-    }
-
+    // devolvemos el array de datos
+    return $data;
+  }
 }
