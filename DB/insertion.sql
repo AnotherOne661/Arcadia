@@ -1,1 +1,0 @@
-INSERT INTO colecciones (codColeccion, nombreColeccion, fechaCreacion, idJuego) VALUES ("SSK", "Surgin Sparks", "2024-03-08", 3), ("SC", "Stellar Crown", "2024-03-08", 3);
