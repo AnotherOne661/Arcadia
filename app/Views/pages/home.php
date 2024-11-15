@@ -1,6 +1,6 @@
 <?php 
 /**
- * @var Product[] $new_products
+ * @var ProductsWithExpansion[] $new_products
  */
 ?> 
 <div
@@ -70,7 +70,8 @@
         <div class="newproducts">
             <figcaption class="newproducts-desc">
                 <h3><?= $new_product->getnombreProducto(); ?></h3>
-                <p><?= $new_product->getcodExpansion(); ?></p>
+                <h5><?= $new_product->getnombreExpansion(); ?></p>
+                <pre><?= $new_product->getreleaseDate(); ?></pre>
             </figcaption>
             <figure class="newproducts-img">
                 <img src="<?= $new_product->geturlImagen(); ?>" alt="">
