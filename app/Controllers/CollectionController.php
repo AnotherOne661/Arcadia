@@ -24,7 +24,11 @@ class CollectionController extends Controller
   public function index()
   {
     // Esto obtiene el array de objetos Collection
-    $collections = $this->collectionRepository->findAll();
+    $collections_mtg = $this->collectionRepository->findCollectionsById(1);
+    $collections_ygo = $this->collectionRepository->findCollectionsById(2);
+    $collections_poke = $this->collectionRepository->findCollectionsById(3);
+    $collections_lor = $this->collectionRepository->findCollectionsById(4);
+    $collections_op = $this->collectionRepository->findCollectionsById(5);
 
     // Render, método de Controller, toma el nombre de la url, seguido del array
     // asociativo con clave: nombre de variable cuando se renderice valor: valor de la variable
@@ -35,7 +39,8 @@ class CollectionController extends Controller
       // Siempre le enviaremos (por lo general) su título propio, su css propio y, en caso de tenerlo
       // un js propio.
       // Dado que es una página dinámica, también le mandaremos la variable Collections, conteniendo el array de objetos Collection
-      'collections' => $collections
+      'collections_poke' => $collections_poke,
+      'collections_ygo' => $collections_ygo
     ]);
   }
 }

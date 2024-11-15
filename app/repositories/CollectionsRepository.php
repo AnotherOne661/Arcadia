@@ -19,25 +19,26 @@ class CollectionRepository extends Repository
   }
 
   // Método para buscar un test por su ID y devolverlo como un objeto Test
-  public function findById($id)
+  public function findCollectionsById($id)
   {
-    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego FROM $this->tableName WHERE id = :id";
+    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego, urlImagen FROM $this->tableName WHERE idJuego = :id";
     $stmt = $this->pdo->prepare($query);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
 
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$row) {
-      return null;
-    }
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    return new Collection($row['codExpansion'], $row['nombreExpansion'], $row['fechaLanzamiento'], $row['idJuego']);
+    $results = [];
+    foreach ($rows as $row) {
+      $results[] = new Collection($row['codExpansion'], $row['nombreExpansion'], $row['fechaLanzamiento'], $row['idJuego'], $row['urlImagen']);
+    }
+    return $results;
   }
 
   // Método para buscar todos los tests y devolverlos como un array de objetos Test
   public function findAll()
   {
-    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego FROM $this->tableName";
+    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego, urlImagen FROM $this->tableName";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 
@@ -45,7 +46,7 @@ class CollectionRepository extends Repository
 
     $results = [];
     foreach ($rows as $row) {
-      $results[] = new Collection($row['codExpansion'], $row['nombreExpansion'], $row['fechaLanzamiento'], $row['idJuego']);
+      $results[] = new Collection($row['codExpansion'], $row['nombreExpansion'], $row['fechaLanzamiento'], $row['idJuego'], $row['urlImagen']);
     }
     return $results;
   }

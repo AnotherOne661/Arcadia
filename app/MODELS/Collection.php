@@ -11,13 +11,15 @@ class Collection extends Model
   private $nombreExpansion;
   private $fechaLanzamiento;
   private $idJuego;
+  private $urlImagen;
 
-  public function __construct($codExpansion, $nombreExpansion, $fechaLanzamiento, $idJuego)
+  public function __construct($codExpansion, $nombreExpansion, $fechaLanzamiento, $idJuego, $urlImagen)
   {
     $this->codExpansion = $codExpansion;
     $this->nombreExpansion = $nombreExpansion;
     $this->fechaLanzamiento = $fechaLanzamiento;
     $this->idJuego = $idJuego;
+    $this->urlImagen = $urlImagen;
   }
 
   public function getcodExpansion()
@@ -38,6 +40,10 @@ class Collection extends Model
   public function getIdJuego()
   {
     return $this->idJuego;
+  }
+  public function geturlImagen()
+  {
+    return $this->urlImagen;
   }
   
 }

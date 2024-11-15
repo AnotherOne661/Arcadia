@@ -4,17 +4,84 @@
     justify-content: center;
     align-items: space-between;
     color: aliceblue;
+    text-align: center;
     .mtg{
-        width: 15%;
+        display: flex;
+        flex-wrap: wrap;
+        width: 25%;
+        text-align: center;
+        .collection-mtg{
+            margin-top: 2em;
+            margin-bottom: 2em;
+            background-color: aliceblue;
+            color: black;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .collection-mtg-img{
+                width: 50%;
+                img{
+                    width: 50%;
+                }
+            }
+            .collection-mtg-cont{
+                width: 50%;
+            }
+        }
     }
     .lorcana{
         width: 15%;
     }
-    .yugioh{
-        width: 15%;
+    .ygo{
+        display: flex;
+        flex-wrap: wrap;
+        width: 25%;
+        text-align: center;
+        .collection-ygo{
+            margin-top: 2em;
+            margin-bottom: 2em;
+            background-color: aliceblue;
+            color: black;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .collection-ygo-img{
+                width: 50%;
+                img{
+                    width: 50%;
+                }
+            }
+            .collection-ygo-cont{
+                width: 50%;
+            }
+        }
     }
     .pokemon{
-        width: 15%;
+        display: flex;
+        flex-wrap: wrap;
+        width: 25%;
+        text-align: center;
+        .collection-poke{
+            margin-top: 2em;
+            margin-bottom: 2em;
+            background-color: aliceblue;
+            color: black;
+            border-radius: 99px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .collection-poke-img{
+                width: 50%;
+                img{
+                    width: 50%;
+                }
+            }
+            .collection-poke-cont{
+                width: 50%;
+            }
+        }
     }
     .onepiece{
         width: 15%;
