@@ -31,12 +31,12 @@ class Collection extends Model
   {
     return $this->nombreExpansion;
   }
-  
+
   public function getFechaLanzamiento()
   {
     return $this->fechaLanzamiento;
   }
-  
+
   public function getIdJuego()
   {
     return $this->idJuego;
@@ -45,5 +45,4 @@ class Collection extends Model
   {
     return $this->urlImagen;
   }
-  
 }
