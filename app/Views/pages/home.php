@@ -1,3 +1,8 @@
+<?php 
+/**
+ * @var Product[] $new_products
+ */
+?> 
 <div
     id="carouselExampleIndicators"
     class="carousel slide"
@@ -61,14 +66,17 @@
 
 <section>
     <div id="novedades">
+    <?php foreach ($new_products as $new_product): ?>
         <div class="newproducts">
             <figcaption class="newproducts-desc">
-                <h3>Placeholder title</h3>
+                <h3><?= $new_product->getnombreProducto(); ?></h3>
+                <p><?= $new_product->getcodExpansion(); ?></p>
             </figcaption>
             <figure class="newproducts-img">
-                <h3>Placeholder new obj</h3>
+                <img src="<?= $new_product->geturlImagen(); ?>" alt="">
             </figure>
         </div>
+        <?php endforeach;?>
     </div>
     <div id="ofertas">
         <div class="sale">
