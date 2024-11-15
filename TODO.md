@@ -1,9 +1,0 @@
-- STYLE LANDING MOBILE. FIX IMAGE & PRICE TAG
-- Aprender lectura DB / half-way there!
-- Implementar DB
-- Implementar la lectura de la DB
-- Calendario
-- Menú desplegable // style
-- Terminar colecciones (css) // Atrasar porque esto se va a leer dinámicamente de la DB
-- About page
-- Change footer about
