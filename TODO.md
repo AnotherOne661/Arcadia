@@ -1,3 +1,5 @@
+- Terminar el JS de la landing para que estile según idJuego
+- Estilar la landing para móbil y táblet ! importante
 - Implementar la lectura de la DB / Terminar
 - Calendario
 - Menú desplegable / Estilos
