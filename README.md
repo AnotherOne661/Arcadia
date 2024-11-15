@@ -1,3 +1,6 @@
+>[!TIP]
+>Ahora puedes ejecutar desde la consola run.bat y lanzará la página automáticamente
+
 # Para ejecutar en VSCode
 
 ## Ctrl+Shift+ñ
