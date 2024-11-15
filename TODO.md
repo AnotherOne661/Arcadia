@@ -1,0 +1,4 @@
+- Implementar la lectura de la DB / Terminar
+- Calendario
+- Menú desplegable / Estilos
+- Terminar colecciones (css) 
