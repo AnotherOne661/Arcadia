@@ -7,8 +7,8 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <link rel="icon" href="../assets/images/altern-nobg_b.ico">
-  <script defer src="../assets/js/global.js"></script>
-  <link rel="stylesheet" href="../assets/styles/global.css">
-  <link rel="stylesheet" href="<?php echo isset($style_url) ? "$style_url" : '' ?>">
-  <title><?php echo isset($page_name) ? $page_name : 'Arcadia - Tu tienda TCG' ?></title>
+  <script defer src="/js/global.js"></script>
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="<?php echo isset($cssFile) ? "styles/$cssFile" : '' ?>">
+  <title><?php echo isset($title) ? $title : 'Arcadia - Tu tienda TCG' ?></title>
 </head>

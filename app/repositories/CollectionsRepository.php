@@ -15,7 +15,7 @@ class CollectionRepository extends Repository
     // le damos el atributo que es el nombre de la tabla sobre la que trabajaremos
     parent::__construct();
 
-    $this->tableName = 'colecciones';
+    $this->tableName = 'expansiones';
   }
 
   // Método para buscar un test por su ID y devolverlo como un objeto Test

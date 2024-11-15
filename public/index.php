@@ -19,19 +19,22 @@ require_once __DIR__ . '/../app/controllers/JsonController.php';
 
   switch($requestUri){
     case '':
-      $controller = new HomeController();
+      $controller = new HomeController($request, $response);
+      echo $response->sendHtml($controller->index());
       break;
     case 'contact':
-      $controller = new SiteController();
+      $controller = new SiteController($request, $response);
+      echo $response->sendHtml($controller->contact());
       break;
     case 'collections':
-      $controller = new CollectionController();
+      $controller = new CollectionController($request, $response);
+      echo $response->sendHtml($controller->index());
       break;
     case 'jsontest':
-      $controller = new JsonController();
+      $controller = new JsonController($request, $response);
       break;
     default:
-      $controller = new HomeController();
+      $controller = new HomeController($request, $response);
       break;
   }
 
