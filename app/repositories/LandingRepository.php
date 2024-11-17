@@ -16,12 +16,16 @@ class LandingRepository extends Repository
     // le damos el atributo que es el nombre de la tabla sobre la que trabajaremos
     parent::__construct();
 
-    $this->tableName = 'productos';
+    $this->tableName = 'ofertas';
   }
 
   public function findLandingProducts()
   {
-    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego,p.precio,p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento  FROM $this->tableName as p, expansiones as e WHERE p.idJuego=e.idJuego AND p.codExpansion=e.codExpansion ORDER BY e.fechaLanzamiento DESC LIMIT 6";
+     $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
+FROM ofertas as p
+LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion
+ORDER BY e.fechaLanzamiento DESC
+LIMIT 6";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 

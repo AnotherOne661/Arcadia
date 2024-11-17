@@ -122,3 +122,56 @@ INSERT INTO carta(codExpansion, nombreProducto, idJuego, atributos) VALUES
 ('INFO', 'Forbidden One', 2, 'Mythic, Forbidden'),
 ('KLD', 'Kaladesh Rare Card', 1, 'Artifact, Rare'),
 ('IXL', 'Ixalan Mythic Card', 1, 'Dinosaur, Mythic');
+
+INSERT INTO expansiones (codExpansion, nombreExpansion, fechaLanzamiento, idJuego, urlImagen) VALUES
+('SSSBM', 'Steven\'s Beldum & Metagross EX', '2024-11-20', 3, '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
+('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX', '2024-11-21', 3, '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
+('UR', 'Ursula\'s Return', '2024-11-22', 4, '../assets/images/product/LOR/tins/UR/ursula-tin.webp'),
+('MH3', 'Modern Horizons 3', '2024-11-23', 1, '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
+('PNBP', 'Phantom Nightmare', '2024-11-24', 2, '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
+('OP16', 'Uta Starter Deck', '2024-11-25', 5, '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp');
+
+
+
+-- Insert into `productos`
+INSERT INTO productos (codExpansion, nombreProducto, idJuego, precio, tipo, urlImagen) VALUES
+('SSSBM', 'Steven\'s Beldum & Metagross EX Booster Pack', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
+('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
+('UR', 'Ursula\'s Return Tin', 4, 19.99, 'caja', '../assets/images/product/LOR/tins/UR/ursula-tin.webp'),
+('MH3', 'Modern Horizons 3 Booster Box', 1, 55.00, 'caja', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
+('PNBP', 'Phantom Nightmare Booster Pack', 2, 3.99, 'sobre', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
+('OP16', 'Uta Starter Deck', 5, 35.99, 'caja', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp');
+
+-- Insert into `sobre` (Booster Packs)
+INSERT INTO sobre (codExpansion, nombreProducto, numCartas, idJuego) VALUES
+('SSSBM', 'Steven\'s Beldum & Metagross EX Booster Pack', 10, 3),
+('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 10, 3),
+('PNBP', 'Phantom Nightmare Booster Pack', 9, 2);
+
+-- Insert into `caja` (Tins and Booster Boxes)
+INSERT INTO caja (codExpansion, nombreProducto, numCartas, idJuego) VALUES
+('UR', 'Ursula\'s Return Tin', 60, 4),
+('MH3', 'Modern Horizons 3 Booster Box', 540, 1),
+('OP16', 'Uta Starter Deck', 50, 5);
+
+CREATE TABLE ofertas (
+    nombreProducto VARCHAR(255) NOT NULL,
+    codExpansion VARCHAR(100) NOT NULL,
+    idJuego INT NOT NULL,
+    precio INT NOT NULL,
+    tipo ENUM('carta', 'caja', 'sobre') NOT NULL,
+    urlImagen VARCHAR(255),
+    nuevoPrecio DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (codExpansion, nombreProducto) REFERENCES productos(codExpansion, nombreProducto),
+    FOREIGN KEY (idJuego) REFERENCES productos(idJuego),
+    PRIMARY KEY (codExpansion, nombreProducto)
+
+);
+INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen)
+VALUES
+  ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 1, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
+  ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 1, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
+  ('Ursula\'s Return Tin', 'UR', 2, 19.99, 'Tin', '../assets/images/product/LOR/tins/UR/ursula-tin.webp'),
+  ('Modern Horizons 3 Booster Box', 'MH3', 3, 55.00, 'Booster Box', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
+  ('Phantom Nightmare Booster Pack', 'PNBP', 4, 3.99, 'Booster Pack', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
+  ('Uta Starter Deck', 'OP16', 5, 35.99, 'Starter Deck', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp');

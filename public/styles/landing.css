@@ -90,43 +90,23 @@ main {
         font-size: small;
       }
 
-/*     
-      .POK {
+      &.POK {
         font-family: var(--pok-bold);
       }
-      .LOR {
+      &.LOR {
         font-family: var(--lor);
         letter-spacing: 0.05em;
       }
 
-      .MTG {
+      &.MTG {
         font-family: var(--magic-card);
       }
-      .OP {
+      &.OP {
         font-family: var(--op-bold);
       }
-      .YGO {
+      &.YGO {
         font-family: var(--ygo-bold);
-      } */
-      .YGO {
-        background-color: #cc0000; /* Example color */
-    }
-    
-    .POK {
-        background-color: #00cc00; /* Example color */
-    }
-    
-    .LOR {
-        background-color: #0000cc; /* Example color */
-    }
-    
-    .OP {
-        background-color: #ff00ff; /* Example color */
-    }
-    
-    .other {
-        background-color: #cccccc; /* Example color */
-    }
+      } 
       figure {
         display: flex;
         margin-top: 4em;
@@ -143,6 +123,23 @@ main {
             transition: var(--transitionCool);
           }
         }
+        .old-product-price{
+          width: 25%;
+          font-size: large;
+          color: var(--madder);
+          text-decoration: line-through;
+          text-align: center;
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+          align-self: center;
+          justify-content: center;
+          font-family: var(--ygo-bold);
+          padding: 1em;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.2);
+            transition: var(--transitionCool);
+          }
+        }
         .product-price {
           width: 25%;
           font-size: xx-large;
@@ -150,7 +147,9 @@ main {
           color: var(--saffron); /* A contrasting color */
           text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
           align-self: center;
+          font-family: var(--ygo-bold);
           padding: 1em;
+          cursor: pointer;
           &:hover {
             transform: scale(1.2);
             transition: var(--transitionCool);
@@ -330,4 +329,330 @@ footer {
 }
 .hidden{
   display: none;
+}
+.social-media-footer{
+  display: none;
+}
+
+#carouselExampleIndicators{
+  display: none;
+}
+
+@media screen and (max-width:600px) {
+  
+*{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+header{
+  flex-direction: column;
+  width: 100%;
+  #header-spacer{
+    display: none;
+  }
+  #logocont{
+    width: 100%;
+    a{
+      img{
+        width: 50%;
+      }
+     
+    }
+  }
+  #socialmedia{
+    display: none;
+  }
+}
+#carouselExampleIndicators{
+  display: flex;
+  width: 80%;
+}
+.set-animation{
+  display: none;
+}
+main{
+  .products{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    margin: 0;
+    margin-top: 5em;
+    padding: 0.5em;
+    gap: 2em;
+    .product{
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1em;
+      margin: 0;
+      padding: 1em;
+      figure{
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        img{
+          margin-top: 2em;
+          width: 75%;
+          align-self: center;
+        }
+        .old-product-price{
+          padding: 0;
+          margin-top: 1em;
+          width: 100%;
+          font-size: xx-large;
+        }
+        .product-price{
+          margin-top: 0.5em;
+          padding: 0;
+          text-align: center;
+          width: 100%;
+          font-size: 4em;
+        }
+      }
+      button{
+        margin: 0;
+      }
+     }
+  }
+  .newsletter{
+    align-items: center;
+    width: 100%;
+    form{
+      
+      width: 100%;
+      input{
+        width: 100%;
+        margin: 0; 
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+      label{
+        font-size: x-large;
+      }
+      button{
+        width: 100%;
+        margin: 0;
+        font-size: x-large;
+        margin-top: 1em;
+        margin-bottom: 1em;
+      }
+    }
+
+  }
+}
+
+footer{
+  flex-direction: column;
+  width: 100%;
+  .footer-icon{
+    display: none;
+  }
+  .learn, .contact{
+    display: flex;
+    width: 100%;
+  }
+  .contact{
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+  }
+  .footer-contact{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    p{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      span{
+        width: 25%;
+        align-self: center;
+      }
+    }
+
+  }
+  .social-media-footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    flex-wrap: wrap;
+    p{
+      min-width: 50%;
+      width: 50%;
+      align-items: center;
+      justify-content: center;
+    }
+    span{
+      width: 25%;
+    }
+  }
+}
+}
+@media screen and (max-width: 900px) {
+  
+  *{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  header{
+    flex-direction: column;
+    width: 100%;
+    #header-spacer{
+      display: none;
+    }
+    #logocont{
+      width: 100%;
+      a{
+        img{
+          width: 25%;
+        }
+       
+      }
+    }
+    #socialmedia{
+      display: none;
+    }
+  }
+  #carouselExampleIndicators{
+    display: flex;
+    width: 80%;
+  }
+  .set-animation{
+    display: none;
+  }
+  main{
+    .products{
+      display: flex;
+      width: 90%;
+      flex-direction: column;
+      margin: 0;
+      margin-top: 5em;
+      padding: 0.5em;
+      gap: 2em;
+      .product{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        margin: 0;
+        padding: 1em;
+        figure{
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          img{
+            margin-top: 2em;
+            width: 75%;
+            align-self: center;
+          }
+          .old-product-price{
+            padding: 0;
+            margin-top: 1em;
+            width: 100%;
+            font-size: xx-large;
+          }
+          .product-price{
+            margin-top: 0.5em;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            font-size: 4em;
+          }
+        }
+        button{
+          margin: 0;
+        }
+       }
+    }
+    .newsletter{
+      align-items: center;
+      width: 100%;
+      form{
+        
+        width: 100%;
+        input{
+          width: 100%;
+          margin: 0; 
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+        label{
+          font-size: x-large;
+        }
+        button{
+          width: 100%;
+          margin: 0;
+          font-size: x-large;
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+      }
+  
+    }
+  }
+  
+  footer{
+    flex-direction: column;
+    width: 100%;
+    .footer-icon{
+      display: none;
+    }
+    .learn, .contact{
+      display: flex;
+      width: 100%;
+    }
+    .contact{
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      margin-top: 2em;
+    }
+    .footer-contact{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      p{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        span{
+          width: 25%;
+          align-self: center;
+        }
+      }
+  
+    }
+    .social-media-footer{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      text-align: center;
+      flex-wrap: wrap;
+      p{
+        min-width: 50%;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+      }
+      span{
+        width: 25%;
+      }
+    }
+  }
 }
