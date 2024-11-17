@@ -40,4 +40,11 @@ class LandingController extends Controller
       // Dado que es una página dinámica, también le mandaremos la variable tests, conteniendo el array de objetos Test
     ]);
   }
+  public function indexNobd(){
+    return $this->render('landing-alt', [
+      'title' => 'Arcadia - Tu tienda TCG',
+      'cssFile' => 'landing.css',
+      'jsFile' => 'landing-alt.js',
+    ]);
+  }
 }

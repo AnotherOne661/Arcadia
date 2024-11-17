@@ -22,8 +22,8 @@ class LandingRepository extends Repository
   public function findLandingProducts()
   {
      $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
-FROM ofertas as p
-LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion
+FROM $this->tableName as p
+LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
 ORDER BY e.fechaLanzamiento DESC
 LIMIT 6";
     $stmt = $this->pdo->prepare($query);

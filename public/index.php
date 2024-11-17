@@ -38,6 +38,10 @@
       $controller = new LandingController($request, $response);
       echo $response->sendHtml($controller->index());
       break;
+    case 'landing-nobd':
+      $controller = new LandingController($request, $response);
+      echo $response->sendHtml($controller->indexNobd());
+      break;
     default:
       $controller = new HomeController($request, $response);
       break;
