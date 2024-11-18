@@ -31,88 +31,47 @@
 
 
 
-        <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"></button>    
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img
-                src="/assets/images/product/MTG/sets/dsk.jpg"
-                class="slider_image"
-                alt="Slide 1" />
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/assets/images/product/MTG/sets/dsk.jpg" class="slider_image" alt="Slide 1" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/YGO/sets/25.jpg" class="slider_image" alt="Slide 2" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/POK/sets/brnsprk.webp" class="slider_image" alt="Slide 3" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/LOR/sets/azs.webp" class="slider_image" alt="Slide 3" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/OP/sets/OP-09.webp" class="slider_image" alt="Slide 3" />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/YGO/sets/25.jpg"
-                class="slider_image"
-                alt="Slide 2" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/POK/sets/brnsprk.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/LOR/sets/azs.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/OP/sets/OP-09.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-    </div>
-    <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
 
         <!-- Productos del JSON -->
@@ -123,12 +82,12 @@
         <!-- Newsletter -->
 
         <div class="newsletter">
-    <form id="newsletterForm" method="POST">
-        <label for="email">¡SUSCRÍBETE A NUESTRA NEWSLETTER!</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">ENVIAR</button>
-    </form>
-</div>
+            <form id="newsletterForm" method="POST">
+                <label for="email">¡SUSCRÍBETE A NUESTRA NEWSLETTER!</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
 
 
 
@@ -174,7 +133,7 @@
         </div>
         <div class="social-media-footer">
             <h3>Síguenos</h3>
-        <span class="icoholder"><img src="/assets/images/icons/facebook.svg"></span>
+            <span class="icoholder"><img src="/assets/images/icons/facebook.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/instagram.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/x-logo.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/discord.svg"></span>
