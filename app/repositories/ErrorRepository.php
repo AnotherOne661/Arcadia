@@ -4,10 +4,10 @@
 require_once __DIR__ . '/Repository.php';
 
 // Requerimos los modelos necesarios
-require_once __DIR__ . '/../models/Collection.php';
+require_once __DIR__ . '/../models/Error.php';
 
 // Extendemos HomeRepository de Repository
-class CollectionRepository extends Repository
+class ErrorRepository extends Repository
 {
   public function __construct()
   {
@@ -15,7 +15,7 @@ class CollectionRepository extends Repository
     // le damos el atributo que es el nombre de la tabla sobre la que trabajaremos
     parent::__construct();
 
-    $this->tableName = 'expansiones';
+    $this->tableName = 'errores';
   }
 
 

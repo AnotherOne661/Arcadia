@@ -16,17 +16,17 @@ CREATE TABLE expansiones(
     FOREIGN KEY (idJuego) REFERENCES juegos(idJuego)
 );
 
-CREATE TABLE productos(
+CREATE TABLE productos (
     codExpansion VARCHAR(100),
     nombreProducto VARCHAR(255),
     idJuego INT NOT NULL, -- Se toma de expansiones
     precio DECIMAL(10, 2) NOT NULL,
     tipo ENUM('carta', 'caja', 'sobre'),
     urlImagen VARCHAR(255),
-    descuento DECIMAL(10,2) DEFAULT NULL
+    descuento DECIMAL(10, 2) DEFAULT NULL,
+    PRIMARY KEY (codExpansion, nombreProducto),
     FOREIGN KEY (codExpansion) REFERENCES expansiones(codExpansion),
-    FOREIGN KEY (idJuego) REFERENCES expansiones(idJuego), -- Referencia a idJuego de expansiones
-    PRIMARY KEY (codExpansion, nombreProducto)
+    FOREIGN KEY (idJuego) REFERENCES expansiones(idJuego) -- Referencia a idJuego de expansiones
 );
 
 CREATE TABLE caja(
@@ -159,14 +159,12 @@ CREATE TABLE ofertas (
     nombreProducto VARCHAR(255) NOT NULL,
     codExpansion VARCHAR(100) NOT NULL,
     idJuego INT NOT NULL,
-    precio INT NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
     tipo ENUM('carta', 'caja', 'sobre') NOT NULL,
     urlImagen VARCHAR(255),
-    nuevoPrecio DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (codExpansion, nombreProducto) REFERENCES productos(codExpansion, nombreProducto),
     FOREIGN KEY (idJuego) REFERENCES productos(idJuego),
     PRIMARY KEY (codExpansion, nombreProducto)
-
 );
 INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen)
 VALUES
