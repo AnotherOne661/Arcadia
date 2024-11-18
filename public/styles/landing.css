@@ -80,7 +80,6 @@ main {
       border-radius: 25px;
       box-shadow: -5px 7px 10px rgba(3, 3, 3, 0.497); /* added a subtle box shadow for better visual appeal */
       .product-desc {
-
         font-size: x-large;
       }
       .product-setdesc {
@@ -105,7 +104,7 @@ main {
       }
       &.YGO {
         font-family: var(--ygo-bold);
-      } 
+      }
 
       figure {
         display: flex;
@@ -115,15 +114,13 @@ main {
         width: 100%;
         img {
           width: 50%;
-          filter: drop-shadow(
-            0 0 5px rgba(255, 255, 255, 0.8)
-          );
+          filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
           &:hover {
             transform: scale(1.2);
             transition: var(--transitionCool);
           }
         }
-        .old-product-price{
+        .old-product-price {
           width: 25%;
           font-size: large;
           color: var(--madder);
@@ -266,7 +263,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 1em;
-    a{
+    a {
       text-decoration: none;
       justify-content: center;
       align-items: center;
@@ -288,10 +285,10 @@ footer {
           color: var(--madder);
         }
       }
-      img{
+      img {
         width: 30%;
       }
-      &:hover{
+      &:hover {
         background-color: var(--saffron);
         transform: scale(1.1);
         transition: var(--transitionCool);
@@ -327,211 +324,50 @@ footer {
     }
   }
 }
-.hidden{
+.hidden {
   display: none;
 }
-.social-media-footer{
-  display: none;
-}
-
-#carouselExampleIndicators{
+.social-media-footer {
   display: none;
 }
 
-@media screen and (max-width:600px) {
-  
-*{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-header{
-  flex-direction: column;
-  width: 100%;
-  #header-spacer{
-    display: none;
-  }
-  #logocont{
-    width: 100%;
-    a{
-      img{
-        width: 50%;
-      }
-     
-    }
-  }
-  #socialmedia{
-    display: none;
-  }
-}
-#carouselExampleIndicators{
-  display: flex;
-  width: 80%;
-}
-.set-animation{
+#carouselExampleIndicators {
   display: none;
 }
-main{
-  .products{
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    margin: 0;
-    margin-top: 5em;
-    padding: 0.5em;
-    gap: 2em;
-    .product{
-      width: 100%;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1em;
-      margin: 0;
-      padding: 1em;
-      figure{
-        display: flex;
-        flex-direction: column;
-        margin: 0;
-        img{
-          margin-top: 2em;
-          width: 75%;
-          align-self: center;
-        }
-        .old-product-price{
-          padding: 0;
-          margin-top: 1em;
-          width: 100%;
-          font-size: xx-large;
-        }
-        .product-price{
-          margin-top: 0.5em;
-          padding: 0;
-          text-align: center;
-          width: 100%;
-          font-size: 4em;
-        }
-      }
-      button{
-        margin: 0;
-      }
-     }
-  }
-  .newsletter{
-    align-items: center;
-    width: 100%;
-    form{
-      
-      width: 100%;
-      input{
-        width: 100%;
-        margin: 0; 
-        margin-top: 1em;
-        margin-bottom: 1em;
-      }
-      label{
-        font-size: x-large;
-      }
-      button{
-        width: 100%;
-        margin: 0;
-        font-size: x-large;
-        margin-top: 1em;
-        margin-bottom: 1em;
-      }
-    }
 
-  }
-}
-
-footer{
-  flex-direction: column;
-  width: 100%;
-  .footer-icon{
-    display: none;
-  }
-  .learn, .contact{
-    display: flex;
-    width: 100%;
-  }
-  .contact{
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    margin-top: 2em;
-  }
-  .footer-contact{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    p{
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      span{
-        width: 25%;
-        align-self: center;
-      }
-    }
-
-  }
-  .social-media-footer{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 2em;
-    margin-bottom: 2em;
-    text-align: center;
-    flex-wrap: wrap;
-    p{
-      min-width: 50%;
-      width: 50%;
-      align-items: center;
-      justify-content: center;
-    }
-    span{
-      width: 25%;
-    }
-  }
-}
-}
-@media screen and (max-width: 900px) {
-  
-  *{
+@media screen and (max-width: 600px) {
+  * {
     padding: 0;
     margin: 0;
     width: 100%;
   }
-  header{
+  header {
     flex-direction: column;
     width: 100%;
-    #header-spacer{
+    #header-spacer {
       display: none;
     }
-    #logocont{
+    #logocont {
       width: 100%;
-      a{
-        img{
-          width: 25%;
+      a {
+        img {
+          width: 50%;
         }
-       
       }
     }
-    #socialmedia{
+    #socialmedia {
       display: none;
     }
   }
-  #carouselExampleIndicators{
+  #carouselExampleIndicators {
     display: flex;
     width: 80%;
   }
-  .set-animation{
+  .set-animation {
     display: none;
   }
-  main{
-    .products{
+  main {
+    .products {
       display: flex;
       width: 90%;
       flex-direction: column;
@@ -539,7 +375,7 @@ footer{
       margin-top: 5em;
       padding: 0.5em;
       gap: 2em;
-      .product{
+      .product {
         width: 100%;
         flex-direction: column;
         align-items: center;
@@ -547,22 +383,22 @@ footer{
         gap: 1em;
         margin: 0;
         padding: 1em;
-        figure{
+        figure {
           display: flex;
           flex-direction: column;
           margin: 0;
-          img{
+          img {
             margin-top: 2em;
             width: 75%;
             align-self: center;
           }
-          .old-product-price{
+          .old-product-price {
             padding: 0;
             margin-top: 1em;
             width: 100%;
             font-size: xx-large;
           }
-          .product-price{
+          .product-price {
             margin-top: 0.5em;
             padding: 0;
             text-align: center;
@@ -570,27 +406,26 @@ footer{
             font-size: 4em;
           }
         }
-        button{
+        button {
           margin: 0;
         }
-       }
+      }
     }
-    .newsletter{
+    .newsletter {
       align-items: center;
       width: 100%;
-      form{
-        
+      form {
         width: 100%;
-        input{
+        input {
           width: 100%;
-          margin: 0; 
+          margin: 0;
           margin-top: 1em;
           margin-bottom: 1em;
         }
-        label{
+        label {
           font-size: x-large;
         }
-        button{
+        button {
           width: 100%;
           margin: 0;
           font-size: x-large;
@@ -598,45 +433,44 @@ footer{
           margin-bottom: 1em;
         }
       }
-  
     }
   }
-  
-  footer{
+
+  footer {
     flex-direction: column;
     width: 100%;
-    .footer-icon{
+    .footer-icon {
       display: none;
     }
-    .learn, .contact{
+    .learn,
+    .contact {
       display: flex;
       width: 100%;
     }
-    .contact{
+    .contact {
       flex-direction: column;
       width: 100%;
       text-align: center;
       margin-top: 2em;
     }
-    .footer-contact{
+    .footer-contact {
       display: flex;
       flex-direction: column;
       text-align: center;
       align-items: center;
       justify-content: center;
       width: 100%;
-      p{
+      p {
         width: 100%;
         display: flex;
         flex-direction: column;
-        span{
+        span {
           width: 25%;
           align-self: center;
         }
       }
-  
     }
-    .social-media-footer{
+    .social-media-footer {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -644,15 +478,177 @@ footer{
       margin-bottom: 2em;
       text-align: center;
       flex-wrap: wrap;
-      p{
+      p {
         min-width: 50%;
         width: 50%;
         align-items: center;
         justify-content: center;
       }
-      span{
+      span {
         width: 25%;
       }
+    }
+  }
+}
+@media screen and (max-width: 900px) {
+  * {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  header {
+    flex-direction: column;
+    width: 100%;
+    #header-spacer {
+      display: none;
+    }
+    #logocont {
+      width: 100%;
+      a {
+        img {
+          width: 25%;
+        }
+      }
+    }
+    #socialmedia {
+      display: none;
+    }
+  }
+  #carouselExampleIndicators {
+    display: flex;
+    width: 80%;
+  }
+  .set-animation {
+    display: none;
+  }
+  main {
+    .products {
+      display: flex;
+      width: 90%;
+      flex-direction: column;
+      margin: 0;
+      margin-top: 5em;
+      padding: 0.5em;
+      gap: 2em;
+      .product {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        margin: 0;
+        padding: 1em;
+        figure {
+          display: flex;
+          flex-direction: column;
+          margin: 0;
+          img {
+            margin-top: 2em;
+            width: 75%;
+            align-self: center;
+          }
+          .old-product-price {
+            padding: 0;
+            margin-top: 1em;
+            width: 100%;
+            font-size: xx-large;
+          }
+          .product-price {
+            margin-top: 0.5em;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            font-size: 4em;
+          }
+        }
+        button {
+          margin: 0;
+        }
+      }
+    }
+    .newsletter {
+      align-items: center;
+      width: 100%;
+      form {
+        width: 100%;
+        input {
+          width: 100%;
+          margin: 0;
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+        label {
+          font-size: x-large;
+        }
+        button {
+          width: 100%;
+          margin: 0;
+          font-size: x-large;
+          margin-top: 1em;
+          margin-bottom: 1em;
+        }
+      }
+    }
+  }
+
+  footer {
+    flex-direction: column;
+    width: 100%;
+    .footer-icon {
+      display: none;
+    }
+    .learn,
+    .contact {
+      display: flex;
+      width: 100%;
+    }
+    .contact {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      margin-top: 2em;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      p {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        span {
+          width: 25%;
+          align-self: center;
+        }
+      }
+    }
+    .social-media-footer {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2em;
+      margin-bottom: 2em;
+      text-align: center;
+      flex-wrap: wrap;
+      p {
+        min-width: 50%;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+      }
+      span {
+        width: 25%;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+  .product {
+    figure {
+      flex-direction: column;
     }
   }
 }

@@ -23,6 +23,7 @@ CREATE TABLE productos(
     precio DECIMAL(10, 2) NOT NULL,
     tipo ENUM('carta', 'caja', 'sobre'),
     urlImagen VARCHAR(255),
+    descuento DECIMAL(10,2) DEFAULT NULL
     FOREIGN KEY (codExpansion) REFERENCES expansiones(codExpansion),
     FOREIGN KEY (idJuego) REFERENCES expansiones(idJuego), -- Referencia a idJuego de expansiones
     PRIMARY KEY (codExpansion, nombreProducto)
