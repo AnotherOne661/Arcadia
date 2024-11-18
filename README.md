@@ -9,3 +9,12 @@
 
 ### **No hace falta tener xampp activado, pero sí tenéis problemas con que acepte el comando php, revisad que tenéis xampp instalado**
 ### **Si ni con esas funciona deberéis añadir "C:\xampp\" a PATH, podéis preguntarme**
+
+>[!WARNING]
+>Es necesario migrar la base de datos al ordenador antes de ejecutarlo
+
+# Para migrar la base de datos
+
+## El Script de creación e inserción se encuentra en /sql/testDrive.sql
+
+### Desde el xampp, en phpmyadmin, en importar, y seleccionando el archivo
