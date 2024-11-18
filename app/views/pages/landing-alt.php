@@ -23,7 +23,7 @@
         <!-- Animación de imágenes -->
         <section class="set-animation">
             <img class="clickableimage" src="\assets\images\product\MTG\sets\dsk.jpg" alt="" data-url="/">
-            <img class="clickableimage" src="/assets\images\product\OP\sets\OP-09.webp" alt="" data-url="/">
+            <img class="clickableimage" src="/assets\images\product\OP\sets\OP-09.jpg" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\POk\sets\brnsprk.webp" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\YGO\sets\25.jpg" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\LOR\sets\azs.webp" alt="" data-url="/">

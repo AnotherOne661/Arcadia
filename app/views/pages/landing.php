@@ -28,7 +28,7 @@
         <!-- Animación de imágenes -->
         <section class="set-animation">
             <img class="clickableimage" src="\assets\images\product\MTG\sets\dsk.jpg" alt="" data-url="/">
-            <img class="clickableimage" src="/assets\images\product\OP\sets\OP-09.webp" alt="" data-url="/">
+            <img class="clickableimage" src="/assets\images\product\OP\sets\OP-09.jpg" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\POk\sets\brnsprk.webp" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\YGO\sets\25.jpg" alt="" data-url="/">
             <img class="clickableimage" src="\assets\images\product\LOR\sets\azs.webp" alt="" data-url="/">
@@ -36,106 +36,66 @@
 
 
 
-        <div
-    id="carouselExampleIndicators"
-    class="carousel slide"
-    data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="3"
-            aria-label="Slide 4"></button>    
-        <button
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide-to="4"
-            aria-label="Slide 5"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img
-                src="/assets/images/product/MTG/sets/dsk.jpg"
-                class="slider_image"
-                alt="Slide 1" />
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/assets/images/product/MTG/sets/dsk.jpg" class="slider_image" alt="Slide 1" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/YGO/sets/25.jpg" class="slider_image" alt="Slide 2" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/POK/sets/brnsprk.webp" class="slider_image" alt="Slide 3" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/LOR/sets/azs.webp" class="slider_image" alt="Slide 3" />
+                </div>
+                <div class="carousel-item">
+                    <img src="/assets/images/product/OP/sets/OP-09.webp" class="slider_image" alt="Slide 3" />
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/YGO/sets/25.jpg"
-                class="slider_image"
-                alt="Slide 2" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/POK/sets/brnsprk.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/LOR/sets/azs.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-        <div class="carousel-item">
-            <img
-                src="/assets/images/product/OP/sets/OP-09.webp"
-                class="slider_image"
-                alt="Slide 3" />
-        </div>
-    </div>
-    <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleIndicators"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
 
         <!-- Productos del JSON -->
         <div class="products">
-            <?php foreach ($landingProducts as $landingProduct):?>
+            <?php foreach ($landingProducts as $landingProduct): ?>
                 <div class="product">
-                    <input class="hidden" value="<?php echo $landingProduct->getIdJuego() ; ?>">
-                    <figcaption class="product-desc"><?php echo $landingProduct->getNombreProducto();?></figcaption>
-                    <sub class="product-setdesc"><?php echo $landingProduct->getNombreExpansion();?></sub>
+                    <input class="hidden" value="<?php echo $landingProduct->getIdJuego(); ?>">
+                    <figcaption class="product-desc"><?php echo $landingProduct->getNombreProducto(); ?></figcaption>
+                    <sub class="product-setdesc"><?php echo $landingProduct->getNombreExpansion(); ?></sub>
                     <figure>
-                        <img src="<?php echo $landingProduct->getUrlImagen();?>" alt="<?php echo $landingProduct->getNombreProducto();?>">
+                        <img src="<?php echo $landingProduct->getUrlImagen(); ?>"
+                            alt="<?php echo $landingProduct->getNombreProducto(); ?>">
                         <p class="old-product-price"><?php echo $landingProduct->getprecio(); ?>€</p>
                         <p class="product-price"></p>
                     </figure>
 
-                     <button>Comprar</button>
+                    <button>Comprar</button>
                 </div>
-            <?php endforeach;?>
+            <?php endforeach; ?>
         </div>
         </div>
 
@@ -143,12 +103,12 @@
         <!-- Newsletter -->
 
         <div class="newsletter">
-    <form id="newsletterForm" method="POST">
-        <label for="email">¡SUSCRÍBETE A NUESTRA NEWSLETTER!</label>
-        <input type="email" id="email" name="email" required>
-        <button type="submit">ENVIAR</button>
-    </form>
-</div>
+            <form id="newsletterForm" method="POST">
+                <label for="email">¡SUSCRÍBETE A NUESTRA NEWSLETTER!</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">ENVIAR</button>
+            </form>
+        </div>
 
 
 
@@ -194,7 +154,7 @@
         </div>
         <div class="social-media-footer">
             <h3>Síguenos</h3>
-        <span class="icoholder"><img src="/assets/images/icons/facebook.svg"></span>
+            <span class="icoholder"><img src="/assets/images/icons/facebook.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/instagram.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/x-logo.svg"></span>
             <span class="icoholder"><img src="/assets/images/icons/discord.svg"></span>
