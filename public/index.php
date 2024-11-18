@@ -23,6 +23,10 @@ switch ($requestUri) {
     $controller = new HomeController($request, $response);
     echo $response->sendHtml($controller->index());
     break;
+  case 'home':
+    $controller = new HomeController($request, $response);
+    echo $response->sendHtml($controller->index());
+    break;
   case 'contact':
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->contact());
@@ -42,8 +46,12 @@ switch ($requestUri) {
     $controller = new LandingController($request, $response);
     echo $response->sendHtml($controller->indexNobd());
     break;
+  case 'secret':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->secret());
   default:
     $controller = new ErrorController($request, $response);
+    echo $response->sendHtml($controller->index());
     break;
 }
 

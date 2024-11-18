@@ -21,4 +21,11 @@ class SiteController extends Controller
       'cssFile' => 'contact.css'
     ]);
   }
+  public function secret()
+  {
+    return $this->render('mysteriousstranger', [
+      'title' => 'Shhhhh',
+      'cssFile' => 'mysteriousstranger.css'
+    ]);
+  }
 }

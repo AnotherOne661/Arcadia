@@ -55,6 +55,8 @@
   --lor: "akaPosse";
   --op-bold: "roboto-bold";
   --op-light: "roboto-light";
+
+  --transitionCool: transform 0.3s ease-in-out;
 }
 * {
   padding: 0;

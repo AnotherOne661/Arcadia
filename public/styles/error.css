@@ -1,0 +1,61 @@
+@import url(global.css);
+.error-container {
+  display: flex;
+  width: 90%;
+  align-items: center;
+  justify-content: space-around;
+  font-family: var(--ygo-bold);
+  background-color: var(--af-white);
+  border: solid 15px var(--night);
+  margin: 5em;
+  .error-message {
+    width: 45%;
+    color: var(--madder);
+    gap: 1em;
+    .error-text {
+      margin-bottom: 2em;
+    }
+    .btn-go-home {
+      background-color: var(--saffron);
+      color: var(--madder);
+      border: none;
+      border-radius: 99px;
+      padding: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 2em;
+      transition: var(--transitionCool);
+      &:hover {
+        background-color: var(--madder);
+        color: var(--night);
+        transition: var(--transitionCool);
+      }
+    }
+  }
+  .error-image {
+    width: 45%;
+    img {
+      width: 100%;
+      filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.8));
+      &:hover {
+        transform: scale(1.2);
+        transition: var(--transitionCool);
+        filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.8));
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .error-container {
+    margin: 0;
+    width: 100%;
+    min-height: 25em;
+  }
+}
+@media screen and (max-width: 900px) {
+  .error-container {
+    margin: 0;
+    width: 100%;
+    min-height: 25em;
+  }
+}
