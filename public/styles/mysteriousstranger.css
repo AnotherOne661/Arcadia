@@ -1,0 +1,142 @@
+@import url(global.css);
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  .hitmarker {
+    position: relative;
+    width: 50%; /* Asegúrate de que el contenedor tenga el mismo tamaño que la imagen */
+    height: auto;
+    display: inline-block; /* De modo que la imagen hija se ajuste */
+    .target {
+      width: 100%; /* La imagen se adapta al tamaño del contenedor */
+      height: auto; /* Mantiene la proporción de la imagen */
+      display: block;
+      z-index: 0; /* Para que la imagen de fondo se vea por encima */
+    }
+
+    /* La imagen de fondo se aplica sobre el contenedor */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url("/assets/images/struc/mystr/hitmarker-spam.gif");
+      background-repeat: no-repeat;
+      background-size: cover; /* Cubre toda el área del contenedor */
+      z-index: 1; /* Para asegurarnos de que el fondo se muestra encima de la imagen */
+    }
+  }
+}
+.flickering-border {
+  position: fixed;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  z-index: 5;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  /* Adjusting other properties as necessary */
+}
+
+.rainbow {
+  text-align: center;
+  width: 25%;
+  background-color: var(--night);
+  padding: 1.5em;
+  margin: 4em;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 2em;
+  font-family: var(--ygo-bold);
+  letter-spacing: 5px;
+  animation: colorRotate 6s linear 0s infinite;
+  transform: rotate(-30deg);
+}
+.flickering-border .rainbow:last-child {
+  transform: rotate(50deg);
+}
+@keyframes colorRotate {
+  from {
+    color: #6666ff;
+  }
+  10% {
+    color: #0099ff;
+  }
+  50% {
+    color: #00ff00;
+  }
+  75% {
+    color: #ff3399;
+  }
+  100% {
+    color: #6666ff;
+  }
+}
+.meme-collection {
+  display: flex;
+  width: 90%;
+  .meme-container {
+    margin: 2em;
+    width: 50%;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+/*div {
+  height: 250px;
+  width: 250px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+div:before {
+  content: "";
+  height: 150%;
+  width: 150%;
+  position: absolute;
+  background: conic-gradient( #fd004c, #fe9000, #fff020, #3edf4b, #3363ff, #b102b7, #fd004c);
+  left: -25%;
+  top: -25%;
+  animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+div:after {
+  content: "RAINBOW";
+  position: absolute;
+  background-color: #1c1b29;
+  height: 93%;
+  width: 93%;
+  top: 3.5%;
+  left: 3.5%;
+  border-radius: 5px;
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 6px;
+  display: grid;
+  place-items: center;
+}*/
