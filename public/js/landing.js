@@ -86,6 +86,29 @@ function initializeClickableImages() {
     });
 }
 
+    function saveInfo(event) {
+        event.preventDefault();
+    
+        // Get the email value from the form
+        const email = event.target.querySelector('#email').value;
+    
+        // Email validation function
+        const validateEmail = (email) => {
+            return String(email)
+                .toLowerCase()
+                .match(
+                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+                );
+        };
+    
+        if (!validateEmail(email)) {
+            alert('El e-mail no existe o no es correcto');
+            return false;
+        }
+
+        alert("El e-mail ha sido registrado correctamente")
+    
+    }
 
 // Run the functions on window load
 window.onload = () => {
@@ -93,3 +116,4 @@ window.onload = () => {
     updateSetStyle();
     initializeClickableImages();
 };
+document.querySelector('.newsletter').addEventListener('submit', saveInfo);
