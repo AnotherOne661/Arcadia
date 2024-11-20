@@ -40,7 +40,10 @@ class CollectionController extends Controller
       // un js propio.
       // Dado que es una página dinámica, también le mandaremos la variable Collections, conteniendo el array de objetos Collection
       'collections_poke' => $collections_poke,
-      'collections_ygo' => $collections_ygo
+      'collections_ygo' => $collections_ygo,
+      'collections_mtg' => $collections_mtg,
+      'collections_lor' => $collections_lor,
+      'collections_op' => $collections_op
     ]);
   }
 }
