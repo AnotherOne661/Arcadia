@@ -75,7 +75,7 @@ async function renderJson(json){
 
         // Creamos un botón con la clase product-button que contiene el texto "Add to Cart"
         const productButton = document.createElement("button");
-        productButton.textContent = "Add to Cart";
+        productButton.textContent = "Comprar";
         productButton.addEventListener("click", function(){
             addToCart(product);
         });
