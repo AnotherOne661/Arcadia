@@ -30,7 +30,7 @@ class HomeController extends Controller
     // Render, método de Controller, toma el nfindombre de la url, seguido del array
     // asociativo con clave: nombre de variable cuando se renderice valor: valor de la variable
     return $this->render('home', [
-      'title' => 'Inicio',
+      'title' => 'Arcadia - Tu tienda TCG',
       'cssFile' => 'home.css',
       'jsFile' => 'home.js',
       'new_products' => $new_products

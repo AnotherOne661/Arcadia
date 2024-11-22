@@ -21,11 +21,11 @@ class LandingRepository extends Repository
 
   public function findLandingProducts()
   {
-     $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
-FROM $this->tableName as p
-LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
-ORDER BY e.fechaLanzamiento DESC
-LIMIT 6";
+    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
+      FROM $this->tableName as p
+      LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
+      ORDER BY e.fechaLanzamiento DESC
+      LIMIT 6";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 
@@ -37,5 +37,7 @@ LIMIT 6";
     }
     return $results;
   }
-  public function findTrendingProducts() {}
+  public function findTrendingProducts()
+  {
+  }
 }
