@@ -168,9 +168,9 @@ CREATE TABLE ofertas (
 );
 INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen)
 VALUES
-  ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 1, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
-  ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 1, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
-  ('Ursula\'s Return Tin', 'UR', 2, 19.99, 'Tin', '../assets/images/product/LOR/tins/UR/ursula-tin.webp'),
-  ('Modern Horizons 3 Booster Box', 'MH3', 3, 55.00, 'Booster Box', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
-  ('Phantom Nightmare Booster Pack', 'PNBP', 4, 3.99, 'Booster Pack', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
+  ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
+  ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
+  ('Ursula\'s Return Tin', 'UR', 4, 19.99, 'Tin', '../assets/images/product/LOR/tins/UR/ursula-tin.webp'),
+  ('Modern Horizons 3 Booster Box', 'MH3', 1, 55.00, 'Booster Box', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
+  ('Phantom Nightmare Booster Pack', 'PNBP', 2, 3.99, 'Booster Pack', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
   ('Uta Starter Deck', 'OP16', 5, 35.99, 'Starter Deck', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp');

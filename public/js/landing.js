@@ -34,7 +34,7 @@ function updateSetStyle() {
     products.forEach(product => {
         // Find the hidden field for the product's game ID
         const productGame = product.querySelector('.hidden');
-
+        
         if (productGame) {
             const gameValue = productGame.value;
 
@@ -86,7 +86,8 @@ function initializeClickableImages() {
     });
 }
 
-    function saveInfo(event) {
+    
+function saveInfo(event) {
         event.preventDefault();
     
         // Get the email value from the form
@@ -97,8 +98,8 @@ function initializeClickableImages() {
             return String(email)
                 .toLowerCase()
                 .match(
-                    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-                );
+                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/            );
+
         };
     
         if (!validateEmail(email)) {

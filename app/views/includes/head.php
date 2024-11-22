@@ -11,5 +11,9 @@
   <script defer src="/js/<?php echo isset($jsFile) ? $jsFile : '' ?>"></script>
   <link rel="stylesheet" href="/styles/global.css">
   <link rel="stylesheet" href="<?php echo isset($cssFile) ? "styles/$cssFile" : '' ?>">
+  <meta name="description"
+    content="Arcadia, tienda TCG, compra online/presencial; Magic The Gathering, Yu-Gi-Oh!, Lorcana, One Piece, Pokémon a precios bajos. Eventos y torneos disponibles.">
+  <meta name="keywords"
+    content="Arcadia,Comprar,TCG,METAGAME,Yu-gi-oh!, Magic The Gathering, MTG, Lorcana, Pokémon, Online, Cartas, Juego de cartas, jugar, eventos">
   <title><?php echo isset($title) ? $title : 'Arcadia - Tu tienda TCG' ?></title>
 </head>
