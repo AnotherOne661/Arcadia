@@ -72,10 +72,10 @@ main {
       background-color: var(--night);
       color: var(--madder);
       width: 40%;
-      margin: 3em;
+      margin: 1em;
       padding: 2em;
       border-radius: 25px;
-      box-shadow: -5px 7px 10px rgba(3, 3, 3, 0.497); /* added a subtle box shadow for better visual appeal */
+      box-shadow: -5px 7px 10px rgba(3, 3, 3, 0.497); 
       .product-desc {
         font-size: x-large;
       }
@@ -123,7 +123,7 @@ main {
           color: var(--madder);
           text-decoration: line-through;
           text-align: center;
-          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); 
           align-self: center;
           justify-content: center;
           font-family: var(--ygo-bold);
@@ -138,8 +138,8 @@ main {
           width: 25%;
           font-size: xx-large;
           font-weight: bold;
-          color: var(--saffron); /* A contrasting color */
-          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+          color: var(--saffron); 
+          text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); 
           align-self: center;
           font-family: var(--ygo-bold);
           padding: 1em;
@@ -191,7 +191,7 @@ main {
       padding: 2em;
       border-radius: 25px;
       width: 60%;
-      box-shadow: -5px 7px 10px rgba(255, 255, 255, 0.497); /* added a subtle box shadow for better visual appeal */
+      box-shadow: -5px 7px 10px rgba(255, 255, 255, 0.497); 
       padding-top: 5em;
       padding-bottom: 5em;
       text-align: center;
@@ -327,7 +327,6 @@ footer {
 .social-media-footer {
   display: none;
 }
-/* Parent wrapper to carousel. Width can be changed as needed. */
 .carousel-wrapper {
   display: none;
   overflow: hidden;
@@ -335,19 +334,16 @@ footer {
   margin: auto;
 }
 
-/* Apply 'border-box' to 'box-sizing' so border and padding is included in the width and height. */
 .carousel-wrapper * {
   box-sizing: border-box;
 }
 
-/* We'll be using the 'transform' property to move the carousel's items, so setting the 'transform-style' to 'preserve-3d' will make sure our nested elements are rendered properly in the 3D space. */
 .carousel {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
 
-/* By default we're hiding items (except the initial one) until the JS initiates. Elements are absolutely positioned with a width of 100% (as we're styling for mobile first), letting the content's height dictate the height of the carousel. Our magic property here for all our animation needs is 'transition', taking the properties we wish to animate 'transform' and 'opacity', along with the length of time in seconds. */
 .carousel__photo {
   opacity: 0;
   position: absolute;
@@ -359,7 +355,6 @@ footer {
   transition: transform 0.5s, opacity 0.5s, z-index 0.5s;
 }
 
-/* Display the initial item and bring it to the front using 'z-index'. These styles also apply to the 'active' item. */
 .carousel__photo.initial,
 .carousel__photo.active {
   opacity: 1;
@@ -367,23 +362,19 @@ footer {
   z-index: 900;
 }
 
-/* Set 'z-index' to sit behind our '.active' item. */
 .carousel__photo.prev,
 .carousel__photo.next {
   z-index: 800;
 }
 
-/* Translate previous item to the left */
 .carousel__photo.prev {
   transform: translateX(-100%);
 }
 
-/* Translate next item to the right */
 .carousel__photo.next {
   transform: translateX(100%);
 }
 
-/* Style navigation buttons to sit in the middle, either side of the carousel. */
 .carousel__button--prev,
 .carousel__button--next {
   position: absolute;
@@ -394,10 +385,9 @@ footer {
   transform: translateY(-50%);
   border-radius: 50%;
   cursor: pointer;
-  z-index: 1001; /* Sit on top of everything */
+  z-index: 1001; 
   border: 1px solid black;
-  /*  opacity: 0;  Hide buttons until carousel is initialised 
-  transition:opacity 1s;*/
+  transition:opacity 1s;
 }
 
 .carousel__button--prev {
@@ -408,7 +398,6 @@ footer {
   right: 0;
 }
 
-/* Use pseudo elements to insert arrows inside of navigation buttons */
 .carousel__button--prev::after,
 .carousel__button--next::after {
   content: " ";
@@ -427,7 +416,7 @@ footer {
   transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
   * {
     padding: 0;
     margin: 0;
@@ -436,6 +425,7 @@ footer {
   header {
     flex-direction: column;
     width: 100%;
+    padding: 0;
     #header-spacer {
       display: none;
     }
@@ -458,22 +448,27 @@ footer {
     display: none;
   }
   main {
+    width: 100%;
+    padding: 0;
+    margin: 0;
     .products {
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: 90%;
       flex-direction: column;
       margin: 0;
       margin-top: 5em;
-      padding: 0.5em;
+      padding: 0em;
       gap: 2em;
       .product {
-        width: 100%;
+        width: 80%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 1em;
         margin: 0;
-        padding: 1em;
+        padding: 0.5em;
         figure {
           display: flex;
           flex-direction: column;
@@ -504,9 +499,16 @@ footer {
     }
     .newsletter {
       align-items: center;
-      width: 100%;
+      width: 70%;
+      margin: 0;
+      padding: 0;
+      margin-top: 2em;
+      padding-top: 2em;
+      margin-bottom: 2em;
+      padding-bottom: 2em;
       form {
-        width: 100%;
+        width: 60%;
+        margin-bottom: 1em;
         input {
           width: 100%;
           margin: 0;
@@ -530,6 +532,7 @@ footer {
   footer {
     flex-direction: column;
     width: 100%;
+    padding: 0;
     .footer-icon {
       display: none;
     }
@@ -581,7 +584,7 @@ footer {
     }
   }
 }
-@media screen and (max-width: 900px) {
+@media (min-width:601px) and (max-width: 1000px) {
   * {
     padding: 0;
     margin: 0;
@@ -590,6 +593,7 @@ footer {
   header {
     flex-direction: column;
     width: 100%;
+    padding: 0;
     #header-spacer {
       display: none;
     }
@@ -613,16 +617,19 @@ footer {
     display: none;
   }
   main {
+    padding: 0;
     .products {
       display: flex;
-      width: 90%;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
       flex-direction: column;
       margin: 0;
       margin-top: 5em;
       padding: 0.5em;
-      gap: 2em;
+      gap: 5em;
       .product {
-        width: 100%;
+        width: 60%;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -659,7 +666,9 @@ footer {
     }
     .newsletter {
       align-items: center;
-      width: 100%;
+      margin-top: 5em;
+      margin-bottom: 5em;
+      width: 80%;
       form {
         width: 100%;
         input {
@@ -685,6 +694,7 @@ footer {
   footer {
     flex-direction: column;
     width: 100%;
+    padding: 0;
     .footer-icon {
       display: none;
     }
@@ -736,10 +746,9 @@ footer {
     }
   }
 }
-@media screen and (min-width: 1000px) and (max-width: 1600px) {
-  .product {
-    figure {
-      flex-direction: column;
-    }
+@media (min-width: 1001px) and (max-width:1250px){
+  .product{
+    padding: 1em;
+    margin: 0.5em;
   }
-}
+   }
