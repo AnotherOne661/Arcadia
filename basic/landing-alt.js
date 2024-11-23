@@ -1,5 +1,3 @@
-// Agregamos el evento para el botón de submit
-document.querySelector('.newsletter').addEventListener('submit', saveInfo);
 
 // Función para guardar la información del correo electrónico
 function saveInfo(event) {
@@ -50,7 +48,7 @@ function initializeClickableImages() {
   });
 }
 
-// Función para inicializar el carrousel
+// Función para inicializar el carrousel (self invoking function)
 !(function(d){
   var itemClassName = "carousel__photo";
   // Obtener todos los elementos con la clase 'carousel__photo'
@@ -174,8 +172,12 @@ function initializeClickableImages() {
     initCarousel();
   
   }(document));
+
+  // Cuando se inicia la página, se ejecutan las siguientes funciones
 window.onload = function(){
     initializeClickableImages();
-    showImage(currentIndex);
+    // Agregamos el evento para el botón de submit
+    document.querySelector('.newsletter').addEventListener('submit', saveInfo);
+
  }
     
