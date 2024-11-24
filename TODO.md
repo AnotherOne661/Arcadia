@@ -1,5 +1,5 @@
-- Comentar el código
 - Implementar la lectura de la DB / Terminar
 - Calendario
 - Menú desplegable / Estilos
 - Terminar colecciones (css) 
+- Preparar Exposición para el Sprint 
