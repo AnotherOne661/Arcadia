@@ -1,35 +1,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-    crossorigin="anonymous"
-  />
-  <script
-    defer
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"
-  ></script>
-  <link rel="icon" href="assets/images/altern-nobg_b.ico" />
+  <!-- Le ponemos el favicon-->
+  <link rel="icon" href="assets/images/altern.ico" />
   <script defer src="landing-alt.js"></script>
-
+  <!-- Añadimos las meta tags de las keywords -->
+  <meta name="description"
+    content="Arcadia, tienda TCG, compra online/presencial; Magic The Gathering, Yu-Gi-Oh!, Lorcana, One Piece, Pokémon a precios bajos. Eventos y torneos disponibles.">
+  <meta name="keywords"
+    content="Arcadia,Comprar,TCG,METAGAME,Yu-gi-oh!, Magic The Gathering, MTG, Lorcana, Pokémon, Online, Cartas, Juego de cartas, jugar, eventos">
   <link rel="stylesheet" href="global.css" />
   <link rel="stylesheet" href="landing.css" />
   <title>Arcadia - Tu tienda TCG</title>
 </head>
-<!--
-<script defer src="/js/fetchLanding.js"></script>
--->
 
 <body>
   <!-- Primero el header -->
   <header>
     <div id="header-spacer"></div>
     <div id="logocont">
-      <a href="home"><img src="assets/images/altern.png" /></a>
+      <a href="home"><img src="assets/images/altern.webp" /></a>
     </div>
     <div id="socialmedia">
       <span class="icoholder"
@@ -52,13 +42,13 @@
     <section class="set-animation">
       <img
         class="clickableimage"
-        src="assets\images\product\MTG\sets\dsk.jpg"
+        src="assets\images\product\MTG\sets\dsk.webp"
         alt=""
         data-url="/mtg"
       />
       <img
         class="clickableimage"
-        src="assets\images\product\OP\sets\OP-09.jpg"
+        src="assets\images\product\OP\sets\OP-09.webp"
         alt=""
         data-url="/op"
       />
@@ -70,7 +60,7 @@
       />
       <img
         class="clickableimage"
-        src="assets\images\product\YGO\sets\25.jpg"
+        src="assets\images\product\YGO\sets\25.webp"
         alt=""
         data-url="/ygo"
       />
@@ -82,6 +72,7 @@
       />
     </section>
 
+    <!-- Carousel de imágenes para el modo móvil -->
     <div class="carousel-wrapper">
       <div class="carousel">
         <img
@@ -90,7 +81,7 @@
         />
         <img
           class="carousel__photo"
-          src="assets/images/product/OP/sets/OP-09.jpg"
+          src="assets/images/product/OP/sets/OP-09.webp"
         />
         <img
           class="carousel__photo"
@@ -109,7 +100,8 @@
         <div class="carousel__button--prev"></div>
       </div>
     </div>
-    <!-- Productos del JSON -->
+
+    <!-- Productos hardcodeados -->
     <div class="products">
       <div class="product POK">
         <figcaption class="product-desc">
@@ -135,7 +127,7 @@
         >
         <figure>
           <img
-            src="assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png"
+            src="assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.webp"
           />
           <p class="product-price">3.99€</p>
         </figure>
@@ -170,7 +162,7 @@
         <sub class="product-setdesc">Yu-Gi-Oh!: Phantom Nightmare</sub>
         <figure>
           <img
-            src="assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg"
+            src="assets/images/product/YGO/packs/phantom-nightmare-booster-pack.webp"
           />
           <p class="product-price">3.99€</p>
         </figure>
@@ -199,16 +191,16 @@
       </form>
     </div>
   </main>
-  <!-- Footer Section -->
+
+  <!-- Footer -->
   <footer>
-    <!-- Learn to Play -->
+    <!-- Botones de aprender a jugar -->
     <div class="learn">
       <h3>Aprende a jugar</h3>
       <a href="/learn-ygo" class="learnbutton">
         <div class="learnbutton">
           <p>Yu Gi Oh!</p>
-          <img src="assets/images/struc/land_footer/dark-magician.png" alt="" />
-          <!-- Logo de Yu Gi Oh! -->
+          <img src="assets/images/struc/land_footer/dark-magician.webp" alt="" />
         </div>
       </a>
 
@@ -216,7 +208,6 @@
         <div class="learnbutton">
           <p>Lorcana</p>
           <img src="assets/images/struc/land_footer/lorcana.webp" alt="" />
-          <!-- Logo de Lorcana -->
         </div>
       </a>
 
@@ -224,7 +215,6 @@
         <div class="learnbutton">
           <p>Magic</p>
           <img src="assets/images/struc/land_footer/mtg.webp" alt="" />
-          <!-- Logo de Magic: The Gathering -->
         </div>
       </a>
 
@@ -232,17 +222,16 @@
         <div class="learnbutton">
           <p>Pokémon</p>
           <img src="assets/images/struc/land_footer/pokemon.webp" alt="" />
-          <!-- Logo de Pokémon -->
         </div>
       </a>
     </div>
-
+        <!-- Logo del footer -->
     <div class="footer-icon">
       <div class="logofooter">
-        <a href="/home"><img src="assets/images/altern.png" alt="" /></a>
-        <!-- Logo del footer -->
+        <a href="/home"><img src="assets/images/altern.webp" alt="" /></a>
       </div>
     </div>
+    <!-- Redes sociales -->
     <div class="social-media-footer">
       <h3>Síguenos</h3>
       <span class="icoholder"
@@ -258,27 +247,25 @@
         ><img src="assets/images/icons/discord.svg"
       /></span>
     </div>
-    <!-- Contact Information -->
+    <!-- Información de contacto -->
     <div class="contact">
       <h3>Ven a jugar</h3>
       <div class="footer-contact">
         <p>
           <span><img src="assets/images/icons/mail.svg" alt="" /></span
           >placeholder@holder.com
-          <!-- Placeholder email  -->
         </p>
         <p>
           <span><img src="assets/images/icons/phone.svg" alt="" /></span>916 40
           46 96
-          <!-- Phone  -->
         </p>
         <p>
           <span><img src="assets/images/icons/location-a.svg" /></span>Calle
-          Mirador de Montepinar, 1 - 28015, Madrid<!-- Address -->
+          Mirador de Montepinar, 1 - 28015, Madrid
         </p>
         <p>
           <span><img src="assets/images/icons/time.svg" /></span>De lúnes a
-          viernes ; 11:30 - 15:00 &amp; 17:00 - 19:00<!-- Opening hours -->
+          viernes ; 11:30 - 15:00 &amp; 17:00 - 19:00
         </p>
       </div>
     </div>

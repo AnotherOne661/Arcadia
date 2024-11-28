@@ -1,6 +1,5 @@
-- Comentar el código
-- Añadir funcionalidad al form, con validación
 - Implementar la lectura de la DB / Terminar
 - Calendario
 - Menú desplegable / Estilos
 - Terminar colecciones (css) 
+- Preparar Exposición para el Sprint 
