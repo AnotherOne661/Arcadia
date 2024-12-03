@@ -1,22 +1,196 @@
-.collection-container{
+@import url(global.css);
+
+body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main {
+  display: flex;
+  width: 90%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 2em;
+  align-self: center;
+
+  .collection-container {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+    padding-bottom: 1em;
     display: flex;
     width: 100%;
+    background-color: var(--night);
+    border: solid var(--af-white) 25px;
     justify-content: center;
-    align-items: space-between;
-    color: aliceblue;
-    .mtg{
-        width: 15%;
+    color: var(--saffron);
+    font-size: 1.2em;
+
+    .mtg {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--magic-bold);
+      align-items: center;
+      text-align: center;
+      border-right: var(--saffron) 3px solid;
+      gap: 3em;
+      .collection-mtg {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .collection-mtg-cont {
+          a {
+            color: var(--saffron);
+            font-size: 1.2em;
+            text-decoration: none;
+          }
+        }
+        .collection-mtg-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
-    .lorcana{
-        width: 15%;
+    .lor {
+      display: flex;
+      flex-direction: column;
+      border-right: var(--saffron) 3px solid;
+      gap: 3em;
+
+      font-family: var(--lor);
+      width: 25%;
+      align-items: center;
+      text-align: center;
+      .collection-lor {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        .collection-lor-cont {
+          a {
+            color: var(--saffron);
+            font-size: 1.2em;
+            text-decoration: none;
+          }
+        }
+        .collection-lor-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
-    .yugioh{
-        width: 15%;
+    .ygo {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      border-right: var(--saffron) 3px solid;
+      gap: 3em;
+
+      font-family: var(--ygo-bold);
+      align-items: center;
+      text-align: center;
+      .collection-ygo {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        .collection-ygo-cont {
+          a {
+            color: var(--saffron);
+            font-size: 1.2em;
+            text-decoration: none;
+          }
+        }
+        .collection-ygo-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
-    .pokemon{
-        width: 15%;
+    .pok {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      border-right: var(--saffron) 3px solid;
+      gap: 3em;
+
+      font-family: var(--pok-bold);
+      align-items: center;
+      text-align: center;
+      .collection-pok {
+        display: flex;
+        flex-direction: column;
+
+        width: 100%;
+
+        .collection-pok-cont {
+          a {
+            color: var(--saffron);
+            font-size: 1.2em;
+
+            text-decoration: none;
+          }
+        }
+        .collection-pok-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
-    .onepiece{
-        width: 15%;
+    .op {
+      width: 25%;
+      display: flex;
+      flex-direction: column;
+      font-family: var(--op-bold);
+      align-items: center;
+      text-align: center;
+      gap: 3em;
+
+      .collection-op {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        .collection-op-cont {
+          a {
+            color: var(--saffron);
+            font-size: 1.2em;
+            text-decoration: none;
+          }
+        }
+        .collection-op-img {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+      }
     }
+  }
+  h2 {
+    font-size: 2em;
+    margin-bottom: 2em;
+    color: var(--saffron);
+    text-shadow: 2px 2px 3px var(--madder);
+    min-height: 100px;
+  }
+  p {
+    color: wheat;
+    font-size: 0.8em;
+  }
 }
