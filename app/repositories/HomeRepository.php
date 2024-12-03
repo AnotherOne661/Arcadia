@@ -8,6 +8,8 @@ require_once __DIR__ . '/../models/Home.php';
 
 require_once __DIR__ . '/../MODELS/ProductsWithExpansion.php';
 
+require_once __DIR__ . '/../MODELS/Event.php';
+
 // Extendemos HomeRepository de Repository
 class HomeRepository extends Repository
 {
@@ -34,5 +36,22 @@ class HomeRepository extends Repository
     }
     return $results;
   }
-  public function findTrendingProducts() {}
+  public function findTrendingProducts()
+  {
+  }
+
+  public function findEventImages()
+  {
+    $query = "SELECT urlImagen FROM eventos ORDER BY fecha_evento DESC LIMIT 4";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $results = [];
+    foreach ($rows as $row) {
+      $results[] = new Event($row['idEvento'], $row['nombre_evento'], $row['fecha_evento'], $row['descripcion'], $row['urlImagen']);
+    }
+    return $results;
+  }
 }

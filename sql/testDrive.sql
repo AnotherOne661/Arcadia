@@ -59,6 +59,14 @@ CREATE TABLE carta(
     PRIMARY KEY (codExpansion, nombreProducto)
 );
 
+CREATE TABLE eventos(
+    idEvento INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_evento VARCHAR(255) NOT NULL,
+    fecha_evento DATE NOT NULL,
+    descripcion TEXT,
+    urlImagen VARCHAR(255)
+);
+
 -- Inserciones en la tabla `juegos`
 INSERT INTO juegos(idJuego, nombre_juego) VALUES
 (1, 'Magic: The Gathering'),
@@ -167,7 +175,7 @@ CREATE TABLE ofertas (
     FOREIGN KEY (idJuego) REFERENCES productos(idJuego),
     PRIMARY KEY (codExpansion, nombreProducto)
 );
-INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen)
+INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen, descuento)
 VALUES
   ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg', 15),
   ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png', 25),
@@ -175,3 +183,8 @@ VALUES
   ('Modern Horizons 3 Booster Box', 'MH3', 1, 55.00, 'Booster Box', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp', 13),
   ('Phantom Nightmare Booster Pack', 'PNBP', 2, 3.99, 'Booster Pack', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg', 5),
   ('Uta Starter Deck', 'OP16', 5, 35.99, 'Starter Deck', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp', 65);
+
+-- Insertar en eventos
+INSERT INTO eventos (nombre_evento, fecha_evento, descripcion, urlImagen) VALUES (
+    'Torneo Pauper Magic: The Gathering','2025-1-15','Inscripción: 5€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Foundations, Premio por participar: 1 Booster Pack Foundations', '../assets/product/MGT/events/25-1-15-pauper.jpg'), (    'Lanzamiento de Yu-Gi-Oh! Rage of the Abyss','2025-1-5', 'Ven a por la nueva entrega de Yu-Gi-Oh!','../assets/product/YGO/events/25-1-5-ROTA_launch.jpg' ), ('Torneo One Piece TCG','2025-1-20','Inscripción: 10€. 1º Premio: 75€. 2º Premio: 15€. 3º Premio: 5 Booster Packs OP-11, Premio por participar: 1 Booster Pack OP-11', '../assets/product/OP/events/25-1-20-OP.jpg'), ('Preguntas y respuestas con Artista español de Wizards of The Coast "Manuel Huedo"', '2025-1-30', '', '../assets/product/MTG/events/25-1-30-interview.jpg'), ('Torneo Gratuito de Lorcana', '2025-2-1', "Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula's return", '../assets/product/LOR/events/25-2-1-tournament.jpg');
+    

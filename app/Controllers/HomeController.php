@@ -26,6 +26,7 @@ class HomeController extends Controller
     // Esto obtiene el array de objetos Test
     // $tests = $this->testRepository->findAll();
     $new_products = $this->homeRepository->findNewProducts();
+    $events_images = $this->homeRepository->findEventImages();
 
     // Render, método de Controller, toma el nfindombre de la url, seguido del array
     // asociativo con clave: nombre de variable cuando se renderice valor: valor de la variable
@@ -33,7 +34,8 @@ class HomeController extends Controller
       'title' => 'Arcadia - Tu tienda TCG',
       'cssFile' => 'home.css',
       'jsFile' => 'home.js',
-      'new_products' => $new_products
+      'new_products' => $new_products,
+      'events_images' => $events_images
       // Siempre le enviaremos (por lo general) su título propio, su css propio y, en caso de tenerlo
       // un js propio.
       // Dado que es una página dinámica, también le mandaremos la variable tests, conteniendo el array de objetos Test
