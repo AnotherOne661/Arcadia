@@ -38,11 +38,42 @@ class HomeRepository extends Repository
   }
   public function findTrendingProducts()
   {
+    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
+    FROM productos as p
+    LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
+    ORDER BY e.fechaLanzamiento DESC
+    LIMIT 6";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $results = [];
+    foreach ($rows as $row) {
+      $results[] = new ProductsWithExpansion($row['codExpansion'], $row['nombreProducto'], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento']);
+    }
+    return $results;
   }
 
+  public function findSaleProducts()
+  {
+    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
+    FROM ofertas as p
+    LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
+    ORDER BY e.fechaLanzamiento DESC
+    LIMIT 6";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $results = [];
+    foreach ($rows as $row) {
+      $results[] = new ProductsWithExpansion($row['codExpansion'], $row['nombreProducto'], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento']);
+    }
+    return $results;
+  }
   public function findEventImages()
   {
-    $query = "SELECT urlImagen FROM eventos ORDER BY fecha_evento DESC LIMIT 4";
+    $query = "SELECT * FROM eventos ORDER BY fecha_evento DESC LIMIT 4";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 

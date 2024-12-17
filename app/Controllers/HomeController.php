@@ -27,6 +27,9 @@ class HomeController extends Controller
     // $tests = $this->testRepository->findAll();
     $new_products = $this->homeRepository->findNewProducts();
     $events_images = $this->homeRepository->findEventImages();
+    $sale_products = $this->homeRepository->findSaleProducts();
+    $trending_products = $this->homeRepository->findTrendingProducts();
+
 
     // Render, método de Controller, toma el nfindombre de la url, seguido del array
     // asociativo con clave: nombre de variable cuando se renderice valor: valor de la variable
@@ -35,7 +38,9 @@ class HomeController extends Controller
       'cssFile' => 'home.css',
       'jsFile' => 'home.js',
       'new_products' => $new_products,
-      'events_images' => $events_images
+      'events_images' => $events_images,
+      'sale_products' => $sale_products,
+      'trending_products' => $trending_products
       // Siempre le enviaremos (por lo general) su título propio, su css propio y, en caso de tenerlo
       // un js propio.
       // Dado que es una página dinámica, también le mandaremos la variable tests, conteniendo el array de objetos Test
