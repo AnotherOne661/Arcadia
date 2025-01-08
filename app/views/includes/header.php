@@ -14,9 +14,20 @@
         <div id="icons">
             <a href=""><img src="<?php echo
                 $ABS_URL; ?>images/icons/user.svg " alt=""></a>
-            <a href=""><img id="cart" src="<?php echo
+            <a href="/cart"><img id="cart" src="<?php echo
                 $ABS_URL; ?>images/icons/cart.svg" alt=""></a>
         </div>
+        <!--
+        <div id="cart">
+            <div class="cart-body">
+
+            </div>
+            <div>
+                <h2>Total: <span class="cart-total">0</span>€</h2>
+                <button class="buyButton">Comprar</button>
+            </div>
+        </div>
+-->
         <div id="menu">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                 aria-controls="offcanvasRight"><img src="<?php echo

@@ -49,6 +49,11 @@ switch ($requestUri) {
   case 'secret':
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->secret());
+    break;
+  case 'cart':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->cart());
+    break;
   default:
     $controller = new ErrorController($request, $response);
     echo $response->sendHtml($controller->index());

@@ -43,8 +43,13 @@
                         <h5 class="expansion"><?= $new_product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $new_product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
-                        <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
-                                    class="basketIcon"></span></button>
+                        <div>
+                            <input type="number" class="productQuantity" value="1" min="1">
+                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
+                                        class="basketIcon"></span></button>
+                        </div>
+
                     </figcaption>
                     <figure class="newproducts-img">
                         <img src="<?= $new_product->geturlImagen(); ?>" alt="<?= $new_product->getnombreProducto(); ?>"
@@ -64,8 +69,12 @@
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $product->getreleaseDate(); ?></pre>
-                        <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
-                                    class="basketIcon"></span></button>
+                        <div>
+                            <input type="number" class="productQuantity" value="1" min="1">
+                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
+                                        class="basketIcon"></span></button>
+                        </div>
                     </figcaption>
                     <figure class="saleproducts-img">
                         <img src="<?= $product->geturlImagen(); ?>" class="productImage"
@@ -86,8 +95,12 @@
                                 class="hidden idExpansion" value="<?= $trending_product->getcodExpansion(); ?>"></input>
                         </h5>
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
-                        <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
-                                    class="basketIcon"></span></button>
+                        <div>
+                            <input type="number" class="productQuantity" value="1" min="1">
+                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
+                                        class="basketIcon"></span></button>
+                        </div>
                     </figcaption>
                     <figure class="trendproducts-img">
                         <img src="<?= $trending_product->geturlImagen(); ?>"

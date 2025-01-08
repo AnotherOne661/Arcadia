@@ -55,49 +55,10 @@ function expansionEvent() {
     }
   });
 }
-function updateLocalStorageCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function getLocalStorageCart() {
-  const cart = localStorage.getItem("cart");
-  return cart ? JSON.parse(cart) : []; // Return parsed cart or empty array if it doesn't exist
-}
-
-function buyButton() {
-  const buyButtons = document.querySelectorAll(".productButton");
-
-  buyButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const productBox = button.closest(".product"); // Parent container
-      const codExpansionInput = productBox.querySelector(".idExpansion");
-      const productName = productBox.querySelector(".productTitle");
-
-      if (codExpansionInput && productName) {
-        const codExpansion = codExpansionInput.value;
-        const nombreProducto = productName.textContent.trim();
-
-        // Retrieve the current cart from localStorage
-        let cart = getLocalStorageCart();
-
-        // Add the new product to the cart
-        cart.push({ codExpansion, nombreProducto });
-
-        // Update localStorage with the new cart
-        updateLocalStorageCart(cart);
-
-        alert(`Added "${nombreProducto}" to the cart!`);
-      } else {
-        console.warn("Product details not found for button:", button);
-      }
-    });
-  });
-}
 
 function main() {
   updateSetStyle();
   expansionEvent();
-  buyButton();
 }
 
 main();

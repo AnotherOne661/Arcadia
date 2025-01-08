@@ -121,7 +121,8 @@ INSERT INTO sobre(codExpansion, nombreProducto, numCartas, idJuego) VALUES
 ('SDWD', 'Blue-Eyes White Destiny Pack', 9, 2),
 ('INFO', 'Infinite Forbidden Pack', 10, 2),
 ('KLD', 'Kaladesh Booster Pack', 15, 1),
-('IXL', 'Ixalan Booster Pack', 12, 1);
+('IXL', 'Ixalan Booster Pack', 12, 1),
+('DSK', 'Duskmourn Booster Pack', 15, 1);
 
 -- Inserciones en la tabla `carta`
 INSERT INTO carta(codExpansion, nombreProducto, idJuego, atributos) VALUES
