@@ -5,7 +5,7 @@ require_once __DIR__ . '/Request.php';
 
 class Response
 {
-  
+
   private $request;
 
   public function __construct($request)
@@ -35,5 +35,10 @@ class Response
     // Indicamos que el contenido es json
     header('Content-Type: application/json');
     return json_encode($data);
+  }
+  public function sendRedirect($url)
+  {
+    header('Location: ' . $url);
+    exit;
   }
 }

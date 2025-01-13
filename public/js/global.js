@@ -19,6 +19,28 @@ function initializeClickableImages() {
   });
 }
 
+function hideCart(){
+  const menuHeader = document.querySelector(".menuTitle");
+  const cartContainer = document.querySelector('.cart');
+  const menuContainer = document.querySelector('.menu');
+  menuHeader.innerText = "Menú";
+  menuContainer.classList.remove('hidden');
+  cartContainer.classList.add('hidden');
+
+}
+
+function hideMenu(){
+  const menuHeader = document.querySelector(".menuTitle");
+  const cartContainer = document.querySelector('.cart');
+  const menuContainer = document.querySelector('.menu');
+
+  menuHeader.innerText = "Carrito";
+  menuContainer.classList.add('hidden');
+  cartContainer.classList.remove('hidden');
+
+  populateCart();
+}
+
 function buyButton() {
   const buyButtons = document.querySelectorAll(".productButton");
   if (!buyButtons) {

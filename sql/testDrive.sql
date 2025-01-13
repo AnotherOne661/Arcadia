@@ -66,7 +66,35 @@ CREATE TABLE eventos(
     descripcion TEXT,
     urlImagen VARCHAR(255)
 );
+CREATE TABLE users (
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone INT(12) NOT NULL,
+    role INT(1) NOT NULL,
+    PRIMARY KEY (email)
+);
 
+
+CREATE TABLE addresses (
+    idAddress INT AUTO_INCREMENT PRIMARY KEY,
+    comunidad VARCHAR(150),
+    municipio VARCHAR(150),
+    cp INT(5),
+    calle VARCHAR(255),
+    puerta VARCHAR(30)
+);
+CREATE TABLE user_addresses (
+    email VARCHAR(255),
+    idAddress INT,
+    PRIMARY KEY (email, idAddress),
+    FOREIGN KEY (email) REFERENCES users(email) ON DELETE CASCADE,
+    FOREIGN KEY (idAddress) REFERENCES addresses(idAddress) ON DELETE CASCADE
+);
+-- Inserción de prueba en usuarios
+INSERT INTO users(email, username, password, phone, role) VALUES ('something@example.org','another','1234','324',1); 
+INSERT INTO `addresses`(`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `puerta`) VALUES (null,'[value-2]','[value-3]','[value-4]','[value-5]','[value-6]');
+INSERT INTO user_addresses (email, idAddress) VALUES ('something@example.org', '1');
 -- Inserciones en la tabla `juegos`
 INSERT INTO juegos(idJuego, nombre_juego) VALUES
 (1, 'Magic: The Gathering'),
@@ -115,7 +143,7 @@ INSERT INTO caja(codExpansion, nombreProducto, numCartas, idJuego) VALUES
 ('IXL', 'Ixalan Deck', 60, 1);
 
 -- Inserciones en la tabla `sobre`
-INSERT INTO sobre(codExpansion, nombreProducto, numCartas, idJuego) VALUES
+/* INSERT INTO sobre(codExpansion, nombreProducto, numCartas, idJuego) VALUES
 ('SC', 'Stellar Crown Booster Pack', 10, 3),
 ('SSPK', 'Surging Sparks Booster Pack', 10, 3),
 ('SDWD', 'Blue-Eyes White Destiny Pack', 9, 2),
@@ -123,7 +151,7 @@ INSERT INTO sobre(codExpansion, nombreProducto, numCartas, idJuego) VALUES
 ('KLD', 'Kaladesh Booster Pack', 15, 1),
 ('IXL', 'Ixalan Booster Pack', 12, 1),
 ('DSK', 'Duskmourn Booster Pack', 15, 1);
-
+*/
 -- Inserciones en la tabla `carta`
 INSERT INTO carta(codExpansion, nombreProducto, idJuego, atributos) VALUES
 ('SC', 'Stellar Crown Promo Card', 3, 'Holo, Limited Edition'),
@@ -173,17 +201,16 @@ CREATE TABLE ofertas (
     urlImagen VARCHAR(255),
     descuento INT NOT NULL,
     FOREIGN KEY (codExpansion, nombreProducto) REFERENCES productos(codExpansion, nombreProducto),
-    FOREIGN KEY (idJuego) REFERENCES productos(idJuego),
+    FOREIGN KEY (idJuego) REFERENCES juegos(idJuego), -- Corrected this line
     PRIMARY KEY (codExpansion, nombreProducto)
 );
 INSERT INTO ofertas (nombreProducto, codExpansion, idJuego, precio, tipo, urlImagen, descuento)
 VALUES
-  ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg', 15),
-  ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 3, 3.99, 'Booster Pack', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png', 25),
-  ('Ursula\'s Return Tin', 'UR', 4, 19.99, 'Tin', '../assets/images/product/LOR/tins/UR/ursula-tin.webp', 15),
-  ('Modern Horizons 3 Booster Box', 'MH3', 1, 55.00, 'Booster Box', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp', 13),
-  ('Phantom Nightmare Booster Pack', 'PNBP', 2, 3.99, 'Booster Pack', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg', 5),
-  ('Uta Starter Deck', 'OP16', 5, 35.99, 'Starter Deck', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp', 65);
+  ('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg', 15),
+  ('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png', 25),
+  ('Ursula\'s Return Tin', 'UR', 4, 19.99, 'caja', '../assets/images/product/LOR/tins/UR/ursula-tin.webp', 15),
+  ('Modern Horizons 3 Booster Box', 'MH3', 1, 55.00, 'caja', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp', 13),
+  ('Phantom Nightmare Booster Pack', 'PNBP', 2, 3.99, 'sobre', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg', 20);
 
 -- Insertar en eventos
 INSERT INTO eventos (nombre_evento, fecha_evento, descripcion, urlImagen) VALUES (

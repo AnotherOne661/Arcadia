@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/SiteController.php';
+require_once __DIR__ . '/../app/controllers/UserController.php';
 require_once __DIR__ . '/../app/controllers/CollectionController.php';
 require_once __DIR__ . '/../app/controllers/JsonController.php';
 require_once __DIR__ . '/../app/controllers/LandingController.php';
@@ -54,6 +55,47 @@ switch ($requestUri) {
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->cart());
     break;
+  case 'login':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->login());
+    break;
+  case 'logout':
+    $controller = new UserController($request, $response);
+    echo $response->sendHtml($controller->logout());
+    break;
+  case 'login-form':
+    $controller = new UserController($request, $response);
+    echo $response->sendHtml($controller->loginForm());
+    break;
+  case 'signup':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->signUp());
+    break;
+  case 'myPage':
+    if($_SESSION['name'] != null){
+      $controller = new SiteController($request, $response);
+      echo $response->sendHtml($controller->myPage());
+    
+    }
+    else{
+      $controller = new SiteController($request, $response);
+      echo $response->sendRedirect('/login');
+    }
+    break;
+
+  case 'signup-form':
+    $controller = new UserController($request, $response);
+    echo $response->sendHtml($controller->signUpForm());
+    break;
+  case 'delete-account':
+    $controller = new UserController($request, $response);
+    echo $response->sendHtml($controller->deleteAccount());
+    break;
+  case  'edit-account':
+    $controller = new UserController($request, $response);
+    echo $response->sendHtml($controller->editAccount());
+    break;
+  case 'error':
   default:
     $controller = new ErrorController($request, $response);
     echo $response->sendHtml($controller->index());

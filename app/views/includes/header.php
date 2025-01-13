@@ -12,31 +12,33 @@
             </form>
         </div>
         <div id="icons">
-            <a href=""><img src="<?php echo
+            <a href="/myPage"><img src="<?php echo
                 $ABS_URL; ?>images/icons/user.svg " alt=""></a>
             <a href="/cart"><img id="cart" src="<?php echo
                 $ABS_URL; ?>images/icons/cart.svg" alt=""></a>
-        </div>
-        <!--
-        <div id="cart">
-            <div class="cart-body">
+                           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight" onclick="hideMenu()"><img src="<?php echo
+                    $ABS_URL; ?>images/icons/open.jpg" alt=""></button>
 
-            </div>
-            <div>
-                <h2>Total: <span class="cart-total">0</span>€</h2>
-                <button class="buyButton">Comprar</button>
-            </div>
         </div>
+
+
+
+        <!--
+
 -->
+
+
+
         <div id="menu">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight"><img src="<?php echo
+                aria-controls="offcanvasRight" onclick="hideCart()"><img src="<?php echo
                     $ABS_URL; ?>images/icons/open.jpg" alt=""></button>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
                 <div class="offcanvas-header">
-                    <h5 id="offcanvasRightLabel">Menu</h5>
+                    <h5 id="offcanvasRightLabel" class="menuTitle"></h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"><img src="<?php echo
                             $ABS_URL; ?>image/icons/close.jpg" alt=""></button>
@@ -44,6 +46,7 @@
 
                 </div>
                 <div class="offcanvas-body">
+                    <div class="menu">
                     <div class="menu-buttons">
                         <div class="menu-button">
 
@@ -232,17 +235,27 @@
 
 
                         </div>
+                    </div>
+                    
 
 
                     </div>
+                    <div class="cart">
+                         <div id="cart">
+                            <div class="cart-body">
 
-
+                             </div>
+                         <div>
+                        <h2>Total: <span class="cart-total">0</span>€</h2>
+                        <button class="buyButton">Comprar</button>
+                         </div>
+                     </div>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
-    </div>
+
     <div id="nav2">
         <nav>
             <div class="btn-group">
@@ -307,7 +320,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Magic The Gathering</button-->
-                <a>Magic The Gathering</a>
+                <a href="mtg">Magic The Gathering</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -325,7 +338,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Yu-Gi-Oh!</button-->
-                <a>Yu-Gi-Oh!</a>
+                <a href="ygo">Yu-Gi-Oh!</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -343,7 +356,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Lorcana</button-->
-                <a>Lorcana</a>
+                <a href="lor">Lorcana</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -361,7 +374,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Pokémon</button-->
-                <a>Pokémon</a>
+                <a href="pok">Pokémon</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
@@ -379,7 +392,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">One Piece TCG</button-->
-                <a>One Piece TCG</a>
+                <a href="op">One Piece TCG</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
