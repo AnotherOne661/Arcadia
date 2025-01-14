@@ -1,5 +1,7 @@
-- Implementar la lectura de la DB / Terminar
 - Calendario
-- Menú desplegable / Estilos
-- Terminar colecciones (css) 
-- Preparar Exposición para el Sprint 
+- Arreglar carrito (estilo) !medium
+- Llenar DB !important
+- Implementar rol de Administrador
+- Página about de contactos
+- Filtrado y búsqueda de productos
+- Productos y sus páginas

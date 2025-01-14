@@ -16,7 +16,7 @@
                 $ABS_URL; ?>images/icons/user.svg " alt=""></a>
             <a href="/cart"><img id="cart" src="<?php echo
                 $ABS_URL; ?>images/icons/cart.svg" alt=""></a>
-                           <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                 aria-controls="offcanvasRight" onclick="hideMenu()"><img src="<?php echo
                     $ABS_URL; ?>images/icons/open.jpg" alt=""></button>
 
@@ -47,209 +47,209 @@
                 </div>
                 <div class="offcanvas-body">
                     <div class="menu">
-                    <div class="menu-buttons">
-                        <div class="menu-button">
+                        <div class="menu-buttons">
+                            <div class="menu-button">
 
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Accesorios</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                    <li><a class="dropdown-item" href="#">One Piece</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">General</a></li>
-                                </ul>
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Accesorios</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
+                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
+                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
+                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">General</a></li>
+                                    </ul>
+                                </div>
+
+
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Eventos</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
+                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
+                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
+                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Otros Eventos</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Eventos</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                    <li><a class="dropdown-item" href="#">One Piece</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Otros Eventos</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger" data-collections>Colecciones</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
+                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
+                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
+                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <p>Productos generales</p>
+                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
+                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
+                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
+                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections>Colecciones</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                    <li><a class="dropdown-item" href="#">One Piece</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <p>Productos generales</p>
-                                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                    <li><a class="dropdown-item" href="#">One Piece</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Magic: The Gathering</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Magic: The Gathering</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
-                                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Yu-Gi-Oh!</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Yu-Gi-Oh!</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
-                                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Lorcana</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Lorcana</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
-                                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">Pokémon</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">Pokémon</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
-                                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
-                                </ul>
                             </div>
+                            <div class="menu-button">
+
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-danger">One Piece</button>
+                                    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>
+                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                    </ul>
+                                </div>
 
 
-                        </div>
-                        <div class="menu-button">
-
-                            <!-- Example split danger button -->
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger">One Piece</button>
-                                <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
-                                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-                                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
-                                </ul>
                             </div>
-
-
                         </div>
-                    </div>
-                    
+
 
 
                     </div>
                     <div class="cart">
-                         <div id="cart">
+                        <div id="cart">
                             <div class="cart-body">
 
-                             </div>
-                         <div>
-                        <h2>Total: <span class="cart-total">0</span>€</h2>
-                        <button class="buyButton">Comprar</button>
-                         </div>
-                     </div>
+                            </div>
+                            <div>
+                                <h2>Total: <span class="cart-total">0</span>€</h2>
+                                <button class="buyButton"><a href="/cart">Comprar</a></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
