@@ -10,11 +10,11 @@
 
 
 <body>
-<a href="/">Ir atrás</a>
+  <a href="/">Ir atrás</a>
 
   <form action="/signup-form" method="POST">
     <label for="username">Nombre de usuario: </label>
-    <input type="text"  name="username" placeholder="Jace, the mind sculptor" required>
+    <input type="text" name="username" placeholder="Jace, the mind sculptor" required>
     <label for="email">Email:</label>
     <input type="text" id="email" name="email" placeholder="ejemplo@email.com" required>
     <label for="password">Contraseña:</label>
@@ -27,7 +27,7 @@
     <input type="checkbox" id="age" name="age" required>
     <label for="terms">Aceptar términos y condiciones:</label>
     <input type="checkbox" id="terms" name="terms" required>
-    <button type="submit">Iniciar sesión</button>
+    <button type="submit">Crear cuenta</button>
   </form>
 </body>
 

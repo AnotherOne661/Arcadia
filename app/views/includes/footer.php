@@ -55,6 +55,13 @@
             <img src="assets/images/struc/land_footer/pokemon.webp" alt="" />
           </div>
         </a>
+
+        <a href="/learn-op" class="learnbutton">
+          <div class="learnbutton">
+            <p>One Piece TCG</p>
+            <img src="assets/images/struc/land_footer/op_logo.webp" alt="" />
+          </div>
+        </a>
       </div>
     </div>
     <div class="footer-column footer-column-2">
@@ -69,8 +76,8 @@
           <li><a href="">Pokémon</a></li>
           <li><a href="">One Piece TCG</a></li>
           <li><a href="">Accesorios</a></li>
-          <li><a href="">Colecciones</a></li>
-          <li><a href="">Eventos</a></li>
+          <li><a href="/collections">Colecciones</a></li>
+          <li><a href="/calendar">Eventos</a></li>
         </ul>
       </div>
     </div>
@@ -93,9 +100,9 @@
       </div>
       <div>
         <ul>
-          <li><a href="/register">Regístrate</a></li>
+          <li><a href="/signup">Regístrate</a></li>
           <li><a href="/login">Inicia sesión</a></li>
-          <li><a href="/contact">Contacta con nosotros</a></li>
+          <li><a href="/contact-form">Contacta con nosotros</a></li>
         </ul>
       </div>
     </div>

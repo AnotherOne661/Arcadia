@@ -56,7 +56,72 @@ class SiteController extends Controller
   {
     return $this->render('mypage', [
       'title' => 'My Page',
-      'cssFile' => 'mypage.css'
+      'cssFile' => 'mypage.css',
+      'jsFile' => 'mypage.js'
+    ]);
+  }
+  public function learnYgo()
+  {
+    return $this->render('learn-ygo', [
+      'title' => 'Aprender a jugar Yu-Gi-Oh!',
+      'cssFile' => 'learn-ygo.css',
+    ]);
+  }
+  public function learnLor()
+  {
+    return $this->render('learn-lor', [
+      'title' => 'Aprender a jugar Lorcana',
+      'cssFile' => 'learn-lor.css',
+    ]);
+
+  }
+  public function learnMTG()
+  {
+    return $this->render('learn-mtg', [
+      'title' => 'Aprender a jugar Magic: The Gathering',
+      'cssFile' => 'learn-mtg.css',
+    ]);
+  }
+  public function learnPok()
+  {
+    return $this->render('learn-pok', [
+      'title' => 'Aprender a jugar Pokémon',
+      'cssFile' => 'learn-pok.css',
+    ]);
+  }
+  public function learnOp()
+  {
+    return $this->render('learn-op', [
+      'title' => 'Aprender a jugar Otros Juegos de Cartas',
+      'cssFile' => 'learn-op.css',
+    ]);
+  }
+  public function terms()
+  {
+    return $this->render('terms', [
+      'title' => 'Términos y Condiciones',
+      'cssFile' => 'terms.css',
+    ]);
+  }
+  public function privacy()
+  {
+    return $this->render('privacy', [
+      'title' => 'Política de Privacidad',
+      'cssFile' => 'privacy.css',
+    ]);
+  }
+  public function cookies()
+  {
+    return $this->render('cookies', [
+      'title' => 'Política de Cookies',
+      'cssFile' => 'cookies.css',
+    ]);
+  }
+  public function contactForm()
+  {
+    return $this->render('contact-form', [
+      'title' => 'Contáctanos',
+      'cssFile' => 'contact-form.css',
     ]);
   }
 }

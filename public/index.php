@@ -72,12 +72,11 @@ switch ($requestUri) {
     echo $response->sendHtml($controller->signUp());
     break;
   case 'myPage':
-    if($_SESSION['name'] != null){
+    if ($_SESSION['name'] != null) {
       $controller = new SiteController($request, $response);
       echo $response->sendHtml($controller->myPage());
-    
-    }
-    else{
+
+    } else {
       $controller = new SiteController($request, $response);
       echo $response->sendRedirect('/login');
     }
@@ -91,9 +90,45 @@ switch ($requestUri) {
     $controller = new UserController($request, $response);
     echo $response->sendHtml($controller->deleteAccount());
     break;
-  case  'edit-account':
+  case 'edit-account':
     $controller = new UserController($request, $response);
     echo $response->sendHtml($controller->editAccount());
+    break;
+  case 'learn-ygo':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->learnYgo());
+    break;
+  case 'learn-mtg':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->learnMTG());
+    break;
+  case 'learn-lor':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->learnLor());
+    break;
+  case 'learn-op':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->learnOp());
+    break;
+  case 'learn-pok':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->learnPok());
+    break;
+  case 'terms':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->terms());
+    break;
+  case 'privacy':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->privacy());
+    break;
+  case 'cookies':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->cookies());
+    break;
+  case 'contact-form':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->contactForm());
     break;
   case 'error':
   default:
