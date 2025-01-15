@@ -1,11 +1,12 @@
+USE arcadia;
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 15-01-2025 a las 13:42:40
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 15-01-2025 a las 19:31:05
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -89,13 +90,16 @@ CREATE TABLE `carta` (
 --
 
 INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) VALUES
-('DSK', 'Protegido por fantasmas,Sheltered by Ghosts', 1, 'Criatura,Soldado Vampiro, uncommon,fuerza:1,resistencia:1,coste:1{NC}1{W}'),
+('DSK', 'Cercenador cabezagujas,Razorkin Needlehead', 1, 'criatura,humano asesino,rare,fuerza:2,resistencia:2,coste:2'),
+('DSK', 'Ojo aberrante,Abhorrent Oculus ', 1, 'criatura,ojo,mítico,fuerza:5,resistencia:5,coste:2'),
+('DSK', 'Protegido por fantasmas,Sheltered by Ghosts', 1, 'criatura,Soldado Vampiro, uncommon,fuerza:1,resistencia:1,coste:1{NC}1{W}'),
 ('INFO', 'Dragón Tenpai Genroku,Tenpai Dragon Genroku', 2, 'criatura,dragon efecto,ultra rare,nivel:3,ataque:0,defensa:1000'),
 ('INFO', 'Forbidden One', 2, 'Mythic, Forbidden'),
 ('IXL', 'Ixalan Mythic Card', 1, 'Dinosaur, Mythic'),
 ('KLD', 'Kaladesh Rare Card', 1, 'Artifact, Rare'),
 ('SC', 'Stellar Crown Promo Card', 3, 'Holo, Limited Edition'),
 ('SDWD', 'Blue-Eyes White Dragon', 2, 'Legendary, Blue-Eyes'),
+('SFA', 'Fezandipiti ex', 3, 'pokemon,tipo:siniestro,ex double rare,hp:210,weakness:2{F},retreat:1{N}'),
 ('SSPK', 'Surging Sparks Exclusive Card', 3, 'Ultra Rare');
 
 -- --------------------------------------------------------
@@ -151,6 +155,7 @@ INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`
 ('PNBP', 'Phantom Nightmare', '2024-11-24', 2, '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
 ('SC', 'Stellar Crown', '2024-09-13', 3, '/assets/images/product/POK/sets/Stellar_Crown_Logo.png'),
 ('SDWD', 'Blue-Eyes White Destiny', '2025-02-06', 2, '/assets/images/product/YGO/sets/WD.jpg'),
+('SFA', 'Fábula Sombría', '2024-08-02', 3, 'public\\assets\\images\\product\\POk\\sets\\SFA.webp'),
 ('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX', '2024-11-21', 3, '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
 ('SSPK', 'Surging Sparks', '2024-11-08', 3, '/assets/images/product/POK/sets/Surging_Sparks_Logo.png'),
 ('SSSBM', 'Steven\'s Beldum & Metagross EX', '2024-11-20', 3, '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
@@ -226,6 +231,8 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
+('DSK', 'Cercenador cabezagujas,Razorkin Needlehead', 1, 3.34, 'carta', '\\public\\assets\\images\\product\\MTG\\cards\\DSK\\Cercenador cabezagujas.webp', NULL),
+('DSK', 'Ojo aberrante,Abhorrent Oculus ', 1, 42.36, 'carta', '\\public\\assets\\images\\product\\MTG\\cards\\DSK/ojo-aberrante.webp', NULL),
 ('DSK', 'Protegido por fantasmas,Sheltered by Ghosts', 1, 4.81, 'carta', '\\public\\assets\\images\\product\\MTG\\cards\\DSK\\protegido-por-fantasmas.webp', NULL),
 ('INFO', 'Dragón Tenpai Genroku,Tenpai Dragon Genroku', 2, 3.90, 'carta', 'public\\assets\\images\\product\\YGO\\cards\\INFO\\dragon-tenpai-genroku.webp', NULL),
 ('INFO', 'Forbidden One', 2, 20.00, 'carta', '/assets/images/product/YGO/sets/Forbidden_One_Card.png', NULL),
@@ -246,6 +253,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('SDWD', 'Blue-Eyes White Destiny Box', 2, 130.00, 'caja', '/assets/images/product/YGO/sets/Blue_Eyes_Box.png', NULL),
 ('SDWD', 'Blue-Eyes White Destiny Pack', 2, 5.00, 'sobre', '/assets/images/product/YGO/sets/Blue_Eyes_Pack.png', NULL),
 ('SDWD', 'Blue-Eyes White Dragon', 2, 25.00, 'carta', '/assets/images/product/YGO/sets/Blue_Eyes_Card.png', NULL),
+('SFA', 'Fezandipiti ex', 3, 7.51, 'carta', 'public\\assets\\images\\product\\POk\\cards\\SFA\\Fezandipiti_ex.webp', NULL),
 ('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png', NULL),
 ('SSPK', 'Surging Sparks Booster Pack', 3, 4.50, 'sobre', '/assets/images/product/POK/sets/Surging_Sparks_Pack.png', NULL),
 ('SSPK', 'Surging Sparks Deck', 3, 15.00, 'caja', '/assets/images/product/POK/sets/Surging_Sparks_Deck.png', NULL),
