@@ -5,3 +5,4 @@
 - Página about de contactos
 - Filtrado y búsqueda de productos
 - Productos y sus páginas
+- organizar colecciones (fechas)
