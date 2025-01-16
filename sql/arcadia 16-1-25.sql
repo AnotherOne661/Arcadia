@@ -1,12 +1,9 @@
-DROP DATABASE IF EXISTS arcadia;
-CREATE DATABASE arcadia;
-USE arcadia;
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-01-2025 a las 10:26:57
+-- Tiempo de generación: 16-01-2025 a las 13:59:12
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -64,6 +61,7 @@ CREATE TABLE `caja` (
 --
 
 INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
+('DSK', 'Duskmourn:House of Horror: Nightmare Fat Pack Bundle', 6, 1),
 ('INFO', 'Infinite Forbidden Box', 520, 2),
 ('IXL', 'Ixalan Deck', 60, 1),
 ('KLD', 'Kaladesh Booster Box', 540, 1),
@@ -250,6 +248,9 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('DSK', 'Brillolinterna,Glimmerlight', 1, 0.06, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\Brillolinterna.webp', NULL),
 ('DSK', 'Campamento abandonado,Abandoned Campground', 1, 0.12, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\campamento-abandonado.webp', NULL),
 ('DSK', 'Cercenador cabezagujas,Razorkin Needlehead', 1, 3.34, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\Cercenador cabezagujas.webp', NULL),
+('DSK', 'Duskmourn:House of Horror Collector Booster', 1, 20.00, 'sobre', '\\public\\assets\\images\\product\\MTG\\packs\\duskmourn-house-of-horror-collector-booster.webp', NULL),
+('DSK', 'Duskmourn:House of Horror Play Booster', 1, 3.72, 'sobre', '\\public\\assets\\images\\product\\MTG\\packs\\duskmourn-house-of-horror-play-booster.webp', NULL),
+('DSK', 'Duskmourn:House of Horror: Nightmare Fat Pack Bundle', 1, 71.74, 'caja', 'public\\assets\\images\\product\\MTG\\tins\\duskmourn-house-of-horror-nightmare-fat-pack-bundle.webp', NULL),
 ('DSK', 'Llaves de la Casa,Keys to the House ', 1, 0.08, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\llaves-de-la-casa.webp', NULL),
 ('DSK', 'Maizal grabado,Etched Cornfield', 1, 0.10, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\maizal-grabado.webp', NULL),
 ('DSK', 'Némesis de los gritos,Screaming Nemesis ', 1, 24.27, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\némesis-de-los-gritos.webp', NULL),
@@ -305,6 +306,8 @@ CREATE TABLE `sobre` (
 --
 
 INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
+('DSK', 'Duskmourn:House of Horror Collector Booster', 15, 1),
+('DSK', 'Duskmourn:House of Horror Play Booster', 14, 1),
 ('PNBP', 'Phantom Nightmare Booster Pack', 9, 2),
 ('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 10, 3),
 ('SSSBM', 'Steven\'s Beldum & Metagross EX Booster Pack', 10, 3);
