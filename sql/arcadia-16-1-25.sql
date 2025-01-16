@@ -1,11 +1,15 @@
+DROP DATABASE IF EXISTS arcadia;
+CREATE DATABASE arcadia;
+USE arcadia;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-01-2025 a las 13:59:12
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 16-01-2025 a las 23:27:27
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -90,18 +94,27 @@ CREATE TABLE `carta` (
 --
 
 INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) VALUES
+('DSK', 'Armadura etérea,Ethereal Armor ', 1, 'hechizo,encantamiento,aura,uncommon,coste:1{W}'),
 ('DSK', 'Aspiradora de fantasmas,Ghost Vacuum ', 1, 'artefacto,rare,coste:1{NC}'),
+('DSK', 'Avería inoportuna,Untimely Malfunction ', 1, 'hechizo,instant,uncommon,coste:1{NC},1{R}'),
 ('DSK', 'Bosques sangrantes,Bleeding Woods', 1, 'tierra,common'),
 ('DSK', 'Brillolinterna,Glimmerlight', 1, 'artefacto,equipamiento,common,coste:2{NC}'),
 ('DSK', 'Campamento abandonado,Abandoned Campground', 1, 'tierra,common'),
 ('DSK', 'Cercenador cabezagujas,Razorkin Needlehead', 1, 'criatura,humano asesino,rare,fuerza:2,resistencia:2,coste:2{R}'),
+('DSK', 'Consejo demoníaco,Demonic Counsel', 1, 'hechizo,sorcery,rare,coste:1{NC},1{B}'),
+('DSK', 'Detonación ígnea,Pyroclasm', 1, 'hechizo,sorcery,uncommon,coste:1{NC},1{R}'),
+('DSK', 'Línea mística de la esperanza,Leyline of Hope ', 1, 'hechizo,encantamiento,rare,coste:2{NC},2{W}'),
+('DSK', 'Línea mística de la resonancia,Leyline of Resonance ', 1, 'hechizo,encantamiento,rare,coste:2{NC},2{R}'),
 ('DSK', 'Llaves de la Casa,Keys to the House ', 1, 'artefacto,uncommon,coste:1{NC}'),
 ('DSK', 'Maizal grabado,Etched Cornfield', 1, 'tierra,common'),
 ('DSK', 'Némesis de los gritos,Screaming Nemesis ', 1, 'criatura,espiritu,mítico,fuerza:3,resistencia:3,coste:2{NC},1{R}'),
 ('DSK', 'Ojo aberrante,Abhorrent Oculus ', 1, 'criatura,ojo,mítico,fuerza:5,resistencia:5,coste:2{NC},1{U}'),
 ('DSK', 'Pantalla poseída,Haunted Screen', 1, 'artefacto,uncommon,coste:3{NC}'),
 ('DSK', 'Protegido por fantasmas,Sheltered by Ghosts', 1, 'criatura,Soldado Vampiro, uncommon,fuerza:1,resistencia:1,coste:1{NC}1{W}'),
+('DSK', 'Separarse,Split Up ', 1, 'hechizo,sorcery,rare,coste:1{NC},2{W}'),
 ('DSK', 'Sierra,Saw ', 1, 'artefacto,uncommon,coste:2{NC}'),
+('DSK', 'Tergiversar la realidad,Twist Reality', 1, 'hechizo,instant,common,coste:1{NC},2{U}'),
+('DSK', 'Tormento agotador,Withering Torment ', 1, 'hechizo,instant,uncommon,coste:2{NC},1{B}'),
 ('DSK', 'Umbral de Cenagalardiente,Blazemire Verge ', 1, 'tierra,mítico'),
 ('DSK', 'Umbral de Lagosombrío,Gloomlake Verge', 1, 'tierra,mítico'),
 ('DSK', 'Valgavoth el Devoraterrores,Valgavoth Terror Eater', 1, 'criatura legendaria,elder demon,mítico,fuerza:9,resistencia:9,coste:6{NC},3{B}'),
@@ -243,21 +256,30 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
+('DSK', 'Armadura etérea,Ethereal Armor ', 1, 0.24, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\armadura-etérea.webp', NULL),
 ('DSK', 'Aspiradora de fantasmas,Ghost Vacuum ', 1, 5.61, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\aspiradora-de-fantasmas.webp', NULL),
+('DSK', 'Avería inoportuna,Untimely Malfunction ', 1, 1.99, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\avería-inoportuna.webp', NULL),
 ('DSK', 'Bosques sangrantes,Bleeding Woods', 1, 0.15, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\bosques-sangrantes.webp', NULL),
 ('DSK', 'Brillolinterna,Glimmerlight', 1, 0.06, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\Brillolinterna.webp', NULL),
 ('DSK', 'Campamento abandonado,Abandoned Campground', 1, 0.12, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\campamento-abandonado.webp', NULL),
 ('DSK', 'Cercenador cabezagujas,Razorkin Needlehead', 1, 3.34, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\Cercenador cabezagujas.webp', NULL),
+('DSK', 'Consejo demoníaco,Demonic Counsel', 1, 1.51, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\consejo-demoníaco.webp', NULL),
+('DSK', 'Detonación ígnea,Pyroclasm', 1, 0.18, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\detonación-ígnea.webp', NULL),
 ('DSK', 'Duskmourn:House of Horror Collector Booster', 1, 20.00, 'sobre', '\\public\\assets\\images\\product\\MTG\\packs\\duskmourn-house-of-horror-collector-booster.webp', NULL),
 ('DSK', 'Duskmourn:House of Horror Play Booster', 1, 3.72, 'sobre', '\\public\\assets\\images\\product\\MTG\\packs\\duskmourn-house-of-horror-play-booster.webp', NULL),
 ('DSK', 'Duskmourn:House of Horror: Nightmare Fat Pack Bundle', 1, 71.74, 'caja', 'public\\assets\\images\\product\\MTG\\tins\\duskmourn-house-of-horror-nightmare-fat-pack-bundle.webp', NULL),
+('DSK', 'Línea mística de la esperanza,Leyline of Hope ', 1, 0.29, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\línea-mística-de-la-esperanza.webp', NULL),
+('DSK', 'Línea mística de la resonancia,Leyline of Resonance ', 1, 0.99, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\línea-mística-de-la-resonancia.webp', NULL),
 ('DSK', 'Llaves de la Casa,Keys to the House ', 1, 0.08, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\llaves-de-la-casa.webp', NULL),
 ('DSK', 'Maizal grabado,Etched Cornfield', 1, 0.10, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\maizal-grabado.webp', NULL),
 ('DSK', 'Némesis de los gritos,Screaming Nemesis ', 1, 24.27, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\némesis-de-los-gritos.webp', NULL),
 ('DSK', 'Ojo aberrante,Abhorrent Oculus ', 1, 42.36, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK/ojo-aberrante.webp', NULL),
 ('DSK', 'Pantalla poseída,Haunted Screen', 1, 0.11, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\pantalla-poseida.webp', NULL),
 ('DSK', 'Protegido por fantasmas,Sheltered by Ghosts', 1, 4.81, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\protegido-por-fantasmas.webp', NULL),
+('DSK', 'Separarse,Split Up ', 1, 1.97, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\separarse.webp', NULL),
 ('DSK', 'Sierra,Saw ', 1, 0.07, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\sierra.webp', NULL),
+('DSK', 'Tergiversar la realidad,Twist Reality', 1, 0.10, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\tergiversar-la-realidad.webp', NULL),
+('DSK', 'Tormento agotador,Withering Torment ', 1, 1.36, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\tormento-agotador.webp', NULL),
 ('DSK', 'Umbral de Cenagalardiente,Blazemire Verge ', 1, 5.74, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\umbral-de-cenagalardiente.webp', NULL),
 ('DSK', 'Umbral de Lagosombrío,Gloomlake Verge', 1, 10.78, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\umbral-de-lagosombrio.webp', NULL),
 ('DSK', 'Valgavoth el Devoraterrores,Valgavoth Terror Eater', 1, 16.25, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\DSK\\Valgavoth-el-Devoraterrores', NULL),
