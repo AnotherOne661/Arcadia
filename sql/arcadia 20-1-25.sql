@@ -1,14 +1,15 @@
 DROP DATABASE IF EXISTS arcadia;
 CREATE DATABASE arcadia;
 USE arcadia;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-01-2025 a las 10:14:02
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 20-01-2025 a las 18:01:27
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -69,8 +70,6 @@ INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VA
 ('DSK', 'Duskmourn:House of Horror: Nightmare Fat Pack Bundle', 6, 1),
 ('INFO', 'Infinite Forbidden Box', 520, 2),
 ('IXL', 'Ixalan Deck', 60, 1),
-('J25', 'Bundle pack foundations', 9, 1),
-('J25', 'Caja de sobres de Jumpstart de Magic:The Gathering ', 24, 1),
 ('KLD', 'Kaladesh Booster Box', 540, 1),
 ('MH3', 'Modern Horizons 3 Booster Box', 540, 1),
 ('OP16', 'Uta Starter Deck', 50, 5),
@@ -123,11 +122,25 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 ('DSK', 'Valgavoth el Devoraterrores,Valgavoth Terror Eater', 1, 'criatura legendaria,elder demon,mítico,fuerza:9,resistencia:9,coste:6{NC},3{B}'),
 ('INFO', 'Dragón Tenpai Genroku,Tenpai Dragon Genroku', 2, 'criatura,dragon efecto,ultra rare,nivel:3,ataque:0,defensa:1000'),
 ('INFO', 'Forbidden One', 2, 'Mythic, Forbidden'),
+('INR', 'Almas persistentes,Lingering Souls ', 1, 'hechizo,sorcery,uncommon,coste:2{NC},1{W}'),
 ('INR', 'Artista de la sangre,Blood Artist', 1, 'criatura,vampiro,fuerza:0,resistencia:1,coste:1{NC},1{B}'),
+('INR', 'Atravesando la brecha,Through the Breach ', 1, 'hechizo,instant,arcane,mítico,coste:4{NC},1{R}'),
+('INR', 'Carácter ardiente,Fiery Temper ', 1, 'hechizo,instant,uncommon,coste:1{NC},2{R}'),
 ('INR', 'Cazahechizos,Spell Queller ', 1, 'criatura,spirit,rare,fuerza:2,resistencia:3,coste:1{NC},1{W},1{U}'),
+('INR', 'Desove arácnido, Spider Spawning ', 1, 'hechizo,sorcery,uncommon,coste:4{NC},1{G}'),
 ('INR', 'Edgar Markov', 1, 'criatura legendaria,vampire knight,mítico,fuerza:4,resistencia:4,coste:3{NC},1{R},1{W},1{B}'),
 ('INR', 'Emrakul el Final Prometido,Emrakul the Promised End', 1, 'criatura legendaria,eldrazi,mítico,fuerza:13,resistencia:13,coste:13{NC}'),
+('INR', 'Flujo de esencia,Essence Flux', 1, 'hechizo,instant,common,coste:1{U}'),
+('INR', 'Histeria masiva, Mass Hysteria', 1, 'hechizo,enchantment,rare,coste:1{R}'),
+('INR', 'Mutación espontánea,Spontaneous Mutation ', 1, 'hechizo,enchantment,aura,common,coste:1{U}'),
 ('INR', 'Navegante certero,Deadeye Navigator', 1, 'criatura,spirit,rare,fuerza:5,resistencia:5,coste:4{NC},2{U}'),
+('INR', 'Pulsión asesina,Murderous Compulsion ', 1, 'hechizo,sorcery,common,coste:1{NC},1{B}'),
+('INR', 'Reforjar el alma,Reforge the Soul ', 1, 'hechizo,sorcery,rare,coste:3{NC},2{R}'),
+('INR', 'Ritos de pueblo,Village Rites ', 1, 'hechizo,instant,common,coste:1{B}'),
+('INR', 'Tentación mortal,Deadly Allure', 1, 'hechizo,sorcery,uncommon,coste:1{B}'),
+('INR', 'Trampa luzgeist,Geistlight Snare ', 1, 'hechizo,instant,uncommon,coste:2{NC},1{U}'),
+('INR', 'Triscaidecafobia,Triskaidekaphobia', 1, 'hechizo,enchantment,uncommon,coste;3{NC},1{B}'),
+('INR', 'Virtud intangible,Intangible Virtue ', 1, 'hechizo,enchantment,uncommon,coste:1{NC},1{W}'),
 ('IXL', 'Ixalan Mythic Card', 1, 'Dinosaur, Mythic'),
 ('J25', 'Abrazo de Serra,Serra\'s Embrace', 1, 'hechizo,enchantment,aura,uncommon,coste:2{NC},2{W}'),
 ('J25', 'Aphelia encantadora de víboras,Aphelia  Viper Whisperer ', 1, 'criatura legendaria,gorgon assassin,mítico,fuerza:1,resistencia:3,coste:1{NC},1{B}'),
@@ -334,11 +347,26 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('INFO', 'Forbidden One', 2, 20.00, 'carta', '/assets/images/product/YGO/sets/Forbidden_One_Card.png', NULL),
 ('INFO', 'Infinite Forbidden Box', 2, 140.00, 'caja', '/assets/images/product/YGO/sets/Infinite_Forbidden_Box.png', NULL),
 ('INFO', 'Infinite Forbidden Pack', 2, 4.75, 'sobre', '/assets/images/product/YGO/sets/Infinite_Forbidden_Pack.png', NULL),
+('INR', 'Almas persistentes,Lingering Souls ', 1, 0.18, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\almas-persistentes.webp', NULL),
 ('INR', 'Artista de la sangre,Blood Artist', 1, 0.89, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\artista-sangre.webp', NULL),
+('INR', 'Atravesando la brecha,Through the Breach ', 1, 3.15, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\atravesando.web', NULL),
+('INR', 'Carácter ardiente,Fiery Temper ', 1, 0.12, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\caracter.webp', NULL),
 ('INR', 'Cazahechizos,Spell Queller ', 1, 1.00, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\caza-hechizos.webp', NULL),
+('INR', 'Desove arácnido, Spider Spawning ', 1, 0.14, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\desove-aracnido.webp', NULL),
 ('INR', 'Edgar Markov', 1, 55.22, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\edgar-markov.webp', NULL),
 ('INR', 'Emrakul el Final Prometido,Emrakul the Promised End', 1, 31.56, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\emrakul.webp', NULL),
+('INR', 'Fe incólume,Faith Unbroken', 1, 0.15, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\fe.webp', NULL),
+('INR', 'Flujo de esencia,Essence Flux', 1, 0.60, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\flujo.webp', NULL),
+('INR', 'Histeria masiva, Mass Hysteria', 1, 0.12, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\histeria.webp', NULL),
+('INR', 'Mutación espontánea,Spontaneous Mutation ', 1, 0.14, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\mutación-espontánea.webp', NULL),
 ('INR', 'Navegante certero,Deadeye Navigator', 1, 2.40, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\navegante-certero.webp', NULL),
+('INR', 'Pulsión asesina,Murderous Compulsion ', 1, 0.14, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\pulsion-asesina.webp', NULL),
+('INR', 'Reforjar el alma,Reforge the Soul ', 1, 2.97, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\reforjar-el-alma.webp', NULL),
+('INR', 'Ritos de pueblo,Village Rites ', 1, 0.20, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\ritos.webp', NULL),
+('INR', 'Tentación mortal,Deadly Allure', 1, 0.13, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\tentacion-mortal.webp', NULL),
+('INR', 'Trampa luzgeist,Geistlight Snare ', 1, 0.14, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\rampa.webp', NULL),
+('INR', 'Triscaidecafobia,Triskaidekaphobia', 1, 0.13, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\Triscaidecafobia.webp', NULL),
+('INR', 'Virtud intangible,Intangible Virtue', 1, 0.13, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\INR\\virtud-intangible.webp', NULL),
 ('IXL', 'Ixalan Booster Pack', 1, 4.25, 'sobre', '/assets/images/product/MAG/sets/Ixalan_Pack.png', NULL),
 ('IXL', 'Ixalan Deck', 1, 16.00, 'caja', '/assets/images/product/MAG/sets/Ixalan_Deck.png', NULL),
 ('IXL', 'Ixalan Mythic Card', 1, 15.00, 'carta', '/assets/images/product/MAG/sets/Ixalan_Card.png', NULL),
@@ -346,9 +374,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('J25', 'Aphelia encantadora de víboras,Aphelia  Viper Whisperer ', 1, 21.14, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\aphelia.webp', NULL),
 ('J25', 'Arranque violento,Violent Outburst ', 1, 0.54, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\arranque-violento.webp', NULL),
 ('J25', 'Bosque,Forest', 1, 0.02, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\bosque.webp', NULL),
-('J25', 'Bundle pack foundations', 1, 44.95, 'caja', 'public\\assets\\images\\product\\MTG\\tins\\J25\\caja-bundle.webp', NULL),
 ('J25', 'Cachorro generoso,Generous Pup ', 1, 5.58, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\cachorro.webp', NULL),
-('J25', 'Caja de sobres de Jumpstart de Magic:The Gathering ', 1, 95.60, 'caja', 'public\\assets\\images\\product\\MTG\\tins\\J25\\caja-cimientos.webp', NULL),
 ('J25', 'Chupasangre insidioso,Creeping Bloodsucker ', 1, 3.91, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\chupasangre.webp', NULL),
 ('J25', 'Cólera ancestral,Ancestral Anger', 1, 0.28, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\colera-ancestral.webp', NULL),
 ('J25', 'Concentrarse,Concentrate', 1, 0.13, 'carta', 'public\\assets\\images\\product\\MTG\\cards\\J25\\concentrarse.webp', NULL),
