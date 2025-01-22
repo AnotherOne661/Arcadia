@@ -1,14 +1,18 @@
 .container {
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
+  font-family: var(--ygo-bold);
+  margin-top: 3em;
+  margin-bottom: 3em;
+  background-color: var(--af-white);
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  border: solid 25px var(--night);
+
 }
 .calendar {
-  width: 350px;
-  background-color: #fff;
+  width: 100%;
+  background-color: var(--af-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 .calendar-header {
@@ -35,7 +39,7 @@
 .calendar-weekdays div,
 .calendar-dates div {
   text-align: center;
-  padding: 10px;
+  padding: 4em;
 }
 .calendar-weekdays {
   background-color: #eaeef3;
@@ -48,5 +52,5 @@
   cursor: pointer;
 }
 .calendar-dates div:hover {
-  background-color: #f1f1f1;
+  background-color: var(--sub-text);
 }

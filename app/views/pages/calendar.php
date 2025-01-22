@@ -8,13 +8,13 @@
     <div class="calendar-body">
       <div class="calendar-weekdays">
         <!-- Weekday Names -->
-        <div>Sun</div>
-        <div>Mon</div>
-        <div>Tue</div>
-        <div>Wed</div>
-        <div>Thu</div>
-        <div>Fri</div>
-        <div>Sat</div>
+        <div>Domingo</div>
+        <div>Lunes</div>
+        <div>Martes</div>
+        <div>Miércoles</div>
+        <div>Jueves</div>
+        <div>Viernes</div>
+        <div>Sábado</div>
       </div>
       <div class="calendar-dates">
         <!-- Dates will be populated here -->
