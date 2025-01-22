@@ -17,7 +17,7 @@
       <p class="learn-p">Yu-Gi-Oh! es un juego de cartas donde dos jugadores luchan con mazos de cartas que representan
         monstruos,
         hechizos y trampas. El objetivo es reducir los puntos de vida del oponente a cero.</p>
-      <ul class=".learn-ul">
+      <ul class="learn-ul">
         <li class="learn-li"><strong>Fase de Inicio:</strong> Los jugadores colocan sus cartas en el campo y se preparan
           para el duelo.
         </li>

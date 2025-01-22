@@ -1,0 +1,52 @@
+main {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100%;
+  padding: 2em;
+}
+
+h1,
+h2,
+h3,
+strong {
+  font-family: var(--lor);
+  color: var(--saffron);
+}
+
+.learn-p,
+.learn-ul,
+.learn-li {
+  color: var(--sub-text);
+  font-family: var(--magic-card);
+  margin: 1em 0;
+  text-align: justify;
+}
+
+a {
+  color: var(--saffron);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.learn-lorcana {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  background-color: var(--night);
+  border: solid 25px var(--af-white);
+  padding: 1em;
+}
+
+.card-example {
+  width: 75%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  margin: 1em 0;
+}
+.card-example img {
+  width: 25%;
+}

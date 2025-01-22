@@ -19,7 +19,7 @@
         Cada jugador
         tiene un mazo que puede contener criaturas, hechizos, tierras y artefactos, y el objetivo es reducir los puntos
         de vida del oponente a cero.</p>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Fase de Preparación:</strong> Ambos jugadores barajan sus mazos y preparan su zona de juego.</li>
         <li><strong>Fase de Juego:</strong> Los jugadores juegan cartas desde su mano, lanzan hechizos, invocan
           criaturas y atacan al oponente.</li>
@@ -40,7 +40,7 @@
     <!-- Requisitos -->
     <section class="requirements">
       <h2>Requisitos para Jugar</h2>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Cartas:</strong> Cada jugador debe tener un mazo de al menos 60 cartas. Pueden ser cartas de
           cualquier expansión o conjunto.</li>
         <li><strong>Puntos de vida:</strong> Los jugadores comienzan con 20 puntos de vida.</li>
@@ -61,7 +61,7 @@
         más recientes.
         Este formato se juega en torneos oficiales y es el más común para los jugadores que participan en eventos
         competitivos.</p>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Restricciones:</strong> Solo se pueden usar cartas de las colecciones más recientes, generalmente de
           los últimos dos años.</li>
         <li><strong>Duración:</strong> Este formato es ideal para jugadores que desean competir en eventos oficiales y
@@ -73,7 +73,7 @@
         que es una
         carta legendaria que define la estrategia del mazo. Este formato se juega principalmente de forma casual, pero
         también tiene una gran comunidad competitiva.</p>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Restricciones:</strong> El mazo debe contener exactamente 100 cartas, y solo una copia de cada carta
           (excepto tierras básicas).</li>
         <li><strong>Duración:</strong> Las partidas suelen ser más largas, ya que los jugadores tienen más cartas en su
@@ -85,7 +85,7 @@
         expansión de Return to
         Ravnica en adelante. Este formato es relativamente nuevo, pero ha ganado mucha popularidad debido a su
         accesibilidad.</p>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Restricciones:</strong> Solo se pueden usar cartas de colecciones posteriores a Return to Ravnica.
         </li>
         <li><strong>Duración:</strong> Las partidas son generalmente más rápidas que en Commander, pero todavía tienen
@@ -97,7 +97,7 @@
         seleccionan una carta
         por turno para agregarla a su mazo. Este formato se juega comúnmente en eventos de lanzamiento de nuevas
         colecciones.</p>
-      <ul>
+      <ul class="learn-ul">
         <li><strong>Restricciones:</strong> Los jugadores construyen su mazo seleccionando cartas de los paquetes que se
           les proporcionan, creando un mazo limitado con las cartas disponibles.</li>
         <li><strong>Duración:</strong> El Draft es ideal para eventos rápidos y para jugadores que disfrutan de la
