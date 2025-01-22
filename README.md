@@ -19,6 +19,6 @@
 
 # Para migrar la base de datos
 
-## El Script de creación e inserción se encuentra en /sql/testDrive.sql
+## El Script de creación e inserción se encuentra en /sql/arcadia[fecha más reciente].sql
 
 ### Desde el xampp, en phpmyadmin, en importar, y seleccionando el archivo
