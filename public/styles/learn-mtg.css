@@ -11,7 +11,7 @@ h1,
 h2,
 h3,
 strong {
-  font-family: var(--ygo-bold);
+  font-family: var(--magic-bold);
   color: var(--saffron);
 }
 
@@ -19,7 +19,7 @@ strong {
 .learn-ul,
 .learn-li {
   color: var(--sub-text);
-  font-family: var(--ygo-light);
+  font-family: var(--magic-card);
   margin: 1em 0;
   text-align: justify;
 }
@@ -29,7 +29,7 @@ a {
   text-decoration: none;
   transition: color 0.3s ease;
 }
-.learn-ygo {
+.learn-mtg {
   display: flex;
   flex-direction: column;
   align-items: center;
