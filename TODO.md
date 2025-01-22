@@ -1,8 +1,8 @@
-- Calendario
+- Calendario (fix)
 - Arreglar carrito (estilo) !medium
-- Llenar DB !important
-- Implementar rol de Administrador
-- Página about de contactos
-- Filtrado y búsqueda de productos
-- Productos y sus páginas
-- organizar colecciones (fechas)
+- Llenar DB (half-done) !important
+- Implementar rol de Administrador !low
+- Página about de contactos !medium
+- Filtrado y búsqueda de productos !high
+- Productos y sus páginas !high
+- organizar colecciones (fechas) !low
