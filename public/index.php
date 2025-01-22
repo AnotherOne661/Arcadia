@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/SiteController.php';
 require_once __DIR__ . '/../app/controllers/UserController.php';
+require_once __DIR__ . '/../app/controllers/CalendarController.php';
 require_once __DIR__ . '/../app/controllers/CollectionController.php';
 require_once __DIR__ . '/../app/controllers/JsonController.php';
 require_once __DIR__ . '/../app/controllers/LandingController.php';
@@ -129,6 +130,10 @@ switch ($requestUri) {
   case 'contact-form':
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->contactForm());
+    break;
+  case 'calendar':
+    $controller = new CalendarController($request, $response);
+    echo $response->sendHtml($controller->renderBasic());
     break;
   case 'error':
   default:
