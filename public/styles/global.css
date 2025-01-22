@@ -449,3 +449,31 @@ footer {
     color: var(--saffron);
   }
 }
+.card-container{
+  position: relative;
+  perspective: 1000px;
+
+}
+.card-front{
+  background-image: url("reemplazar");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+
+}
+.card-back{
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background-image: url("reemplazar_idJuego");
+}
+&:hover .card-inner{
+transform: rotateY(-180deg);
+}
