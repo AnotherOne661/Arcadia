@@ -36,10 +36,12 @@
         <div class="novedades">
             <h2 class="secTitle">NOVEDADES</h2>
             <?php foreach ($new_products as $new_product): ?>
+                <?php $esName = explode(",", $new_product->getnombreProducto()) ?>
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
-                        <h3 class="productTitle"><?= $new_product->getnombreProducto(); ?></h3>
+                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
+                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
                         <h5 class="expansion"><?= $new_product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $new_product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
@@ -63,9 +65,11 @@
             <?php foreach ($sale_products as $product): ?>
                 <div class="saleproducts product">
                     <input class="hidden" value="<?php echo $product->getIdJuego(); ?>">
+                    <?php $esName = explode(",", $product->getnombreProducto()) ?>
 
                     <figcaption class="saleproducts-desc">
-                        <h3 class="productTitle"><?= $product->getnombreProducto(); ?></h3>
+                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
+                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $product->getreleaseDate(); ?></pre>
@@ -87,10 +91,13 @@
             <h2 class="secTitle">TENDENCIA</h2>
             <?php foreach ($trending_products as $trending_product): ?>
                 <div class="trendproducts product">
+                    <?php $esName = explode(",", $trending_product->getnombreProducto()) ?>
+
                     <input class="hidden" value="<?php echo $trending_product->getIdJuego(); ?>">
 
                     <figcaption class="trendproducts-desc">
-                        <h3 class="productTitle"><?= $trending_product->getnombreProducto(); ?></h3>
+                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
+                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
                         <h5 class="expansion"><?= $trending_product->getnombreExpansion(); ?> <input
                                 class="hidden idExpansion" value="<?= $trending_product->getcodExpansion(); ?>"></input>
                         </h5>

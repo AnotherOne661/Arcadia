@@ -6,6 +6,7 @@
   <script defer src="\js\lib\bootstrap.bundle.min.js"></script>
   <script defer src="\js\lib\sweetalert2.all.min.js"></script>
   <link rel="stylesheet" href="\styles\lib\sweetalert2.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="icon" href="../assets/images/altern.ico">
   <script defer src="/js/global.js"></script>
   <script defer src="/js/<?php echo isset($jsFile) ? $jsFile : '' ?>"></script>

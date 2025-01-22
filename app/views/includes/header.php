@@ -12,13 +12,11 @@
             </form>
         </div>
         <div id="icons">
-            <a href="/myPage"><img src="<?php echo
-                $ABS_URL; ?>images/icons/user.svg " alt=""></a>
-            <a href="/cart"><img id="cart" src="<?php echo
-                $ABS_URL; ?>images/icons/cart.svg" alt=""></a>
+            <button class="btn btn-primary">
+                <a href="/myPage"><i class="bi bi-person"></i></a>
+            </button>
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight" onclick="hideMenu()"><img src="<?php echo
-                    $ABS_URL; ?>images/icons/open.jpg" alt=""></button>
+                aria-controls="offcanvasRight" onclick="hideMenu()"><i class="bi bi-cart"></i></button>
 
         </div>
 
@@ -32,8 +30,7 @@
 
         <div id="menu">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight" onclick="hideCart()"><img src="<?php echo
-                    $ABS_URL; ?>images/icons/open.jpg" alt=""></button>
+                aria-controls="offcanvasRight" onclick="hideCart()"><i class="bi bi-list"></i></button>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
