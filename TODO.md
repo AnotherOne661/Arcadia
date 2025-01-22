@@ -1,4 +1,4 @@
-- Calendario (fix)
+- Calendario (fix) [mover a la carpeta apropiada]
 - Arreglar carrito (estilo) !medium
 - Llenar DB (half-done) !important
 - Implementar rol de Administrador !low
