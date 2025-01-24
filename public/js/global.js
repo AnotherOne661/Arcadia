@@ -161,7 +161,7 @@ function populateCart() {
           min="1"
         >
         <p>Total: ${item.total.toFixed(2)} €</p>
-        <button onclick="removeFromCart('${
+        <button class="cart-button" onclick="removeFromCart('${
           item.codExpansion
         }', '${item.nombreProducto.replace(/'/g, "\\'")}')">Eliminar</button>
       </div>

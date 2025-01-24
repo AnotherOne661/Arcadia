@@ -40,8 +40,18 @@
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
-                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
-                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
+                        <h3 class="productTitle"> <?php 
+                        if(count($esName) < 2 ) {
+                            print_r( $esName[0]);
+                        }
+                        else { echo $esName[0];}
+                     ?> </h3>
+                        <h3 class="productSubTitle"><?php 
+                        if(count($esName) < 2 ) {
+                            print_r($esName[0]) ;
+                        }
+                        else { echo $esName[1];}
+                     ?></h3>
                         <h5 class="expansion"><?= $new_product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $new_product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
@@ -53,7 +63,7 @@
                         </div>
 
                     </figcaption>
-                    <figure class="newproducts-img">
+                    <figure class="newproducts-img img-container">
                         <img src="<?= $new_product->geturlImagen(); ?>" alt="<?= $new_product->getnombreProducto(); ?>"
                             class="productImage">
                     </figure>
@@ -68,8 +78,18 @@
                     <?php $esName = explode(",", $product->getnombreProducto()) ?>
 
                     <figcaption class="saleproducts-desc">
-                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
-                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
+                    <h3 class="productTitle"> <?php 
+                        if(count($esName) < 2 ) {
+                            print_r( $esName[0]);
+                        }
+                        else { echo $esName[0];}
+                     ?> </h3>
+                        <h3 class="productSubTitle"><?php 
+                        if(count($esName) < 2 ) {
+                            print_r($esName[0]) ;
+                        }
+                        else { echo $esName[1];}
+                     ?></h3>
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $product->getreleaseDate(); ?></pre>
@@ -80,7 +100,7 @@
                                         class="basketIcon"></span></button>
                         </div>
                     </figcaption>
-                    <figure class="saleproducts-img">
+                    <figure class="saleproducts-img img-container">
                         <img src="<?= $product->geturlImagen(); ?>" class="productImage"
                             alt="<?= $product->getnombreProducto(); ?>">
                     </figure>
@@ -96,8 +116,18 @@
                     <input class="hidden" value="<?php echo $trending_product->getIdJuego(); ?>">
 
                     <figcaption class="trendproducts-desc">
-                        <h3 class="productTitle"><?= $esName[0]; ?></h3>
-                        <h3 class="productSubTitle"><?= $esName[1]; ?></h3>
+                    <h3 class="productTitle"> <?php 
+                        if(count($esName) < 2 ) {
+                            print_r( $esName[0]);
+                        }
+                        else { echo $esName[0];}
+                     ?> </h3>
+                        <h3 class="productSubTitle"><?php 
+                        if(count($esName) < 2 ) {
+                            print_r($esName[0]) ;
+                        }
+                        else { echo $esName[1];}
+                     ?></h3>
                         <h5 class="expansion"><?= $trending_product->getnombreExpansion(); ?> <input
                                 class="hidden idExpansion" value="<?= $trending_product->getcodExpansion(); ?>"></input>
                         </h5>
@@ -109,7 +139,7 @@
                                         class="basketIcon"></span></button>
                         </div>
                     </figcaption>
-                    <figure class="trendproducts-img">
+                    <figure class="trendproducts-img img-container">
                         <img src="<?= $trending_product->geturlImagen(); ?>"
                             alt="<?= $trending_product->getnombreProducto(); ?>" class="productImage">
                     </figure>

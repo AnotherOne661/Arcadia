@@ -215,6 +215,13 @@ header {
     }
   }
 }
+i{
+  font-size: 1.5em;
+  color: var(--night);
+  &:hover {
+    color: var(--saffron);
+  }
+}
 
 footer {
   display: flex;
@@ -259,6 +266,11 @@ footer {
           img {
             max-width: 100%;
             max-height: 100%;
+            &:hover{
+              transform: scale(1.5);
+              cursor: pointer;
+              transition: var(--transitionCool);
+            }
           }
         }
       }
@@ -393,8 +405,10 @@ footer {
 .hidden {
   display: none;
 }
+
 .cart-body {
   display: flex;
+  color: var(--af-white);
   flex-direction: column;
 }
 .cart-body:nth-child() {
@@ -448,6 +462,34 @@ footer {
     background-color: var(--night);
     color: var(--saffron);
   }
+  &:active{
+    background-color: var(--night);
+    color: var(--saffron);
+    transform: translateY(3px);
+    transition: var(--transitionCool);
+  }
+  &:focus{
+    outline: none;
+  }
+}
+
+
+.btn-danger{
+  color: var(--af-white);
+  border: none;
+  &:hover {
+    color: var(--night);
+  }
+  &:active{
+    color: var(--night);
+    transform: translateY(3px);
+    transition: var(--transitionCool);
+    cursor: pointer;
+    outline: none !important;
+  }
+  &:focus{
+    outline: none !important;
+  }
 }
 .card-container{
   position: relative;
@@ -476,4 +518,60 @@ footer {
 }
 &:hover .card-inner{
 transform: rotateY(-180deg);
+}
+.cart-total-price{
+  color: var(--af-white);
+}
+.buyButton{
+  margin-top: 2em;
+  background-color: transparent;
+  color: transparent;
+}
+.buyButton-a{
+  margin: 1em;
+  background-color: var(--saffron);
+  color: var(--night);
+  text-decoration: none;
+  padding: 1em;
+  border-radius: 25px;
+  border: none;
+  &:hover {
+    background-color: var(--night);
+    color: var(--saffron);
+    outline: 1px var(--af-white);
+  }
+  &:active{
+    background-color: var(--night);
+    color: var(--saffron);
+    transform: translateY(3px);
+    transition: var(--transitionCool);
+    cursor: pointer;
+    outline: none!important;
+  }
+  &:focus{
+    outline: none!important;
+  }
+}
+.cart-button{
+  background-color: var(--saffron);
+  color: var(--night);
+  text-decoration: none;
+  padding: 0.5em;
+  border-radius: 25px;
+  border: none;
+  &:hover {
+    background-color: var(--night);
+    color: var(--saffron);
+  }
+  &:active{
+    background-color: var(--night);
+    color: var(--saffron);
+    transform: translateY(3px);
+    transition: var(--transitionCool);
+    cursor: pointer;
+    outline: none!important;
+  }
+  &:focus{
+    outline: none!important;
+  }
 }
