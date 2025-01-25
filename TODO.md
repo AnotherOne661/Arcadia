@@ -7,4 +7,6 @@
 - Productos y sus páginas !high
 - organizar colecciones (fechas) !low
 -  arreglar color de botones en active del nav !medium
-- htaccess
+- htaccess !medium
+- estilizar políticas !high
+- AÑADIR EVENTOS !HIGH
