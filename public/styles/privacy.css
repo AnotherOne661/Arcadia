@@ -1,0 +1,37 @@
+main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    padding: 2em;
+    color: var(--af-white);
+    font-family: var(--ygo-bold);
+  }
+  
+  h1,
+  h2,
+  h3,
+  strong {
+    font-family: var(--pok-bold);
+    color: var(--saffron);
+  }
+  
+
+  a {
+    color: var(--saffron);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  
+.privacy-policy{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    background-color: var(--night);
+    border: solid 25px var(--af-white);
+    padding: 1em;
+}
