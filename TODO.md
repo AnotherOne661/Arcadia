@@ -1,8 +1,9 @@
-- Calendario (fix) [mover a la carpeta apropiada]
-- Arreglar carrito (estilo) !medium
+- Calendario (añadir dinamismo)
+- Arreglar carrito (solo botones y js)
 - Llenar DB (half-done) !important
 - Implementar rol de Administrador !low
 - Página about de contactos !medium
 - Filtrado y búsqueda de productos !high
 - Productos y sus páginas !high
 - organizar colecciones (fechas) !low
+-  arreglar color de botones en active del nav !medium

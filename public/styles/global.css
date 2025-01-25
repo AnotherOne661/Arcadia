@@ -524,7 +524,7 @@ transform: rotateY(-180deg);
 }
 .buyButton{
   margin-top: 2em;
-  background-color: transparent;
+  background-color: transparent !important;
   color: transparent;
 }
 .buyButton-a{
@@ -555,6 +555,7 @@ transform: rotateY(-180deg);
 .cart-button{
   background-color: var(--saffron);
   color: var(--night);
+  font-family: var(--ygo-bold);
   text-decoration: none;
   padding: 0.5em;
   border-radius: 25px;
@@ -563,19 +564,19 @@ transform: rotateY(-180deg);
     background-color: var(--night);
     color: var(--saffron);
   }
-  &:active{
-    background-color: var(--night);
-    color: var(--saffron);
-    transform: translateY(3px);
-    transition: var(--transitionCool);
-    cursor: pointer;
-    outline: none!important;
-  }
-  &:focus{
-    outline: none!important;
-  }
+ 
 }
-
+.cart-button:active{
+  background-color: var(--night);
+  color: var(--saffron);
+  transform: translateY(3px);
+  transition: var(--transitionCool) !important;
+  cursor: pointer;
+  outline: solid var(--saffron) !important;
+}
+.cart-button:focus{
+  outline: solid var(--saffron) !important;
+}
 
 /* Estilos de productos */
 

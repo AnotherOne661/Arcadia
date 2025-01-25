@@ -35,7 +35,7 @@ class UserController extends Controller
     } else {
       // Contraseña incorrecta o usuario no encontrado
       var_dump("Login fallido: usuario o contraseña incorrectos.");
-      $this->response->sendRedirect('/error');
+      $this->response->sendRedirect('/login');
     }
 
     return null;
