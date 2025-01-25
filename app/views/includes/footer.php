@@ -3,10 +3,10 @@
     <div id="socialmedia">
       <h4>¡Sígenos para ser el primero en enterarte!</h4>
       <div>
-        <span class="icoholder"><img src="../assets/images/icons/facebook.svg"></span>
-        <span class="icoholder"><img src="../assets/images/icons/instagram.svg"></span>
-        <span class="icoholder"><img src="../assets/images/icons/x-logo.svg"></span>
-        <span class="icoholder"><img src="../assets/images/icons/discord.svg"></span>
+        <a href="https://www.facebook.com/arcadiatcg" class="icoholder fc"><img src="../assets/images/icons/facebook.svg"></a>
+        <a href="https://www.instagram.com/arcadiatcg/?" class="icoholder ig" ><img src="../assets/images/icons/instagram.svg"></a>
+        <a href="https://twitter.com/arcadiatcgES" class="icoholder x"><img src="../assets/images/icons/x-logo.svg"></a>
+        <a href="https://discord.com" class="icoholder dc"><img src="../assets/images/icons/discord.svg"></a>
       </div>
     </div>
     <div id="contact">

@@ -575,3 +575,79 @@ transform: rotateY(-180deg);
     outline: none!important;
   }
 }
+
+
+/* Estilos de productos */
+
+
+
+.secTitle {
+  font-size: 2em;
+  margin-bottom: 1em;
+  font-family: var(--ygo-bold);
+  color: var(--madder);
+  text-align: center;
+}
+.product {
+  
+  min-width: 500px;
+  min-height: 500px;
+
+  width: 45%;
+  margin: 1em;
+  display: flex;
+  background-color: var(--night);
+  color: var(--af-white);
+  border-radius: 25px;
+  padding: 1em;
+  box-shadow: -5px 7px 10px rgba(3, 3, 3, 0.497);
+
+  &.POK {
+    font-family: var(--pok-bold);
+  }
+  &.LOR {
+    font-family: var(--lor);
+    letter-spacing: 0.05em;
+  }
+
+  &.MTG {
+    font-family: var(--magic-card);
+  }
+  &.OP {
+    font-family: var(--op-bold);
+  }
+  &.YGO {
+    font-family: var(--ygo-bold);
+  }
+
+
+}
+.product figcaption {
+  width: 60%;
+}
+.product figure {
+  width: 40%;
+}
+.product figure img {
+  width: 100%;
+}
+
+.productTitle {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: var(--madder);
+}
+.expansion {
+  font-size: 1em;
+  margin-bottom: 0.5em;
+  color: var(--af-white);
+  cursor: pointer;
+}
+.productImage {
+  width: 25%;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+  &:hover {
+    transform: scale(1.1);
+    transition: var(--transitionCool);
+  }
+}
