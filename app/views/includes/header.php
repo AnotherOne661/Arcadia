@@ -243,8 +243,8 @@
 
                             </div>
                             <div>
-                                <h2>Total: <span class="cart-total">0</span>€</h2>
-                                <button class="buyButton"><a href="/cart">Comprar</a></button>
+                                <h2 class="cart-total-price"> Total: <span class="cart-total">0</span>€</h2>
+                                <button class="buyButton"><a href="/cart" class="buyButton-a">Comprar</a></button>
                             </div>
                         </div>
                     </div>
