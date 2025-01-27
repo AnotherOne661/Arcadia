@@ -36,7 +36,7 @@
         <div class="novedades">
             <h2 class="secTitle">NOVEDADES</h2>
             <?php foreach ($new_products as $new_product): ?>
-                <?php $esName = explode(",", $new_product->getnombreProducto()) ?>
+                <?php $esName = explode("|", $new_product->getnombreProducto()) ?>
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
@@ -75,7 +75,7 @@
             <?php foreach ($sale_products as $product): ?>
                 <div class="saleproducts product">
                     <input class="hidden" value="<?php echo $product->getIdJuego(); ?>">
-                    <?php $esName = explode(",", $product->getnombreProducto()) ?>
+                    <?php $esName = explode("|", $product->getnombreProducto()) ?>
 
                     <figcaption class="saleproducts-desc">
                     <h3 class="productTitle"> <?php 
@@ -111,7 +111,7 @@
             <h2 class="secTitle">TENDENCIA</h2>
             <?php foreach ($trending_products as $trending_product): ?>
                 <div class="trendproducts product">
-                    <?php $esName = explode(",", $trending_product->getnombreProducto()) ?>
+                    <?php $esName = explode("|", $trending_product->getnombreProducto()) ?>
 
                     <input class="hidden" value="<?php echo $trending_product->getIdJuego(); ?>">
 
