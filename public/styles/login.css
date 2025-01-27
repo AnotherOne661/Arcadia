@@ -1,5 +1,5 @@
 /* General Form Styles */
-form {
+#form_login {
   width: 300px;
   margin: 50px auto;
   padding: 20px;
@@ -8,27 +8,30 @@ form {
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  input {
+    width: 100%;
+  }
+
+  button, label{
+    margin: 5% 0;
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  a {
+    text-decoration: none;
+    text-align: center;
+  }
 }
 
-/* Input Fields */
-form input[type="text"],
-form input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-size: 14px;
-}
-
-/* Input Focus */
-form input[type="text"]:focus,
-form input[type="password"]:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
 
 /* Submit Button */
 form button[type="submit"] {
@@ -46,10 +49,3 @@ form button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-/* Form Label Spacing (optional for accessibility) */
-form label {
-  font-weight: bold;
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
-}

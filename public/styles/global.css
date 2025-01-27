@@ -421,6 +421,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 1em;
+  margin: 7% 10% 10% 10%;
   a {
     text-decoration: none;
     justify-content: center;
@@ -434,7 +435,7 @@ footer {
     justify-content: space-around;
     padding: 0.25em;
     background-color: black;
-    border-radius: 75px;
+    border-radius: 15px;
     p {
       color: var(--af-white);
       text-decoration: none;
