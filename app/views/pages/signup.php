@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/assets/styles/login.css">
-  <title>Login</title>
-</head>
-
-
-<body>
-  <main>
+<main>
     <form action="/signup-form" method="POST" class="form_signup">
       <label for="username">Nombre de usuario: </label>
       <input type="text" name="username" placeholder="Jace, the mind sculptor" required>
@@ -32,7 +20,3 @@
       <button type="submit">Crear cuenta</button>
     </form>
   </main>
-
-</body>
-
-</html>
