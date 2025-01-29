@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--link rel="stylesheet" href="../assets/styles/login.css"-->
-  <title>Login</title>
-</head>
-
-
 <body>
 
   <form action="/login-form" method="POST" id="form_login">
@@ -20,5 +9,3 @@
     <a href="signup">¿No tienes cuenta? Crea una</a>
   </form>
 </body>
-
-</html>
