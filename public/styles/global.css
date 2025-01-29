@@ -539,7 +539,7 @@ transform: rotateY(-180deg);
   &:hover {
     background-color: var(--night);
     color: var(--saffron);
-    outline: 1px var(--af-white);
+    border:  solid 1px var(--af-white);
   }
   &:active{
     background-color: var(--night);
@@ -547,7 +547,7 @@ transform: rotateY(-180deg);
     transform: translateY(3px);
     transition: var(--transitionCool);
     cursor: pointer;
-    outline: none!important;
+    border: solid 5px var(--saffron);
   }
   &:focus{
     outline: none!important;
@@ -564,6 +564,7 @@ transform: rotateY(-180deg);
   &:hover {
     background-color: var(--night);
     color: var(--saffron);
+    border: solid 1px var(--saffron);
   }
  
 }
@@ -573,7 +574,7 @@ transform: rotateY(-180deg);
   transform: translateY(3px);
   transition: var(--transitionCool) !important;
   cursor: pointer;
-  outline: solid var(--saffron) !important;
+  border: solid 3px var(--saffron) !important;
 }
 .cart-button:focus{
   outline: solid var(--saffron) !important;

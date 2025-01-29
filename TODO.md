@@ -10,3 +10,6 @@
 - htaccess !medium
 - estilizar políticas !high
 - AÑADIR EVENTOS !HIGH
+- Revisar estilos blanco home !high
+- 
+- 
