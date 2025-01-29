@@ -1,22 +1,22 @@
 /* General Form Styles */
 #form_login {
-  width: 300px;
+  width: 25em;
   margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
+  padding: 1em;
+  border: 15px solid var(--night);
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  font-family: var(--ygo-bold);
   input {
     width: 100%;
   }
 
-  button, label{
+  button,
+  label {
     margin: 5% 0;
   }
 
@@ -24,28 +24,40 @@
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
-    font-size: 14px;
+    font-size: 1em;
   }
   a {
     text-decoration: none;
     text-align: center;
   }
+  input {
+    font-size: 1em;
+    padding: 0.25em;
+  }
 }
-
 
 /* Submit Button */
 form button[type="submit"] {
   width: 100%;
   padding: 10px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--saffron);
+  color: var(--night);
+  font-family: var(--ygo-bold);
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
 }
-
-form button[type="submit"]:hover {
-  background-color: #0056b3;
+a {
+  color: var(--night);
+  text-decoration: none;
+  font-size: large;
+  &:hover {
+    color: var(--madder);
+    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  }
 }
-
+form button[type="submit"]:hover {
+  background-color: var(--saffron) !important;
+  color: var(--night) !important;
+}
