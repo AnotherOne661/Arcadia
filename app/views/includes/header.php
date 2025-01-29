@@ -22,12 +22,6 @@
 
 
 
-        <!--
-
--->
-
-
-
         <div id="menu">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                 aria-controls="offcanvasRight" onclick="hideCart()"><i class="bi bi-list"></i></button>

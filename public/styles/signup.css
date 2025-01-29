@@ -1,78 +1,44 @@
-/* 
- * Login CSS
- * 
- * This is a sample CSS file for an error page.
- */
-
- body {
-    /* Add some basic styling to the body element */
+main {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.form_signup {
+  font-size: 1.15em;
+  gap: 0.5em;
+  margin: 2em;
+  color: var(--af-white);
+  border: solid 15px var(--af-white);
+  background-color: var(--night);
+  width: 45%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-family: var(--ygo-bold);
+  input {
+    width: 100%;
   }
-  
-  a {
-    text-decoration: none; /* Remove default underline from links */
+  .form-checkboxes {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    input[type="checkbox"] {
+      width: 5%;
+    }
   }
-  
-  a:hover {
-    text-decoration: none; /* Prevent link color change on hover */
-  }
-  
   button {
-    background-color: #4CAF50; /* Set button color to green */
-    border: none; /* Remove default border */
-    padding: 10px 20px; /* Add some padding for better spacing */
-    font-size: 16px; /* Adjust font size for a better look */
-    cursor: pointer; /* Change the cursor shape on hover */
+    background-color: var(--saffron);
+    color: var(--night);
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    margin: 5% 0;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: var(--night);
+      color: var(--saffron);
+    }
   }
-  
-  button:hover {
-    background-color: #3e8e41; /* Change button color on hover */
-  }
-  
-  div {
-    max-width: 300px; /* Set maximum width for containers */
-    margin: auto; /* Center content horizontally */
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: bold; /* Make headings bold */
-    color: #333; /* Adjust heading text color */
-    margin-bottom: 20px; /* Add some spacing below headings */
-  }
-  
-  p {
-    font-size: 16px; /* Set default paragraph font size */
-    line-height: 1.5; /* Increase line height for better readability */
-    color: #666; /* Adjust paragraph text color */
-  }
-  
-  ul, ol {
-    list-style: none; /* Remove default bullet styles */
-    padding: 0; /* Reset list padding to zero */
-    margin: 0; /* Reset list margin to zero */
-  }
-  
-  li {
-    display: block; /* Change list item display to block */
-    padding: 10px 20px; /* Add some padding for better spacing */
-  }
-  
-  input[type="text"], input[type="password"] {
-    width: 100%; /* Make text fields full-width */
-    height: 40px; /* Set default text field height */
-    font-size: 16px; /* Adjust text field font size */
-    padding: 10px; /* Add some padding for better spacing */
-    border-radius: 5px; /* Add a rounded corner effect */
-  }
-  
-  input[type="submit"] {
-    background-color: #4CAF50; /* Set submit button color to green */
-    border: none; /* Remove default border */
-    padding: 10px 20px; /* Add some padding for better spacing */
-    font-size: 16px; /* Adjust font size for a better look */
-    cursor: pointer; /* Change the cursor shape on hover */
-  }
-  
-  input[type="submit"]:hover {
-    background-color: #3e8e41; /* Change submit button color on hover */
-  }
-  
+}
