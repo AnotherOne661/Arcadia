@@ -1,8 +1,10 @@
-<?php /** 
-  * @var ProductsWithExpansion[] $new_products 
-  * @var Event[] $events_images 
-  * @var ProductsWithExpansion[] $sale_products 
-  * @var ProductsWithExpansion[] $trending_products */ ?>
+<?php
+
+/** 
+ * @var ProductsWithExpansion[] $new_products 
+ * @var Event[] $events_images 
+ * @var ProductsWithExpansion[] $sale_products 
+ * @var ProductsWithExpansion[] $trending_products */ ?>
 <main>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -40,18 +42,24 @@
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
-                        <h3 class="productTitle"> <?php 
-                        if(count($esName) < 2 ) {
-                            print_r( $esName[0]);
-                        }
-                        else { echo $esName[0];}
-                     ?> </h3>
-                        <h3 class="productSubTitle"><?php 
-                        if(count($esName) < 2 ) {
-                            print_r($esName[0]) ;
-                        }
-                        else { echo $esName[1];}
-                     ?></h3>
+                        <h3 class="productTitle"> 
+                            <?php
+                                if (count($esName) < 2) {
+                                    print_r($esName[0]);
+                                } else {
+                                    echo $esName[0];
+                                }
+                            ?> 
+                        </h3>
+                        <h3 class="productSubTitle">
+                            <?php
+                                if (count($esName) < 2) {
+                                    print_r($esName[0]);
+                                } else {
+                                    echo $esName[1];
+                                }
+                            ?>
+                        </h3>
                         <h5 class="expansion"><?= $new_product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $new_product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
@@ -70,6 +78,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
+
         <div class="ofertas">
             <h2 class="secTitle">OFERTAS</h2>
             <?php foreach ($sale_products as $product): ?>
@@ -78,18 +87,20 @@
                     <?php $esName = explode("|", $product->getnombreProducto()) ?>
 
                     <figcaption class="saleproducts-desc">
-                    <h3 class="productTitle"> <?php 
-                        if(count($esName) < 2 ) {
-                            print_r( $esName[0]);
-                        }
-                        else { echo $esName[0];}
-                     ?> </h3>
-                        <h3 class="productSubTitle"><?php 
-                        if(count($esName) < 2 ) {
-                            print_r($esName[0]) ;
-                        }
-                        else { echo $esName[1];}
-                     ?></h3>
+                        <h3 class="productTitle"> <?php
+                                                    if (count($esName) < 2) {
+                                                        print_r($esName[0]);
+                                                    } else {
+                                                        echo $esName[0];
+                                                    }
+                                                    ?> </h3>
+                        <h3 class="productSubTitle"><?php
+                                                    if (count($esName) < 2) {
+                                                        print_r($esName[0]);
+                                                    } else {
+                                                        echo $esName[1];
+                                                    }
+                                                    ?></h3>
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $product->getreleaseDate(); ?></pre>
@@ -107,6 +118,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
+
         <div class="trend">
             <h2 class="secTitle">TENDENCIA</h2>
             <?php foreach ($trending_products as $trending_product): ?>
@@ -116,18 +128,20 @@
                     <input class="hidden" value="<?php echo $trending_product->getIdJuego(); ?>">
 
                     <figcaption class="trendproducts-desc">
-                    <h3 class="productTitle"> <?php 
-                        if(count($esName) < 2 ) {
-                            print_r( $esName[0]);
-                        }
-                        else { echo $esName[0];}
-                     ?> </h3>
-                        <h3 class="productSubTitle"><?php 
-                        if(count($esName) < 2 ) {
-                            print_r($esName[0]) ;
-                        }
-                        else { echo $esName[1];}
-                     ?></h3>
+                        <h3 class="productTitle"> <?php
+                                                    if (count($esName) < 2) {
+                                                        print_r($esName[0]);
+                                                    } else {
+                                                        echo $esName[0];
+                                                    }
+                                                    ?> </h3>
+                        <h3 class="productSubTitle"><?php
+                                                    if (count($esName) < 2) {
+                                                        print_r($esName[0]);
+                                                    } else {
+                                                        echo $esName[1];
+                                                    }
+                                                    ?></h3>
                         <h5 class="expansion"><?= $trending_product->getnombreExpansion(); ?> <input
                                 class="hidden idExpansion" value="<?= $trending_product->getcodExpansion(); ?>"></input>
                         </h5>
@@ -147,5 +161,6 @@
             <?php endforeach; ?>
 
         </div>
+
     </section>
 </main>
