@@ -49,7 +49,8 @@ class SiteController extends Controller
   {
     return $this->render('signup', [
       'title' => 'Sign Up',
-      'cssFile' => 'signup.css'
+      'cssFile' => 'signup.css',
+      'jsFile' => 'singup.js'
     ]);
   }
   public function myPage()

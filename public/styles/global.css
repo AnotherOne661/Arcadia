@@ -402,9 +402,6 @@ footer {
 .carousel-indicators button:hover {
   transform: scale(1.2); /* Slightly enlarge any dot when hovered */
 }
-.hidden {
-  display: none;
-}
 
 .cart-body {
   display: flex;
