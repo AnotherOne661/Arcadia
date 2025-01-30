@@ -3,23 +3,39 @@
  */
 
 const form = document.getElementById('registration-form');
-const nameInput = document.getElementById('name');
+const nameInput = document.querySelector('input[name="username"]');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 const confirmPasswordInput = document.getElementById('confirmPassword');
-const addressInput = document.getElementById('address');
-const countrySelect = document.getElementById('country');
-const creditCardInput = document.getElementById('creditCard');
+const phoneInput = document.querySelector('input[name="phone"]');
+const ageCheckbox = document.getElementById('age');
+const termsCheckbox = document.getElementById('terms');
 const submitButton = form.querySelector('button[type="submit"]');
 
-const nameError = document.getElementById('nameError');
-const emailError = document.getElementById('emailError');
-const passwordError = document.getElementById('passwordError');
-const confirmPasswordError = document.getElementById('confirmPasswordError');
-const creditCardError = document.getElementById('creditCardError');
-const birthdateInput = document.getElementById('birthdate');
-const birthdateError = document.getElementById('birthdateError');
+const nameError = document.createElement('div');
+nameError.style.color = 'red';
+nameError.style.display = 'none';
+nameInput.parentNode.insertBefore(nameError, nameInput.nextSibling);
 
+const emailError = document.createElement('div');
+emailError.style.color = 'red';
+emailError.style.display = 'none';
+emailInput.parentNode.insertBefore(emailError, emailInput.nextSibling);
+
+const passwordError = document.createElement('div');
+passwordError.style.color = 'red';
+passwordError.style.display = 'none';
+passwordInput.parentNode.insertBefore(passwordError, passwordInput.nextSibling);
+
+const confirmPasswordError = document.createElement('div');
+confirmPasswordError.style.color = 'red';
+confirmPasswordError.style.display = 'none';
+confirmPasswordInput.parentNode.insertBefore(confirmPasswordError, confirmPasswordInput.nextSibling);
+
+const phoneError = document.createElement('div');
+phoneError.style.color = 'red';
+phoneError.style.display = 'none';
+phoneInput.parentNode.insertBefore(phoneError, phoneInput.nextSibling);
 
 /**
  * Validates the name input.
@@ -33,36 +49,6 @@ const validateName = () => {
         return false;
     }
     nameError.style.display = 'none';
-    return true;
-};
-
-/**
- * Validates the birthdate input.
- * Ensures that the user is at least 18 years old based on the birthdate entered.
- * @returns {boolean} True if the birthdate is valid, false otherwise.
- */
-const validateBirthdate = () => {
-    const birthdateValue = birthdateInput.value;
-    if (!birthdateValue) {
-        birthdateError.style.display = 'none';
-        return true; // If there's no value, don't show the error.
-    }
-
-    const today = new Date();
-    const birthdate = new Date(birthdateValue);
-    let age = today.getFullYear() - birthdate.getFullYear();
-    const monthDifference = today.getMonth() - birthdate.getMonth();
-
-    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthdate.getDate())) {
-        age--;
-    }
-
-    if (age < 18) {
-        birthdateError.textContent = 'Debes ser mayor de 18 años para registrarte.';
-        birthdateError.style.display = 'block';
-        return false;
-    }
-    birthdateError.style.display = 'none';
     return true;
 };
 
@@ -114,33 +100,45 @@ const validateConfirmPassword = () => {
 };
 
 /**
- * Validates the credit card input.
- * Ensures that the credit card number is a valid 16-digit number if the address and country fields are filled.
- * @returns {boolean} True if the credit card is valid, false otherwise.
+ * Validates the phone input.
+ * Ensures that the phone number is a valid 9-digit number.
+ * @returns {boolean} True if the phone number is valid, false otherwise.
  */
-const validateCreditCard = () => {
-    const creditCardRegex = /^\d{16}$/;
-    if (addressInput.value && countrySelect.value && !creditCardRegex.test(creditCardInput.value)) {
-        creditCardError.textContent = 'Ingrese un número de tarjeta de crédito válido (16 dígitos).';
-        creditCardError.style.display = 'block';
+const validatePhone = () => {
+    const phoneRegex = /^\d{9}$/;
+    if (!phoneRegex.test(phoneInput.value)) {
+        phoneError.textContent = 'Ingrese un número de teléfono válido (9 dígitos).';
+        phoneError.style.display = 'block';
         return false;
     }
-    creditCardError.style.display = 'none';
+    phoneError.style.display = 'none';
     return true;
 };
 
 /**
- * Toggles the visibility of the credit card section based on the presence of address and country values.
- * Displays the credit card section if both address and country are filled.
+ * Validates the age checkbox.
+ * Ensures that the user is at least 18 years old.
+ * @returns {boolean} True if the checkbox is checked, false otherwise.
  */
-const toggleCreditCardSection = () => {
-    const creditCardSection = document.getElementById('creditCardSection');
-    if (addressInput.value && countrySelect.value) {
-        creditCardSection.style.display = 'block';
-    } else {
-        creditCardSection.style.display = 'none';
-        creditCardError.style.display = 'none';
+const validateAge = () => {
+    if (!ageCheckbox.checked) {
+        alert('Debes ser mayor de 18 años para registrarte.');
+        return false;
     }
+    return true;
+};
+
+/**
+ * Validates the terms checkbox.
+ * Ensures that the user has accepted the terms and conditions.
+ * @returns {boolean} True if the checkbox is checked, false otherwise.
+ */
+const validateTerms = () => {
+    if (!termsCheckbox.checked) {
+        alert('Debes aceptar los términos y condiciones.');
+        return false;
+    }
+    return true;
 };
 
 /**
@@ -148,7 +146,7 @@ const toggleCreditCardSection = () => {
  * Enables or disables the submit button depending on the form's validity.
  */
 const updateSubmitButtonState = () => {
-    let isFormValid = validateName() && validateEmail() && validatePassword() && validateConfirmPassword() && validateBirthdate();
+    let isFormValid = validateName() && validateEmail() && validatePassword() && validateConfirmPassword() && validatePhone();
     submitButton.disabled = !isFormValid; // Enable or disable submit button based on form validation
 };
 
@@ -156,11 +154,6 @@ const updateSubmitButtonState = () => {
 nameInput.addEventListener('input', () => {
     validateName();
     updateSubmitButtonState();
-});
-
-birthdateInput.addEventListener('change', () => {
-    validateBirthdate();  // Re-validate the birthdate when it changes
-    updateSubmitButtonState();  // Update the submit button state after validation
 });
 
 emailInput.addEventListener('input', () => {
@@ -179,18 +172,9 @@ confirmPasswordInput.addEventListener('input', () => {
     updateSubmitButtonState();
 });
 
-addressInput.addEventListener('input', () => {
-    toggleCreditCardSection();
-    validateCreditCard();
-});
-
-countrySelect.addEventListener('change', () => {
-    toggleCreditCardSection();
-    validateCreditCard();
-});
-
-creditCardInput.addEventListener('input', () => {
-    validateCreditCard();
+phoneInput.addEventListener('input', () => {
+    validatePhone();
+    updateSubmitButtonState();
 });
 
 /**
@@ -199,5 +183,8 @@ creditCardInput.addEventListener('input', () => {
  */
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Formulario enviado con éxito');
+    if (validateAge() && validateTerms()) {
+        alert('Formulario enviado con éxito');
+        form.submit();
+    }
 });

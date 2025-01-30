@@ -73,7 +73,7 @@ class HomeRepository extends Repository
   }
   public function findEventImages()
   {
-    $query = "SELECT * FROM eventos ORDER BY fecha_evento DESC LIMIT 4";
+    $query = "SELECT * FROM eventos ORDER BY fecha_evento DESC LIMIT 5";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 

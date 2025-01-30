@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Page</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a class="logout" href="/logout">Logout</a></li>
-            </ul>
-        </nav>
-    </header>
+<div id="mypage">
     <main>
         <p>Bienvenido,<?= $_SESSION['name'] ?>!</p>
         <button class="edit">Edit Profile</button>
@@ -35,16 +17,9 @@
             <input type="tel" required>
             <button type="submit">Actualizar</button>
         </form>
-        <form action="/logout">
-            <button type="submit">Cerrar sesión</button>
-        </form>
-        <form action="/delete-account">
-            <button type="submit">Eliminar mi cuenta</button>
+        <form id="botones">
+            <button type="submit" formaction="/logout">Cerrar sesión</button>
+            <button type="submit" formaction="/delete-account">Eliminar mi cuenta</button>
         </form>
     </main>
-    <footer>
-        &copy; 2023 Your Company
-    </footer>
-</body>
-
-</html>
+</div>
