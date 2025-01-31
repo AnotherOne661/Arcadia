@@ -20,7 +20,3 @@
     <button type="submit">Crear cuenta</button>
   </form>
 </main>
-
-</body>
-
-</html>
