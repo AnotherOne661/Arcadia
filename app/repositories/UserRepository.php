@@ -5,7 +5,7 @@ require_once __DIR__ . '/Repository.php';
 
 // Requerimos los modelos necesarios
 
-require_once __DIR__ . '/../MODELS/User.php';
+require_once __DIR__ . '/../models/User.php';
 
 // Extendemos HomeRepository de Repository
 class UserRepository extends Repository
@@ -21,7 +21,7 @@ class UserRepository extends Repository
 
   public function checkLogin($email)
   {
-      $query = "SELECT email, password FROM $this->tableName WHERE email = :email";
+      $query = "SELECT email, password, image-url FROM $this->tableName WHERE email = :email";
       $stmt = $this->pdo->prepare($query);
   
       // Bind parameters
@@ -73,6 +73,7 @@ class UserRepository extends Repository
   
       // Extraer los datos del objeto User
       $newEmail = $user->getEmail();
+      $newImageUrl = $user->getImageUrl();
       $username = $user->getUsername();
       $password = password_hash($user->getPassword(), PASSWORD_DEFAULT); // Rehashear la contraseña
       $phone = $user->getPhone();
@@ -80,7 +81,7 @@ class UserRepository extends Repository
       // Construir la consulta SQL
       $query = "UPDATE $this->tableName 
                 SET email = :newEmail, username = :username, password = :password, phone = :phone 
-                WHERE email = :currentEmail";
+                image-url = :newImageUrl WHERE email = :currentEmail";
   
       // Preparar y ejecutar la consulta
       $stmt = $this->pdo->prepare($query);
@@ -89,6 +90,7 @@ class UserRepository extends Repository
       $stmt->bindParam(':password', $password);
       $stmt->bindParam(':phone', $phone);
       $stmt->bindParam(':currentEmail', $currentEmail);
+      $stmt->bindParam(':newImageUrl', $newImageUrl);
   
       $stmt->execute();
   }

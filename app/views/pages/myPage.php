@@ -1,6 +1,7 @@
 <div id="mypage">
     <main>
         <p>Bienvenido,<?= $_SESSION['name'] ?>!</p>
+        <img src="" alt="">
         <button class="edit">Edit Profile</button>
         <form class="hidden edit-form" action="/edit-account" method="post">
             <label for="name">Nuevo nombre de usuario:</label>
@@ -15,6 +16,8 @@
                 required autocomplete="new-password">
             <label for="phone">Nuevo número de teléfono:</label>
             <input type="tel" required>
+            <label for="image-url">Sube la imagen de perfil</label>
+            <input type="file" name="image-url">
             <button type="submit">Actualizar</button>
         </form>
         <form id="botones">

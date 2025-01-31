@@ -21,16 +21,17 @@ class UserController extends Controller
   }
   public function loginForm()
   {
-    $user = new User(null, $this->request->post('email'), $this->request->post('password'));
+    $user = new User(null, $this->request->post('email'), $this->request->post('password'), null, null, $this->request->post('image-url'));
     $email = $user->getEmail();
     $password = $user->getPassword();
-
+    $usrImg = $user->getImageUrl();
     // Recuperar los datos del usuario por email
     $userRecord = $this->userRepository->checkLogin($email);
 
     if ($userRecord && password_verify($password, $userRecord['password'])) {
       // Si la contraseña coincide, inicia sesión
       $_SESSION['name'] = $email;
+      $_SESSION['profile'] = $usrImg;
       $this->response->sendRedirect('/myPage');
     } else {
       // Contraseña incorrecta o usuario no encontrado
@@ -60,7 +61,8 @@ class UserController extends Controller
       $this->request->post('username'),
       $this->request->post('email'),
       $this->request->post('password'),
-      $this->request->post('phone')
+      $this->request->post('phone'),
+      $this->request->post('image-url')
     );
 
     // Asegúrate de que $user es un objeto válido de la clase User
