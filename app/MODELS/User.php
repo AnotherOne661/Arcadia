@@ -10,17 +10,18 @@ class User extends Model
   private $password;
   private $phone;
   private $role;
+  private $image_url;
   
 
   // Constructor
-  public function __construct($userName = null, $email, $password, $phone = null, $role = null)
+  public function __construct($userName = null, $email, $password, $phone = null, $role = null, $image_url = "/assets/images/uploads/user-placeholder.webp")
   {
     $this->userName = $userName;
     $this->email = $email;
     $this->password = $password;
     $this->phone = $phone;
     $this->role = $role;
-
+    $this->image_url = $image_url;
   }
 
   // Getters
@@ -62,5 +63,11 @@ class User extends Model
   }
   public function setRole($role){
     $this->role = $role;
+  }
+  public function setImageUrl($image_url){
+    $this->image_url = $image_url;
+  }
+  public function getImageUrl(){
+    return $this->image_url;
   }
 }

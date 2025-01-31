@@ -24,13 +24,15 @@ class UserController extends Controller
     $user = new User(null, $this->request->post('email'), $this->request->post('password'));
     $email = $user->getEmail();
     $password = $user->getPassword();
-
     // Recuperar los datos del usuario por email
     $userRecord = $this->userRepository->checkLogin($email);
 
+    $usrImg = $userRecord['image-url'];
+    $usrNick = $userRecord['username'];
     if ($userRecord && password_verify($password, $userRecord['password'])) {
       // Si la contraseña coincide, inicia sesión
-      $_SESSION['name'] = $email;
+      $_SESSION['name'] = $usrNick;
+      $_SESSION['profile'] = $usrImg;
       $this->response->sendRedirect('/myPage');
     } else {
       // Contraseña incorrecta o usuario no encontrado
@@ -60,20 +62,21 @@ class UserController extends Controller
       $this->request->post('username'),
       $this->request->post('email'),
       $this->request->post('password'),
-      $this->request->post('phone')
+      $this->request->post('phone'),
+      0,
+      $this->request->post('image-url')
     );
-
+    
     // Asegúrate de que $user es un objeto válido de la clase User
     if (!($user instanceof User)) {
       throw new InvalidArgumentException('El objeto $user debe ser una instancia válida de la clase User.');
     }
-
     // Llama al repositorio para actualizar el usuario
     $this->userRepository->updateUser($currentEmail, $user);
 
     // Actualiza el email en la sesión si fue cambiado
-    $_SESSION['name'] = $user->getEmail();
-
+    $_SESSION['name'] = $user->getUserName();
+    $_SESSION['profile'] = $user->getImageUrl();
     // Redirige a la página principal o donde sea necesario
     $this->response->sendRedirect('/');
     return null;

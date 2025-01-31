@@ -4,7 +4,7 @@ main {
   justify-content: center;
   align-items: center;
 }
-.form_signup {
+#registration-form {
   font-size: 1.15em;
   gap: 0.5em;
   margin: 2em;
