@@ -11,5 +11,6 @@
 - estilizar políticas !high
 - AÑADIR EVENTOS !HIGH
 - Revisar estilos blanco home !high
-- 
+- Validación en edición de usuario !medium
+- Arreglar el delete user !high
 - 
