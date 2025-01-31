@@ -1,5 +1,5 @@
 <main>
-    <form action="/signup-form" method="POST" id="registration-form">
+    <form action="/signup-form" method="POST" id="registration-form" enctype="multipart/form-data">
       <label for="username">Nombre de usuario: </label>
       <input type="text" name="username" placeholder="Jace, the mind sculptor" >
       <label for="email">Email:</label>

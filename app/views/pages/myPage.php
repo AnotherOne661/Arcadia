@@ -1,9 +1,9 @@
 <div id="mypage">
     <main>
         <p>Bienvenido,<?= $_SESSION['name'] ?>!</p>
-        <img src="" alt="">
+        <img src="<?= $_SESSION['profile'] ?>" alt="">
         <button class="edit">Edit Profile</button>
-        <form class="hidden edit-form" action="/edit-account" method="post">
+        <form class="hidden edit-form" action="/edit-account" method="post"  enctype="multipart/form-data">
             <label for="name">Nuevo nombre de usuario:</label>
             <input type="text" id="username" name="username" placeholder="Nombre completo" required>
             <label for="email">Nuevo correo electrónico:</label>
@@ -15,7 +15,8 @@
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña"
                 required autocomplete="new-password">
             <label for="phone">Nuevo número de teléfono:</label>
-            <input type="tel" required>
+            <input type="tel" name="phone"
+            required>
             <label for="image-url">Sube la imagen de perfil</label>
             <input type="file" name="image-url">
             <button type="submit">Actualizar</button>
