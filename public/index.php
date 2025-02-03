@@ -6,6 +6,7 @@ require_once __DIR__ . '/../app/controllers/UserController.php';
 require_once __DIR__ . '/../app/controllers/CalendarController.php';
 require_once __DIR__ . '/../app/controllers/CollectionController.php';
 require_once __DIR__ . '/../app/controllers/JsonController.php';
+require_once __DIR__ . '/../app/controllers/ContactController.php';
 require_once __DIR__ . '/../app/controllers/LandingController.php';
 require_once __DIR__ . '/../app/controllers/ErrorController.php';
 require_once __DIR__ . '/../app/core/http/Request.php';
@@ -28,10 +29,6 @@ switch ($requestUri) {
   case 'home':
     $controller = new HomeController($request, $response);
     echo $response->sendHtml($controller->index());
-    break;
-  case 'contact':
-    $controller = new SiteController($request, $response);
-    echo $response->sendHtml($controller->contact());
     break;
   case 'collections':
     $controller = new CollectionController($request, $response);
@@ -134,6 +131,10 @@ switch ($requestUri) {
   case 'calendar':
     $controller = new CalendarController($request, $response);
     echo $response->sendHtml($controller->renderBasic());
+    break;
+  case 'contact':
+    $controller = new ContactController($request, $response);
+    echo $response->sendHtml($controller->index());
     break;
   case 'error':
   default:

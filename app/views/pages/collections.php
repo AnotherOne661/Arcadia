@@ -18,7 +18,14 @@
       <?php foreach ($collections_pok as $collection_pok): ?>
         <div class="collection-pok">
           <div class="collection-pok-cont">
-            <a href="/<?= $collection_pok->getnombreExpansion() ?>"><?= $collection_pok->getnombreExpansion() ?></a>
+            <?php $esName = explode("|", $collection_pok->getnombreExpansion()) ?>
+            <a href="/<?= $collection_pok->getnombreExpansion() ?>"><?php
+              if (count($esName) < 2) {
+                print_r($esName[1]);
+              } else {
+                echo $esName[1];
+              }
+              ?></a>
             <p><?= $collection_pok->getFechaLanzamiento() ?></p>
           </div>
         </div>
@@ -29,8 +36,16 @@
       <h2>Yu-Gi-Oh!</h2>
       <?php foreach ($collections_ygo as $collection_ygo): ?>
         <div class="collection-ygo">
+          <?php $esName = explode("|", $collection_ygo->getnombreExpansion()) ?>
+
           <div class="collection-ygo-cont">
-            <a href="/<?= $collection_ygo->getnombreExpansion() ?>"><?= $collection_ygo->getnombreExpansion() ?></a>
+            <a href="/<?= $collection_ygo->getnombreExpansion() ?>"><?php
+              if (count($esName) < 2) {
+                print_r($esName[1]);
+              } else {
+                echo $esName[1];
+              }
+              ?></a>
             <p><?= $collection_ygo->getFechaLanzamiento() ?></p>
           </div>
         </div>
@@ -41,8 +56,15 @@
       <h2>Magic: The Gathering</h2>
       <?php foreach ($collections_mtg as $collection_mtg): ?>
         <div class="collection-mtg">
+          <?php $esName = explode("|", $collection_mtg->getnombreExpansion()) ?>
           <div class="collection-mtg-cont">
-            <a href="/<?= $collection_mtg->getnombreExpansion() ?>"><?= $collection_mtg->getnombreExpansion() ?></a>
+            <a href="/<?= $collection_mtg->getnombreExpansion() ?>"><?php
+              if (count($esName) < 2) {
+                print_r($esName[1]);
+              } else {
+                echo $esName[1];
+              }
+              ?></a>
             <p><?= $collection_mtg->getFechaLanzamiento() ?></p>
           </div>
         </div>
@@ -52,9 +74,16 @@
     <div class="lor">
       <h2>Lorcana</h2>
       <?php foreach ($collections_lor as $collection_lor): ?>
+        <?php $esName = explode("|", $collection_lor->getnombreExpansion()) ?>
         <div class="collection-lor">
           <div class="collection-lor-cont">
-            <a href="/<?= $collection_lor->getnombreExpansion() ?>"><?= $collection_lor->getnombreExpansion() ?></a>
+            <a href="/<?= $collection_lor->getnombreExpansion() ?>"><?php
+              if (count($esName) < 2) {
+                print_r($esName[1]);
+              } else {
+                echo $esName[1];
+              }
+              ?></a>
             <p><?= $collection_lor->getFechaLanzamiento() ?></p>
           </div>
         </div>
@@ -64,9 +93,17 @@
     <div class="op">
       <h2>One Piece</h2>
       <?php foreach ($collections_op as $collection_op): ?>
+        <?php $esName = explode("|", $collection_op->getnombreExpansion()) ?>
+
         <div class="collection-op">
           <div class="collection-op-cont">
-            <a href="/<?= $collection_op->getnombreExpansion() ?>"><?= $collection_op->getnombreExpansion() ?></a>
+            <a href="/<?= $collection_op->getnombreExpansion() ?>"><?php
+              if (count($esName) < 2) {
+                print_r($esName[1]);
+              } else {
+                echo $esName[1];
+              }
+              ?></a>
             <p><?= $collection_op->getFechaLanzamiento() ?></p>
           </div>
         </div>

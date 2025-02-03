@@ -1,3 +1,87 @@
-a {
-  font-size: 5em;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--ygo-bold);
+}
+.about {
+  display: flex;
+
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--night);
+  color: var(--af-white);
+  padding: 2em;
+  margin-top: 2em;
+  border: solid 15px var(--af-white);
+}
+.logoCont {
+  width: 75%;
+}
+.logoCont img {
+  width: 100%;
+}
+.contact {
+  display: flex;
+  width: 85%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--af-white);
+  color: var(--night);
+  padding: 2em;
+  margin-top: 2em;
+  border: solid 15px var(--night);
+  margin-bottom: 2em;
+}
+#map {
+  height: 500px;
+  width: 500px;
+  border-radius: 25px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.form-field {
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+}
+.form-textarea {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.form-textarea label,
+.form-textarea input,
+.form-textarea textarea,
+.form-textarea button {
+  margin-top: 1em;
+  resize: none;
+}
+.form-textarea button {
+  background-color: var(--night);
+  margin-bottom: 1em;
+  color: var(--af-white);
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: var(--saffron);
+    color: var(--night);
+  }
+}
+strong {
+  color: var(--saffron);
+}
+.red {
+  color: var(--madder);
 }

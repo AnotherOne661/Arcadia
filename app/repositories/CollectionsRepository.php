@@ -21,7 +21,7 @@ class CollectionRepository extends Repository
   // Método para buscar un test por su ID y devolverlo como un objeto Test
   public function findCollectionsById($id)
   {
-    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego, urlImagen FROM $this->tableName WHERE idJuego = :id";
+    $query = "SELECT codExpansion, nombreExpansion, fechaLanzamiento, idJuego, urlImagen FROM $this->tableName WHERE idJuego = :id ORDER BY fechaLanzamiento DESC";
     $stmt = $this->pdo->prepare($query);
     $stmt->bindParam(':id', $id, PDO::PARAM_INT);
     $stmt->execute();

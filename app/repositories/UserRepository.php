@@ -21,19 +21,20 @@ class UserRepository extends Repository
 
   public function checkLogin($email)
   {
-      $query = "SELECT username, email, password, `image-url` FROM $this->tableName WHERE email = :email";
-      $stmt = $this->pdo->prepare($query);
-      var_dump($stmt);
-      // Bind parameters
-      $stmt->bindParam(':email', $email);
-  
-      $stmt->execute();
+    $query = "SELECT username, email, password, `image-url` FROM $this->tableName WHERE email = :email";
+    $stmt = $this->pdo->prepare($query);
+    var_dump($stmt);
+    // Bind parameters
+    $stmt->bindParam(':email', $email);
 
-      $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $stmt->execute();
 
-      return $row; // Devuelve el registro asociado al email, incluyendo el hash de la contraseña
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row; // Devuelve el registro asociado al email, incluyendo el hash de la contraseña
   }
-  public function saveUser($usuario){
+  public function saveUser($usuario)
+  {
     // Implementación para guardar un nuevo usuario en la base de datos
     //var_dump($usuario);
     $emailCorrect = false;
@@ -67,9 +68,9 @@ class UserRepository extends Repository
     } 
 
     $usrImg = $usuario->getImageUrl();
-    if ($usuario->getRole() != null){
+    if ($usuario->getRole() != null) {
       $role = '1';
-    } else{
+    } else {
       $role = '0';
     }
 
@@ -102,20 +103,21 @@ class UserRepository extends Repository
     }
 
   }
-  public function deleteUser($email){
+  public function deleteUser($email)
+  {
     $query = "DELETE FROM $this->tableName WHERE email = :email";
     $stmt = $this->pdo->prepare($query);
     $stmt->bindParam(':email', $email);
     $stmt->execute();
   }
   public function updateUser($currentEmail, $user, $image)
-{
+  {
     // Debugging Emails
     var_dump($currentEmail);
     var_dump($user->getEmail());
 
     if (!($user instanceof User)) {
-        throw new InvalidArgumentException('El parámetro $user debe ser una instancia de la clase User.');
+      throw new InvalidArgumentException('El parámetro $user debe ser una instancia de la clase User.');
     }
 
     $currentEmail = trim($currentEmail);
@@ -128,8 +130,8 @@ class UserRepository extends Repository
     $count = $checkStmt->fetchColumn();
 
     if ($count == 0) {
-        echo "Error: No se encontró el email en la base de datos.\n";
-        return;
+      echo "Error: No se encontró el email en la base de datos.\n";
+      return;
     }
 
     // Directorio donde se almacenarán las imágenes
@@ -137,7 +139,7 @@ class UserRepository extends Repository
 
     // Verificar si el directorio existe, si no, crearlo
     if (!is_dir($uploadDir)) {
-        mkdir($uploadDir, 0777, true);
+      mkdir($uploadDir, 0777, true);
     }
 
     // Extraer los datos del objeto User
@@ -145,32 +147,32 @@ class UserRepository extends Repository
     $username = $user->getUsername();
     $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
     $phone = $user->getPhone();
-    
+
     $newImageUrl = null;
     $uploadedFile = $image;
 
     // Manejo de la imagen subida
     if ($uploadedFile && isset($uploadedFile['tmp_name']) && $uploadedFile['error'] === UPLOAD_ERR_OK) {
-        // Obtener extensión y generar nombre único
-        $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
-        $newFileName = uniqid() . "." . $ext;
-        $destination = $uploadDir . $newFileName;
+      // Obtener extensión y generar nombre único
+      $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
+      $newFileName = uniqid() . "." . $ext;
+      $destination = $uploadDir . $newFileName;
 
-        // Debugging
-        echo "Intentando subir archivo a: " . realpath($uploadDir) . "/$newFileName \n";
+      // Debugging
+      echo "Intentando subir archivo a: " . realpath($uploadDir) . "/$newFileName \n";
 
-        // Verificar si `move_uploaded_file()` funciona correctamente
-        if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
-            echo "Archivo subido correctamente a: " . $destination . "\n";
-            $newImageUrl = $destination;
-        } else {
-            echo "Error al mover el archivo.";
-            var_dump(error_get_last());
-            return;
-        }
+      // Verificar si `move_uploaded_file()` funciona correctamente
+      if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
+        echo "Archivo subido correctamente a: " . $destination . "\n";
+        $newImageUrl = $destination;
+      } else {
+        echo "Error al mover el archivo.";
+        var_dump(error_get_last());
+        return;
+      }
     } else {
-        echo "No se recibió archivo o hubo un error en la subida.";
-        var_dump($uploadedFile);
+      echo "No se recibió archivo o hubo un error en la subida.";
+      var_dump($uploadedFile);
     }
 
     // Construir la consulta SQL dinámicamente
@@ -178,7 +180,7 @@ class UserRepository extends Repository
               SET username = :username, password = :password, phone = :phone";
 
     if ($newImageUrl !== null) {
-        $query .= ", `image-url` = :newImageUrl";
+      $query .= ", `image-url` = :newImageUrl";
     }
 
     $query .= " WHERE LOWER(email) = LOWER(:currentEmail)";
@@ -191,7 +193,7 @@ class UserRepository extends Repository
     $stmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
 
     if ($newImageUrl !== null) {
-        $stmt->bindValue(':newImageUrl', $newImageUrl, PDO::PARAM_STR);
+      $stmt->bindValue(':newImageUrl', $newImageUrl, PDO::PARAM_STR);
     }
 
     // Debug SQL Query
@@ -201,27 +203,27 @@ class UserRepository extends Repository
     $stmt->execute();
 
     if ($stmt->rowCount() === 0) {
-        echo "No se realizaron cambios. Puede que los datos sean los mismos o el email no coincida exactamente.\n";
+      echo "No se realizaron cambios. Puede que los datos sean los mismos o el email no coincida exactamente.\n";
     }
 
     // Si el email ha cambiado, actualizarlo en una consulta separada
     if ($newEmail !== $currentEmail) {
-        $queryEmail = "UPDATE $this->tableName SET email = :newEmail WHERE LOWER(email) = LOWER(:currentEmail)";
-        $stmtEmail = $this->pdo->prepare($queryEmail);
-        $stmtEmail->bindValue(':newEmail', $newEmail, PDO::PARAM_STR);
-        $stmtEmail->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
-        
-        // Debug SQL Query
-        $stmtEmail->debugDumpParams();
+      $queryEmail = "UPDATE $this->tableName SET email = :newEmail WHERE LOWER(email) = LOWER(:currentEmail)";
+      $stmtEmail = $this->pdo->prepare($queryEmail);
+      $stmtEmail->bindValue(':newEmail', $newEmail, PDO::PARAM_STR);
+      $stmtEmail->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
 
-        $stmtEmail->execute();
-        
-        if ($stmtEmail->rowCount() === 0) {
-            echo "Error al actualizar el email. Verifica que el nuevo email sea diferente.\n";
-        }
+      // Debug SQL Query
+      $stmtEmail->debugDumpParams();
+
+      $stmtEmail->execute();
+
+      if ($stmtEmail->rowCount() === 0) {
+        echo "Error al actualizar el email. Verifica que el nuevo email sea diferente.\n";
+      }
     }
 
     // Actualizar sesión
     $_SESSION['email'] = $newEmail;
-}
+  }
 }
