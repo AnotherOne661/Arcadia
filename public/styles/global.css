@@ -215,7 +215,7 @@ header {
     }
   }
 }
-i{
+i {
   font-size: 1.5em;
   color: var(--night);
   &:hover {
@@ -266,7 +266,7 @@ footer {
           img {
             max-width: 100%;
             max-height: 100%;
-            &:hover{
+            &:hover {
               transform: scale(1.5);
               cursor: pointer;
               transition: var(--transitionCool);
@@ -460,41 +460,39 @@ footer {
     background-color: var(--night);
     color: var(--saffron);
   }
-  &:active{
+  &:active {
     background-color: var(--night);
     color: var(--saffron);
     transform: translateY(3px);
     transition: var(--transitionCool);
   }
-  &:focus{
+  &:focus {
     outline: none;
   }
 }
 
-
-.btn-danger{
+.btn-danger {
   color: var(--af-white);
   border: none;
   &:hover {
     color: var(--night);
   }
-  &:active{
+  &:active {
     color: var(--night);
     transform: translateY(3px);
     transition: var(--transitionCool);
     cursor: pointer;
     outline: none !important;
   }
-  &:focus{
+  &:focus {
     outline: none !important;
   }
 }
-.card-container{
+.card-container {
   position: relative;
   perspective: 1000px;
-
 }
-.card-front{
+.card-front {
   background-image: url("reemplazar");
   background-repeat: no-repeat;
   background-size: contain;
@@ -502,9 +500,8 @@ footer {
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-
 }
-.card-back{
+.card-back {
   position: absolute;
   background-repeat: no-repeat;
   background-size: contain;
@@ -514,18 +511,18 @@ footer {
   transform: rotateY(180deg);
   background-image: url("reemplazar_idJuego");
 }
-&:hover .card-inner{
-transform: rotateY(-180deg);
+&:hover .card-inner {
+  transform: rotateY(-180deg);
 }
-.cart-total-price{
+.cart-total-price {
   color: var(--af-white);
 }
-.buyButton{
+.buyButton {
   margin-top: 2em;
   background-color: transparent !important;
   color: transparent;
 }
-.buyButton-a{
+.buyButton-a {
   margin: 1em;
   background-color: var(--saffron);
   color: var(--night);
@@ -536,9 +533,9 @@ transform: rotateY(-180deg);
   &:hover {
     background-color: var(--night);
     color: var(--saffron);
-    border:  solid 1px var(--af-white);
+    border: solid 1px var(--af-white);
   }
-  &:active{
+  &:active {
     background-color: var(--night);
     color: var(--saffron);
     transform: translateY(3px);
@@ -546,11 +543,11 @@ transform: rotateY(-180deg);
     cursor: pointer;
     border: solid 5px var(--saffron);
   }
-  &:focus{
-    outline: none!important;
+  &:focus {
+    outline: none !important;
   }
 }
-.cart-button{
+.cart-button {
   background-color: var(--saffron);
   color: var(--night);
   font-family: var(--ygo-bold);
@@ -563,9 +560,8 @@ transform: rotateY(-180deg);
     color: var(--saffron);
     border: solid 1px var(--saffron);
   }
- 
 }
-.cart-button:active{
+.cart-button:active {
   background-color: var(--night);
   color: var(--saffron);
   transform: translateY(3px);
@@ -573,13 +569,11 @@ transform: rotateY(-180deg);
   cursor: pointer;
   border: solid 3px var(--saffron) !important;
 }
-.cart-button:focus{
+.cart-button:focus {
   outline: solid var(--saffron) !important;
 }
 
 /* Estilos de productos */
-
-
 
 .secTitle {
   font-size: 2em;
@@ -589,7 +583,6 @@ transform: rotateY(-180deg);
   text-align: center;
 }
 .product {
-  
   min-width: 500px;
   min-height: 500px;
 
@@ -619,8 +612,6 @@ transform: rotateY(-180deg);
   &.YGO {
     font-family: var(--ygo-bold);
   }
-
-
 }
 .product figcaption {
   width: 60%;
@@ -650,4 +641,21 @@ transform: rotateY(-180deg);
     transform: scale(1.1);
     transition: var(--transitionCool);
   }
+}
+.newproducts {
+  color: var(--night);
+  background-color: var(--af-white) !important;
+  box-shadow: -5px 7px 10px rgba(251, 251, 251, 0.3);
+}
+.newproducts h5 {
+  color: var(--night);
+}
+
+.trendproducts {
+  color: var(--night);
+  background-color: var(--af-white) !important;
+}
+.trendproducts h5 {
+  color: var(--night);
+  background-color: var(--af-white) !important;
 }

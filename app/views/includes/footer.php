@@ -3,11 +3,16 @@
     <div id="socialmedia">
       <h4>¡Sígenos para ser el primero en enterarte!</h4>
       <div>
-        <a href="https://www.facebook.com/arcadiatcg" class="icoholder fc"><img src="../assets/images/icons/facebook.svg" alt="facebook"></a>
-        <a href="https://www.instagram.com/arcadiatcg/?" class="icoholder ig" ><img src="../assets/images/icons/instagram.svg" alt="instagram"></a>
-        <a href="https://twitter.com/arcadiatcgES" class="icoholder x"><img src="../assets/images/icons/x-logo.svg" alt="twitter"></a>
-        <a href="https://discord.com" class="icoholder dc"><img src="../assets/images/icons/discord.svg" alt="discord"></a>
-        <a href="https://tiktok.com" class="iconholder tk"><img src="../assets/images/icons/tiktok-new.svg" alt="tiktok"></a> 
+        <a href="https://www.facebook.com/arcadiatcg" class="icoholder fc"><img
+            src="../assets/images/icons/facebook.svg" alt="facebook"></a>
+        <a href="https://www.instagram.com/arcadiatcg/?" class="icoholder ig"><img
+            src="../assets/images/icons/instagram.svg" alt="instagram"></a>
+        <a href="https://twitter.com/arcadiatcgES" class="icoholder x"><img src="../assets/images/icons/x-logo.svg"
+            alt="twitter"></a>
+        <a href="https://discord.com" class="icoholder dc"><img src="../assets/images/icons/discord.svg"
+            alt="discord"></a>
+        <a href="https://tiktok.com" class="iconholder tk"><img src="../assets/images/icons/tiktok-new.svg"
+            alt="tiktok"></a>
       </div>
     </div>
     <div id="contact">
@@ -103,7 +108,7 @@
         <ul>
           <li><a href="/signup">Regístrate</a></li>
           <li><a href="/login">Inicia sesión</a></li>
-          <li><a href="/contact-form">Contacta con nosotros</a></li>
+          <li><a href="/contact">Contacta con nosotros</a></li>
         </ul>
       </div>
     </div>
