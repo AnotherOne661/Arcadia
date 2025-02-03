@@ -1,5 +1,11 @@
 <main>
   <form action="/signup-form" method="POST" id="registration-form" enctype="multipart/form-data">
+    <?php 
+    if (isset($_SESSION['signup_error'])) {
+      echo '<p class="error" style="text-aling:center;"> '. $_SESSION['signup_error']. '</p>';
+      unset($_SESSION['signup_error']);
+    }
+    ?>
     <label for="username">Nombre de usuario: </label>
     <input type="text" name="username" placeholder="Jace, the mind sculptor">
     <label for="email">Email:</label>
