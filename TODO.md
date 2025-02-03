@@ -2,7 +2,6 @@
 - Arreglar carrito (solo botones y js)
 - Llenar DB (half-done) !medium
 - Implementar rol de Administrador !low
-- Página about de contactos !medium
 - Filtrado y búsqueda de productos !high
 - Productos y sus páginas !high
 - organizar colecciones (fechas) !low
