@@ -45,18 +45,18 @@
                         <h3 class="productTitle"> 
                             <?php
                                 if (count($esName) < 2) {
-                                    print_r($esName[0]);
+                                    print_r($esName[1]);
                                 } else {
-                                    echo $esName[0];
+                                    echo $esName[1];
                                 }
                             ?> 
                         </h3>
                         <h3 class="productSubTitle">
                             <?php
                                 if (count($esName) < 2) {
-                                    print_r($esName[0]);
+                                    print_r($esName[1]);
                                 } else {
-                                    echo $esName[1];
+                                    echo $esName[0];
                                 }
                             ?>
                         </h3>
@@ -89,16 +89,16 @@
                     <figcaption class="saleproducts-desc">
                         <h3 class="productTitle"> <?php
                                                     if (count($esName) < 2) {
-                                                        print_r($esName[0]);
+                                                        print_r($esName[1]);
                                                     } else {
-                                                        echo $esName[0];
+                                                        echo $esName[1];
                                                     }
                                                     ?> </h3>
                         <h3 class="productSubTitle"><?php
                                                     if (count($esName) < 2) {
-                                                        print_r($esName[0]);
+                                                        print_r($esName[1]);
                                                     } else {
-                                                        echo $esName[1];
+                                                        echo $esName[0];
                                                     }
                                                     ?></h3>
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
@@ -130,16 +130,16 @@
                     <figcaption class="trendproducts-desc">
                         <h3 class="productTitle"> <?php
                                                     if (count($esName) < 2) {
-                                                        print_r($esName[0]);
+                                                        print_r($esName[1]);
                                                     } else {
-                                                        echo $esName[0];
+                                                        echo $esName[1];
                                                     }
                                                     ?> </h3>
                         <h3 class="productSubTitle"><?php
                                                     if (count($esName) < 2) {
-                                                        print_r($esName[0]);
+                                                        print_r($esName[1]);
                                                     } else {
-                                                        echo $esName[1];
+                                                        echo $esName[0];
                                                     }
                                                     ?></h3>
                         <h5 class="expansion"><?= $trending_product->getnombreExpansion(); ?> <input

@@ -68,15 +68,32 @@ class UserRepository extends Repository
     $stmt->bindParam(':email', $email);
     $stmt->execute();
   }
-  public function updateUser($currentEmail, $user)
+  public function updateUser($currentEmail, $user, $image)
   {
-    // Verificar que $user sea un objeto de tipo User
+    // Debugging Emails
+    var_dump($currentEmail);
+    var_dump($user->getEmail());
+
     if (!($user instanceof User)) {
       throw new InvalidArgumentException('El parámetro $user debe ser una instancia de la clase User.');
     }
 
+    $currentEmail = trim($currentEmail);
+
+    // Verificar si el email realmente existe en la base de datos
+    $checkQuery = "SELECT COUNT(*) FROM $this->tableName WHERE email = :currentEmail";
+    $checkStmt = $this->pdo->prepare($checkQuery);
+    $checkStmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
+    $checkStmt->execute();
+    $count = $checkStmt->fetchColumn();
+
+    if ($count == 0) {
+      echo "Error: No se encontró el email en la base de datos.\n";
+      return;
+    }
+
     // Directorio donde se almacenarán las imágenes
-    $uploadDir = __DIR__ . "/../public/uploads/";
+    $uploadDir = '/uploads/';
 
     // Verificar si el directorio existe, si no, crearlo
     if (!is_dir($uploadDir)) {
@@ -84,41 +101,87 @@ class UserRepository extends Repository
     }
 
     // Extraer los datos del objeto User
-    $newEmail = $user->getEmail();
+    $newEmail = trim($user->getEmail());
     $username = $user->getUsername();
     $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
     $phone = $user->getPhone();
-    $newImageUrl = $user->getImageUrl();
+
+    $newImageUrl = null;
+    $uploadedFile = $image;
 
     // Manejo de la imagen subida
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-      $ext = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+    if ($uploadedFile && isset($uploadedFile['tmp_name']) && $uploadedFile['error'] === UPLOAD_ERR_OK) {
+      // Obtener extensión y generar nombre único
+      $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
       $newFileName = uniqid() . "." . $ext;
       $destination = $uploadDir . $newFileName;
 
-      // Mover la imagen al directorio uploads
-      if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
-        $newImageUrl = $uploadDir . $newFileName; // Ruta relativa para la base de datos
+      // Debugging
+      echo "Intentando subir archivo a: " . realpath($uploadDir) . "/$newFileName \n";
+
+      // Verificar si `move_uploaded_file()` funciona correctamente
+      if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
+        echo "Archivo subido correctamente a: " . $destination . "\n";
+        $newImageUrl = $destination;
       } else {
-        throw new Exception("Error al subir la nueva imagen.");
+        echo "Error al mover el archivo.";
+        var_dump(error_get_last());
+        return;
+      }
+    } else {
+      echo "No se recibió archivo o hubo un error en la subida.";
+      var_dump($uploadedFile);
+    }
+
+    // Construir la consulta SQL dinámicamente
+    $query = "UPDATE $this->tableName 
+              SET username = :username, password = :password, phone = :phone";
+
+    if ($newImageUrl !== null) {
+      $query .= ", `image-url` = :newImageUrl";
+    }
+
+    $query .= " WHERE LOWER(email) = LOWER(:currentEmail)";
+
+    // Preparar la consulta
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindValue(':username', $username, PDO::PARAM_STR);
+    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+    $stmt->bindValue(':phone', $phone, PDO::PARAM_STR);
+    $stmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
+
+    if ($newImageUrl !== null) {
+      $stmt->bindValue(':newImageUrl', $newImageUrl, PDO::PARAM_STR);
+    }
+
+    // Debug SQL Query
+    $stmt->debugDumpParams();
+
+    // Ejecutar consulta
+    $stmt->execute();
+
+    if ($stmt->rowCount() === 0) {
+      echo "No se realizaron cambios. Puede que los datos sean los mismos o el email no coincida exactamente.\n";
+    }
+
+    // Si el email ha cambiado, actualizarlo en una consulta separada
+    if ($newEmail !== $currentEmail) {
+      $queryEmail = "UPDATE $this->tableName SET email = :newEmail WHERE LOWER(email) = LOWER(:currentEmail)";
+      $stmtEmail = $this->pdo->prepare($queryEmail);
+      $stmtEmail->bindValue(':newEmail', $newEmail, PDO::PARAM_STR);
+      $stmtEmail->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
+
+      // Debug SQL Query
+      $stmtEmail->debugDumpParams();
+
+      $stmtEmail->execute();
+
+      if ($stmtEmail->rowCount() === 0) {
+        echo "Error al actualizar el email. Verifica que el nuevo email sea diferente.\n";
       }
     }
 
-    // Construir la consulta SQL
-    $query = "UPDATE $this->tableName 
-                SET email = :newEmail, username = :username, password = :password, phone = :phone,
-                    `image-url` = :newImageUrl 
-                WHERE email = :currentEmail";
-
-    // Preparar y ejecutar la consulta
-    $stmt = $this->pdo->prepare($query);
-    $stmt->bindParam(':newEmail', $newEmail);
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':phone', $phone);
-    $stmt->bindParam(':currentEmail', $currentEmail);
-    $stmt->bindParam(':newImageUrl', $newImageUrl);
-
-    $stmt->execute();
+    // Actualizar sesión
+    $_SESSION['email'] = $newEmail;
   }
 }

@@ -6,9 +6,9 @@ require_once __DIR__ . '/Repository.php';
 // Requerimos los modelos necesarios
 require_once __DIR__ . '/../models/Home.php';
 
-require_once __DIR__ . '/../MODELS/ProductsWithExpansion.php';
+require_once __DIR__ . '/../models/ProductsWithExpansion.php';
 
-require_once __DIR__ . '/../MODELS/Event.php';
+require_once __DIR__ . '/../models/Event.php';
 
 // Extendemos HomeRepository de Repository
 class HomeRepository extends Repository
