@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-02-2025 a las 09:54:31
+-- Tiempo de generación: 03-02-2025 a las 10:18:45
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -585,9 +585,9 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('DFT', ' |Vnwxt,Verbose Host', 1, 12.38, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Vnwxt.webp', NULL),
 ('DFT', ' |Willowrush Verge', 1, 9.10, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Willowrush.webp', NULL),
 ('DFT', ' |Winter,Cursed Rider', 1, 8.40, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Winter.webp', NULL),
-('DFT', 'Aetherdrift Prerelease Promo Cards Booster', 1, 9.99, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-prerelease.webp', NULL),
 ('DFT', 'Caja de sobres de coleccionista de Aetherdrift | Aetherdrift Collector Booster Box ', 1, 217.70, 'caja', '../assets\\images\\product\\MTG\\tins\\DFT\\caja-coleccion.webp', NULL),
 ('DFT', 'Caja de sobres de juego de Aetherdrift | Aetherdrift Play Booster Box', 1, 112.24, 'caja', '../assets\\images\\product\\MTG\\tins\\DFT\\caja-aetherdrift.webp', NULL),
+('DFT', 'Sobre Aetherdrift Prerelease|Aetherdrift Prerelease Promo Cards Booster', 1, 9.99, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-prerelease.webp', NULL),
 ('DFT', 'Sobre de Box Topper de Aetherdrift | Aetherdrift Box Topper Booster ', 1, 24.98, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-box-topper.webp', NULL),
 ('DFT', 'Sobre de coleccionista de Aetherdrift | Aetherdrift Collector Booster', 1, 21.23, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-coleccionista.webp', NULL),
 ('DFT', 'Sobre de juego de Aetherdrift | Aetherdrift Play Booster', 1, 4.47, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-aetherdrift.webp', NULL),
@@ -862,7 +862,7 @@ INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) V
 ('BLB', 'Bloomburrow: Prerelease Promo Cards Booster', 14, 1),
 ('BLB', 'Sobre de coleccionista de Bloomburrow | Bloomburrow Collector Booster', 15, 1),
 ('BLB', 'Sobre de juego de Bloomburrow | Bloomburrow Play Booster ', 14, 1),
-('DFT', 'Aetherdrift Prerelease Promo Cards Booster', 14, 1),
+('DFT', 'Sobre Aetherdrift Prerelease|Aetherdrift Prerelease Promo Cards Booster', 14, 1),
 ('DFT', 'Sobre de Box Topper de Aetherdrift | Aetherdrift Box Topper Booster ', 15, 1),
 ('DFT', 'Sobre de coleccionista de Aetherdrift | Aetherdrift Collector Booster', 15, 1),
 ('DFT', 'Sobre de juego de Aetherdrift | Aetherdrift Play Booster', 14, 1),
