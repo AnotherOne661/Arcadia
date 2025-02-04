@@ -42,22 +42,22 @@
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
-                        <h3 class="productTitle"> 
+                        <h3 class="productTitle">
                             <?php
-                                if (count($esName) < 2) {
-                                    print_r($esName[1]);
-                                } else {
-                                    echo $esName[1];
-                                }
-                            ?> 
+                            if (count($esName) < 2) {
+                                print_r($esName[1]);
+                            } else {
+                                echo $esName[1];
+                            }
+                            ?>
                         </h3>
                         <h3 class="productSubTitle">
                             <?php
-                                if (count($esName) < 2) {
-                                    print_r($esName[1]);
-                                } else {
-                                    echo $esName[0];
-                                }
+                            if (count($esName) < 2) {
+                                print_r($esName[1]);
+                            } else {
+                                echo $esName[0];
+                            }
                             ?>
                         </h3>
                         <h5 class="expansion"><?= $new_product->getnombreExpansion(); ?> <input class="hidden idExpansion"
@@ -88,25 +88,25 @@
 
                     <figcaption class="saleproducts-desc">
                         <h3 class="productTitle"> <?php
-                                                    if (count($esName) < 2) {
-                                                        print_r($esName[1]);
-                                                    } else {
-                                                        echo $esName[1];
-                                                    }
-                                                    ?> </h3>
+                        if (count($esName) < 2) {
+                            print_r($esName[1]);
+                        } else {
+                            echo $esName[1];
+                        }
+                        ?> </h3>
                         <h3 class="productSubTitle"><?php
-                                                    if (count($esName) < 2) {
-                                                        print_r($esName[1]);
-                                                    } else {
-                                                        echo $esName[0];
-                                                    }
-                                                    ?></h3>
+                        if (count($esName) < 2) {
+                            print_r($esName[1]);
+                        } else {
+                            echo $esName[0];
+                        }
+                        ?></h3>
                         <h5 class="expansion"><?= $product->getnombreExpansion(); ?> <input class="hidden idExpansion"
                                 value="<?= $product->getcodExpansion(); ?>"></input></h5>
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
                             <input type="number" class="productQuantity" value="1" min="1">
-                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <h6 class="productPrice"><?= $product->getprecio(); ?>€</h6>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
                         </div>
@@ -129,26 +129,26 @@
 
                     <figcaption class="trendproducts-desc">
                         <h3 class="productTitle"> <?php
-                                                    if (count($esName) < 2) {
-                                                        print_r($esName[1]);
-                                                    } else {
-                                                        echo $esName[1];
-                                                    }
-                                                    ?> </h3>
+                        if (count($esName) < 2) {
+                            print_r($esName[1]);
+                        } else {
+                            echo $esName[1];
+                        }
+                        ?> </h3>
                         <h3 class="productSubTitle"><?php
-                                                    if (count($esName) < 2) {
-                                                        print_r($esName[1]);
-                                                    } else {
-                                                        echo $esName[0];
-                                                    }
-                                                    ?></h3>
+                        if (count($esName) < 2) {
+                            print_r($esName[1]);
+                        } else {
+                            echo $esName[0];
+                        }
+                        ?></h3>
                         <h5 class="expansion"><?= $trending_product->getnombreExpansion(); ?> <input
                                 class="hidden idExpansion" value="<?= $trending_product->getcodExpansion(); ?>"></input>
                         </h5>
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
                         <div>
                             <input type="number" class="productQuantity" value="1" min="1">
-                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <h6 class="productPrice"><?= $trending_product->getprecio(); ?>€</h6>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
                         </div>

@@ -56,10 +56,11 @@ class HomeRepository extends Repository
   public function findSaleProducts()
   {
     $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, e.nombreExpansion, e.fechaLanzamiento
-    FROM ofertas as p
-    LEFT JOIN expansiones as e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
-    ORDER BY e.fechaLanzamiento DESC
-    LIMIT 6";
+FROM productos AS p
+LEFT JOIN expansiones AS e ON p.codExpansion = e.codExpansion AND p.idJuego = e.idJuego
+WHERE p.descuento IS NOT NULL
+ORDER BY e.fechaLanzamiento DESC
+LIMIT 6";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
 
