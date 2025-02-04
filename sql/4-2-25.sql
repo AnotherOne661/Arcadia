@@ -5,7 +5,6 @@
 -- Host: 127.0.0.1
 -- Generation Time: Feb 04, 2025 at 12:20 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -25,7 +24,10 @@ SET time_zone = "+00:00";
 
 --
 -- Table structure for table `addresses`
---
+---- PHP Version: 8.2.12
+DROP DATABASE IF EXISTS arcadia;
+CREATE DATABASE arcadia;
+USE arcadia;
 
 CREATE TABLE `addresses` (
   `idAddress` int(11) NOT NULL,
