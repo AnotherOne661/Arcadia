@@ -4,46 +4,44 @@
  * This is a sample CSS file for an error page.
  */
 
-
-.hidden {
-  display: none;
-}
-.edit-form{
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  color: var(--night);
-
-  label , input{
-    width: 100%;
-  }
-  input{
-    margin-bottom: 1em;
-  }
-  button{
-    align-self: center;
-  }
-}
- #mypage{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  div{
-  background-color: #f9f9f9;
+.edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  align-self: center;
-  width: 50%;
-  height: auto;
-  margin: 3%;
-  padding: 5em;
-  border: 15px solid var(--night);
+  justify-content: center;
+  font-family: var(--ygo-bold);
+  width: 100%;
+  color: var(--night);
+  label,
+  input {
+    width: 100%;
+  }
+  input {
+    margin-bottom: 1em;
+  }
+  button {
+    align-self: center;
+  }
+}
+#mypage {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  div {
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    align-self: center;
+    width: 50%;
+    height: auto;
+    margin: 3%;
+    padding: 5em;
+    border: 15px solid var(--night);
   }
 
-  #botones{
+  #botones {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -53,11 +51,11 @@
   a {
     text-decoration: none; /* Remove default underline from links */
   }
-  
+
   a:hover {
     text-decoration: none; /* Prevent link color change on hover */
   }
-  #delaccount{
+  #delaccount {
     align-self: center;
   }
   button {
@@ -71,29 +69,35 @@
     border-radius: 5px;
     margin: 1em;
   }
-  
+
   button:hover {
     background-color: var(--saffron); /* Change button color on hover */
     color: var(--night);
   }
-  
+
   p {
     font-size: 2rem; /* Set default paragraph font size */
     line-height: 1.5; /* Increase line height for better readability */
     font-family: var(--ygo-bold); /* Adjust paragraph text color */
   }
-  
-  ul, ol {
+
+  ul,
+  ol {
     list-style: none; /* Remove default bullet styles */
     padding: 0; /* Reset list padding to zero */
     margin: 0; /* Reset list margin to zero */
   }
-  
+
   li {
     display: block; /* Change list item display to block */
     padding: 10px 20px; /* Add some padding for better spacing */
   }
-
-  
- }
-
+  .profile {
+    height: 100px;
+    width: 100px;
+    border-radius: 25px;
+  }
+}
+.hidden {
+  display: none;
+}

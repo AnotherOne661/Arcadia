@@ -1,9 +1,13 @@
 <main>
   <form action="/signup-form" method="POST" id="registration-form" enctype="multipart/form-data">
-    <?php 
+    <?php
     if (isset($_SESSION['signup_error'])) {
-      echo '<p class="error" style="text-aling:center;"> '. $_SESSION['signup_error']. '</p>';
+      echo '<p class="error" style="text-aling:center;"> ' . $_SESSION['signup_error'] . '</p>';
       unset($_SESSION['signup_error']);
+    }
+    if (isset($_SESSION['signup_error_duplicate'])) {
+      echo '<p class="success" style="text-aling:center;"> ' . $_SESSION['signup_error_duplicate'] . '</p>';
+      unset($_SESSION['signup_error_duplicate']);
     }
     ?>
     <label for="username">Nombre de usuario: </label>

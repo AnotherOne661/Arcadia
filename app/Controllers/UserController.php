@@ -33,7 +33,9 @@ class UserController extends Controller
       // Si la contraseña coincide, inicia sesión
       $_SESSION['name'] = $usrNick;
       $_SESSION['email'] = $email;
-      $_SESSION['profile'] = $usrImg;
+      $_SESSION['profile'] = ltrim($usrImg, '/');
+      $_SESSION['profile-path'] = "/assets/images/" . $_SESSION['profile'];
+
       $this->response->sendRedirect('/myPage');
     } else {
       // Contraseña incorrecta o usuario no encontrado
@@ -46,18 +48,22 @@ class UserController extends Controller
 
   public function deleteAccount()
   {
-    $email = $_SESSION['email'];
-    $this->userRepository->deleteUser($email);
-    session_destroy();
-    $this->response->sendRedirect('/home');
-    return null;
+    try {
+      $email = $_SESSION['email'];
+      $this->userRepository->deleteUser($email);
+      session_destroy();
+      $this->response->sendRedirect('/home');
+      return null;
+    } catch (PDOException $e) {
+      echo "Error al borrar la cuenta: " . $e->getMessage();
+    }
 
   }
   public function editAccount()
   {
     // Obtén el email actual desde la sesión
     $currentEmail = $_SESSION['email'];
-    $uploadedFile = $_FILES['imageurl'] ?? null; 
+    $uploadedFile = $_FILES['imageurl'] ?? null;
     // Crea una instancia de User con los datos del formulario
     $user = new User(
       $this->request->post('username'),
@@ -65,8 +71,8 @@ class UserController extends Controller
       $this->request->post('password'),
       $this->request->post('phone'),
       0
-      );
-    
+    );
+
     // Asegúrate de que $user es un objeto válido de la clase User
     if (!($user instanceof User)) {
       throw new InvalidArgumentException('El objeto $user debe ser una instancia válida de la clase User.');
@@ -89,12 +95,12 @@ class UserController extends Controller
   {
     $user = new User($this->request->post('username'), $this->request->post('email'), $this->request->post('password'), $this->request->post('phone'));
     $this->userRepository->saveUser($user);
-    if($_SESSION['signup_error']){
-      echo "Error al crear cuenta: ". $_SESSION['signup_error'];
+    if ($_SESSION['signup_error']) {
+      echo "Error al crear cuenta: " . $_SESSION['signup_error'];
       $this->response->sendRedirect("/signup");
-    } else{
+    } else {
       echo "no hay error";
-     $this->response->sendRedirect('/myPage');
+      $this->response->sendRedirect('/myPage');
     }
     return null;
   }

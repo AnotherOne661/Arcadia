@@ -41,7 +41,7 @@ class UserRepository extends Repository
     $email = $usuario->getEmail();
 
     $username = $usuario->getUsername();
-    
+
     $password = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
     $passwordCorrect = false;
     $passwordRegex = "/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/";
@@ -52,20 +52,20 @@ class UserRepository extends Repository
 
     $usrExists = true;
 
-    if(preg_match($phoneRegex, $phone)){
-        $phoneCorrect = true;
+    if (preg_match($phoneRegex, $phone)) {
+      $phoneCorrect = true;
     }
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailCorrect = true;
+      $emailCorrect = true;
     }
-    if (preg_match($passwordRegex, $usuario->getPassword())){
-        $passwordCorrect = true;
+    if (preg_match($passwordRegex, $usuario->getPassword())) {
+      $passwordCorrect = true;
     }
 
     $user = $this->checkLogin($email);
     if (!$user) {
-        $usrExists = false; // User exists
-    } 
+      $usrExists = false; // User exists
+    }
 
     $usrImg = $usuario->getImageUrl();
     if ($usuario->getRole() != null) {
@@ -74,32 +74,32 @@ class UserRepository extends Repository
       $role = '0';
     }
 
-    if($phoneCorrect && $emailCorrect && $passwordCorrect){
-        if(!$usrExists){
-            $_SESSION['signup_error'] = null;
+    if ($phoneCorrect && $emailCorrect && $passwordCorrect) {
+      if (!$usrExists) {
+        $_SESSION['signup_error'] = null;
 
-            $query = "INSERT INTO $this->tableName (email, username, password, phone, role,`image-url`) VALUES (:email, :username, :password, :phone, :role, :imageurl)";
-            $stmt = $this->pdo->prepare($query);
-        
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':username', $username);
-            $stmt->bindParam(':password', $password);
-            $stmt->bindParam(':phone', $phone);
-            $stmt->bindParam(':role', $role);
-            $stmt->bindParam(':imageurl', $usrImg);
-        
-            $stmt->execute();
-        } else{
-            echo "Error: El usuario ya existe.\n";
-            $_SESSION['signup_error'] = "El usuario ya existe.\n";
-        }
+        $query = "INSERT INTO $this->tableName (email, username, password, phone, role,`image-url`) VALUES (:email, :username, :password, :phone, :role, :imageurl)";
+        $stmt = $this->pdo->prepare($query);
 
-   
-    } else{
-        echo "Error: Los datos introducidos no son válidos.\n";
-        echo "Error: Tu email debe tener un formato válido.\n";
-        echo "Error: Tu contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.\n";
-        echo "Error: Tu teléfono debe tener un formato válido.\n";
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':role', $role);
+        $stmt->bindParam(':imageurl', $usrImg);
+
+        $stmt->execute();
+      } else {
+        echo "Error: El usuario ya existe.\n";
+        $_SESSION['signup_error'] = "El usuario ya existe.\n";
+      }
+
+
+    } else {
+      echo "Error: Los datos introducidos no son válidos.\n";
+      echo "Error: Tu email debe tener un formato válido.\n";
+      echo "Error: Tu contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.\n";
+      echo "Error: Tu teléfono debe tener un formato válido.\n";
     }
 
   }
@@ -123,19 +123,14 @@ class UserRepository extends Repository
     $currentEmail = trim($currentEmail);
 
     // Verificar si el email realmente existe en la base de datos
-    $checkQuery = "SELECT COUNT(*) FROM $this->tableName WHERE email = :currentEmail";
-    $checkStmt = $this->pdo->prepare($checkQuery);
-    $checkStmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
-    $checkStmt->execute();
-    $count = $checkStmt->fetchColumn();
-
+    $count = $this->checkIfExist($currentEmail);
     if ($count == 0) {
       echo "Error: No se encontró el email en la base de datos.\n";
       return;
     }
 
     // Directorio donde se almacenarán las imágenes
-    $uploadDir = '/uploads/';
+    $uploadDir = 'uploads/';
 
     // Verificar si el directorio existe, si no, crearlo
     if (!is_dir($uploadDir)) {
@@ -144,11 +139,18 @@ class UserRepository extends Repository
 
     // Extraer los datos del objeto User
     $newEmail = trim($user->getEmail());
+    $adequate = $this->checkIfExist($newEmail);
+    if ($adequate > 0 && $newEmail != $currentEmail) {
+      echo "Error: Este email ya está en uso.\n";
+      $_SESSION['signup_error_duplicate'] = "Este email ya está en uso.\n";
+      return;
+    }
     $username = $user->getUsername();
     $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
     $phone = $user->getPhone();
 
     $newImageUrl = null;
+    $newFileName = null;
     $uploadedFile = $image;
 
     // Manejo de la imagen subida
@@ -156,7 +158,7 @@ class UserRepository extends Repository
       // Obtener extensión y generar nombre único
       $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
       $newFileName = uniqid() . "." . $ext;
-      $destination = $uploadDir . $newFileName;
+      $destination = __DIR__ . "/../../public/assets/images/$uploadDir" . $newFileName;
 
       // Debugging
       echo "Intentando subir archivo a: " . realpath($uploadDir) . "/$newFileName \n";
@@ -179,7 +181,7 @@ class UserRepository extends Repository
     $query = "UPDATE $this->tableName 
               SET username = :username, password = :password, phone = :phone";
 
-    if ($newImageUrl !== null) {
+    if ($newFileName !== null) {
       $query .= ", `image-url` = :newImageUrl";
     }
 
@@ -193,7 +195,7 @@ class UserRepository extends Repository
     $stmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
 
     if ($newImageUrl !== null) {
-      $stmt->bindValue(':newImageUrl', $newImageUrl, PDO::PARAM_STR);
+      $stmt->bindValue(':newImageUrl', $uploadDir . $newFileName, PDO::PARAM_STR);
     }
 
     // Debug SQL Query
@@ -225,5 +227,17 @@ class UserRepository extends Repository
 
     // Actualizar sesión
     $_SESSION['email'] = $newEmail;
+    $newPath = "/assets/images/$uploadDir" . $newFileName;
+    $_SESSION['profile-path'] = $newPath;
+  }
+  private function checkIfExist($email)
+  {
+    $checkQuery = "SELECT COUNT(*) FROM $this->tableName WHERE email = :currentEmail";
+    $checkStmt = $this->pdo->prepare($checkQuery);
+    $checkStmt->bindValue(':currentEmail', $email, PDO::PARAM_STR);
+    $checkStmt->execute();
+    $count = $checkStmt->fetchColumn();
+
+    return $count;
   }
 }
