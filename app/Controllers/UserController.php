@@ -89,7 +89,13 @@ class UserController extends Controller
   {
     $user = new User($this->request->post('username'), $this->request->post('email'), $this->request->post('password'), $this->request->post('phone'));
     $this->userRepository->saveUser($user);
-    $this->response->sendRedirect('/myPage');
+    if($_SESSION['signup_error']){
+      echo "Error al crear cuenta: ". $_SESSION['signup_error'];
+      $this->response->sendRedirect("/signup");
+    } else{
+      echo "no hay error";
+     $this->response->sendRedirect('/myPage');
+    }
     return null;
   }
 }

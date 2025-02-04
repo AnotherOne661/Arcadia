@@ -37,10 +37,36 @@ class UserRepository extends Repository
   {
     // Implementación para guardar un nuevo usuario en la base de datos
     //var_dump($usuario);
+    $emailCorrect = false;
     $email = $usuario->getEmail();
+
     $username = $usuario->getUsername();
+    
     $password = password_hash($usuario->getPassword(), PASSWORD_DEFAULT);
+    $passwordCorrect = false;
+    $passwordRegex = "/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/";
+
     $phone = $usuario->getPhone();
+    $phoneCorrect = false;
+    $phoneRegex = "/^(\+34|0034|34)?[6789]\d{8}$/";
+
+    $usrExists = true;
+
+    if(preg_match($phoneRegex, $phone)){
+        $phoneCorrect = true;
+    }
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailCorrect = true;
+    }
+    if (preg_match($passwordRegex, $usuario->getPassword())){
+        $passwordCorrect = true;
+    }
+
+    $user = $this->checkLogin($email);
+    if (!$user) {
+        $usrExists = false; // User exists
+    } 
+
     $usrImg = $usuario->getImageUrl();
     if ($usuario->getRole() != null) {
       $role = '1';
@@ -48,18 +74,34 @@ class UserRepository extends Repository
       $role = '0';
     }
 
+    if($phoneCorrect && $emailCorrect && $passwordCorrect){
+        if(!$usrExists){
+            $_SESSION['signup_error'] = null;
 
-    $query = "INSERT INTO $this->tableName (email, username, password, phone, role,`image-url`) VALUES (:email, :username, :password, :phone, :role, :imageurl)";
-    $stmt = $this->pdo->prepare($query);
+            $query = "INSERT INTO $this->tableName (email, username, password, phone, role,`image-url`) VALUES (:email, :username, :password, :phone, :role, :imageurl)";
+            $stmt = $this->pdo->prepare($query);
+        
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':role', $role);
+            $stmt->bindParam(':imageurl', $usrImg);
+        
+            $stmt->execute();
+        } else{
+            echo "Error: El usuario ya existe.\n";
+            $_SESSION['signup_error'] = "El usuario ya existe.\n";
+        }
 
-    $stmt->bindParam(':email', $email);
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
-    $stmt->bindParam(':phone', $phone);
-    $stmt->bindParam(':role', $role);
-    $stmt->bindParam(':imageurl', $usrImg);
+   
+    } else{
+        echo "Error: Los datos introducidos no son válidos.\n";
+        echo "Error: Tu email debe tener un formato válido.\n";
+        echo "Error: Tu contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.\n";
+        echo "Error: Tu teléfono debe tener un formato válido.\n";
+    }
 
-    $stmt->execute();
   }
   public function deleteUser($email)
   {

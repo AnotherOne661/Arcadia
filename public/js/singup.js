@@ -105,9 +105,9 @@ const validateConfirmPassword = () => {
  * @returns {boolean} True if the phone number is valid, false otherwise.
  */
 const validatePhone = () => {
-    const phoneRegex = /^\d{9}$/;
+    const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$/;
     if (!phoneRegex.test(phoneInput.value)) {
-        phoneError.textContent = 'Ingrese un número de teléfono válido (9 dígitos).';
+        phoneError.textContent = 'Ingrese un número de teléfono válido.';
         phoneError.style.display = 'block';
         return false;
     }
@@ -122,7 +122,12 @@ const validatePhone = () => {
  */
 const validateAge = () => {
     if (!ageCheckbox.checked) {
-        alert('Debes ser mayor de 18 años para registrarte.');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debes de ser mayor de edad",
+            
+          });
         return false;
     }
     return true;
@@ -135,7 +140,12 @@ const validateAge = () => {
  */
 const validateTerms = () => {
     if (!termsCheckbox.checked) {
-        alert('Debes aceptar los términos y condiciones.');
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debes de aceptar los términos y condiciones",
+            
+          });
         return false;
     }
     return true;
@@ -181,10 +191,17 @@ phoneInput.addEventListener('input', () => {
  * Prevents the default form submission behavior and displays a success message.
  * @param {Event} e The form submission event.
  */
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
+form.addEventListener('submit', (e) => { 
+    e.preventDefault();  // Prevent default form submission
+
     if (validateAge() && validateTerms()) {
-        alert('Formulario enviado con éxito');
-        form.submit();
+        Swal.fire({
+            icon: "success",
+            title: "Formulario enviado con éxito",
+            text: "Bienvenido",      
+        }).then(() => {
+            // Only submit the form and trigger the redirect after the alert has been closed
+            form.submit();
+        });
     }
 });

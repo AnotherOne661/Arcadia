@@ -1,20 +1,18 @@
-DROP DATABASE IF EXISTS arcadia;
-CREATE DATABASE arcadia;
-USE arcadia;
-
-
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 03, 2025 at 01:11 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 03-02-2025 a las 22:14:27
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+DROP DATABASE IF EXISTS arcadia;
+CREATE DATABASE arcadia;
+USE arcadia;
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -23,13 +21,495 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcadia`
+-- Base de datos: `arcadia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `addresses`
+--
+
+CREATE TABLE `addresses` (
+  `idAddress` int(11) NOT NULL,
+  `comunidad` varchar(150) DEFAULT NULL,
+  `municipio` varchar(150) DEFAULT NULL,
+  `cp` int(5) DEFAULT NULL,
+  `calle` varchar(255) DEFAULT NULL,
+  `puerta` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `addresses`
+--
+
+INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `puerta`) VALUES
+(1, '[value-2]', '[value-3]', 0, '[value-5]', '[value-6]');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caja`
+--
+
+CREATE TABLE `caja` (
+  `codExpansion` varchar(100) NOT NULL,
+  `nombreProducto` varchar(255) NOT NULL,
+  `numCartas` int(11) NOT NULL,
+  `idJuego` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `caja`
+--
+
+INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
+('ACR', 'Caja de sobres de coleccionista de Más allá del Multiverso: Assassin\'s Creed|Universes Beyond: Assassin\'s Creed Collector Booster Box ', 12, 1),
+('ACR', 'Caja de sobres de Más allá del Multiverso: Assassin\'s Creed|Universes Beyond: Assassin\'s Creed Beyond Booster Display ', 24, 1),
+('BLB', 'Caja de sobres de coleccionista de Bloomburrow | Bloomburrow Collector Booster Box', 12, 1),
+('BLB', 'Caja de sobres de juego de Bloomburrow | Bloomburrow Play Booster Box ', 36, 1),
+('DFT', 'Caja de sobres de coleccionista de Aetherdrift | Aetherdrift Collector Booster Box ', 12, 1),
+('DFT', 'Caja de sobres de juego de Aetherdrift | Aetherdrift Play Booster Box', 30, 1),
+('DSK', 'Caja de sobres de coleccionista de Duskmourn:La casa de los horrores', 12, 1),
+('DSK', 'Caja de sobres de juego de Duskmourn:La casa de los horrores', 36, 1),
+('DSK', 'Duskmourn:House of Horror: Nightmare Fat Pack Bundle', 6, 1),
+('INFO', 'Infinite Forbidden Box', 520, 2),
+('INR', 'Caja de sobres de coleccionista de Innistrad remasterizada,Innistrad Remastered Collector Booster Box ', 12, 1),
+('INR', 'Caja de sobres de juego de Innistrad remasterizada,Innistrad Remastered Play Booster Box', 36, 1),
+('IXL', 'Ixalan Deck', 60, 1),
+('KLD', 'Kaladesh Booster Box', 540, 1),
+('MH3', 'Modern Horizons 3 Booster Box', 540, 1),
+('OP09', 'Emperors in the New World Booster Box', 24, 5),
+('OP09', 'Emperors in the New World Booster Box Case (12x Booster Box)', 288, 5),
+('OP16', 'Uta Starter Deck', 50, 5),
+('OTJ', 'Caja de sobres de coleccionista de Forajidos de Cruce de Truenos|Outlaws of Thunder Junction Collector Booster Box ', 12, 1),
+('OTJ', 'Caja de sobres de juego de Forajidos de Cruce de Truenos|Outlaws of Thunder Junction Play Booster Box', 36, 1),
+('PIP', 'Universes Beyond: Fallout Collector Booster Box', 12, 1),
+('SCR', 'Stellar Crown Booster Box', 540, 3),
+('SDWD', 'Blue-Eyes White Destiny Box', 500, 2),
+('SSPK', 'Surging Sparks Deck', 60, 3),
+('UR', 'Ursula\'s Return Tin', 60, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `carta`
+--
+
+CREATE TABLE `carta` (
+  `codExpansion` varchar(100) NOT NULL,
+  `nombreProducto` varchar(255) NOT NULL,
+  `idJuego` int(11) NOT NULL,
+  `atributos` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `carta`
+--
+
+INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) VALUES
+('ACR', 'Contactos en el mercado negro|Black Market Connections', 1, 'hechizo,enchantment,rare,coste:2{NC},1{B}'),
+('ACR', 'Edward Kenway|Edward Kenway', 1, 'criatura,legendary,,human assassin pirate,mitico,fuerza:5,resistencia:5,coste:2{NC},1{U},1{B},1{R}'),
+('ACR', 'Eivor, Matalobos|Eivor, Wolf-Kissed', 1, 'criatura,legendary,human assassins warrior,mitico,fuerza:7,resistencia:6,coste:3{NC},1{R},1{G},1{W}'),
+('ACR', 'Espada de abundancia y escasez|Sword of Feast and Famine', 1, 'artefacto,equipment,mitico,coste:3{NC}'),
+('ACR', 'Excalibur,espada del Edén|Excalibur,Sword of Eden ', 1, 'artefacto,legendary,equipment,rare,coste:12{NC}'),
+('ACR', 'Ezio Auditore da Firenze|Ezio Auditore da Firenze', 1, 'criatura,legendary,human assassin,mitico,fuerza:3,resistencia:2,coste:1{NC},1{B}'),
+('ACR', 'Fruto del Edén,reliquia Isu|Apple of Eden,Isu Relic ', 1, 'artefacto,legendary,mitico,coste:4{NC}'),
+('ACR', 'Kassandra, portadora del águila|Kassandra, Eagle Bearer', 1, 'criatura,legendary,human assassin warrior,fuerza:2,resistencia:2,coste:1{NC},1{R},1{W}'),
+('ACR', 'Leonardo da Vinci|Leonardo da Vinci', 1, 'criatura,legendary,human artificer,mitico,fuerza:3,resistencia:3,coste:2{NC},1{U}'),
+('ACR', 'Yggdrasil,artefacto del renacer|Yggdrasil,Rebirth Engine ', 1, 'artefacto,legendary,mitico,coste:3{NC}'),
+('ALP', 'Loto Negro |Black Lotus ', 1, 'artefacto,rare,coste:0'),
+('ANE', 'Monkey.D.Luffy (OP05-119) (V.1)', 5, 'personaje,don:10,poder:120000'),
+('BLB', 'Beza, la Primavera Prometida | Beza, the Bounding Spring', 1, 'criatura,legendaria,elemental elk,mítica,fuerza:4,resistencia:5,coste:2{NC},2{W}'),
+('BLB', 'Caer|Fell ', 1, 'hechizo,sorcery,uncommon,coste:1{NC},1{B}'),
+('BLB', 'Campana de Puerto Fontanal|Fountainport Bell', 1, 'artefacto,common,coste:1{NC}'),
+('BLB', 'Cangrejo arremolinante|Eddymurk Crab ', 1, 'criatura,uncommon,elemental crab,resistencia:5,fuerza:5,coste:5{NC},2{U}'),
+('BLB', 'Clériga de la vista estelar|Starscape Cleric ', 1, 'criatura,uncommon,bat cleric,resistencia:1,fuerza:1,coste:1{NC},1{B}'),
+('BLB', 'En las garras del sueño|Kitnap', 1, 'hechizo,enchantment,aura,rare,coste:2{NC},2{U}'),
+('BLB', 'Epopeya heredada|Heirloom Epic ', 1, 'artefacto,uncommon,coste:1{NC}'),
+('BLB', 'Espada de forja estelar|Starforged Sword ', 1, 'artefacto,equipment,uncommon,coste:4{NC}'),
+('BLB', 'Festival de las Ascuas|Festival of Embers', 1, 'hechizo,enchantment,rare,coste:4{NC},1{R}'),
+('BLB', 'Formación de la Patarcela|Pawpatch Formation', 1, 'hechizo,instant,uncommon,coste:1{NC},1{G}'),
+('BLB', 'Guerrera de la flamánima | Emberheart Challenger', 1, 'criatura,mouse warrior,rare,fuerza:2,resistencia:2,coste:1{NC},1{R}'),
+('BLB', 'Hacia las fauces inundadas|Into the Flood Maw ', 1, 'hechizo,instant,uncommon,coste:1{U}'),
+('BLB', 'Héroe de la llama del corazón|Heartfire Hero ', 1, 'criatura,uncommon,mouse soldier,resistencia:1,fuerza:1,coste:1{R}'),
+('BLB', 'Invocación estelar|Starfall Invocation', 1, 'hechizo,sorcery,rare,coste:3{NC},2{W}'),
+('BLB', 'Llenar la despensa|Stocking the Pantry', 1, 'hechizo,enchantment,uncommon,coste:1{G}'),
+('BLB', 'Lumra, Bramido del Bosque | Lumra, Bellow of the Woods', 1, 'criatura,legendaria,elemental bear,mítico,fuerza:*,resistencia:*,coste:4{NC},2{G}'),
+('BLB', 'Luz de destierro|Banishing Light', 1, 'hechizo,enchantment,common,coste:2{NC},1{W}'),
+('BLB', 'Maha, Plumas de la Noche | Maha, Its Feathers Night ', 1, 'criatura,legendaria,elemental bird,mítica,fuerza:6,resistencia:5,coste:3{NC},2{B}'),
+('BLB', 'Monolito amenazador|Sinister Monolith ', 1, 'artefacto,uncommon,coste:3{NC},1{B}'),
+('BLB', 'Patas a la obra|Hop to It', 1, 'hechizo,sorcery,uncommon,coste:2{NC},1{W}'),
+('BLB', 'Poder de los mansos|Might of the Meek ', 1, 'hechizo,instant,common,coste:1{R}'),
+('BLB', 'Por el bien común|For the Common Good ', 1, 'hechizo,sorcery,rare,coste:2{X},1{G}'),
+('BLB', 'Portal acuático|Splash Portal ', 1, 'hechizo,sorcery,uncommon,coste:1{U}'),
+('BLB', 'Pozo de los deseos|Wishing Well', 1, 'artefacto,rare,coste:3{NC},1{U}'),
+('BLB', 'Racha de regalo|Parting Gust', 1, 'hechizo,instant,uncommon,coste:2{W}'),
+('BLB', 'Recluta de la Patarcela|Pawpatch Recruit', 1, 'criatura,rare,rabbit warrior,fuerza:2,resistencia:1,coste:1{G}'),
+('BLB', 'Sinsonte|Mockingbird', 1, 'criatura,rare,bird bard,resistencia:1,fuerza:1,coste:1{X},1{U}'),
+('BLB', 'Sobreproteger|Overprotect', 1, 'hechizo,instant,uncommon,coste:1{NC},1{G}'),
+('BLB', 'Talento: herrería|Blacksmith\'s Talent', 1, 'hechizo,enchantment,class,uncommon,coste:1{R}'),
+('BLB', 'Víbora de boca pútrida | Rottenmouth Viper ', 1, 'criatura,elemental snake,mítico,fuerza:6,resistencia:6,coste:5{NC},1{B}'),
+('BLB', 'Ygra, devoratodo | Ygra, Eater of All ', 1, 'criatura.legendaria,elemental cat,mítico,fuerza:6,resistencia:6,coste:3{NC},1{B},1{G}'),
+('CLC', 'Charizard|Charizard', 3, 'pokemon,tipo:fuego,hp:120,weakness{2},resistance{-30},retreat{3}.'),
+('CLC', 'Charmander|Charmander', 3, 'pokemon,tipo:fuego,hp:50,weakness{2},retreat{1}'),
+('CLC', 'Charmeleon|Charmeleon', 3, 'pokemon,tipo:fuego,hp:80,weakness{2},retreat{1}'),
+('CLC', 'Clefable|Clefable', 3, 'pokemon,tipo:hada,hp:70,weakness{2},retreat{2}'),
+('CLC', 'Clefairy|Clefairy', 3, 'pokemon,tipo:normal,hp:40,weakness{2},retreat{1}'),
+('CLC', 'Electrode|Electrode', 3, 'pokemon,tipo:electrico,hp:80,weakness{2},retreat{1}'),
+('CLC', 'Ho-Oh ex|Ho-Oh ex', 3, 'pokemon,tipo:fuego,hp:220,weakness{2},retreat{2}'),
+('CLC', 'Magmar|Magmar', 3, 'pokemon,tipo:fuego,hp:70,weakness{2},retreat{1}'),
+('CLC', 'Pikachu|Pikachu', 3, 'pokemon,tipo:normal,hp:40,weakness{2},retreat{1}'),
+('CLC', 'Ponyta|Ponyta', 3, 'pokemon,tipo:fuego,hp:60,weakness{2},retreat{1}'),
+('CLC', 'Raichu|Raichu', 3, 'pokemon,tipo:electrico,hp:130,weakness{2},retreat{1}'),
+('CLC', 'Rapidash|Rapidash', 3, 'pokemon,tipo:fuego,hp:100,weakness{2},retreat{1}'),
+('CLC', 'Voltorb|Voltorb', 3, 'pokemon,tipo:electrico,hp:40,weakness{2},retreat{1}'),
+('CLC', 'Zapdos|Zapdos', 3, 'pokemon,tipo:electrico,hp:120,weakness{2},retreat{1}'),
+('DFT', ' |Bleachbone Verge', 1, 'tierra,rare,B,W.'),
+('DFT', ' |Boommobile', 1, 'artefacto,vehiculo,fuerza:5,resistencia:5,coste:2{NC},2{R}'),
+('DFT', ' |Chandra, Spark Hunter', 1, 'legendary planeswalker,chandra,mítica,coste:3{NC},1{R}'),
+('DFT', ' |Cursecloth Wrappings', 1, 'artefacto,coste:2{NC},2{B}'),
+('DFT', ' |Defend the Rider ', 1, 'hechizo,instant,uncommon,coste:1{G}'),
+('DFT', ' |Ketramose, the New Dawn', 1, 'criatura,legendaria,mítico,Dios,fuerza:4,resistencia:4,coste:1{NC},1{W},1{B}'),
+('DFT', ' |Kolodin,Triumph Caster', 1, 'criatura,legendaria,rare,piloto humano,fuerza:2,resistencia:3,coste:1{R},1{W}'),
+('DFT', ' |Lifecraft Engine', 1, 'artefacto,vehiculo,rare,fuerza:4,resistencia:4,coste:3{NC}'),
+('DFT', ' |Mindspring Merfolk', 1, 'criatura,merfolk wizard,rare,resistencia:1,fuerza:1,coste:1{U}'),
+('DFT', ' |Momentum Breaker', 1, 'hechizo,enchantment,coste:1{NC},1{B}'),
+('DFT', ' |Possession Engine', 1, 'artefacto,vehiculo,rare,fuerza:5,resistencia:5,coste:3{NC},2{U}'),
+('DFT', ' |Redshift,Rocketeer Chief ', 1, 'criatura,legendaria,duende piloto,rare,fuerza:2,resistencia:3,coste:1{R},1{G}'),
+('DFT', ' |Riverpyre Verge', 1, 'tierra,R,U.'),
+('DFT', ' |Sab-Sunen,Luxa Embodied', 1, 'criatura,legendaria,Dios,fuerza:6,resistenica:6,coste:3{NC},1{G},1{U}'),
+('DFT', ' |Sunbillow Verge', 1, 'tierra,rare,W,R.'),
+('DFT', ' |Thunderous Velocipede', 1, 'artefacto,vehiculo,fuerza:5,resistencia:5,coste:1{NC},2{G}'),
+('DFT', ' |Vnwxt,Verbose Host', 1, 'criatura,legendaria,rare,homunculus,fuerza:0,resistencia:4,coste:1{NC},1{U}'),
+('DFT', ' |Willowrush Verge', 1, 'tierra,rare,U,G.'),
+('DFT', ' |Winter,Cursed Rider', 1, 'criatura,legendaria,human warlock,rare,fuerza:3,resistencia:2,coste:2{U},1{B}'),
+('DSK', 'Armadura etérea|Ethereal Armor ', 1, 'hechizo,encantamiento,aura,uncommon,coste:1{W}'),
+('DSK', 'Aspiradora de fantasmas|Ghost Vacuum ', 1, 'artefacto,rare,coste:1{NC}'),
+('DSK', 'Avería inoportuna|Untimely Malfunction ', 1, 'hechizo,instant,uncommon,coste:1{NC},1{R}'),
+('DSK', 'Bosques sangrantes|Bleeding Woods', 1, 'tierra,common'),
+('DSK', 'Brillolinterna|Glimmerlight', 1, 'artefacto,equipamiento,common,coste:2{NC}'),
+('DSK', 'Campamento abandonado|Abandoned Campground', 1, 'tierra,common'),
+('DSK', 'Cercenador cabezagujas|Razorkin Needlehead', 1, 'criatura,humano asesino,rare,fuerza:2,resistencia:2,coste:2{R}'),
+('DSK', 'Consejo demoníaco|Demonic Counsel', 1, 'hechizo,sorcery,rare,coste:1{NC},1{B}'),
+('DSK', 'Detonación ígnea|Pyroclasm', 1, 'hechizo,sorcery,uncommon,coste:1{NC},1{R}'),
+('DSK', 'Línea mística de la esperanza|Leyline of Hope ', 1, 'hechizo,encantamiento,rare,coste:2{NC},2{W}'),
+('DSK', 'Línea mística de la resonancia|Leyline of Resonance ', 1, 'hechizo,encantamiento,rare,coste:2{NC},2{R}'),
+('DSK', 'Llaves de la Casa|Keys to the House ', 1, 'artefacto,uncommon,coste:1{NC}'),
+('DSK', 'Maizal grabado|Etched Cornfield', 1, 'tierra,common'),
+('DSK', 'Némesis de los gritos|Screaming Nemesis ', 1, 'criatura,espiritu,mítico,fuerza:3,resistencia:3,coste:2{NC},1{R}'),
+('DSK', 'Ojo aberrante|Abhorrent Oculus ', 1, 'criatura,ojo,mítico,fuerza:5,resistencia:5,coste:2{NC},1{U}'),
+('DSK', 'Pantalla poseída|Haunted Screen', 1, 'artefacto,uncommon,coste:3{NC}'),
+('DSK', 'Protegido por fantasmas|Sheltered by Ghosts', 1, 'criatura,Soldado Vampiro, uncommon,fuerza:1,resistencia:1,coste:1{NC}1{W}'),
+('DSK', 'Separarse|Split Up ', 1, 'hechizo,sorcery,rare,coste:1{NC},2{W}'),
+('DSK', 'Sierra|Saw ', 1, 'artefacto,uncommon,coste:2{NC}'),
+('DSK', 'Tergiversar la realidad|Twist Reality', 1, 'hechizo,instant,common,coste:1{NC},2{U}'),
+('DSK', 'Tormento agotador|Withering Torment ', 1, 'hechizo,instant,uncommon,coste:2{NC},1{B}'),
+('DSK', 'Umbral de Cenagalardiente|Blazemire Verge ', 1, 'tierra,mítico'),
+('DSK', 'Umbral de Lagosombrío|Gloomlake Verge', 1, 'tierra,mítico'),
+('DSK', 'Valgavoth el Devoraterrores|Valgavoth Terror Eater', 1, 'criatura legendaria,elder demon,mítico,fuerza:9,resistencia:9,coste:6{NC},3{B}'),
+('INFO', 'Dragón Tenpai Genroku,Tenpai Dragon Genroku', 2, 'criatura,dragon efecto,ultra rare,nivel:3,ataque:0,defensa:1000'),
+('INFO', 'Forbidden One', 2, 'Mythic, Forbidden'),
+('INR', 'Almas persistentes|Lingering Souls ', 1, 'hechizo,sorcery,uncommon,coste:2{NC},1{W}'),
+('INR', 'Artista de la sangre|Blood Artist', 1, 'criatura,vampiro,fuerza:0,resistencia:1,coste:1{NC},1{B}'),
+('INR', 'Atravesando la brecha|Through the Breach ', 1, 'hechizo,instant,arcane,mítico,coste:4{NC},1{R}'),
+('INR', 'Bosque INR|Forest INR', 1, 'tierra básica,G'),
+('INR', 'Carácter ardiente|Fiery Temper ', 1, 'hechizo,instant,uncommon,coste:1{NC},2{R}'),
+('INR', 'Cazahechizos|Spell Queller ', 1, 'criatura,spirit,rare,fuerza:2,resistencia:3,coste:1{NC},1{W},1{U}'),
+('INR', 'Cota de malla demoníaca|Demonmail Hauberk', 1, 'artefacto,equipment,coste:4{NC}'),
+('INR', 'Desove arácnido| Spider Spawning ', 1, 'hechizo,sorcery,uncommon,coste:4{NC},1{G}'),
+('INR', 'Edgar Markov', 1, 'criatura legendaria,vampire knight,mítico,fuerza:4,resistencia:4,coste:3{NC},1{R},1{W},1{B}'),
+('INR', 'Emrakul el Final Prometido|Emrakul the Promised End', 1, 'criatura legendaria,eldrazi,mítico,fuerza:13,resistencia:13,coste:13{NC}'),
+('INR', 'Extractor de almas|Soul Separator', 1, 'artefacto,uncommon,coste:3{NC}'),
+('INR', 'Flujo de esencia|Essence Flux', 1, 'hechizo,instant,common,coste:1{U}'),
+('INR', 'Histeria masiva| Mass Hysteria', 1, 'hechizo,enchantment,rare,coste:1{R}'),
+('INR', 'Injerto de suturador|Stitcher\'s Graf', 1, 'artefacto,equipment,rare,coste:1{NC}'),
+('INR', 'Isla INR|Island INR', 1, 'tierra báscia,U'),
+('INR', 'Llanura INR|Plains INR', 1, 'tierra básica,W'),
+('INR', 'Montaña INR| Mountain INR', 1, 'tierra básica,R'),
+('INR', 'Mutación espontánea|Spontaneous Mutation ', 1, 'hechizo,enchantment,aura,common,coste:1{U}'),
+('INR', 'Navegante certero|Deadeye Navigator', 1, 'criatura,spirit,rare,fuerza:5,resistencia:5,coste:4{NC},2{U}'),
+('INR', 'Pantano INR|Swamp INR', 1, 'tierra básica,B'),
+('INR', 'Pulsión asesina|Murderous Compulsion ', 1, 'hechizo,sorcery,common,coste:1{NC},1{B}'),
+('INR', 'Reforjar el alma|Reforge the Soul ', 1, 'hechizo,sorcery,rare,coste:3{NC},2{R}'),
+('INR', 'Ritos de pueblo|Village Rites ', 1, 'hechizo,instant,common,coste:1{B}'),
+('INR', 'Tentación mortal|Deadly Allure', 1, 'hechizo,sorcery,uncommon,coste:1{B}'),
+('INR', 'Trampa luzgeist|Geistlight Snare ', 1, 'hechizo,instant,uncommon,coste:2{NC},1{U}'),
+('INR', 'Triscaidecafobia|Triskaidekaphobia', 1, 'hechizo,enchantment,uncommon,coste;3{NC},1{B}'),
+('INR', 'Tumba del ángel|Angel\'s Tomb', 1, 'artefacto,uncommon,coste:3{NC}'),
+('INR', 'Ventana entablada|Boarded Window', 1, 'artefacto,uncommon,coste:3{NC}'),
+('INR', 'Virtud intangible|Intangible Virtue', 1, 'hechizo,enchantment,uncommon,coste:1{NC},1{W}'),
+('IXL', 'Ixalan Mythic Card', 1, 'Dinosaur, Mythic'),
+('J25', 'Abrazo de Serra|Serra\'s Embrace', 1, 'hechizo,enchantment,aura,uncommon,coste:2{NC},2{W}'),
+('J25', 'Aphelia encantadora de víboras|Aphelia  Viper Whisperer ', 1, 'criatura legendaria,gorgon assassin,mítico,fuerza:1,resistencia:3,coste:1{NC},1{B}'),
+('J25', 'Arranque violento|Violent Outburst ', 1, 'hechizo,common,instant,coste;1{NC},1{R},1{G}'),
+('J25', 'Bosque J25|Forest J25', 1, 'tierra básica'),
+('J25', 'Cachorro generoso|Generous Pup ', 1, 'criatura,dog,rare,fuerza:2,resistencia:2,coste:1{NC},1{W}'),
+('J25', 'Chupasangre insidioso|Creeping Bloodsucker ', 1, 'criatura,common,vampiro,fuerza:1,resistencia:2,coste:1{NC},1{B}'),
+('J25', 'Cólera ancestral|Ancestral Anger', 1, 'hechizo,sorcery,common,coste:1{R}'),
+('J25', 'Concentrarse|Concentrate', 1, 'hechizo,sorcery,uncommon,coste:2{NC},2{U}'),
+('J25', 'Crecimiento exuberante|Rampant Growth ', 1, 'hechizo,sorcery,common,coste:1{NC},1{G}'),
+('J25', 'Cría de felinoguadaña|Scythecat Cub ', 1, 'criatura,gato,rare,fuerza:2,resistencia:2,coste:1{NC},1{G}'),
+('J25', 'Escupefuego|Fireshrieker ', 1, 'artefacto,equipment,uncommon,coste:3{NC}'),
+('J25', 'Esperanza en extinción|Fading Hope ', 1, 'hechizo,instant,uncommon,coste:1{U}'),
+('J25', 'Evereth virreina del saqueo|Evereth Viceroy of Plunder', 1, 'criatura legendaria,vampire soldier,rare,fuerza:2,resistencia:2,coste:2{NC},1{B}'),
+('J25', 'Fabricaingenios|Whirlermaker', 1, 'artefacto,uncommon,coste:3{NC}'),
+('J25', 'Golpe a la garganta|Go for the Throat ', 1, 'hechizo,instant,coste:1{NC},1{B}'),
+('J25', 'Herramientas de ladrón|Thieves\' Tools ', 1, 'artefacto,equipamiento,common,coste:1{NC},1{B}'),
+('J25', 'Isla J25| Island J25', 1, 'tierra básica'),
+('J25', 'Jugar con fuego|Play with Fire ', 1, 'hechizo,instant,coste:1{R}'),
+('J25', 'Kodama del árbol del oeste| Kodama of the West Tree', 1, 'criatura legendaria,spirit ,mítico,fuerza:3,resistencia:3,coste:2{NC},1{G}'),
+('J25', 'Llamas de la instigadora|Flames of the Firebrand ', 1, 'hechizo,sorcery,uncommon,coste:2{NC},1{R}'),
+('J25', 'Maza del valiente|Mace of the Valiant', 1, 'artefacto,equipamiento,rare,coste;2{NC},1{W}'),
+('J25', 'Montaña J25|Mountain J25', 1, 'tierra básica'),
+('J25', 'Pantano J25|Swamp J25', 1, 'tierra básica'),
+('J25', 'Parcela fúngica,Fungal Plots ', 1, 'hechizo,enchantment,uncommon,coste:1{NC},1{G}'),
+('J25', 'Rastro de migajas|Trail of Crumbs ', 1, 'hechizo,enchantment,uncommon,coste:1{NC},1{G}'),
+('J25', 'Recuerdo del Starnheim|Starnheim Memento ', 1, 'artefacto,uncommon,coste:3{NC}'),
+('J25', 'Reenviar|Remand ', 1, 'hechizo,instant,uncommon,coste:1{NC},1{U}'),
+('J25', 'Retirada a Kazandu|Retreat to Kazandu ', 1, 'hechizo,enchantment,uncommon,coste:2{NC},1{G}'),
+('J25', 'Rev sacadiezmos|Rev Tithe Extractor ', 1, 'criatura legendaria,human rogue,rare,fuerza:3,resistencia:3,coste:3{NC},1{B}'),
+('J25', 'Secuestrado por las hadas|Stolen by the Fae ', 1, 'hechizo,sorcery,rare,coste:X,2{U}'),
+('J25', 'Tormento de escarabajos|Torment of Scarabs', 1, 'hechizo,enchantment,aura curse,coste:3{NC},1{B}'),
+('J25', 'Valkiria justa|Righteous Valkyrie', 1, 'criatura,rare,angel cleric,fuerza:2,resistencia:4,coste:2{NC},1{W}'),
+('J25', 'Verdiguardián anciano|Ancient Greenwarden ', 1, 'criatura,elemental,mítico,fuerza:5,resistencia:7,coste;4{NC},2{G}'),
+('KLD', 'Kaladesh Rare Card', 1, 'Artifact, Rare'),
+('OP09', 'Boa Hancock', 5, 'personaje,don:6,poder:8000'),
+('OP09', 'Buggy', 5, 'personaje,don:10,poder:12000'),
+('OP09', 'Franky', 5, 'personaje,don:4,poder:5000'),
+('OP09', 'Gol.D.Roger', 5, 'personaje,don:10,poder:13000'),
+('OP09', 'Marshall.D.Teach', 5, 'personaje,don:10,poder:12000'),
+('OP09', 'Nami', 5, 'personaje,don:5,poder:5000'),
+('OP09', 'Nico Robin', 5, 'lider,poder:5000'),
+('OP09', 'Sanji', 5, 'personaje,don:7,poder:7000'),
+('OP09', 'Shanks', 5, 'personajes,don:10,poder:12000'),
+('OP09', 'Uta', 5, 'personaje,don:1,poder:2000'),
+('OP09', 'Zoro-Juurou', 5, 'personaje,don:3,poder:4000'),
+('OTJ', 'A la hora señalada|High Noon ', 1, 'hechizo,enchantment,rare,coste:1{NC},1{W}'),
+('OTJ', 'Accidente desafortunado|Unfortunate Accident', 1, 'hechizo,instant,uncommon,coste:1{B}'),
+('OTJ', 'Annie se une al equipo|Annie Joins Up', 1, 'hechizo,enchantment,legendary,rare,coste:1{NC},1{R},1{G},1{W}'),
+('OTJ', 'Apariciones emergentes|Emergent Haunting', 1, 'hechizo,enchantment,uncommon,coste;1{NC},1{U}'),
+('OTJ', 'Árynx entrenada|Trained Arynx ', 1, 'criatura,cat beast mount,commmon,fuerza:3,resistencia:1,coste:1{NC},1{W}'),
+('OTJ', 'Atalaya inspiradora|Inspiring Vantage ', 1, 'tierra,rare,Agrega{R}o{W}'),
+('OTJ', 'Avalancha de miedo|Rush of Dread ', 1, 'hechizo,sorcery,rare,coste:1{NC},2{B}'),
+('OTJ', 'Avaricia insaciable|Insatiable Avarice', 1, 'hechizo,sorcery,rare,coste:1{B}'),
+('OTJ', 'Batea de oro|Gold Pan', 1, 'artefacto,equipment,common,coste:2{NC}'),
+('OTJ', 'Bosque OTJ|Forest OTJ', 1, 'tierra,básica,Agrega{G}'),
+('OTJ', 'Botas de espuelava|Lavaspur Boots ', 1, 'artefacto,equipamiento,uncommon,coste:1{NC}'),
+('OTJ', 'Cactarántula|Cactarantula ', 1, 'criatura,plant spider,common,fuerza:6,resistencia:5,coste:4{NC},2{G}'),
+('OTJ', 'Campaña de intimidación|Intimidation Campaign ', 1, 'hechizo,enchantment,uncommon,coste:1{NC},1{U},1{B}'),
+('OTJ', 'Canal riscoaguja|Spirebluff Canal', 1, 'tierra,rare,Agrega{U}o{R}'),
+('OTJ', 'Cenagal floreciente|Blooming Marsh ', 1, 'tierra,rare,Agregar{B}o{G}'),
+('OTJ', 'Creído de los Tirográcil|Slickshot Show-Off', 1, 'criatura,bird wizard,rare,fuerza:1,resistencia:2,coste:1{NC},1{R}'),
+('OTJ', 'Devolver la cortesía|Return the Favor', 1, 'hechizo,instant,uncommon,coste:2{R}'),
+('OTJ', 'Duelista de la mente|Duelist of the Mind ', 1, 'criatura,human advisor,rare,fuerza:*,resistencia:3,coste:1{NC},1{U}'),
+('OTJ', 'Edu Espinoso, sembrador de púas|Bristly Bill, Spine Sower', 1, 'criatura,legendaria,plant druid,mitico,fuerza:2,resistencia:2,coste:1{NC},1{G}'),
+('OTJ', 'Égida asimiladora|Assimilation Aegis', 1, 'artefacto,equipamiento,mitico,coste:1{NC},1{W},1{U}'),
+('OTJ', 'Enfrentamiento decisivo|Final Showdown', 1, 'hechizo,instant,mítico,coste:1{W}'),
+('OTJ', 'Fblthp,perdido en la intemperie|Fblthp,Lost on the Range', 1, 'criatura,legendary,homunculus,rare,fuerza:1,resistencia:1,coste:1{NC},2{U}'),
+('OTJ', 'Gran asalto al tren|Great Train Heist', 1, 'hechizo,instant,rare,coste:1{R}'),
+('OTJ', 'Hacienda móvil|Mobile Homestead ', 1, 'artefacto,vehiculo,uncommon,fuerza:3,resistencia:3,coste:2{NC}'),
+('OTJ', 'Isla OTJ|Island OTJ', 1, 'tierra,básica,Agregar{U}'),
+('OTJ', 'Lazo de truenos|Thunder Lasso ', 1, 'artefacto,equipment,uncommon,coste:2{NC},1{W}'),
+('OTJ', 'Llanura OTJ|Plains OTJ', 1, 'tierra,básica,Agrega{W}'),
+('OTJ', 'Me las pagarás|Hell to Pay', 1, 'hechizo,sorcery,rare,coste:1{X},1{R}'),
+('OTJ', 'Montaña OTJ|Mountain OTJ', 1, 'tierra,básica,Agregar{R}'),
+('OTJ', 'Montes espinosos|Bristling Backwoods ', 1, 'tierra,desert,Agregar{R}o{G}'),
+('OTJ', 'Pantano OTJ|Swamp OTJ ', 1, 'tierra,básica,Agrega{B}'),
+('OTJ', 'Planear el golpe|Plan the Heist ', 1, 'hechizo,sorcery,uncommon,coste:2{NC},2{U}'),
+('OTJ', 'Rakdos se une al equipo|Rakdos Joins Up', 1, 'hechizo,enchantment,legendary,rare,coste:3{NC},1{B},1{R}'),
+('OTJ', 'Rakdos,la fuerza bruta|Rakdos,the Muscle', 1, 'criatura,legendaria,demon mercenary,mitico,fuerza:6,resistencia:5,coste:2{NC},2{B},1{R}'),
+('OTJ', 'Riscos deteriorados|Abraded Bluffs ', 1, 'tierra,desert,Agregar{R}o{W}'),
+('OTJ', 'Saquear la ciénaga|Pillage the Bog', 1, 'hechizo,sorcery,rare,coste:1{B},1{G}'),
+('OTJ', 'Satoru,el infiltrador|Satoru,the Infiltrator', 1, 'criatura,legendary,human ninja rogue,rare,fuerza:2,resistencia:3,coste:1{U},1{B}'),
+('OTJ', 'Sierpe de cascabel colosal|Colossal Rattlewurm', 1, 'criatura,wurm,rare,fuerza:6,resistencia:5,coste:2{NC},2{G}'),
+('OTJ', 'Sorpresa de la contrabandista|Smuggler\'s Surprise ', 1, 'hechizo,instant,rare,coste:1{G}'),
+('OTJ', 'Terror de las cimas|Terror of the Peaks', 1, 'criatura,dragon,mitico,fuerza:5,resistencia:4,coste:3{NC},2{R}'),
+('PIP', 'Acto blasfemo|Blasphemous Act', 1, 'hechizo,sorcery,rare,coste:8{NC},1{R}'),
+('PIP', 'Albóndiga, siempre leal|Dogmeat, Ever Loyal', 1, 'criatura,legendaria,dog,mítica,fuerza:3,resistencia:3,coste:1{R},1{G},1{W}'),
+('PIP', 'Arboleda Pétalo Solar|Sunpetal Grove ', 1, 'tierra,rare,Agregar{G}o{W}'),
+('PIP', 'Bien descansada|Well Rested ', 1, 'hechizo,enchatment,aura,uncommon,coste:1{NC},1{G}'),
+('PIP', 'Bosque PIP|Forest PIP', 1, 'tierra,basica,Agrega{G}'),
+('PIP', 'Cabezón: percepción|Perception Bobblehead ', 1, 'artefacto,booblehead,uncommon,coste:3{NC}'),
+('PIP', 'Cait,luchadora de la jaula|Cait,Cage Brawler ', 1, 'criatura,legendary,human warrior,rare,fuerza:1,resistencia:1,coste:1{R},1{G}'),
+('PIP', 'Carroñero supermutante|Super Mutant Scavenger', 1, 'criatura,mutant warrior,uncommon,fuerza:5,resistencia:5,coste:4{NC},1{G}'),
+('PIP', 'Catacumba inundada|Drowned Catacomb ', 1, 'tierra,rare,Agrega{U}o{B}'),
+('PIP', 'César, emperador de la Legión|Caesar, Legion\'s Emperor ', 1, 'criatura,legendaria,human soldier,mítica,fuerza:4,resistencia:4,coste:1{NC},1{R},1{W},1{B}'),
+('PIP', 'Ciudad Escoria|Junktown', 1, 'tierra,rare,Agrega{C}'),
+('PIP', 'Comandante Sofia Daguerre|Commander Sofia Daguerre', 1, 'criatura,legendaria,human pilot,uncommon,fuerza:1,resistencia:3,coste:3{NC},1{W}'),
+('PIP', 'Contaminación nuclear|Nuclear Fallout ', 1, 'hechizo,sorcery,rare,coste:1{X},2{B}'),
+('PIP', 'Cultivar|Cultivate', 1, 'hechizo,sorcery,uncommon,coste:2{NC}1,{G}'),
+('PIP', 'Dictado severo|Austere Command ', 1, 'hechizo,sorcery,rare,coste:4{NC},2{W}'),
+('PIP', 'Disputa mortal|Deadly Dispute', 1, 'hechizo,instant,common,coste:1{NC},1{B}'),
+('PIP', 'Espadas en guadañas|Swords to Plowshares ', 1, 'hechizo,instant,uncommo,coste:1{W}'),
+('PIP', 'Grebas relámpago|Lightning Greaves', 1, 'artefacto,equipment,uncommon,coste:2{NC}'),
+('PIP', 'Hancock,alcalde necrófago|Hancock,Ghoulish Mayor', 1, 'criatura,legendaria,zombie mutant advisor,rare,fuerza:2,resistencia:1,coste:2{NC},1{B}'),
+('PIP', 'Ian el Temerario|Ian the Reckless', 1, 'criatura,legendaria,human warrior,uncommon,fuerza:2,resistencia:1,coste:1{NC},1{R}'),
+('PIP', 'Intervención heroica|Fallout - Heroic Intervention', 1, 'hechizo,instant,rare,coste:1{NC},1{G}'),
+('PIP', 'Isla PIP|Island PIP', 1, 'tierra,basica,Agrega{U}'),
+('PIP', 'Jason el Iluminado,profeta resplandeciente|Jason Bright,Glowing Prophet ', 1, 'criatura,legendaria,zombie mutant advisor,rare,fuerza:2,resistencia:3,coste:2{NC},1{U}'),
+('PIP', 'La Duquesa,tabernera del Wayward|Duchess,Wayward Tavernkeep', 1, 'criatura,legendaria,human citizen,rare,fuerza:4,resistencia:3,coste:3{NC},1{R}'),
+('PIP', 'Llanura PIP|Plains PIP', 1, 'tierra,basica,Agrega{W}'),
+('PIP', 'Maestre Owyn Lyons|Elder Owyn Lyons ', 1, 'criatura,legendaria,human knight,uncommon,fuerza:3,resistencia:3,coste:2{NC},1{W},1{U}'),
+('PIP', 'Máquina expendedora de Nuka-Cola|Nuka-Cola Vending Machine', 1, 'artefacto,uncommon,coste:3{NC}'),
+('PIP', 'Marea inexorable|Inexorable Tide ', 1, 'hechizo,enchantment,rare,coste:3{NC},2{U}'),
+('PIP', 'Mercado negro|Black Market ', 1, 'hechizo,enchantment,rare,coste:3{NC},2{B}'),
+('PIP', 'Montaña PIP|Mountain PIP', 1, 'tierra,basica,Agrega{R}'),
+('PIP', 'Mulo|Strong Back', 1, 'hechizo,enchantment,aura,rare,coste:2{NC},1{G}'),
+('PIP', 'Paisaje infinito|Myriad Landscape ', 1, 'tierra,uncommon,Agrega{C}'),
+('PIP', 'Pantano PIP|Swamp PIP', 1, 'tierra,basica,Agrega{B}'),
+('PIP', 'Pip-Boy 3000', 1, 'artefacto,equipment,rare,coste:1{NC}'),
+('PIP', 'Proyecto Guardián|Guardian Project', 1, 'hechizo,enchantment,rare,coste:3{NC},1{G}'),
+('PIP', 'Sierra,fan absoluta de Nuka|Sierra,Nuka\'s Biggest Fan', 1, 'criatura,legendaria,human citizen,rare,fuerza:3,resistencia:4,coste:3{NC},1{W}'),
+('PIP', 'Tormenta radiactiva|Radstorm ', 1, 'hechizo,instant,rare,coste:3{NC},1{U}'),
+('PIP', 'Traje de Mortaja Plateada|Silver Shroud Costume', 1, 'artefacto,equipment,uncommon,coste:2{NC}'),
+('PIP', 'Ultimátum ruinoso|Ruinous Ultimatum', 1, 'hechizo,sorcery,rare,coste:2{R},3{W},2{B}'),
+('PIP', 'Valle Fuegomusgo|Mossfire Valley', 1, 'tierra,rare,Agrega:{R,G}'),
+('PIP', 'Ventaja mutacional|Mutational Advantage', 1, 'hechizo,instant,rare,coste:1{NC},1{G},1{U}'),
+('SCR', 'Stellar Crown Promo Card', 3, 'Holo, Limited Edition'),
+('SDSB', 'Mago Oscuro,Dark Magician', 2, 'Monstruo Normal,atributo:oscuridad,nivel:7,tipo:Lanzador de conjuros,ataque:2500,defensa:2100'),
+('SDWD', 'Blue-Eyes White Dragon', 2, 'Legendary, Blue-Eyes'),
+('SFA', 'Bewear|Bewear', 3, 'pokemon,tipo:normal,hp:130,weakness{2},retreat{3}'),
+('SFA', 'Cresselia|Cresselia', 3, 'pokemon,tipo:psiquico,hp:120,weakness{2},retreat{1}'),
+('SFA', 'Cufant|Cufant', 3, 'pokemon,tipo:acero,hp:100,weakness{2},retreat{3}'),
+('SFA', 'Dusclops|Dusclops', 3, 'pokemon,tipo:fantasma,hp:90,weakness{2},retreat{2}'),
+('SFA', 'Dusknoir|Dusknoir', 3, 'pokemon,tipo:fantasma,hp:160,weakness{2},retreat{3}'),
+('SFA', 'Fezandipiti ex|Fezandipiti ex', 3, 'pokemon,tipo:siniestro,ex double rare,hp:210,weakness:2{F},retreat:1{N}'),
+('SFA', 'Fraxure|Fraxure', 3, 'pokemon,tipo:dragon,hp:100,weakness{0},retreat{2}'),
+('SFA', 'Horsea|Horsea', 3, 'pokemon,tipo:dragon,hp:60,weakness{2},retreat{1}'),
+('SFA', 'Kingdra|Kingdra', 3, 'pokemon,tipo:dragon,hp:310,weakness{2},retreat{1}'),
+('SFA', 'Okidogi ex|Okidogi ex', 3, 'pokemon,tipo:normal,hp:250,weakness{2},retreat{3}'),
+('SFA', 'Persian|Persian', 3, 'pokemon,tipo:normal,hp:110,weakness{2},retreat{1}'),
+('SFA', 'Sylveon|Sylveon', 3, 'pokemon,tipo:hada,hp:120,weakness{2},retreat{1}'),
+('SFA', 'Zorua|Zorua', 3, 'pokemon,tipo:siniestro,hp:70,weakness{2},retreat{1}'),
+('SSPK', 'Surging Sparks Exclusive Card', 3, 'Ultra Rare'),
+('TFC', 'Stitch -Carefree Surfer', 4, 'nombre:stitch,versión:carefree surfer,coste de tinta:7,fuerza:4,fuerza de voluntad:8,clases:dreamborn,hero,alien,habilidad:ohana.');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eventos`
+--
+
+CREATE TABLE `eventos` (
+  `idEvento` int(11) NOT NULL,
+  `nombre_evento` varchar(255) NOT NULL,
+  `fecha_evento` date NOT NULL,
+  `descripcion` text DEFAULT NULL,
+  `urlImagen` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion`, `urlImagen`) VALUES
+(1, 'Torneo Pauper Magic: The Gathering', '2025-01-15', 'Inscripción: 5€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Foundations, Premio por participar: 1 Booster Pack Foundations', '../assets/images/product/MTG/events/25-1-15-pauper.webp'),
+(2, 'Lanzamiento de Yu-Gi-Oh! Rage of the Abyss', '2025-01-05', 'Ven a por la nueva entrega de Yu-Gi-Oh!', '../assets/images/product/YGO/events/25-1-5-ROTA_launch.webp'),
+(3, 'Torneo One Piece TCG', '2025-01-20', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 15€. 3º Premio: 5 Booster Packs OP-11, Premio por participar: 1 Booster Pack OP-11', '../assets/images/product/OP/events/25-1-20-OP.webp'),
+(4, 'Preguntas y respuestas con Artista español de Wizards of The Coast \"Manuel Huedo\"', '2025-01-30', '', '../assets/images/product/MTG/events/25-1-30-interview.webp'),
+(5, 'Torneo Gratuito de Lorcana', '2025-02-01', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/25-2-1-tournament.webp');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `expansiones`
+--
+
+CREATE TABLE `expansiones` (
+  `codExpansion` varchar(100) NOT NULL,
+  `nombreExpansion` varchar(255) NOT NULL,
+  `fechaLanzamiento` date NOT NULL,
+  `idJuego` int(11) NOT NULL,
+  `urlImagen` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `expansiones`
+--
+
+INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`, `idJuego`, `urlImagen`) VALUES
+('ACR', 'Más allá del Multiverso: Assassin\'s Creed|Universes Beyond: Assassin\'s Creed', '2024-07-05', 1, '../assets\\images\\product\\MTG\\sets\\ACR\\portada-ACR.webp'),
+('ALP', 'Alpha', '1993-08-01', 1, '../assets\\images\\product\\MTG\\sets\\ALP\\alpha-sets.webp'),
+('ANE', 'Awakening of the New Era (Japanese) ', '2023-08-23', 5, '../assets\\images\\product\\OP\\sets\\ANE\\Ane.webp'),
+('BLB', 'Bloomburrow ', '2024-08-02', 1, '../assets\\images\\product\\MTG\\sets\\BLB\\BLB.webp'),
+('CLC', 'Pokémon Trading Card Game Classic: Charizard & Ho-Oh ex Deck', '2023-11-17', 3, '../assets\\images\\product\\POk\\sets\\PKHC\\portada-pkhc.webp'),
+('DFT', 'Aetherdrift ', '2025-02-14', 1, '../assets\\images\\product\\MTG\\sets\\DFT\\aetherdrift-portada.webp'),
+('DSK', 'Duskmourn: La casa de los Horrores|Duskmourn: House of Horror', '2024-09-20', 1, '../assets\\images\\product\\MTG\\sets\\DSK\\DSK-ex.webp'),
+('INFO', 'Infinite Forbidden', '2024-07-18', 2, '../assets/images/product/YGO/sets/INFO.webp'),
+('INR', 'Innistrad Remastered', '2025-01-24', 1, '../assets\\images\\product\\MTG\\sets\\INR\\portada-inr.webp'),
+('IXL', 'Ixalan', '2024-12-15', 1, '../assets/images/product/MAG/sets/Ixalan.jpg'),
+('J25', 'Foundations Jumpstart', '2024-11-08', 1, '../assets\\images\\product\\MTG\\sets\\jumpstart.webp'),
+('KLD', 'Kaladesh', '2024-10-20', 1, '../assets/images/product/MAG/sets/Kaladesh.jpg'),
+('MH3', 'Modern Horizons 3', '2024-11-23', 1, '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp'),
+('OP09', 'Emperors in the New World', '2024-12-14', 5, '../assets\\images\\product\\OP\\sets\\OP09\\OP-09.webp'),
+('OP16', 'Uta Starter Deck', '2024-11-25', 5, '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp'),
+('OTJ', 'Forajidos de Cruce de Truenos|Outlaws of Thunder Junction ', '2024-04-19', 1, '../assets\\images\\product\\MTG\\sets\\OTJ\\portada-otj.webp'),
+('PIP', 'Más allá del Multiverso: Fallout|Universes Beyond: Fallout ', '2024-03-08', 1, '../assets\\images\\product\\MTG\\sets\\PIP\\Magic-Fallout.webp'),
+('PNBP', 'Phantom Nightmare', '2024-11-24', 2, '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg'),
+('SCR', 'Stellar Crown', '2024-09-13', 3, '../assets/images/product/POK/sets/Stellar_Crown_Logo.png'),
+('SDSB', 'Speed Duel: Streets of Battle City ', '2023-08-23', 2, '../assets\\images\\product\\YGO\\sets\\SDSB\\sdsb.webp'),
+('SDWD', 'Blue-Eyes White Destiny', '2025-02-06', 2, '../assets/images/product/YGO/sets/WD.jpg'),
+('SFA', 'Fábula Sombría', '2024-08-02', 3, '../assets\\images\\product\\POk\\sets\\SFA.webp'),
+('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX', '2024-11-21', 3, '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png'),
+('SSPK', 'Surging Sparks', '2024-11-08', 3, '../assets/images/product/POK/sets/Surging_Sparks_Logo.png'),
+('SSSBM', 'Steven\'s Beldum & Metagross EX', '2024-11-20', 3, '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg'),
+('TFC', 'The First Chapter ', '2023-09-01', 4, '../assets\\images\\product\\LOR\\sets\\TFC\\The_First_Chapter_logo.webp'),
+('UR', 'Ursula\'s Return', '2024-11-22', 4, '../assets/images/product/LOR/tins/UR/ursula-tin.webp');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `juegos`
+--
+
+CREATE TABLE `juegos` (
+  `idJuego` int(11) NOT NULL,
+  `nombre_juego` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `juegos`
+--
+
+INSERT INTO `juegos` (`idJuego`, `nombre_juego`) VALUES
+(1, 'Magic: The Gathering'),
+(2, 'Yu-Gi-Oh!'),
+(3, 'Pokémon'),
+(4, 'Lorcana'),
+(5, 'One Piece');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ofertas`
+--
+
+CREATE TABLE `ofertas` (
+  `nombreProducto` varchar(255) NOT NULL,
+  `codExpansion` varchar(100) NOT NULL,
+  `idJuego` int(11) NOT NULL,
+  `precio` decimal(10,2) NOT NULL,
+  `tipo` enum('carta','caja','sobre') NOT NULL,
+  `urlImagen` varchar(255) DEFAULT NULL,
+  `descuento` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `ofertas`
+--
+
+INSERT INTO `ofertas` (`nombreProducto`, `codExpansion`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
+('Modern Horizons 3 Booster Box', 'MH3', 1, 55.00, 'caja', '../assets/images/product/MTG/cards/MH3/mh3-booster-box.webp', 13),
+('Phantom Nightmare Booster Pack', 'PNBP', 2, 3.99, 'sobre', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg', 20),
+('Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 'SSMMG', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSMMG/marnie-morpeko-grimmsnarl-ex.png', 25),
+('Steven\'s Beldum & Metagross EX Booster Pack', 'SSSBM', 3, 3.99, 'sobre', '../assets/images/product/POK/tins/SSSBM/starter-set-ex-stevens-beldum-metagross-ex.jpg', 15),
+('Ursula\'s Return Tin', 'UR', 4, 19.99, 'caja', '../assets/images/product/LOR/tins/UR/ursula-tin.webp', 15);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -43,7 +523,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
@@ -100,6 +580,19 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('BLB', 'Víbora de boca pútrida | Rottenmouth Viper ', 1, 7.56, 'carta', '../assets\\images\\product\\MTG\\cards\\BLB\\Víbora.webp', NULL),
 ('BLB', 'Ygra, devoratodo | Ygra, Eater of All ', 1, 14.10, 'carta', '../assets\\images\\product\\MTG\\cards\\BLB\\Ygra.webp', NULL),
 ('CLC', 'Charizard|Charizard', 3, 74.99, 'carta', '../assets\\images\\product\\POk\\cards\\PKHC\\charizard.webp', NULL),
+('CLC', 'Charmander|Charmander', 3, 10.02, 'carta', '../assets/images/product/POK/cards/CLC/Charmander.webp', NULL),
+('CLC', 'Charmeleon|Charmeleon', 3, 8.38, 'carta', '../assets/images/product/POK/cards/CLC/Charmeleon.webp', NULL),
+('CLC', 'Clefable|Clefable', 3, 1.95, 'carta', '../assets/images/product/POK/cards/CLC/Clefable.webp', NULL),
+('CLC', 'Clefairy|Clefairy', 3, 1.95, 'carta', '../assets/images/product/POK/cards/CLC/Clefairy.webp', NULL),
+('CLC', 'Electrode|Electrode', 3, 0.92, 'carta', '../assets/images/product/POK/cards/CLC/Electrode.webp', NULL),
+('CLC', 'Ho-Oh ex|Ho-Oh ex', 3, 0.82, 'carta', '../assets/images/product/POK/cards/CLC/Ho-Oh_ex.webp', NULL),
+('CLC', 'Magmar|Magmar', 3, 1.12, 'carta', '../assets/images/product/POK/cards/CLC/Magmar.webp', NULL),
+('CLC', 'Pikachu|Pikachu', 3, 12.33, 'carta', '../assets/images/product/POK/cards/Pikachu.webp', NULL),
+('CLC', 'Ponyta|Ponyta', 3, 0.54, 'carta', '../assets/images/product/POK/cards/CLC/Ponyta.webp', NULL),
+('CLC', 'Raichu|Raichu', 3, 1.65, 'carta', '../assets/images/product/POK/cards/CLC/Raichu.webp', NULL),
+('CLC', 'Rapidash|Rapidash', 3, 0.45, 'carta', '../assets/images/product/POK/cards/CLC/Rapidash.webp', NULL),
+('CLC', 'Voltorb|Voltorb', 3, 0.53, 'carta', '../assets/images/product/POK/cards/CLC/Voltorb.webp', NULL),
+('CLC', 'Zapdos|Zapdos', 3, 0.95, 'carta', '../assets/images/product/POK/cards/CLC/Zapdos.webp', NULL),
 ('DFT', ' |Bleachbone Verge', 1, 9.05, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Bleachbone.webp', NULL),
 ('DFT', ' |Boommobile', 1, 8.05, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Boommobile.webp', NULL),
 ('DFT', ' |Chandra, Spark Hunter', 1, 14.55, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\chandra.webp', NULL),
@@ -119,9 +612,9 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('DFT', ' |Vnwxt,Verbose Host', 1, 12.38, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Vnwxt.webp', NULL),
 ('DFT', ' |Willowrush Verge', 1, 9.10, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Willowrush.webp', NULL),
 ('DFT', ' |Winter,Cursed Rider', 1, 8.40, 'carta', '../assets\\images\\product\\MTG\\cards\\DFT\\Winter.webp', NULL),
-('DFT', 'Aetherdrift Prerelease Promo Cards Booster', 1, 9.99, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-prerelease.webp', NULL),
 ('DFT', 'Caja de sobres de coleccionista de Aetherdrift | Aetherdrift Collector Booster Box ', 1, 217.70, 'caja', '../assets\\images\\product\\MTG\\tins\\DFT\\caja-coleccion.webp', NULL),
 ('DFT', 'Caja de sobres de juego de Aetherdrift | Aetherdrift Play Booster Box', 1, 112.24, 'caja', '../assets\\images\\product\\MTG\\tins\\DFT\\caja-aetherdrift.webp', NULL),
+('DFT', 'Sobre Aetherdrift Prerelease|Aetherdrift Prerelease Promo Cards Booster', 1, 9.99, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-prerelease.webp', NULL),
 ('DFT', 'Sobre de Box Topper de Aetherdrift | Aetherdrift Box Topper Booster ', 1, 24.98, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-box-topper.webp', NULL),
 ('DFT', 'Sobre de coleccionista de Aetherdrift | Aetherdrift Collector Booster', 1, 21.23, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-coleccionista.webp', NULL),
 ('DFT', 'Sobre de juego de Aetherdrift | Aetherdrift Play Booster', 1, 4.47, 'sobre', '../assets\\images\\product\\MTG\\packs\\DFT\\sobre-aetherdrift.webp', NULL),
@@ -373,27 +866,236 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('TFC', 'Stitch -Carefree Surfer', 4, 7.90, 'carta', '../assets\\images\\product\\LOR\\cards\\TFC\\stitch.webp', NULL),
 ('UR', 'Ursula\'s Return Tin', 4, 19.99, 'caja', '../assets/images/product/LOR/tins/UR/ursula-tin.webp', NULL);
 
+-- --------------------------------------------------------
+
 --
--- Indexes for dumped tables
+-- Estructura de tabla para la tabla `sobre`
+--
+
+CREATE TABLE `sobre` (
+  `codExpansion` varchar(100) NOT NULL,
+  `nombreProducto` varchar(255) NOT NULL,
+  `numCartas` int(11) NOT NULL,
+  `idJuego` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `sobre`
+--
+
+INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
+('ACR', 'Sobre de coleccionista de Más allá del Multiverso: Assassin\'s Creed|Universes Beyond: Assassin\'s Creed Collector Booster', 10, 1),
+('ACR', 'Sobre de Más allá de Multiverso:Assassin\'s Creed|Universes Beyond:Assassin\'s Creed Beyond Booster', 7, 1),
+('BLB', 'Bloomburrow: Prerelease Promo Cards Booster', 14, 1),
+('BLB', 'Sobre de coleccionista de Bloomburrow | Bloomburrow Collector Booster', 15, 1),
+('BLB', 'Sobre de juego de Bloomburrow | Bloomburrow Play Booster ', 14, 1),
+('DFT', 'Sobre Aetherdrift Prerelease|Aetherdrift Prerelease Promo Cards Booster', 14, 1),
+('DFT', 'Sobre de Box Topper de Aetherdrift | Aetherdrift Box Topper Booster ', 15, 1),
+('DFT', 'Sobre de coleccionista de Aetherdrift | Aetherdrift Collector Booster', 15, 1),
+('DFT', 'Sobre de juego de Aetherdrift | Aetherdrift Play Booster', 14, 1),
+('DSK', 'Duskmourn:House of Horror Collector Booster', 15, 1),
+('DSK', 'Duskmourn:House of Horror Play Booster', 14, 1),
+('DSK', 'Duskmourn:Nightmare Bundle Booster', 15, 1),
+('DSK', 'Duskmourn:Prerelease Promo Cards Booster', 15, 1),
+('INR', 'Sobre de coleccionista de Innistrad remasterizada|Innistrad Remastered Collector Booster', 15, 1),
+('INR', 'Sobre de juego de Innistrad remasterizada|Innistrad Remastered Play Booster', 14, 1),
+('J25', 'Sobre de Jumpstart de Magic:The Gathering Cimientos,Magic: The Gathering|Foundations Jumpstart Booster ', 20, 1),
+('J25', '|Magic:The Gathering Foundations Play Booster', 14, 1),
+('OP09', 'Emperors in the New World Booster', 12, 5),
+('OP09', 'Emperors in the New World Sleeved Booster', 12, 5),
+('OTJ', 'Forajidos de Cruce de Truenos: Prerelease Promo Cards Booster|Outlaws of Thunder Junction: Prerelease Promo Cards Booster ', 15, 1),
+('OTJ', 'Sobre de coleccionista de Forajidos de Cruce de Truenos Sample Pack|Outlaws of Thunder Junction Collector Booster Sample Pack', 14, 1),
+('OTJ', 'Sobre de coleccionista de Forajidos de Cruce de Truenos|Outlaws of Thunder Junction Collector Booster ', 15, 1),
+('OTJ', 'Sobre de juego de Forajidos de Cruce de Truenos|Outlaws of Thunder Junction Play Booster', 14, 1),
+('PIP', 'Universes Beyond: Fallout Collector Booster', 15, 1),
+('PIP', 'Universes Beyond: Fallout Collector Booster Sample Pack', 14, 1),
+('PNBP', 'Phantom Nightmare Booster Pack', 9, 2),
+('SSMMG', 'Marnie\'s Morpeko & Grimmsnarl EX Booster Pack', 10, 3),
+('SSSBM', 'Steven\'s Beldum & Metagross EX Booster Pack', 10, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `users`
+--
+
+CREATE TABLE `users` (
+  `email` varchar(255) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` int(12) NOT NULL,
+  `role` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`) VALUES
+('something@example.org', 'another', '1234', 324, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `user_addresses`
+--
+
+CREATE TABLE `user_addresses` (
+  `email` varchar(255) NOT NULL,
+  `idAddress` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `user_addresses`
+--
+
+INSERT INTO `user_addresses` (`email`, `idAddress`) VALUES
+('something@example.org', 1);
+
+--
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `addresses`
+--
+ALTER TABLE `addresses`
+  ADD PRIMARY KEY (`idAddress`);
+
+--
+-- Indices de la tabla `caja`
+--
+ALTER TABLE `caja`
+  ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `carta`
+--
+ALTER TABLE `carta`
+  ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  ADD PRIMARY KEY (`idEvento`);
+
+--
+-- Indices de la tabla `expansiones`
+--
+ALTER TABLE `expansiones`
+  ADD PRIMARY KEY (`codExpansion`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `juegos`
+--
+ALTER TABLE `juegos`
+  ADD PRIMARY KEY (`idJuego`);
+
+--
+-- Indices de la tabla `ofertas`
+--
+ALTER TABLE `ofertas`
+  ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Constraints for dumped tables
+-- Indices de la tabla `sobre`
+--
+ALTER TABLE `sobre`
+  ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
+  ADD KEY `idJuego` (`idJuego`);
+
+--
+-- Indices de la tabla `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email`);
+
+--
+-- Indices de la tabla `user_addresses`
+--
+ALTER TABLE `user_addresses`
+  ADD PRIMARY KEY (`email`,`idAddress`),
+  ADD KEY `idAddress` (`idAddress`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- Constraints for table `productos`
+-- AUTO_INCREMENT de la tabla `addresses`
+--
+ALTER TABLE `addresses`
+  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `eventos`
+--
+ALTER TABLE `eventos`
+  MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `caja`
+--
+ALTER TABLE `caja`
+  ADD CONSTRAINT `caja_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`),
+  ADD CONSTRAINT `caja_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `carta`
+--
+ALTER TABLE `carta`
+  ADD CONSTRAINT `carta_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `carta_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `expansiones`
+--
+ALTER TABLE `expansiones`
+  ADD CONSTRAINT `expansiones_ibfk_1` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `ofertas`
+--
+ALTER TABLE `ofertas`
+  ADD CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`),
+  ADD CONSTRAINT `ofertas_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`codExpansion`) REFERENCES `expansiones` (`codExpansion`),
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `expansiones` (`idJuego`);
+
+--
+-- Filtros para la tabla `sobre`
+--
+ALTER TABLE `sobre`
+  ADD CONSTRAINT `sobre_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `sobre_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
+
+--
+-- Filtros para la tabla `user_addresses`
+--
+ALTER TABLE `user_addresses`
+  ADD CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE,
+  ADD CONSTRAINT `user_addresses_ibfk_2` FOREIGN KEY (`idAddress`) REFERENCES `addresses` (`idAddress`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
