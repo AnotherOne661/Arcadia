@@ -1,13 +1,8 @@
-- Calendario (añadir dinamismo)
-- Arreglar carrito (solo botones y js)
-- Llenar DB (half-done) !medium
+- Calendario (añadir dinamismo) !low
+- Llenar DB (half-done) !low
 - Implementar rol de Administrador !low
 - Filtrado y búsqueda de productos !high
 - Productos y sus páginas !high
-- organizar colecciones (fechas) !low
-- arreglar color de botones en active del nav !medium
 - htaccess !medium
 - AÑADIR EVENTOS !medium
-- Validación en edición de usuario !medium
-- Arreglar el delete user !high
--
+
