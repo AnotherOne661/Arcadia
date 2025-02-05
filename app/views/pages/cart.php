@@ -47,6 +47,6 @@
       <img src="/assets/images/struc/cart/urza.webp" alt="Urza, High Artificer">
     </figure>
 
-    <script defer src="https://js.stripe.com/v3/"></script>
   </div>
 </div>
+<script src="https://js.stripe.com/v3/"></script>
