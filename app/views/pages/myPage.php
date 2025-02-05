@@ -8,7 +8,11 @@
             } ?>
             </p>
             <p>Bienvenido,<?= $_SESSION['name'] ?>!</p>
-            <img class="profile" src="<?= $_SESSION['profile-path'] ?>" alt="">
+            <?php 
+    if (isset($_SESSION['profile-path'])) {
+        echo '<img class="profile" src="' . $_SESSION['profile-path'] . '" alt="">';
+    }
+?>
             <button class="edit">Edit Profile</button>
             <form class="hidden edit-form" action="/edit-account" method="post" enctype="multipart/form-data">
                 <label for="name">Nuevo nombre de usuario:</label>
@@ -23,10 +27,10 @@
                 <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar contraseña"
                     required autocomplete="new-password">
                 <label for="phone">Nuevo número de teléfono:</label>
-                <input type="tel" name="phone" required>
+                <input type="tel" name="phone" placeholder="669420695" required>
                 <label for="imageurl">Sube la imagen de perfil</label>
                 <input type="file" name="imageurl">
-                <button type="submit">Actualizar</button>
+                <button type="submit" id="buttonsub">Actualizar</button>
             </form>
             <form id="botones">
                 <button type="submit" formaction="/logout">Cerrar sesión</button>

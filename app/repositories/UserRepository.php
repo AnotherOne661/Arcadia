@@ -87,7 +87,8 @@ class UserRepository extends Repository
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':role', $role);
         $stmt->bindParam(':imageurl', $usrImg);
-
+        $_SESSION['name'] = $username;
+        $_SESSION['profile-path'] = null;
         $stmt->execute();
       } else {
         echo "Error: El usuario ya existe.\n";
@@ -111,13 +112,10 @@ class UserRepository extends Repository
     $stmt->execute();
   }
   public function updateUser($currentEmail, $user, $image)
-  {
-    // Debugging Emails
-    var_dump($currentEmail);
-    var_dump($user->getEmail());
-
+{
+    // Verificar si el parámetro $user es una instancia de la clase User
     if (!($user instanceof User)) {
-      throw new InvalidArgumentException('El parámetro $user debe ser una instancia de la clase User.');
+        throw new InvalidArgumentException('El parámetro $user debe ser una instancia de la clase User.');
     }
 
     $currentEmail = trim($currentEmail);
@@ -125,8 +123,49 @@ class UserRepository extends Repository
     // Verificar si el email realmente existe en la base de datos
     $count = $this->checkIfExist($currentEmail);
     if ($count == 0) {
-      echo "Error: No se encontró el email en la base de datos.\n";
-      return;
+        echo "Error: No se encontró el email en la base de datos.\n";
+        return;
+    }
+
+    // Validación de email
+    $newEmail = trim($user->getEmail());
+    if (!filter_var($newEmail, FILTER_VALIDATE_EMAIL)) {
+        echo "Error: El formato del email es inválido.\n";
+        return;
+    }
+
+    // Verificar si el nuevo email ya está en uso, pero no si es el mismo que el actual
+    $adequate = $this->checkIfExist($newEmail);
+    if ($adequate > 0 && $newEmail != $currentEmail) {
+        echo "Error: Este email ya está en uso.\n";
+        $_SESSION['signup_error_duplicate'] = "Este email ya está en uso.\n";
+        return;
+    }
+
+    // Validación de la contraseña
+    $password = $user->getPassword();
+    $passwordCorrect = false;
+    $passwordRegex = "/^(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).+$/";
+    if (preg_match($passwordRegex, $password)) {
+        $passwordCorrect = true;
+    }
+
+    if (!$passwordCorrect) {
+        echo "Error: Tu contraseña debe tener al menos una letra mayúscula, un número y un carácter especial.\n";
+        return;
+    }
+
+    // Validación del teléfono
+    $phone = $user->getPhone();
+    $phoneCorrect = false;
+    $phoneRegex = "/^(\+34|0034|34)?[6789]\d{8}$/";
+    if (preg_match($phoneRegex, $phone)) {
+        $phoneCorrect = true;
+    }
+
+    if (!$phoneCorrect) {
+        echo "Error: Tu teléfono debe tener un formato válido.\n";
+        return;
     }
 
     // Directorio donde se almacenarán las imágenes
@@ -134,20 +173,11 @@ class UserRepository extends Repository
 
     // Verificar si el directorio existe, si no, crearlo
     if (!is_dir($uploadDir)) {
-      mkdir($uploadDir, 0777, true);
+        mkdir($uploadDir, 0777, true);
     }
 
-    // Extraer los datos del objeto User
-    $newEmail = trim($user->getEmail());
-    $adequate = $this->checkIfExist($newEmail);
-    if ($adequate > 0 && $newEmail != $currentEmail) {
-      echo "Error: Este email ya está en uso.\n";
-      $_SESSION['signup_error_duplicate'] = "Este email ya está en uso.\n";
-      return;
-    }
     $username = $user->getUsername();
-    $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
-    $phone = $user->getPhone();
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     $newImageUrl = null;
     $newFileName = null;
@@ -155,26 +185,19 @@ class UserRepository extends Repository
 
     // Manejo de la imagen subida
     if ($uploadedFile && isset($uploadedFile['tmp_name']) && $uploadedFile['error'] === UPLOAD_ERR_OK) {
-      // Obtener extensión y generar nombre único
-      $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
-      $newFileName = uniqid() . "." . $ext;
-      $destination = __DIR__ . "/../../public/assets/images/$uploadDir" . $newFileName;
+        // Obtener extensión y generar nombre único
+        $ext = pathinfo($uploadedFile['name'], PATHINFO_EXTENSION);
+        $newFileName = uniqid() . "." . $ext;
+        $destination = __DIR__ . "/../../public/assets/images/$uploadDir" . $newFileName;
 
-      // Debugging
-      echo "Intentando subir archivo a: " . realpath($uploadDir) . "/$newFileName \n";
-
-      // Verificar si `move_uploaded_file()` funciona correctamente
-      if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
-        echo "Archivo subido correctamente a: " . $destination . "\n";
-        $newImageUrl = $destination;
-      } else {
-        echo "Error al mover el archivo.";
-        var_dump(error_get_last());
-        return;
-      }
-    } else {
-      echo "No se recibió archivo o hubo un error en la subida.";
-      var_dump($uploadedFile);
+        // Verificar si `move_uploaded_file()` funciona correctamente
+        if (move_uploaded_file($uploadedFile['tmp_name'], $destination)) {
+            $newImageUrl = $destination;
+        } else {
+            echo "Error al mover el archivo.";
+            var_dump(error_get_last());
+            return;
+        }
     }
 
     // Construir la consulta SQL dinámicamente
@@ -182,7 +205,7 @@ class UserRepository extends Repository
               SET username = :username, password = :password, phone = :phone";
 
     if ($newFileName !== null) {
-      $query .= ", `image-url` = :newImageUrl";
+        $query .= ", `image-url` = :newImageUrl";
     }
 
     $query .= " WHERE LOWER(email) = LOWER(:currentEmail)";
@@ -195,41 +218,35 @@ class UserRepository extends Repository
     $stmt->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
 
     if ($newImageUrl !== null) {
-      $stmt->bindValue(':newImageUrl', $uploadDir . $newFileName, PDO::PARAM_STR);
+        $stmt->bindValue(':newImageUrl', $uploadDir . $newFileName, PDO::PARAM_STR);
     }
-
-    // Debug SQL Query
-    $stmt->debugDumpParams();
 
     // Ejecutar consulta
     $stmt->execute();
 
     if ($stmt->rowCount() === 0) {
-      echo "No se realizaron cambios. Puede que los datos sean los mismos o el email no coincida exactamente.\n";
+        echo "No se realizaron cambios. Puede que los datos sean los mismos o el email no coincida exactamente.\n";
     }
 
     // Si el email ha cambiado, actualizarlo en una consulta separada
     if ($newEmail !== $currentEmail) {
-      $queryEmail = "UPDATE $this->tableName SET email = :newEmail WHERE LOWER(email) = LOWER(:currentEmail)";
-      $stmtEmail = $this->pdo->prepare($queryEmail);
-      $stmtEmail->bindValue(':newEmail', $newEmail, PDO::PARAM_STR);
-      $stmtEmail->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
+        $queryEmail = "UPDATE $this->tableName SET email = :newEmail WHERE LOWER(email) = LOWER(:currentEmail)";
+        $stmtEmail = $this->pdo->prepare($queryEmail);
+        $stmtEmail->bindValue(':newEmail', $newEmail, PDO::PARAM_STR);
+        $stmtEmail->bindValue(':currentEmail', $currentEmail, PDO::PARAM_STR);
 
-      // Debug SQL Query
-      $stmtEmail->debugDumpParams();
+        $stmtEmail->execute();
 
-      $stmtEmail->execute();
-
-      if ($stmtEmail->rowCount() === 0) {
-        echo "Error al actualizar el email. Verifica que el nuevo email sea diferente.\n";
-      }
+        if ($stmtEmail->rowCount() === 0) {
+            echo "Error al actualizar el email. Verifica que el nuevo email sea diferente.\n";
+        }
     }
 
     // Actualizar sesión
     $_SESSION['email'] = $newEmail;
     $newPath = "/assets/images/$uploadDir" . $newFileName;
     $_SESSION['profile-path'] = $newPath;
-  }
+}
   private function checkIfExist($email)
   {
     $checkQuery = "SELECT COUNT(*) FROM $this->tableName WHERE email = :currentEmail";
