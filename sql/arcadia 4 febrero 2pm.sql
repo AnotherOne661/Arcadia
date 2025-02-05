@@ -6,10 +6,10 @@ USE arcadia;
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 04, 2025 at 12:28 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 04-02-2025 a las 13:56:28
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -22,13 +22,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcadia`
+-- Base de datos: `arcadia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `addresses`
+-- Estructura de tabla para la tabla `addresses`
 --
 
 CREATE TABLE `addresses` (
@@ -41,7 +41,7 @@ CREATE TABLE `addresses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `addresses`
+-- Volcado de datos para la tabla `addresses`
 --
 
 INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `puerta`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `caja`
+-- Estructura de tabla para la tabla `caja`
 --
 
 CREATE TABLE `caja` (
@@ -61,7 +61,7 @@ CREATE TABLE `caja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `caja`
+-- Volcado de datos para la tabla `caja`
 --
 
 INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
@@ -94,7 +94,7 @@ INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carta`
+-- Estructura de tabla para la tabla `carta`
 --
 
 CREATE TABLE `carta` (
@@ -105,19 +105,28 @@ CREATE TABLE `carta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `carta`
+-- Volcado de datos para la tabla `carta`
 --
 
 INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) VALUES
 ('ACR', 'Contactos en el mercado negro|Black Market Connections', 1, 'hechizo,enchantment,rare,coste:2{NC},1{B}'),
 ('ACR', 'Edward Kenway|Edward Kenway', 1, 'criatura,legendary,,human assassin pirate,mitico,fuerza:5,resistencia:5,coste:2{NC},1{U},1{B},1{R}'),
 ('ACR', 'Eivor, Matalobos|Eivor, Wolf-Kissed', 1, 'criatura,legendary,human assassins warrior,mitico,fuerza:7,resistencia:6,coste:3{NC},1{R},1{G},1{W}'),
+('ACR', 'El Animus|The Animus', 1, 'artefacto,legendary,rare,coste:2{NC}'),
 ('ACR', 'Espada de abundancia y escasez|Sword of Feast and Famine', 1, 'artefacto,equipment,mitico,coste:3{NC}'),
+('ACR', 'Evie Frye|Evie Frye', 1, 'criatura,legendary,human assassin,rare,fuerza:2,resistencia:1,coste:1{NC},1{U}'),
 ('ACR', 'Excalibur,espada del Edén|Excalibur,Sword of Eden ', 1, 'artefacto,legendary,equipment,rare,coste:12{NC}'),
 ('ACR', 'Ezio Auditore da Firenze|Ezio Auditore da Firenze', 1, 'criatura,legendary,human assassin,mitico,fuerza:3,resistencia:2,coste:1{NC},1{B}'),
+('ACR', 'Fardo de heno|Haystack ', 1, 'artefacto,uncommon,coste:1{NC},1{W}'),
 ('ACR', 'Fruto del Edén,reliquia Isu|Apple of Eden,Isu Relic ', 1, 'artefacto,legendary,mitico,coste:4{NC}'),
+('ACR', 'Haytham Kenway|Haytham Kenway', 1, 'criatura,legendary,human knight,rare,fuerza:3,resistencia:3,coste:2{NC},1{W},1{U}'),
+('ACR', 'Hoja oculta|Hidden Blade ', 1, 'artefacto,equipment,uncommon,coste:2{NC}'),
 ('ACR', 'Kassandra, portadora del águila|Kassandra, Eagle Bearer', 1, 'criatura,legendary,human assassin warrior,fuerza:2,resistencia:2,coste:1{NC},1{R},1{W}'),
+('ACR', 'La lanza de Leónidas|The Spear of Leonidas ', 1, 'artefacto,legendary,equipment,rare,coste:2{NC},1{R}'),
 ('ACR', 'Leonardo da Vinci|Leonardo da Vinci', 1, 'criatura,legendary,human artificer,mitico,fuerza:3,resistencia:3,coste:2{NC},1{U}'),
+('ACR', 'Lydia Frye|Lydia Frye', 1, 'criatura,legendary,human assassin,uncommon,fuerza:3,resistencia:2,coste:2{NC}'),
+('ACR', 'Ratonhnhaké:ton|Ratonhnhaké꞉ton ', 1, 'criatura,legendary,human assassin,rare,fuerza:3,resistencia:3,coste:1{W},1{U},1{B}'),
+('ACR', 'Sócrates,profesor ateniense|Sokrates,Athenian Teacher ', 1, 'criatura,legendary,human advisor,rare,fuerza:0,resistencia:4,coste:1{NC},1{W},1{U}'),
 ('ACR', 'Yggdrasil,artefacto del renacer|Yggdrasil,Rebirth Engine ', 1, 'artefacto,legendary,mitico,coste:3{NC}'),
 ('ALP', 'Loto Negro |Black Lotus ', 1, 'artefacto,rare,coste:0'),
 ('ANE', 'Monkey.D.Luffy (OP05-119) (V.1)', 5, 'personaje,don:10,poder:120000'),
@@ -389,7 +398,7 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventos`
+-- Estructura de tabla para la tabla `eventos`
 --
 
 CREATE TABLE `eventos` (
@@ -401,7 +410,7 @@ CREATE TABLE `eventos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `eventos`
+-- Volcado de datos para la tabla `eventos`
 --
 
 INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion`, `urlImagen`) VALUES
@@ -414,7 +423,7 @@ INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expansiones`
+-- Estructura de tabla para la tabla `expansiones`
 --
 
 CREATE TABLE `expansiones` (
@@ -426,7 +435,7 @@ CREATE TABLE `expansiones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expansiones`
+-- Volcado de datos para la tabla `expansiones`
 --
 
 INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`, `idJuego`, `urlImagen`) VALUES
@@ -461,7 +470,7 @@ INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `juegos`
+-- Estructura de tabla para la tabla `juegos`
 --
 
 CREATE TABLE `juegos` (
@@ -470,7 +479,7 @@ CREATE TABLE `juegos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `juegos`
+-- Volcado de datos para la tabla `juegos`
 --
 
 INSERT INTO `juegos` (`idJuego`, `nombre_juego`) VALUES
@@ -483,7 +492,7 @@ INSERT INTO `juegos` (`idJuego`, `nombre_juego`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ofertas`
+-- Estructura de tabla para la tabla `ofertas`
 --
 
 CREATE TABLE `ofertas` (
@@ -497,7 +506,7 @@ CREATE TABLE `ofertas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ofertas`
+-- Volcado de datos para la tabla `ofertas`
 --
 
 INSERT INTO `ofertas` (`nombreProducto`, `codExpansion`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
@@ -510,7 +519,7 @@ INSERT INTO `ofertas` (`nombreProducto`, `codExpansion`, `idJuego`, `precio`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -524,7 +533,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
@@ -533,14 +542,23 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('ACR', 'Contactos en el mercado negro|Black Market Connections', 1, 9.88, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Contactos-en-el-mercado-negro.webp', NULL),
 ('ACR', 'Edward Kenway|Edward Kenway', 1, 11.06, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Edward-Kenway.webp', NULL),
 ('ACR', 'Eivor, Matalobos|Eivor, Wolf-Kissed', 1, 2.09, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Eivor.webp', NULL),
+('ACR', 'El Animus|The Animus', 1, 0.59, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\animus.webp', NULL),
 ('ACR', 'Espada de abundancia y escasez|Sword of Feast and Famine', 1, 15.61, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Espada-de-abundancia-y-escasez.webp', NULL),
+('ACR', 'Evie Frye|Evie Frye', 1, 0.41, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Evie-Frye.webp', NULL),
 ('ACR', 'Excalibur,espada del Edén|Excalibur,Sword of Eden ', 1, 10.14, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Excalibur.webp', NULL),
 ('ACR', 'Ezio Auditore da Firenze|Ezio Auditore da Firenze', 1, 10.89, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Ezio-Auditore.webp', NULL),
+('ACR', 'Fardo de heno|Haystack ', 1, 0.27, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Fardo-de-heno.webp', NULL),
 ('ACR', 'Fruto del Edén,reliquia Isu|Apple of Eden,Isu Relic ', 1, 1.98, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Fruto-del-Edén.webp', NULL),
+('ACR', 'Haytham Kenway|Haytham Kenway', 1, 0.39, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\haytham-kenway.webp', NULL),
+('ACR', 'Hoja oculta|Hidden Blade ', 1, 0.17, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Hoja-oculta.webp', NULL),
 ('ACR', 'Kassandra, portadora del águila|Kassandra, Eagle Bearer', 1, 6.21, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Kassandra.webp', NULL),
+('ACR', 'La lanza de Leónidas|The Spear of Leonidas ', 1, 1.05, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\La-lanza-de-Leónidas.webp', NULL),
 ('ACR', 'Leonardo da Vinci|Leonardo da Vinci', 1, 2.12, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Leonardo-da-Vinci.webp', NULL),
+('ACR', 'Lydia Frye|Lydia Frye', 1, 0.14, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Lydia.webp', NULL),
+('ACR', 'Ratonhnhaké:ton|Ratonhnhaké꞉ton ', 1, 0.28, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Ratonhnhakéton.webp', 20.00),
 ('ACR', 'Sobre de coleccionista de Más allá del Multiverso: Assassin\'s Creed|Universes Beyond: Assassin\'s Creed Collector Booster', 1, 21.04, 'sobre', '../assets\\images\\product\\MTG\\packs\\ACR\\sobre-ACR-collec.webp', NULL),
 ('ACR', 'Sobre de Más allá de Multiverso:Assassin\'s Creed|Universes Beyond:Assassin\'s Creed Beyond Booster', 1, 5.06, 'sobre', '../assets\\images\\product\\MTG\\packs\\ACR\\sobre-ACR.webp', NULL),
+('ACR', 'Sócrates,profesor ateniense|Sokrates,Athenian Teacher ', 1, 0.57, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\socrates.webp', NULL),
 ('ACR', 'Yggdrasil,artefacto del renacer|Yggdrasil,Rebirth Engine ', 1, 9.35, 'carta', '../assets\\images\\product\\MTG\\cards\\ACR\\Yggdrasil.webp', NULL),
 ('ALP', 'Loto Negro |Black Lotus ', 1, 18000.00, 'carta', '../assets\\images\\product\\MTG\\cards\\ALP\\black-lotus.webp', NULL),
 ('ANE', 'Monkey.D.Luffy (OP05-119) (V.1)', 5, 18000.00, 'carta', '../assets\\images\\product\\OP\\cards\\ANE\\Luffy.webp', NULL),
@@ -870,7 +888,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sobre`
+-- Estructura de tabla para la tabla `sobre`
 --
 
 CREATE TABLE `sobre` (
@@ -881,7 +899,7 @@ CREATE TABLE `sobre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sobre`
+-- Volcado de datos para la tabla `sobre`
 --
 
 INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
@@ -917,7 +935,7 @@ INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -930,7 +948,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`, `image-url`) VALUES
@@ -940,7 +958,7 @@ INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`, `image-ur
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_addresses`
+-- Estructura de tabla para la tabla `user_addresses`
 --
 
 CREATE TABLE `user_addresses` (
@@ -949,152 +967,152 @@ CREATE TABLE `user_addresses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_addresses`
+-- Volcado de datos para la tabla `user_addresses`
 --
 
 INSERT INTO `user_addresses` (`email`, `idAddress`) VALUES
 ('something@example.org', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `addresses`
+-- Indices de la tabla `addresses`
 --
 ALTER TABLE `addresses`
   ADD PRIMARY KEY (`idAddress`);
 
 --
--- Indexes for table `caja`
+-- Indices de la tabla `caja`
 --
 ALTER TABLE `caja`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `carta`
+-- Indices de la tabla `carta`
 --
 ALTER TABLE `carta`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `eventos`
+-- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`idEvento`);
 
 --
--- Indexes for table `expansiones`
+-- Indices de la tabla `expansiones`
 --
 ALTER TABLE `expansiones`
   ADD PRIMARY KEY (`codExpansion`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `juegos`
+-- Indices de la tabla `juegos`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`idJuego`);
 
 --
--- Indexes for table `ofertas`
+-- Indices de la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `sobre`
+-- Indices de la tabla `sobre`
 --
 ALTER TABLE `sobre`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexes for table `user_addresses`
+-- Indices de la tabla `user_addresses`
 --
 ALTER TABLE `user_addresses`
   ADD PRIMARY KEY (`email`,`idAddress`),
   ADD KEY `idAddress` (`idAddress`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `addresses`
+-- AUTO_INCREMENT de la tabla `addresses`
 --
 ALTER TABLE `addresses`
   MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `eventos`
+-- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `caja`
+-- Filtros para la tabla `caja`
 --
 ALTER TABLE `caja`
   ADD CONSTRAINT `caja_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`),
   ADD CONSTRAINT `caja_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `carta`
+-- Filtros para la tabla `carta`
 --
 ALTER TABLE `carta`
   ADD CONSTRAINT `carta_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `carta_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `expansiones`
+-- Filtros para la tabla `expansiones`
 --
 ALTER TABLE `expansiones`
   ADD CONSTRAINT `expansiones_ibfk_1` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `ofertas`
+-- Filtros para la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
   ADD CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`),
   ADD CONSTRAINT `ofertas_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`codExpansion`) REFERENCES `expansiones` (`codExpansion`),
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `expansiones` (`idJuego`);
 
 --
--- Constraints for table `sobre`
+-- Filtros para la tabla `sobre`
 --
 ALTER TABLE `sobre`
   ADD CONSTRAINT `sobre_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sobre_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `user_addresses`
+-- Filtros para la tabla `user_addresses`
 --
 ALTER TABLE `user_addresses`
   ADD CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE,
