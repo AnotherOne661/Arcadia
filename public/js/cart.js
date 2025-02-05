@@ -117,7 +117,7 @@ function processPayment() {
     }).then((result) => {
       if (result.isConfirmed) {
         // Redirect after closing the popup
-        window.location.href = '/thank-you.html';  // Change the URL to wherever you want to redirect
+        window.location.href = 'myPage';  // Change the URL to wherever you want to redirect
       }
     });
   } else {
