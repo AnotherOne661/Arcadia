@@ -42,3 +42,12 @@ main {
     }
   }
 }
+a {
+  color: var(--saffron);
+  text-decoration: none;
+  font-size: large;
+  &:hover {
+    background-color: var(--night);
+    color: var(--madder);
+  }
+}

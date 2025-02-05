@@ -23,7 +23,7 @@
     <div class="form-checkboxes">
       <label for="terms">Soy mayor de edad:</label>
       <input type="checkbox" id="age" name="age">
-      <label for="terms">Aceptar términos y condiciones:</label>
+      <label for="terms">Aceptar <a href="/terms">términos y condiciones:</a></label>
       <input type="checkbox" id="terms" name="terms">
     </div>
 
