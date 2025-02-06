@@ -6,12 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 90%;
   border: solid 25px var(--night);
-
 }
 .calendar {
-  width: 100%;
+  width: 80%;
+  padding-top: 3em;
+  padding-bottom: 3em;
   background-color: var(--af-white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -19,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
 }
 .calendar-header button {
   background-color: transparent;
@@ -39,7 +40,9 @@
 .calendar-weekdays div,
 .calendar-dates div {
   text-align: center;
-  padding: 4em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  padding: 1em;
 }
 .calendar-weekdays {
   background-color: #eaeef3;

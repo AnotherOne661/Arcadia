@@ -29,7 +29,30 @@ function main() {
   const elements = stripe.elements();
   const cardElement = elements.create("card");
   cardElement.mount('#card-element');
-
+  const vaciarCarrito = document.querySelector(".clear-cart");
+  vaciarCarrito.classList.add("hidden");
+  if(localStorage.getItem("cart")){
+    vaciarCarrito.classList.remove("hidden");
+    vaciarCarrito.addEventListener("click", () => {
+      Swal.fire({
+        title: '¿Estás seguro de que quieres vaciar el carrito?',
+        showDenyButton: true,
+        confirmButtonText: `Sí`,
+        denyButtonText: `No`,
+        denyIcon: 'warning',
+        confirmButtonColor: '#eec643',
+        denyButtonColor: '#a41623',
+        confirmButtonTextColor: '#141414',
+        cancelButtonTextColor: '#eef0f2',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("cart");
+          populateCart();
+        }
+      });
+    });
+  }
+ 
   cardElement.on('change', function(event) {
     const displayError = document.getElementById('card-errors');
     displayError.textContent = event.error ? event.error.message : '';
@@ -45,6 +68,7 @@ function main() {
       const localidad = document.getElementById('localidad').value;
       const address = document.getElementById('address').value;
       const postalCode = document.getElementById('postalCode').value;
+
       if (!isValidAddress(address)) {
         Swal.fire({
           icon: 'error',
@@ -105,6 +129,7 @@ function processPayment() {
   const localidad = document.getElementById('localidad').value;
   const address = document.getElementById('address').value;
   const postalCode = document.getElementById('postalCode').value;
+
 
   // Validate the inputs
   if (name && community && localidad && address && postalCode) {

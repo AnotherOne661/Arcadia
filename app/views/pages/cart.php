@@ -4,11 +4,11 @@
   <div class="cart-page-body">
     <div class="cart-body">
       <!-- Cart items will be dynamically populated here -->
-    </div>
 
+    </div>
     <div class="total">
       <h2>Total: <span class="cart-total">0</span>€</h2>
-
+      <button class="clear-cart">Vaciar carrito</button>
       <div class="session">
         <?php if (isset($_SESSION['name'])): ?>
           <form class="details">

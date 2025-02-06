@@ -659,3 +659,13 @@ footer {
   color: var(--night);
   background-color: var(--af-white) !important;
 }
+.menu-a {
+  text-decoration: none;
+  color: var(--af-white);
+  &:hover {
+    color: var(--saffron);
+  }
+}
+.hidden {
+  display: none;
+}

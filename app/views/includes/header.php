@@ -91,7 +91,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger" data-collections>Colecciones</button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/collections">Colecciones</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -126,7 +127,8 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="/collections"
+                                                data-collections>Colecciones</a></li>
                                         <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                         <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                         <li>
@@ -148,7 +150,8 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="/collections"
+                                                data-collections>Colecciones</a></li>
                                         <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                         <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                         <li>
@@ -170,7 +173,8 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="/collections"
+                                                data-collections>Colecciones</a></li>
                                         <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                         <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                         <li>
@@ -192,7 +196,8 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="/collections"
+                                                data-collections>Colecciones</a></li>
                                         <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                         <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                         <li>
@@ -214,7 +219,8 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                                        <li><a class="dropdown-item" href="/collections"
+                                                data-collections>Colecciones</a></li>
                                         <li><a class="dropdown-item" href="#">Accesorios</a></li>
                                         <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                                         <li>
@@ -317,7 +323,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                    <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -335,7 +341,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                    <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -353,7 +359,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                    <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -371,7 +377,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                    <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
@@ -389,7 +395,7 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#" data-collections>Colecciones</a></li>
+                    <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
                     <li><a class="dropdown-item" href="#">Accesorios</a></li>
                     <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
                     <li>
