@@ -1,4 +1,7 @@
 
+const form = document.querySelector(".contact-form");
+
+
 function main(){
   const map = L.map("map").setView([40.4308263, -3.6740011], 20);
   let lanLong;
@@ -92,5 +95,15 @@ function main(){
   });
 
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    Swal.fire({
+      icon: "success",
+      title: "Tu consulta ha sido realizada con éxito",
+      
+  }).then(() => {
+      form.submit();
+  });
+  });
 }
 main();

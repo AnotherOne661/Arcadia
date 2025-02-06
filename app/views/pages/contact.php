@@ -31,7 +31,7 @@
       <h1><strong class="red">Contáctanos</strong></h1>
       <p>¿Tienes preguntas, sugerencias o necesitas ayuda con tu pedido? ¡Estamos aquí para ayudarte!</p>
 
-      <form action="procesar_formulario.php" method="POST" class="contact-form">
+      <form action="/contact" method="POST" class="contact-form">
         <div class="form-field">
           <label for="nombre">Nombre:</label>
           <input type="text" id="nombre" name="nombre" placeholder="Ajani, fuerza primigenia" required>
