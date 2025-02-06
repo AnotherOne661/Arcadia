@@ -5,4 +5,5 @@
 - Productos y sus páginas !high
 - htaccess !medium
 - AÑADIR EVENTOS !medium
-
+- Vaciar carrito cuando se realice la compra !high
+- Añadir el sitemap !medium
