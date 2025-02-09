@@ -125,4 +125,10 @@ class SiteController extends Controller
       'cssFile' => 'contact-form.css',
     ]);
   }
+  public function siteMap(){
+    return $this->render('sitemap', [
+      'title' => 'Mapa del Sitio',
+      'cssFile' =>'sitemap.css',
+    ]);
+  }
 }

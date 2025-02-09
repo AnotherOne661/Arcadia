@@ -36,10 +36,11 @@ class UserController extends Controller
       $_SESSION['profile'] = ltrim($usrImg, '/');
       $_SESSION['profile-path'] = "/assets/images/" . $_SESSION['profile'];
 
-      $this->response->sendRedirect('/myPage');
+      $this->response->sendRedirect('/mypage');
     } else {
       // Contraseña incorrecta o usuario no encontrado
       var_dump("Login fallido: usuario o contraseña incorrectos.");
+      $_SESSION['login_error'] = true;
       $this->response->sendRedirect('/login');
     }
 
@@ -100,7 +101,7 @@ class UserController extends Controller
       $this->response->sendRedirect("/signup");
     } else {
       echo "no hay error";
-      $this->response->sendRedirect('/myPage');
+      $this->response->sendRedirect('/mypage');
     }
     return null;
   }

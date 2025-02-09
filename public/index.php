@@ -69,7 +69,7 @@ switch ($requestUri) {
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->signUp());
     break;
-  case 'myPage':
+  case 'mypage':
     if ($_SESSION['name'] != null) {
       $controller = new SiteController($request, $response);
       echo $response->sendHtml($controller->myPage());
@@ -136,10 +136,15 @@ switch ($requestUri) {
     $controller = new ContactController($request, $response);
     echo $response->sendHtml($controller->index());
     break;
+  case 'sitemap':
+    $controller = new SiteController($request, $response);
+    echo $response->sendHtml($controller->siteMap());
+    break;
   case 'error':
   default:
     $controller = new ErrorController($request, $response);
     echo $response->sendHtml($controller->index());
     break;
+
 }
 
