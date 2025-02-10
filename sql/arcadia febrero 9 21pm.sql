@@ -556,12 +556,19 @@ CREATE TABLE `eventos` (
 -- Volcado de datos para la tabla `eventos`
 --
 
+
 INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion`, `urlImagen`) VALUES
 (1, 'Torneo Pauper Magic: The Gathering', '2025-01-15', 'Inscripción: 5€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Foundations, Premio por participar: 1 Booster Pack Foundations', '../assets/images/product/MTG/events/25-1-15-pauper.webp'),
 (2, 'Lanzamiento de Yu-Gi-Oh! Rage of the Abyss', '2025-01-05', 'Ven a por la nueva entrega de Yu-Gi-Oh!', '../assets/images/product/YGO/events/25-1-5-ROTA_launch.webp'),
 (3, 'Torneo One Piece TCG', '2025-01-20', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 15€. 3º Premio: 5 Booster Packs OP-11, Premio por participar: 1 Booster Pack OP-11', '../assets/images/product/OP/events/25-1-20-OP.webp'),
 (4, 'Preguntas y respuestas con Artista español de Wizards of The Coast \"Manuel Huedo\"', '2025-01-30', '', '../assets/images/product/MTG/events/25-1-30-interview.webp'),
-(5, 'Torneo Gratuito de Lorcana', '2025-02-01', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/25-2-1-tournament.webp');
+(5, 'Torneo Gratuito de Lorcana', '2025-02-01', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/25-2-1-tournament.webp'),
+(6, 'Torneo Commander', '2025-03-10', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 25€. 3º Premio: 3 Booster Packs Aetherdrift, Premio por participar: 1 Booster Pack Aetherdrift', 'placeholder'),
+(7, 'Presentación de Aetherdrift', '2025-03-07', 'Ven a por la nueva entrega de Magic: The Gathering', 'placeholder'),
+(8, 'Torneo Gratuito Lorcana', '2025-03-16', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', 'placeholder'),
+(9, 'Torneo Yu-Gi-Oh!', '2025-03-05', 'Inscripción: 6€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Alliance Insight, Premio por participar: 1 Booster Alliance Insight', 'placeholder'),
+(10, 'Entrevista a Diversity & Dragons, con traductor', '2025-03-20', NULL, 'placeholder');
+
 
 -- --------------------------------------------------------
 
