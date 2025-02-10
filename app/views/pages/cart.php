@@ -2,11 +2,14 @@
   <h1 class="cart-title">Tu carrito</h1>
 
   <div class="cart-page-body">
+
     <div class="cart-body">
       <!-- Cart items will be dynamically populated here -->
 
     </div>
     <div class="total">
+      <button class="buyNow"><a href="/home">Comprar ahora</a></button>
+
       <h2>Total: <span class="cart-total">0</span>€</h2>
       <button class="clear-cart">Vaciar carrito</button>
       <div class="session">
@@ -44,6 +47,7 @@
     </div>
 
     <figure class="cart-image">
+
       <img src="/assets/images/struc/cart/urza.webp" alt="Urza, High Artificer">
     </figure>
 

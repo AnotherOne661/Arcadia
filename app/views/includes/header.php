@@ -7,8 +7,7 @@
         <div id="search">
             <form>
                 <input type="search" placeholder="Buscar">
-                <button type="submit"><img src="<?php echo
-                    $ABS_URL; ?>images/icons/mag-glass.svg" alt=""></button>
+                <button type="submit"><i class="bi bi-search"></i></button>
             </form>
         </div>
         <div id="icons">

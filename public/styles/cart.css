@@ -81,6 +81,10 @@
   }
 }
 .cart-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 15em;
   width: 25%;
   img {
@@ -121,7 +125,32 @@ label[for="card-element"] {
   font-size: 14px;
   margin-top: 10px;
 }
-
+.buyNow {
+  margin-top: 1em;
+  font-size: 1.2em;
+  font-family: var(--ygo-bold);
+  padding: 0.5em 1em;
+  background-color: var(--madder);
+  color: var(--af-white);
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  a {
+    text-decoration: none;
+    color: var(--saffron);
+    &:hover {
+      color: var(--night);
+    }
+  }
+  &:hover {
+    background-color: var(--saffron);
+    color: var(--night);
+  }
+  &:focus {
+    outline: none;
+  }
+}
 /* Optionally, add responsiveness */
 @media (max-width: 768px) {
   #card-element {

@@ -29,6 +29,16 @@ function main() {
   const elements = stripe.elements();
   const cardElement = elements.create("card");
   cardElement.mount('#card-element');
+  const buyNow = document.querySelector(".buyNow");
+  buyNow.classList.add("hidden");   
+  if (!localStorage.getItem("cart")){
+    buyNow.classList.remove("hidden");   
+  }
+  const total = document.querySelector(".session");
+  total.classList.add("hidden");
+  if (localStorage.getItem("cart")){
+    total.classList.remove("hidden");
+  }
   const vaciarCarrito = document.querySelector(".clear-cart");
   vaciarCarrito.classList.add("hidden");
   if(localStorage.getItem("cart")){
@@ -47,7 +57,7 @@ function main() {
       }).then((result) => {
         if (result.isConfirmed) {
           localStorage.removeItem("cart");
-          populateCart();
+          window.location.reload();
         }
       });
     });
