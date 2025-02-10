@@ -41,7 +41,7 @@ class ProductController extends Controller
     // Render, método de Controller, toma el nfindombre de la url, seguido del array
     // asociativo con clave: nombre de variable cuando se renderice valor: valor de la variable
     return $this->render('product', [
-      'title' => $product->getnombreProducto(),
+      'title' => $product->getnombreProductoEn(),
       'cssFile' => 'product.css',
       'jsFile' => 'product.js',
       'product' => $product

@@ -58,8 +58,8 @@ function buyButton() {
       if (codExpansionInput && productName) {
         const codExpansion = codExpansionInput.value;
         const nombreProducto = productName.textContent.trim();
-        const amount = productQuantity.value;
 
+        const amount = parseInt(productQuantity.value, 10);
         const productPriceReal = temp.split("€");
         const productPrice = parseFloat(productPriceReal[0]);
         const total = productPrice * amount;
@@ -231,8 +231,43 @@ function buy() {
   const totalNumber = parseFloat(total);
   const totalString = totalNumber.toFixed(2);
 }
+function updateSetStyle() {
+  const products = document.querySelectorAll(".product");
+
+  products.forEach((product) => {
+    const productGame = product.querySelector(".idJuego");
+
+    if (productGame) {
+      const gameValue = productGame.value;
+
+      switch (gameValue) {
+        case "1":
+          product.classList.add("MTG");
+          break;
+        case "2":
+          product.classList.add("YGO");
+          break;
+        case "3":
+          product.classList.add("POK");
+          break;
+        case "4":
+          product.classList.add("LOR");
+          break;
+        case "5":
+          product.classList.add("OP");
+          break;
+        default:
+          product.classList.add("other");
+          break;
+      }
+    } else {
+      console.warn("No hidden field found for product:", product);
+    }
+  });
+}
 window.onload = function () {
   getYear();
   initializeClickableImages();
   buyButton();
+  updateSetStyle();
 };

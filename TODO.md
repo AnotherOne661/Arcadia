@@ -2,5 +2,5 @@
 - Llenar DB (almost done) !low
 - Implementar rol de Administrador !low
 - Filtrado y búsqueda de productos !high
-- Productos y sus páginas !high
-- AÑADIR EVENTOS !medium
+- Arreglar color enlaces productos !high
+- AÑADIR IMAGENES A EVENTOS !HIGH

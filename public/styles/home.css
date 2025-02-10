@@ -126,7 +126,6 @@ section {
   }
 }
 .product a {
-  color: var(--night);
   text-decoration: none;
 }
 .product h3 {

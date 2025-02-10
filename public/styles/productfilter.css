@@ -1,0 +1,115 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 250px;
+  padding: 1.5em;
+  background-color: var(--af-white);
+  border: 3px solid var(--night);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform var(--transitionCool), box-shadow var(--transitionCool);
+  text-align: center;
+  margin: 1em;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.product-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform var(--transitionCool);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  width: 100%;
+  padding: 0.5em 0;
+}
+
+.product-title {
+  font-size: 1.2em;
+  font-family: var(--ygo-bold);
+  color: var(--night);
+  margin: 0.5em 0;
+}
+
+.product-set {
+  font-size: 0.9em;
+  color: var(--madder);
+  margin-bottom: 0.5em;
+}
+
+.product-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.old-product-price {
+  font-size: 1em;
+  text-decoration: line-through;
+  color: var(--madder);
+}
+
+.product-price {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: var(--night);
+}
+
+/* Optional: Add a button for interaction */
+.product-button {
+  margin-top: 1em;
+  padding: 0.8em 1.5em;
+  border-radius: 99px;
+  background-color: var(--madder);
+  color: var(--af-white);
+  font-size: 1em;
+  font-family: var(--ygo-bold);
+  cursor: pointer;
+  transition: var(--transitionCool);
+  border: none;
+}
+
+.product-button:hover {
+  box-shadow: 0px 1px 15px var(--af-white);
+}
+/*
+<div class="product-card">
+  <input type="hidden" class="idJuego" value="<?php echo $product->getIdJuego(); ?>">
+
+  <figure class="product-image">
+    <img src="<?php echo $product->getUrlImagen(); ?>"
+      alt="<?php echo htmlspecialchars($product->getNombreProductoEs()); ?>">
+  </figure>
+
+  <div class="product-info">
+    <h2 class="product-title"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
+    <p class="product-set"><small>Set: <?php echo htmlspecialchars($product->getcodExpansion()); ?></small></p>
+
+    <div class="product-pricing">
+      <p class="old-product-price"><?php echo number_format($product->getPrecio(), 2); ?> ¥</p>
+      <p class="product-price"></p> <!-- Dynamic price placeholder -->
+    </div>
+  </div>
+</div>
+*/

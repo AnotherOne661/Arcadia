@@ -8,20 +8,24 @@ require_once __DIR__ . '/Model.php';
 class Product extends Model
 {
     private $codExpansion;
-    private $nombreProducto;
+    private $nombreProductoEn;
+    private $nombreProductoEs;
+
     private $idJuego;
     private $precio;
     private $tipo;
     private $urlImagen;
 
-    public function __construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen)
+    public function __construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $nombreProductoEs = null)
     {
         $this->codExpansion = $codExpansion;
-        $this->nombreProducto = $nombreProducto;
+        $this->nombreProductoEn = $nombreProductoEn;
+        $this->nombreProductoEs = $nombreProductoEs;
         $this->idJuego = $idJuego;
         $this->precio = $precio;
         $this->tipo = $tipo;
         $this->urlImagen = $urlImagen;
+
     }
 
     public function getcodExpansion()
@@ -29,11 +33,14 @@ class Product extends Model
         return $this->codExpansion;
     }
 
-    public function getnombreProducto()
+    public function getNombreProductoEn()
     {
-        return $this->nombreProducto;
+        return str_replace("|", "", $this->nombreProductoEn);
     }
-
+    public function getNombreProductoEs()
+    {
+        return $this->nombreProductoEs;
+    }
     public function getprecio()
     {
         return $this->precio;

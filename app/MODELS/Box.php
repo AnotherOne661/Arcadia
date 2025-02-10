@@ -10,9 +10,9 @@ class Box extends Product
   private $numCartas;
 
 
-  public function __construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen, $numCartas)
+  public function __construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $numCartas, $nombreProductoEs = null)
   {
-    parent::__construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen);
+    parent::__construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $nombreProductoEs);
     $this->numCartas = $numCartas;
 
   }

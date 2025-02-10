@@ -7,9 +7,9 @@ class Card extends Product
   private $atributos;
 
 
-  public function __construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen, $atributos)
+  public function __construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $atributos, $nombreProductoEs = null)
   {
-    parent::__construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen);
+    parent::__construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $nombreProductoEs);
     $this->atributos = $atributos;
   }
 
