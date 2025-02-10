@@ -152,7 +152,8 @@ function processPayment() {
     }).then((result) => {
       if (result.isConfirmed) {
         // Redirect after closing the popup
-        window.location.href = 'myPage';  // Change the URL to wherever you want to redirect
+        localStorage.removeItem("cart");
+        window.location.href = 'mypage';  // Change the URL to wherever you want to redirect
       }
     });
   } else {

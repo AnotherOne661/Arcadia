@@ -74,8 +74,8 @@
       <div>
         <h4>Descubre:</h4>
       </div>
-      <div>
-        <ul>
+      <div >
+        <ul class="links-footer">
           <li><a href="">Magic: The Gathering</a></li>
           <li><a href="">Lorcana</a></li>
           <li><a href="">Yu-Gi-Oh!</a></li>
@@ -92,11 +92,12 @@
         <h4>Sobre nosotros:</h4>
       </div>
       <div>
-        <ul>
+        <ul class="links-footer">
           <li><a href="/contact">Nosotros</a></li>
           <li><a href="/privacy">Política de privacidad</a></li>
           <li><a href="/cookies">Política de cookies</a></li>
           <li><a href="/terms">Términos y condiciones</a></li>
+          <li><a href="/sitemap">Mapa del sitio</a></li>
         </ul>
       </div>
     </div>
@@ -105,7 +106,7 @@
         <h4>¡Únete a la comunidad!</h4>
       </div>
       <div>
-        <ul>
+        <ul class="links-footer">
           <li><a href="/signup">Regístrate</a></li>
           <li><a href="/login">Inicia sesión</a></li>
           <li><a href="/contact">Contacta con nosotros</a></li>

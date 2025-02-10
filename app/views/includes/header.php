@@ -12,7 +12,7 @@
         </div>
         <div id="icons">
             <button class="btn btn-primary">
-                <a href="/myPage"><i class="bi bi-person"></i></a>
+                <a href="/mypage"><i class="bi bi-person"></i></a>
             </button>
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
                 aria-controls="offcanvasRight" onclick="hideMenu()"><i class="bi bi-cart"></i></button>

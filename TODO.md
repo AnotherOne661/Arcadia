@@ -1,8 +1,6 @@
 - Calendario (añadir dinamismo) !low
-- Llenar DB (half-done) !low
+- Llenar DB (almost done) !low
 - Implementar rol de Administrador !low
 - Filtrado y búsqueda de productos !high
 - Productos y sus páginas !high
-- htaccess !medium
 - AÑADIR EVENTOS !medium
-

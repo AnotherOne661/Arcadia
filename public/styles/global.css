@@ -321,6 +321,11 @@ footer {
       width: 30%;
       text-align: center;
     }
+    .links-footer{
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
   }
   #third-row {
     width: 100%;

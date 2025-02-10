@@ -1,11 +1,14 @@
+DROP DATABASE IF EXISTS arcadia;
+CREATE DATABASE arcadia;
+USE arcadia;
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 06, 2025 at 09:56 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 09-02-2025 a las 15:06:19
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +21,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `arcadia`
+-- Base de datos: `arcadia`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `addresses`
+-- Estructura de tabla para la tabla `addresses`
 --
 
 CREATE TABLE `addresses` (
@@ -37,7 +40,7 @@ CREATE TABLE `addresses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `addresses`
+-- Volcado de datos para la tabla `addresses`
 --
 
 INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `puerta`) VALUES
@@ -46,7 +49,7 @@ INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `caja`
+-- Estructura de tabla para la tabla `caja`
 --
 
 CREATE TABLE `caja` (
@@ -57,7 +60,7 @@ CREATE TABLE `caja` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `caja`
+-- Volcado de datos para la tabla `caja`
 --
 
 INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
@@ -77,6 +80,8 @@ INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VA
 ('KLD', 'Kaladesh Booster Box', 540, 1),
 ('MH3', 'Caja de sobres de coleccionista de Horizontes de Modern 3|Modern Horizons 3 Collector Booster Box', 12, 1),
 ('MH3', 'Modern Horizons 3 Booster Box', 540, 1),
+('OP08', 'Caja Two Legends Booster Box Case (12x Booster Box) | Two Legends Booster Box Case (12x Booster Box)', 288, 5),
+('OP08', 'Caja Two Legends Booster Box|Two Legends Booster Box', 24, 5),
 ('OP09', 'Emperors in the New World Booster Box', 24, 5),
 ('OP09', 'Emperors in the New World Booster Box Case (12x Booster Box)', 288, 5),
 ('OP16', 'Uta Starter Deck', 50, 5),
@@ -91,7 +96,7 @@ INSERT INTO `caja` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `carta`
+-- Estructura de tabla para la tabla `carta`
 --
 
 CREATE TABLE `carta` (
@@ -102,7 +107,7 @@ CREATE TABLE `carta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `carta`
+-- Volcado de datos para la tabla `carta`
 --
 
 INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) VALUES
@@ -300,27 +305,84 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 ('J25', 'Valkiria justa|Righteous Valkyrie', 1, 'criatura,rare,angel cleric,fuerza:2,resistencia:4,coste:2{NC},1{W}'),
 ('J25', 'Verdiguardián anciano|Ancient Greenwarden ', 1, 'criatura,elemental,mítico,fuerza:5,resistencia:7,coste;4{NC},2{G}'),
 ('KLD', 'Kaladesh Rare Card', 1, 'Artifact, Rare'),
+('MH3', 'Arena de la gloria|Arena of Glory ', 1, 'tierra,rare,Agrega{R}'),
+('MH3', 'Bosque MH3|Forest MH3', 1, 'tierra,básica,Agrega{G}'),
+('MH3', 'Camino de la aniquilación|Path of Annihilation', 1, 'hechizo,enchantment,uncommon,coste:3{NC},1{G}'),
+('MH3', 'Diluvio tóxico|Toxic Deluge ', 1, 'hechizo,sorcery,rare,coste:2{NC},1{B}'),
+('MH3', 'Estallido de cultivo|Flare of Cultivation ', 1, 'hechizo,sorcery,rare,coste:1{NC},2{G}'),
+('MH3', 'Estallido de maldad|Flare of Malice ', 1, 'hechizo,instant,rare,coste:2{NC},2{B}'),
+('MH3', 'Estallido de negación|Flare of Denial', 1, 'hechizo,instant,rare,coste:1{NC},2{U}'),
+('MH3', 'Estribaciones boscosas|Wooded Foothills', 1, 'tierra,rare'),
 ('MH3', 'Felia, pastora jovial|Exuberant Shepherd ', 1, 'criatura,legendary,dog,rare,fuerza:2,resistencia:2,coste:1{NC},1{W}'),
+('MH3', 'Fénix del detective|Detective\'s Phoenix ', 1, 'criatura,enchantment,rare,phoenix,fuerza:2,resistencia:2,coste:2{NC},1{R}'),
+('MH3', 'Flauta disruptora|Disruptor Flute ', 1, 'artefacto,rare,coste:2{NC}'),
+('MH3', 'Incubador de Urza|Urza\'s Incubator', 1, 'artefacto,rare,coste:3{NC}'),
+('MH3', 'Ira de los cielos|Wrath of the Skies', 1, 'hechizo,sorcery,rare,coste:1{X},2{W}'),
+('MH3', 'Isla MH3|Island MH3', 1, 'tierra,básica,Agrega{U}'),
 ('MH3', 'Kaalia de la Vastedad|Kaalia of the Vast ', 1, 'criatura,legendary,human cleric,mitico,fuerza:2,resistencia:2,coste:1{NC},1{R},1{W},1{B}'),
 ('MH3', 'Kozilek, la Realidad Rota|Kozilek, the Broken Reality', 1, 'criatura,legendary,eldrazi,mitico,fuerza:9,resistencia:9,coste:9{NC}'),
+('MH3', 'Laberinto de Ugin|Ugin\'s Labyrinth', 1, 'tierra,mitico,Agrega{C}'),
+('MH3', 'Llanura MH3|Plains MH3', 1, 'tierra,básica,Agrega{W}'),
 ('MH3', 'Manada de ocelotes|Ocelot Pride', 1, 'criatura,cat,mitico,fuerza:1,resistencia:1,coste:1{W}'),
+('MH3', 'Medallón de esmeralda|Emerald Medallion', 1, 'artefacto,rare,coste:2{NC}'),
+('MH3', 'Medallón de rubíes|Ruby Medallion', 1, 'artefacto,rare,coste:2{NC}'),
+('MH3', 'Medallón de zafiros|Sapphire Medallion', 1, 'artefacto,rare,coste:2{NC}'),
+('MH3', 'Montaña MH3|Mountain MH3', 1, 'tierra,básica,Agrega{R}'),
 ('MH3', 'Mortigoyf|Nethergoyf ', 1, 'criatura,lhurgoyf,mitico,fuerza:*,resistencia:1+*,coste:1{B}'),
 ('MH3', 'Nadu, Sabiduría Alada|Nadu, Winged Wisdom', 1, 'criatura,legendary,bird wizard,rare,fuerza:3,resistencia:4,coste:1{NC},1{G},1{U}'),
+('MH3', 'Ondas de muerte viviente|Ripples of Undeath ', 1, 'hechizo,enchantment,rare,coste:1{NC},1{B}'),
+('MH3', 'Pantano MH3|Swamp MH3', 1, 'tierra,básica,Agrega{B}'),
+('MH3', 'Pesadilla ctónica|Chthonian Nightmare', 1, 'hechizo,enchantment,rare,coste:1{NC},1{B}'),
 ('MH3', 'Phlage,titán de la furia del fuego|Phlage,Titan of Fire\'s Fury ', 1, 'criatura,legendary,elder giant,mitico,fuerza:6,resistencia:6,coste:1{NC},1{R},1{W}'),
+('MH3', 'Playa anegada|Flooded Strand', 1, 'tierra,rare'),
 ('MH3', 'Protector silvestre|Sylvan Safekeeper', 1, 'criatura,human wizard,rare,fuerza:1,resistencia:1,coste:1{G}'),
+('MH3', 'Reclusión de Ugin|Ugin\'s Binding ', 1, 'hechizo,instant,mitico,coste:2{NC},1{U}'),
+('MH3', 'Relegar a la memoria|Consign to Memory', 1, 'hechizo,instant,uncommon,coste:1{U}'),
+('MH3', 'Ritual de nacimiento|Birthing Ritual ', 1, 'hechizo,enchantment,mitico,coste:1{NC},1{G}'),
+('MH3', 'Rueda del potencial|Wheel of Potential', 1, 'hechizo,sorcery,rare,coste:2{NC},1{R}'),
 ('MH3', 'Seis|Six', 1, 'criatura,legendary,treefolk,rare,fuerza:2,resistencia:4,coste:2{NC},2{G}'),
+('MH3', 'Serenata del strix|Strix Serenade', 1, 'hechizo,instant,rare,coste:1{U}'),
+('MH3', 'Sombra del Segundo Sol|Shadow of the Second Sun', 1, 'hechizo,enchantment,aura,mitico,coste:4{NC},2{U}'),
+('MH3', 'Torre pirexiana|Phyrexian Tower', 1, 'tierra,legendary,Agrega{C}'),
 ('MH3', 'Ulamog, el Profanador|Ulamog, the Defiler ', 1, 'criatura,legendary,eldrazi,mitico,fuerza:7,resistencia:7,coste:10{NC}'),
-('OP09', 'Boa Hancock', 5, 'personaje,don:6,poder:8000'),
-('OP09', 'Buggy', 5, 'personaje,don:10,poder:12000'),
-('OP09', 'Franky', 5, 'personaje,don:4,poder:5000'),
-('OP09', 'Gol.D.Roger', 5, 'personaje,don:10,poder:13000'),
-('OP09', 'Marshall.D.Teach', 5, 'personaje,don:10,poder:12000'),
-('OP09', 'Nico Robin', 5, 'lider,poder:5000'),
-('OP09', 'Sanji', 5, 'personaje,don:7,poder:7000'),
-('OP09', 'Shanks', 5, 'personajes,don:10,poder:12000'),
+('MH3', 'Vislumbrar lo imposible|Glimpse the Impossible ', 1, 'hechizo,sorcery,common,coste:2{NC},1{R}'),
+('OP08', 'Charlotte Linlin OP08|Charlotte Linlin OP08', 5, 'personaje,don:9,poder:9000'),
+('OP08', 'Charlotte Pudding OP08|Charlotte Pudding OP08', 5, 'personaje,don:3,poder:4000'),
+('OP08', 'Edward Newgate OP08|Edward Newgate OP08', 5, 'personaje,don:10,poder:12000'),
+('OP08', 'Kaido OP08|Kaido OP08', 5, 'personaje,don:9,poder:9000'),
+('OP08', 'Nami OP08| Nami OP08', 5, 'personaje,don:5,poder:5000'),
+('OP08', 'Pedro OP08|Pedro OP08', 5, 'personaje,don:4,poder:5000'),
+('OP08', 'Portgas.D.Ace OP08|Portgas.D.Ace OP08', 5, 'personaje,don:5,poder:6000'),
+('OP09', 'Black Hole|Black Hole', 5, 'evento,don:4'),
+('OP09', 'Boa Hancock|Boa Hancock', 5, 'personaje,don:6,poder:8000'),
+('OP09', 'Brook|Brook', 5, 'personaje,don:5,poder:6000'),
+('OP09', 'Buggy|Buggy', 5, 'personaje,don:10,poder:12000'),
+('OP09', 'Crocodile|Crocodile', 5, 'personaje,don:7,poder:7000'),
+('OP09', 'Cross Guild |Cross Guild', 5, 'evento,don:1'),
+('OP09', 'Dereshi!|Dereshi!', 5, 'evento,don:3'),
+('OP09', 'Dracule Mihawk|Dracule Mihawk', 5, 'personaje,don:6,poder:7000'),
+('OP09', 'Franky|Franky', 5, 'personaje,don:4,poder:5000'),
+('OP09', 'Fullalead|Fullalead', 5, 'escenario,don:1'),
+('OP09', 'Gol.D.Roger|Gol.D.Roger', 5, 'personaje,don:10,poder:13000'),
+('OP09', 'Gum-Gum Giant|Gum-Gum Giant', 5, 'evento,don:1'),
+('OP09', 'Jesus Burgess|Jesus Burgess', 5, 'personaje,don:4,poder:5000'),
+('OP09', 'Jinbe|Jinbe', 5, 'personaje,don:7,poder:9000'),
+('OP09', 'Marco|Marco', 5, 'personaje,don:3,poder:5000'),
+('OP09', 'Marshall.D.Teach|Marshall.D.Teach', 5, 'personaje,don:10,poder:12000'),
+('OP09', 'Mr.3(Galdino)|Mr.3(Galdino)', 5, 'personaje,don:1,poder:2000'),
+('OP09', 'My Era...Begins!!|My Era...Begins!!', 5, 'evento,don:1'),
+('OP09', 'Nami|Nami', 5, 'personaje,don:5,poder:5000'),
+('OP09', 'Nico Robin|Nico Robin', 5, 'lider,poder:5000'),
+('OP09', 'Portgas.D.Ace|Portgas.D.Ace', 5, 'personaje,don:5,poder:5000'),
+('OP09', 'Red Force|Red Force ', 5, 'escenario,don:2'),
+('OP09', 'Sanji|Sanji', 5, 'personaje,don:7,poder:7000'),
+('OP09', 'Shanks|Shanks', 5, 'personajes,don:10,poder:12000'),
+('OP09', 'Thousand Sunny|Thousand Sunny', 5, 'escenario,don:1'),
+('OP09', 'Tony Tony.Chopper|Tony Tony.Chopper ', 5, 'personaje,don:5,poder:6000'),
+('OP09', 'Trafalgar Law|Trafalgar Law ', 5, 'personaje,don:1,poder:2000'),
 ('OP09', 'Uta|Uta', 5, 'personaje,don:1,poder:2000'),
-('OP09', 'Zoro-Juurou', 5, 'personaje,don:3,poder:4000'),
-('OP09', '|Nami', 5, 'personaje,don:5,poder:5000'),
+('OP09', 'Yasopp|Yasopp', 5, 'personaje,don:5,poder:6000'),
+('OP09', 'Zoro-Juurou|Zoro-Juurou', 5, 'personaje,don:3,poder:4000'),
 ('OTJ', 'A la hora señalada|High Noon ', 1, 'hechizo,enchantment,rare,coste:1{NC},1{W}'),
 ('OTJ', 'Accidente desafortunado|Unfortunate Accident', 1, 'hechizo,instant,uncommon,coste:1{B}'),
 ('OTJ', 'Annie se une al equipo|Annie Joins Up', 1, 'hechizo,enchantment,legendary,rare,coste:1{NC},1{R},1{G},1{W}'),
@@ -424,7 +486,7 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eventos`
+-- Estructura de tabla para la tabla `eventos`
 --
 
 CREATE TABLE `eventos` (
@@ -436,7 +498,7 @@ CREATE TABLE `eventos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `eventos`
+-- Volcado de datos para la tabla `eventos`
 --
 
 INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion`, `urlImagen`) VALUES
@@ -449,7 +511,7 @@ INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion
 -- --------------------------------------------------------
 
 --
--- Table structure for table `expansiones`
+-- Estructura de tabla para la tabla `expansiones`
 --
 
 CREATE TABLE `expansiones` (
@@ -461,7 +523,7 @@ CREATE TABLE `expansiones` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `expansiones`
+-- Volcado de datos para la tabla `expansiones`
 --
 
 INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`, `idJuego`, `urlImagen`) VALUES
@@ -478,6 +540,7 @@ INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`
 ('J25', 'Foundations Jumpstart|Foundations Jumpstart', '2024-11-08', 1, '../assets\\images\\product\\MTG\\sets\\jumpstart.webp'),
 ('KLD', 'Kaledesh|Kaladesh', '2024-10-20', 1, '../assets/images/product/MAG/sets/Kaladesh.jpg'),
 ('MH3', 'Horizontes Modern 3|Modern Horizons 3', '2024-11-23', 1, '../assets/images/product/MTG/sets/MH3/portada-MH3.webp'),
+('OP08', 'Two Legends|Two Legends ', '2024-09-13', 5, '../assets\\images\\product\\OP\\sets\\OP08\\portada-op08.webp'),
 ('OP09', '|Emperors in the New World', '2024-12-14', 5, '../assets\\images\\product\\OP\\sets\\OP09\\OP-09.webp'),
 ('OP16', '|Uta Starter Deck', '2024-11-25', 5, '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp'),
 ('OTJ', 'Forajidos de Cruce de Truenos|Outlaws of Thunder Junction ', '2024-04-19', 1, '../assets\\images\\product\\MTG\\sets\\OTJ\\portada-otj.webp'),
@@ -496,7 +559,7 @@ INSERT INTO `expansiones` (`codExpansion`, `nombreExpansion`, `fechaLanzamiento`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `juegos`
+-- Estructura de tabla para la tabla `juegos`
 --
 
 CREATE TABLE `juegos` (
@@ -505,7 +568,7 @@ CREATE TABLE `juegos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `juegos`
+-- Volcado de datos para la tabla `juegos`
 --
 
 INSERT INTO `juegos` (`idJuego`, `nombre_juego`) VALUES
@@ -518,7 +581,7 @@ INSERT INTO `juegos` (`idJuego`, `nombre_juego`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ofertas`
+-- Estructura de tabla para la tabla `ofertas`
 --
 
 CREATE TABLE `ofertas` (
@@ -532,7 +595,7 @@ CREATE TABLE `ofertas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `ofertas`
+-- Volcado de datos para la tabla `ofertas`
 --
 
 INSERT INTO `ofertas` (`nombreProducto`, `codExpansion`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
@@ -545,7 +608,7 @@ INSERT INTO `ofertas` (`nombreProducto`, `codExpansion`, `idJuego`, `precio`, `t
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
 CREATE TABLE `productos` (
@@ -559,7 +622,7 @@ CREATE TABLE `productos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
 INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
@@ -793,38 +856,99 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('KLD', 'Kaladesh Booster Box', 1, 110.00, 'caja', '/assets/images/product/MAG/sets/Kaladesh_Box.png', NULL),
 ('KLD', 'Kaladesh Booster Pack', 1, 4.25, 'sobre', '/assets/images/product/MAG/sets/Kaladesh_Pack.png', NULL),
 ('KLD', 'Kaladesh Rare Card', 1, 8.00, 'carta', '/assets/images/product/MAG/sets/Kaladesh_Card.png', NULL),
+('MH3', 'Arena de la gloria|Arena of Glory ', 1, 10.78, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Arena-de-la-gloria.webp', NULL),
+('MH3', 'Bosque MH3|Forest MH3', 1, 0.26, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\bosque-mh3.webp', NULL),
 ('MH3', 'Caja de sobres de coleccionista de Horizontes de Modern 3|Modern Horizons 3 Collector Booster Box', 1, 385.09, 'caja', '../assets\\images\\product\\MTG\\tins\\MH3\\caja-coleccionista-mh3.webp', NULL),
+('MH3', 'Camino de la aniquilación|Path of Annihilation', 1, 0.16, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Camino-de-la-aniquilación.webp', NULL),
+('MH3', 'Diluvio tóxico|Toxic Deluge ', 1, 6.45, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Diluvio-tóxico.webp', NULL),
+('MH3', 'Estallido de cultivo|Flare of Cultivation ', 1, 1.33, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Estallido-de-cultivo.webp', NULL),
+('MH3', 'Estallido de maldad|Flare of Malice ', 1, 2.05, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Estallido-de-maldad.webp', NULL),
+('MH3', 'Estallido de negación|Flare of Denial', 1, 7.36, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Estallido-de-negación.webp', NULL),
+('MH3', 'Estribaciones boscosas|Wooded Foothills', 1, 11.31, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Estribaciones-boscosas.webp', NULL),
 ('MH3', 'Felia, pastora jovial|Exuberant Shepherd ', 1, 2.81, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Felia.webp', NULL),
+('MH3', 'Fénix del detective|Detective\'s Phoenix ', 1, 2.29, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Fénix-del-detective.webp', NULL),
+('MH3', 'Flauta disruptora|Disruptor Flute ', 1, 1.21, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Flauta-disruptora.webp', NULL),
+('MH3', 'Incubador de Urza|Urza\'s Incubator', 1, 6.93, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Incubador-de-Urza.webp', NULL),
+('MH3', 'Ira de los cielos|Wrath of the Skies', 1, 2.26, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Ira-de-los-cielos.webp', NULL),
+('MH3', 'Isla MH3|Island MH3', 1, 0.23, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\isla-mh3.webp', NULL),
 ('MH3', 'Kaalia de la Vastedad|Kaalia of the Vast ', 1, 1.21, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Kaalia-de-la-Vastedad.webp', NULL),
 ('MH3', 'Kozilek, la Realidad Rota|Kozilek, the Broken Reality', 1, 4.69, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Kozilek.webp', NULL),
+('MH3', 'Laberinto de Ugin|Ugin\'s Labyrinth', 1, 23.00, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Laberinto-de-Ugin.webp', NULL),
+('MH3', 'Llanura MH3|Plains MH3', 1, 0.21, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\llanura-mh3.webp', NULL),
 ('MH3', 'Manada de ocelotes|Ocelot Pride', 1, 34.69, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Manada-de-ocelotes.webp', NULL),
+('MH3', 'Medallón de esmeralda|Emerald Medallion', 1, 1.38, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\esmeralda-medallon.webp', NULL),
+('MH3', 'Medallón de rubíes|Ruby Medallion', 1, 4.69, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Medallón-de-rubíes.webp', NULL),
+('MH3', 'Medallón de zafiros|Sapphire Medallion', 1, 2.28, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Medallón-de-zafiros.webp', NULL),
 ('MH3', 'Modern Horizons 3 Booster Box', 1, 55.00, 'caja', '../assets/images/product/MTG/tins/MH3/mh3-booster-box.webp', NULL),
+('MH3', 'Montaña MH3|Mountain MH3', 1, 0.22, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Montaña-mh3.webp', NULL),
 ('MH3', 'Mortigoyf|Nethergoyf ', 1, 20.73, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Mortigoyf.webp', NULL),
 ('MH3', 'Nadu, Sabiduría Alada|Nadu, Winged Wisdom', 1, 0.92, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Nadu.webp', NULL),
+('MH3', 'Ondas de muerte viviente|Ripples of Undeath ', 1, 2.25, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Ondas-de-muerte-viviente.webp', NULL),
+('MH3', 'Pantano MH3|Swamp MH3', 1, 0.22, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\pantano-mh3.webp', NULL),
+('MH3', 'Pesadilla ctónica|Chthonian Nightmare', 1, 1.72, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Pesadilla-ctónica.webp', NULL),
 ('MH3', 'Phlage,titán de la furia del fuego|Phlage,Titan of Fire\'s Fury ', 1, 21.41, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Phlage.webp', NULL),
+('MH3', 'Playa anegada|Flooded Strand', 1, 10.46, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Playa-anegada.webp', NULL),
 ('MH3', 'Protector silvestre|Sylvan Safekeeper', 1, 1.79, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Protector-silvestre.webp', NULL),
+('MH3', 'Reclusión de Ugin|Ugin\'s Binding ', 1, 2.15, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Reclusión-de-Ugin.webp', NULL),
+('MH3', 'Relegar a la memoria|Consign to Memory', 1, 5.18, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Relegar-a-la-memoria.webp', NULL),
+('MH3', 'Ritual de nacimiento|Birthing Ritual ', 1, 5.70, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Ritual-de-nacimiento.webp', NULL),
+('MH3', 'Rueda del potencial|Wheel of Potential', 1, 0.23, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Rueda-del-potencial.webp', NULL),
 ('MH3', 'Seis|Six', 1, 3.13, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Seis.webp', NULL),
+('MH3', 'Serenata del strix|Strix Serenade', 1, 1.33, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Serenata-del-strix.webp', NULL),
 ('MH3', 'Sobre de Coleccionista Booster Sample Modern 3|Modern Horizons 3 Collector Booster Sample Pack ', 1, 5.26, 'sobre', '../assets\\images\\product\\MTG\\packs\\MH3\\packs-c-booster-sample.webp', NULL),
 ('MH3', 'Sobre de coleccionista de Horizontes de Modern 3|Modern Horizons 3 Collector Booster', 1, 34.44, 'sobre', '../assets\\images\\product\\MTG\\packs\\MH3\\packs-collector-booster-mh3.webp', NULL),
 ('MH3', 'Sobre de juego de Horizontes de Modern 3|Modern Horizons 3 Play Booster ', 1, 7.20, 'sobre', '../assets\\images\\product\\MTG\\packs\\MH3\\packs-play-booster-mh3.webp', NULL),
 ('MH3', 'Sobre Prerelease Promo de Modern 3|Modern Horizons 3: Prerelease Promo Cards Booster ', 1, 13.59, 'sobre', '../assets\\images\\product\\MTG\\packs\\MH3\\packs-prerelease.webp', NULL),
+('MH3', 'Sombra del Segundo Sol|Shadow of the Second Sun', 1, 1.04, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Sombra-del-Segundo.webp', NULL),
+('MH3', 'Torre pirexiana|Phyrexian Tower', 1, 16.17, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Torre-pirexiana.webp', NULL),
 ('MH3', 'Ulamog, el Profanador|Ulamog, the Defiler ', 1, 22.52, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Ulamog-el-Profanador.webp', NULL),
-('OP09', 'Boa Hancock', 5, 110.39, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Boa.webp', NULL),
-('OP09', 'Buggy', 5, 284.87, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Buggy.webp', NULL),
+('MH3', 'Vislumbrar lo imposible|Glimpse the Impossible ', 1, 0.17, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\vislumbrar-lo-imposible.webp', NULL),
+('OP08', 'Caja Two Legends Booster Box Case (12x Booster Box) | Two Legends Booster Box Case (12x Booster Box)', 5, 775.19, 'caja', '../assets\\images\\product\\OP\\tins\\OP08\\caja-2legends-box-case.webp', NULL),
+('OP08', 'Caja Two Legends Booster Box|Two Legends Booster Box', 5, 68.98, 'caja', '../assets\\images\\product\\OP\\tins\\OP08\\Caja-2legends.webp', NULL),
+('OP08', 'Charlotte Linlin OP08|Charlotte Linlin OP08', 5, 4.96, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Charlotte-Linlin-op08.webp', NULL),
+('OP08', 'Charlotte Pudding OP08|Charlotte Pudding OP08', 5, 14.47, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\charlotte-op08.webp', NULL),
+('OP08', 'Edward Newgate OP08|Edward Newgate OP08', 5, 0.32, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Edward-op08.webp', NULL),
+('OP08', 'Kaido OP08|Kaido OP08', 5, 1.06, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\kaido-op08.webp', NULL),
+('OP08', 'Nami OP08| Nami OP08', 5, 7.37, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\nami-op08.webp', NULL),
+('OP08', 'Pedro OP08|Pedro OP08', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\pedro-op08.webp', NULL),
+('OP08', 'Portgas.D.Ace OP08|Portgas.D.Ace OP08', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\ace-op08.webp', NULL),
+('OP08', 'Sobre Two Legends Booster|Two Legends Booster', 5, 1.80, 'sobre', '../assets\\images\\product\\OP\\packs\\OP08\\sobre-2legends.webp', NULL),
+('OP08', 'Sobre Two Legends Sleeved Booster|Two Legends Sleeved Booster', 5, 4.41, 'sobre', '../assets\\images\\product\\OP\\packs\\OP08\\sobre-2legends-sleeved.webp', NULL),
+('OP09', 'Black Hole|Black Hole', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Black-Hole.webp', NULL),
+('OP09', 'Boa Hancock|Boa Hancock', 5, 110.39, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Boa.webp', NULL),
+('OP09', 'Brook|Brook', 5, 0.02, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Brook.webp', NULL),
+('OP09', 'Buggy|Buggy', 5, 284.87, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Buggy.webp', NULL),
+('OP09', 'Crocodile|Crocodile', 5, 6.15, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Crocodile.webp', NULL),
+('OP09', 'Cross Guild |Cross Guild', 5, 0.09, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Cross-Guild.webp', NULL),
+('OP09', 'Dereshi!|Dereshi!', 5, 0.14, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Dereshi.webp', NULL),
+('OP09', 'Dracule Mihawk|Dracule Mihawk', 5, 6.26, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Dracule-Mihawk.webp', NULL),
 ('OP09', 'Emperors in the New World Booster', 5, 2.20, 'sobre', '../assets\\images\\product\\OP\\packs\\OP09\\sobre-op09.webp', NULL),
 ('OP09', 'Emperors in the New World Booster Box', 5, 96.99, 'caja', '../assets\\images\\product\\OP\\tins\\OP09\\caja-op09.webp', NULL),
 ('OP09', 'Emperors in the New World Booster Box Case (12x Booster Box)', 5, 1125.36, 'caja', '../assets\\images\\product\\OP\\tins\\OP09\\caja2-op09.webp', NULL),
 ('OP09', 'Emperors in the New World Sleeved Booster', 5, 12.20, 'sobre', '\\../assets\\images\\product\\OP\\packs\\OP09\\sobre-2-op09.webp', NULL),
-('OP09', 'Franky', 5, 7.19, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Franky.webp', NULL),
-('OP09', 'Gol.D.Roger', 5, 2000.00, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Gol.D.Roger.webp', NULL),
-('OP09', 'Marshall.D.Teach', 5, 478.76, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Marshall.D.Teach.webp', NULL),
-('OP09', 'Nico Robin', 5, 23.94, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\nico-robin.webp', NULL),
-('OP09', 'Sabo', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Sabo.webp', NULL),
-('OP09', 'Sanji', 5, 14.07, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Sanji.webp', NULL),
-('OP09', 'Shanks', 5, 423.89, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\shanks.webp', NULL),
+('OP09', 'Franky|Franky', 5, 7.19, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Franky.webp', NULL),
+('OP09', 'Fullalead|Fullalead', 5, 0.07, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Fullalead.webp', NULL),
+('OP09', 'Gol.D.Roger|Gol.D.Roger', 5, 2000.00, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Gol.D.Roger.webp', NULL),
+('OP09', 'Gum-Gum Giant|Gum-Gum Giant', 5, 0.82, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Gum-Gum.webp', NULL),
+('OP09', 'Jesus Burgess|Jesus Burgess', 5, 0.13, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Jesus-Burgess.webp', NULL),
+('OP09', 'Jinbe|Jinbe', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Jinbe.webp', NULL),
+('OP09', 'Marco|Marco', 5, 0.04, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Marco.webp', NULL),
+('OP09', 'Marshall.D.Teach|Marshall.D.Teach', 5, 478.76, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Marshall.D.Teach.webp', NULL),
+('OP09', 'Mr.3(Galdino)|Mr.3(Galdino)', 5, 0.08, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Mr.-(Galdino).webp', NULL),
+('OP09', 'My Era...Begins!!|My Era...Begins!!', 5, 0.18, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\My-Era-Begins.webp', NULL),
+('OP09', 'Nami|Nami', 5, 148.36, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Nami.webp', NULL),
+('OP09', 'Nico Robin|Nico Robin', 5, 23.94, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\nico-robin.webp', NULL),
+('OP09', 'Portgas.D.Ace|Portgas.D.Ace', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Portgas-D-Ace.webp', NULL),
+('OP09', 'Red Force|Red Force ', 5, 0.03, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Red-Force.webp', NULL),
+('OP09', 'Sabo|Sabo', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Sabo.webp', NULL),
+('OP09', 'Sanji|Sanji', 5, 14.07, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Sanji.webp', NULL),
+('OP09', 'Shanks|Shanks', 5, 423.89, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\shanks.webp', NULL),
+('OP09', 'Thousand Sunny|Thousand Sunny', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Thousand-Sunny.webp', NULL),
+('OP09', 'Tony Tony.Chopper|Tony Tony.Chopper ', 5, 0.08, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Tony-Tony-Chopper .webp', NULL),
+('OP09', 'Trafalgar Law|Trafalgar Law ', 5, 0.32, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Trafalgar-Law.webp', NULL),
 ('OP09', 'Uta|Uta', 5, 0.09, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\uta.webp', 2.00),
-('OP09', 'Zoro-Juurou', 5, 84.74, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Zoro-Juurou.webp', NULL),
-('OP09', '|Nami', 5, 148.36, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Nami.webp', NULL),
+('OP09', 'Yasopp|Yasopp', 5, 0.32, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Yasopp.webp', NULL),
+('OP09', 'Zoro-Juurou|Zoro-Juurou', 5, 84.74, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Zoro-Juurou.webp', NULL),
 ('OP16', 'Uta Starter Deck', 5, 35.99, 'caja', '../assets/images/product/OP/packs/OP16/uta-starter-deck.webp', NULL),
 ('OTJ', 'A la hora señalada|High Noon ', 1, 0.93, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\A-la-hora-señalada.webp', NULL),
 ('OTJ', 'Accidente desafortunado|Unfortunate Accident', 1, 0.10, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Accidente-desafortunado.webp', NULL),
@@ -859,7 +983,8 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('OTJ', 'Me las pagarás|Hell to Pay', 1, 0.33, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Me-las-pagarás.webp', NULL),
 ('OTJ', 'Montaña OTJ|Mountain OTJ', 1, 0.35, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\montaña-otj.webp', NULL),
 ('OTJ', 'Montes espinosos|Bristling Backwoods ', 1, 0.16, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Montes-espinosos.webp', NULL),
-('OTJ', 'Pantano OTJ|Swamp OTJ ', 1, 0.28, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Pantano-otj.webp', NULL),
+('OTJ', 'Pantano OTJ|Swamp OTJ ', 1, 0.28, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Pantano-otj.webp', NULL);
+INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
 ('OTJ', 'Planear el golpe|Plan the Heist ', 1, 0.06, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Planear-el-golpe.webp', NULL),
 ('OTJ', 'Rakdos se une al equipo|Rakdos Joins Up', 1, 0.39, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Rakdos-se-une-al-equipo.webp', NULL),
 ('OTJ', 'Rakdos,la fuerza bruta|Rakdos,the Muscle', 1, 1.75, 'carta', '../assets\\images\\product\\MTG\\cards\\OTJ\\Rakdos.webp', NULL),
@@ -918,8 +1043,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('PIP', 'Ventaja mutacional|Mutational Advantage', 1, 3.37, 'carta', '../assets\\images\\product\\MTG\\cards\\PIP\\ventaja-mutacional.webp', NULL),
 ('PNBP', 'Phantom Nightmare Booster Pack', 2, 3.99, 'sobre', '../assets/images/product/YGO/packs/phantom-nightmare-booster-pack.jpg', NULL),
 ('SCR', 'Stellar Crown Booster Box', 3, 120.00, 'caja', '/assets/images/product/POK/sets/Stellar_Crown_Box.png', NULL),
-('SCR', 'Stellar Crown Booster Pack', 3, 4.00, 'sobre', '/assets/images/product/POK/sets/Stellar_Crown_Pack.png', NULL);
-INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
+('SCR', 'Stellar Crown Booster Pack', 3, 4.00, 'sobre', '/assets/images/product/POK/sets/Stellar_Crown_Pack.png', NULL),
 ('SCR', 'Stellar Crown Promo Card', 3, 10.00, 'carta', '/assets/images/product/POK/sets/Stellar_Crown_Card.png', NULL),
 ('SDSB', 'Mago Oscuro,Dark Magician', 2, 3.50, 'carta', '../assets\\images\\product\\YGO\\cards\\SDSB\\Mago-oscuro.webp', NULL),
 ('SDWD', 'Blue-Eyes White Destiny Box', 2, 130.00, 'caja', '/assets/images/product/YGO/sets/Blue_Eyes_Box.png', NULL),
@@ -949,7 +1073,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sobre`
+-- Estructura de tabla para la tabla `sobre`
 --
 
 CREATE TABLE `sobre` (
@@ -960,7 +1084,7 @@ CREATE TABLE `sobre` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sobre`
+-- Volcado de datos para la tabla `sobre`
 --
 
 INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) VALUES
@@ -985,6 +1109,8 @@ INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) V
 ('MH3', 'Sobre de coleccionista de Horizontes de Modern 3|Modern Horizons 3 Collector Booster', 15, 1),
 ('MH3', 'Sobre de juego de Horizontes de Modern 3|Modern Horizons 3 Play Booster ', 14, 1),
 ('MH3', 'Sobre Prerelease Promo de Modern 3|Modern Horizons 3: Prerelease Promo Cards Booster ', 14, 1),
+('OP08', 'Sobre Two Legends Booster|Two Legends Booster', 12, 5),
+('OP08', 'Sobre Two Legends Sleeved Booster|Two Legends Sleeved Booster', 12, 5),
 ('OP09', 'Emperors in the New World Booster', 12, 5),
 ('OP09', 'Emperors in the New World Sleeved Booster', 12, 5),
 ('OTJ', 'Forajidos de Cruce de Truenos: Prerelease Promo Cards Booster|Outlaws of Thunder Junction: Prerelease Promo Cards Booster ', 15, 1),
@@ -1000,7 +1126,7 @@ INSERT INTO `sobre` (`codExpansion`, `nombreProducto`, `numCartas`, `idJuego`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Estructura de tabla para la tabla `users`
 --
 
 CREATE TABLE `users` (
@@ -1013,7 +1139,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Volcado de datos para la tabla `users`
 --
 
 INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`, `image-url`) VALUES
@@ -1023,7 +1149,7 @@ INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`, `image-ur
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_addresses`
+-- Estructura de tabla para la tabla `user_addresses`
 --
 
 CREATE TABLE `user_addresses` (
@@ -1032,152 +1158,152 @@ CREATE TABLE `user_addresses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user_addresses`
+-- Volcado de datos para la tabla `user_addresses`
 --
 
 INSERT INTO `user_addresses` (`email`, `idAddress`) VALUES
 ('something@example.org', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `addresses`
+-- Indices de la tabla `addresses`
 --
 ALTER TABLE `addresses`
   ADD PRIMARY KEY (`idAddress`);
 
 --
--- Indexes for table `caja`
+-- Indices de la tabla `caja`
 --
 ALTER TABLE `caja`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `carta`
+-- Indices de la tabla `carta`
 --
 ALTER TABLE `carta`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `eventos`
+-- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`idEvento`);
 
 --
--- Indexes for table `expansiones`
+-- Indices de la tabla `expansiones`
 --
 ALTER TABLE `expansiones`
   ADD PRIMARY KEY (`codExpansion`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `juegos`
+-- Indices de la tabla `juegos`
 --
 ALTER TABLE `juegos`
   ADD PRIMARY KEY (`idJuego`);
 
 --
--- Indexes for table `ofertas`
+-- Indices de la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `productos`
+-- Indices de la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `sobre`
+-- Indices de la tabla `sobre`
 --
 ALTER TABLE `sobre`
   ADD PRIMARY KEY (`codExpansion`,`nombreProducto`),
   ADD KEY `idJuego` (`idJuego`);
 
 --
--- Indexes for table `users`
+-- Indices de la tabla `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`email`);
 
 --
--- Indexes for table `user_addresses`
+-- Indices de la tabla `user_addresses`
 --
 ALTER TABLE `user_addresses`
   ADD PRIMARY KEY (`email`,`idAddress`),
   ADD KEY `idAddress` (`idAddress`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `addresses`
+-- AUTO_INCREMENT de la tabla `addresses`
 --
 ALTER TABLE `addresses`
   MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `eventos`
+-- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
   MODIFY `idEvento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `caja`
+-- Filtros para la tabla `caja`
 --
 ALTER TABLE `caja`
   ADD CONSTRAINT `caja_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `caja_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `carta`
+-- Filtros para la tabla `carta`
 --
 ALTER TABLE `carta`
   ADD CONSTRAINT `carta_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `carta_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `expansiones`
+-- Filtros para la tabla `expansiones`
 --
 ALTER TABLE `expansiones`
   ADD CONSTRAINT `expansiones_ibfk_1` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `ofertas`
+-- Filtros para la tabla `ofertas`
 --
 ALTER TABLE `ofertas`
   ADD CONSTRAINT `ofertas_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`),
   ADD CONSTRAINT `ofertas_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `productos`
+-- Filtros para la tabla `productos`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `productos_ibfk_1` FOREIGN KEY (`codExpansion`) REFERENCES `expansiones` (`codExpansion`),
   ADD CONSTRAINT `productos_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `expansiones` (`idJuego`);
 
 --
--- Constraints for table `sobre`
+-- Filtros para la tabla `sobre`
 --
 ALTER TABLE `sobre`
   ADD CONSTRAINT `sobre_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sobre_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
 --
--- Constraints for table `user_addresses`
+-- Filtros para la tabla `user_addresses`
 --
 ALTER TABLE `user_addresses`
   ADD CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE,
