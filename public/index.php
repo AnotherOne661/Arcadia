@@ -7,6 +7,7 @@ require_once __DIR__ . '/../app/controllers/CalendarController.php';
 require_once __DIR__ . '/../app/controllers/CollectionController.php';
 require_once __DIR__ . '/../app/controllers/JsonController.php';
 require_once __DIR__ . '/../app/controllers/ContactController.php';
+require_once __DIR__ . '/../app/controllers/ProductController.php';
 require_once __DIR__ . '/../app/controllers/LandingController.php';
 require_once __DIR__ . '/../app/controllers/ErrorController.php';
 require_once __DIR__ . '/../app/core/http/Request.php';
@@ -140,6 +141,9 @@ switch ($requestUri) {
     $controller = new SiteController($request, $response);
     echo $response->sendHtml($controller->siteMap());
     break;
+  case 'product':
+    $controller = new ProductController($request, $response);
+    echo $response->sendHtml($controller->index());
   case 'error':
   default:
     $controller = new ErrorController($request, $response);

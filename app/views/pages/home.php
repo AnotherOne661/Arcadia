@@ -38,28 +38,27 @@
         <div class="novedades">
             <h2 class="secTitle">NOVEDADES</h2>
             <?php foreach ($new_products as $new_product): ?>
-                <?php $esName = explode("|", $new_product->getnombreProducto()) ?>
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
                     <figcaption class="newproducts-desc">
-                        <h3 class="productTitle">
-                            <?php
-                            if (count($esName) < 2) {
-                                print_r($esName[1]);
-                            } else {
-                                echo $esName[1];
-                            }
-                            ?>
-                        </h3>
-                        <h3 class="productSubTitle">
-                            <?php
-                            if (count($esName) < 2) {
-                                print_r($esName[1]);
-                            } else {
-                                echo $esName[0];
-                            }
-                            ?>
-                        </h3>
+
+                        <a
+                            href="/product?code=<?= urlencode($new_product->getcodExpansion()) ?>&name=<?= urlencode($new_product->getnombreProductoEn()); ?>">
+                            <h3 class="productTitle">
+                                <?php
+                                echo $new_product->getnombreProductoEn();
+                                ?>
+                            </h3>
+
+                            <h3 class="productSubTitle">
+                                <?php
+                                echo $new_product->getnombreProductoEs();
+                                ?>
+                            </h3>
+                        </a>
+
+
+
                         <h5 class="expansion"><?php
                         $expansion = $new_product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
@@ -76,35 +75,32 @@
 
                     </figcaption>
                     <figure class="newproducts-img img-container">
-                        <img src="<?= $new_product->geturlImagen(); ?>" alt="<?= $new_product->getnombreProducto(); ?>"
+                        <img src="<?= $new_product->geturlImagen(); ?>" alt="<?= $new_product->getnombreProductoEs(); ?>"
                             class="productImage">
                     </figure>
                 </div>
             <?php endforeach; ?>
         </div>
-
         <div class="ofertas">
             <h2 class="secTitle">OFERTAS</h2>
             <?php foreach ($sale_products as $product): ?>
                 <div class="saleproducts product">
                     <input class="hidden idJuego" value="<?php echo $product->getIdJuego(); ?>">
-                    <?php $esName = explode("|", $product->getnombreProducto()) ?>
 
                     <figcaption class="saleproducts-desc">
-                        <h3 class="productTitle"> <?php
-                        if (count($esName) < 2) {
-                            print_r($esName[1]);
-                        } else {
-                            echo $esName[1];
-                        }
-                        ?> </h3>
-                        <h3 class="productSubTitle"><?php
-                        if (count($esName) < 2) {
-                            print_r($esName[1]);
-                        } else {
-                            echo $esName[0];
-                        }
-                        ?></h3>
+                        <a
+                            href="/product?code=<?= urlencode($product->getcodExpansion()) ?>&name=<?= urlencode($product->getnombreProductoEn()); ?>">
+
+                            <h3 class="productTitle">
+                                <?=
+                                    $product->getnombreProductoEn();
+                                ?>
+                            </h3>
+
+                            <h3 class="productSubTitle"><?= $product->getnombreProductoEs();
+                            ?></h3>
+                        </a>
+
                         <h5 class="expansion"><?php
                         $expansion = $product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
@@ -120,7 +116,7 @@
                     </figcaption>
                     <figure class="saleproducts-img img-container">
                         <img src="<?= $product->geturlImagen(); ?>" class="productImage"
-                            alt="<?= $product->getnombreProducto(); ?>">
+                            alt="<?= $product->getnombreProductoEs(); ?>">
                     </figure>
                 </div>
             <?php endforeach; ?>
@@ -130,25 +126,21 @@
             <h2 class="secTitle">TENDENCIA</h2>
             <?php foreach ($trending_products as $trending_product): ?>
                 <div class="trendproducts product">
-                    <?php $esName = explode("|", $trending_product->getnombreProducto()) ?>
 
                     <input class="hidden idJuego" value="<?php echo $trending_product->getIdJuego(); ?>">
 
                     <figcaption class="trendproducts-desc">
-                        <h3 class="productTitle"> <?php
-                        if (count($esName) < 2) {
-                            print_r($esName[1]);
-                        } else {
-                            echo $esName[1];
-                        }
-                        ?> </h3>
-                        <h3 class="productSubTitle"><?php
-                        if (count($esName) < 2) {
-                            print_r($esName[1]);
-                        } else {
-                            echo $esName[0];
-                        }
-                        ?></h3>
+                        <a
+                            href="/product?code=<?= urlencode($trending_product->getcodExpansion()) ?>&name=<?= urlencode($trending_product->getnombreProductoEn()); ?>">
+
+                            <h3 class="productTitle"> <?php
+                            echo $trending_product->getnombreProductoEn();
+                            ?> </h3>
+                            <h3 class="productSubTitle"><?php
+                            echo $trending_product->getnombreProductoEs();
+                            ?></h3>
+                        </a>
+
                         <h5 class="expansion"><?php
                         $expansion = $trending_product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
@@ -166,7 +158,7 @@
                     </figcaption>
                     <figure class="trendproducts-img img-container">
                         <img src="<?= $trending_product->geturlImagen(); ?>"
-                            alt="<?= $trending_product->getnombreProducto(); ?>" class="productImage">
+                            alt="<?= $trending_product->getnombreProductoEs(); ?>" class="productImage">
                     </figure>
                 </div>
             <?php endforeach; ?>
