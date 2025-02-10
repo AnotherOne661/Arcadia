@@ -1,12 +1,13 @@
 DROP DATABASE IF EXISTS arcadia;
 CREATE DATABASE arcadia;
 USE arcadia;
+
 -- phpMyAdmin SQL Dump
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2025 a las 22:19:41
+-- Tiempo de generación: 10-02-2025 a las 20:38:16
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -350,8 +351,13 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 ('MH3', 'Torre pirexiana|Phyrexian Tower', 1, 'tierra,legendary,Agrega{C}'),
 ('MH3', 'Ulamog, el Profanador|Ulamog, the Defiler ', 1, 'criatura,legendary,eldrazi,mitico,fuerza:7,resistencia:7,coste:10{NC}'),
 ('MH3', 'Vislumbrar lo imposible|Glimpse the Impossible ', 1, 'hechizo,sorcery,common,coste:2{NC},1{R}'),
+('OP06', 'Black Bug OP06|Black Bug OP06', 5, 'evento,don:4'),
 ('OP06', 'Buggy OP06|Buggy OP06', 5, 'personaje,don:1,poder:3000'),
+('OP06', 'GERMA 66 OP06|GERMA 66 OP06', 5, 'evento,don:1'),
+('OP06', 'Gravity Blade Raging Tiger OP06|Gravity Blade Raging Tiger OP06', 5, 'evento,don:7'),
+('OP06', 'Kingdom of GERMA OP06|Kingdom of GERMA OP06', 5, 'escenario,don:1'),
 ('OP06', 'Kouzuki Momonosuke OP06|Kouzuki Momonosuke OP06', 5, 'personaje,don:5,poder:6000'),
+('OP06', 'Monkey.D.Luffy OP06|Monkey.D.Luffy OP06', 5, 'personaje,don:2,poder:3000'),
 ('OP06', 'Nami OP06|Nami OP06', 5, 'personaje,don:1,poder:1000'),
 ('OP06', 'Raise Max OP06|Raise Max OP06', 5, 'personaje,don:1,poder:2000'),
 ('OP06', 'Raki OP06|Raki OP06', 5, 'personaje,don:1,poder:1000'),
@@ -359,8 +365,17 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 ('OP06', 'Roronoa Zoro OP06|Roronoa Zoro OP06', 5, 'personaje,don:9,poder:9000'),
 ('OP06', 'Sanji OP06|Sanji OP06', 5, 'personaje,don:9,poder:9000'),
 ('OP06', 'Shanks OP06|Shanks OP06', 5, 'personaje,don:10,poder:12000'),
+('OP06', 'The Ark Noah OP06|The Ark Noah OP06', 5, 'escenario,don:6'),
+('OP06', 'Thriller Bark OP06|Thriller Bark OP06', 5, 'escenario,don:1'),
+('OP06', 'Vinsmoke Ichiji OP06|Vinsmoke Ichiji OP06', 5, 'personaje,don:7,poder:7000'),
+('OP06', 'Vinsmoke Judge OP06|Vinsmoke Judge OP06', 5, 'personaje,don:8,poder:8000'),
+('OP06', 'Vinsmoke Niji OP06|Vinsmoke Niji OP06', 5, 'personaje,don:3,poder:3000'),
 ('OP06', 'Vinsmoke Reiju OP06|Vinsmoke Reiju OP06', 5, 'lider,vida:4,poder:5000'),
-('OP07', 'Boa Hancock OP07|Boa Hancock OP07', 5, 'personaje,don:6,poder:80000'),
+('OP06', 'Vinsmoke Yonji OP06|Vinsmoke Yonji OP06', 5, 'personaje,don:4,poder:5000'),
+('OP06', 'Yamato OP06|Yamato OP06', 5, 'lider,vida:4,poder:5000'),
+('OP06', 'You\'re the One Who Should Disappear OP06|You\'re the One Who Should Disappear OP06', 5, 'evento,don:0'),
+('OP06', 'Zeff OP06|Zeff OP06', 5, 'personaje,don:3,poder:3000'),
+('OP07', 'Boa Hancock OP07 |Boa Hancock OP07', 5, 'personaje,don:6,poder:80000'),
 ('OP07', 'Donquixote Doflamingo OP07|Donquixote Doflamingo OP07', 5, 'personaje,don:3,poder:4000'),
 ('OP07', 'Franky OP07|Franky OP07', 5, 'personaje,don:4,poder:5000'),
 ('OP07', 'He Possesses the World\'s Most Brilliant Mind OP07|He Possesses the World\'s Most Brilliant Mind OP07', 5, 'evento,don:1'),
@@ -543,6 +558,10 @@ INSERT INTO `carta` (`codExpansion`, `nombreProducto`, `idJuego`, `atributos`) V
 -- Estructura de tabla para la tabla `eventos`
 --
 
+--
+-- Estructura de tabla para la tabla `eventos`
+--
+
 CREATE TABLE `eventos` (
   `idEvento` int(11) NOT NULL,
   `nombre_evento` varchar(255) NOT NULL,
@@ -566,7 +585,6 @@ INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion
 (8, 'Torneo Gratuito Lorcana', '2025-03-16', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/torneo_lorcana.webp'),
 (9, 'Torneo Yu-Gi-Oh!', '2025-03-05', 'Inscripción: 6€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Alliance Insight, Premio por participar: 1 Booster Alliance Insight', '../assets/images/product/YGO/events/torneo_ygo.webp'),
 (10, 'Entrevista a Diversity & Dragons, con traductor', '2025-03-20', NULL, 'placeholder');
-
 -- --------------------------------------------------------
 
 --
@@ -964,10 +982,15 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('MH3', 'Torre pirexiana|Phyrexian Tower', 1, 16.17, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Torre-pirexiana.webp', NULL),
 ('MH3', 'Ulamog, el Profanador|Ulamog, the Defiler ', 1, 22.52, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\Ulamog-el-Profanador.webp', NULL),
 ('MH3', 'Vislumbrar lo imposible|Glimpse the Impossible ', 1, 0.17, 'carta', '../assets\\images\\product\\MTG\\cards\\MH3\\vislumbrar-lo-imposible.webp', NULL),
+('OP06', 'Black Bug OP06|Black Bug OP06', 5, 0.08, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Black-Bug.webp', NULL),
 ('OP06', 'Buggy OP06|Buggy OP06', 5, 35.24, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Buggy-op06.webp', NULL),
 ('OP06', 'Caja Wings of the Captain Booster Box Case (12x Booster Box)|Wings of the Captain Booster Box Case (12x Booster Box)', 5, 925.94, 'caja', '../assets\\images\\product\\OP\\tins\\OP06\\caja-wings-op06-box-12.webp', NULL),
 ('OP06', 'Caja Wings of the Captain Booster Box|Wings of the Captain Booster Box', 5, 79.28, 'caja', '../assets\\images\\product\\OP\\tins\\OP06\\caja-wings-op06.webp', NULL),
+('OP06', 'GERMA 66 OP06|GERMA 66 OP06', 5, 0.08, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\GERMA-66.webp', NULL),
+('OP06', 'Gravity Blade Raging Tiger OP06|Gravity Blade Raging Tiger OP06', 5, 2.02, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Gravity-Blade-Raging-Tiger.webp', NULL),
+('OP06', 'Kingdom of GERMA OP06|Kingdom of GERMA OP06', 5, 0.03, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Kingdom-of-GERMA.webp', NULL),
 ('OP06', 'Kouzuki Momonosuke OP06|Kouzuki Momonosuke OP06', 5, 0.60, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Kouzuki-Momonosuke-op06.webp', NULL),
+('OP06', 'Monkey.D.Luffy OP06|Monkey.D.Luffy OP06', 5, 0.09, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Monkey.D.Luffy-op06.webp', NULL),
 ('OP06', 'Nami OP06|Nami OP06', 5, 23.92, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Nami-op06.webp', NULL),
 ('OP06', 'Raise Max OP06|Raise Max OP06', 5, 0.15, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Raise-Max-op06.webp', NULL),
 ('OP06', 'Raki OP06|Raki OP06', 5, 0.03, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Raki-op06.webp', NULL),
@@ -977,8 +1000,17 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('OP06', 'Shanks OP06|Shanks OP06', 5, 1.36, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Shanks-op06.webp', NULL),
 ('OP06', 'Sobre Wings of the Captain Booster|Wings of the Captain Booster', 5, 2.04, 'sobre', '../assets\\images\\product\\OP\\packs\\OP06\\sobre-op06.webp', NULL),
 ('OP06', 'Sobre Wings of the Captain Sleeved Booster|Wings of the Captain Sleeved Booster', 5, 13.79, 'sobre', '../assets\\images\\product\\OP\\packs\\OP06\\sobre-sleeved-op06.webp', NULL),
+('OP06', 'The Ark Noah OP06|The Ark Noah OP06', 5, 0.05, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\The-Ark-Noah.webp', NULL),
+('OP06', 'Thriller Bark OP06|Thriller Bark OP06', 5, 0.02, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Thriller-Bark.webp', NULL),
+('OP06', 'Vinsmoke Ichiji OP06|Vinsmoke Ichiji OP06', 5, 12.15, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Vinsmoke-Ichiji.webp', NULL),
+('OP06', 'Vinsmoke Judge OP06|Vinsmoke Judge OP06', 5, 4.70, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Vinsmoke-Judge.webp', NULL),
+('OP06', 'Vinsmoke Niji OP06|Vinsmoke Niji OP06', 5, 0.04, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Vinsmoke-Niji.webp', NULL),
 ('OP06', 'Vinsmoke Reiju OP06|Vinsmoke Reiju OP06', 5, 38.75, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Vinsmoke-Reiju-op06.webp', NULL),
-('OP07', 'Boa Hancock OP07|Boa Hancock OP07', 5, 349.78, 'carta', '../assets\\images\\product\\OP\\cards\\OP07\\Boa-Hancock-op07.webp', NULL),
+('OP06', 'Vinsmoke Yonji OP06|Vinsmoke Yonji OP06', 5, 0.08, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Vinsmoke-Yonji.webp', NULL),
+('OP06', 'Yamato OP06|Yamato OP06', 5, 0.07, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Yamato.webp', NULL),
+('OP06', 'You\'re the One Who Should Disappear OP06|You\'re the One Who Should Disappear OP06', 5, 2.03, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\You\'re-the-One-Who-Should-Disappear.webp', NULL),
+('OP06', 'Zeff OP06|Zeff OP06', 5, 0.04, 'carta', '../assets\\images\\product\\OP\\cards\\OP06\\Zeff-op06.webp', NULL),
+('OP07', 'Boa Hancock OP07 |Boa Hancock OP07', 5, 349.78, 'carta', '../assets\\images\\product\\OP\\cards\\OP07\\Boa-Hancock-op07.webp', NULL),
 ('OP07', 'Caja 500 Years into the Future Booster Box Case (12x Booster Box) |500 Years into the Future Booster Box Case (12x Booster Box)', 5, 839.49, 'caja', '../assets\\images\\product\\OP\\tins\\OP07\\caja-op07-booster-12.webp', NULL),
 ('OP07', 'Caja 500 Years into the Future Booster Box |500 Years into the Future Booster Box', 5, 72.63, 'caja', '../assets\\images\\product\\OP\\tins\\OP07\\caja-op07.webp', NULL),
 ('OP07', 'Donquixote Doflamingo OP07|Donquixote Doflamingo OP07', 5, 0.07, 'carta', '../assets\\images\\product\\OP\\cards\\OP07\\Donquixote-Doflamingo-op07.webp', NULL),
@@ -1024,7 +1056,8 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('OP08', 'Moby Dick OP08|Moby Dick OP08', 5, 0.02, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Moby-Dick.webp', NULL),
 ('OP08', 'Monkey.D.Luffy OP08|Monkey.D.Luffy OP08', 5, 33.59, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Monkey.D.Luffy.webp', NULL),
 ('OP08', 'Nami OP08| Nami OP08', 5, 7.37, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\nami-op08.webp', NULL),
-('OP08', 'Pedro OP08|Pedro OP08', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\pedro-op08.webp', NULL),
+('OP08', 'Pedro OP08|Pedro OP08', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\pedro-op08.webp', NULL);
+INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
 ('OP08', 'Portgas.D.Ace OP08|Portgas.D.Ace OP08', 5, 0.10, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\ace-op08.webp', NULL),
 ('OP08', 'Robson OP08|Robson OP08', 5, 0.11, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Robson.webp', NULL),
 ('OP08', 'Roddy OP08|Roddy OP08', 5, 0.04, 'carta', '../assets\\images\\product\\OP\\cards\\OP08\\Roddy.webp', NULL),
@@ -1040,8 +1073,7 @@ INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, 
 ('OP09', 'Crocodile|Crocodile', 5, 6.15, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Crocodile.webp', NULL),
 ('OP09', 'Cross Guild |Cross Guild', 5, 0.09, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Cross-Guild.webp', NULL),
 ('OP09', 'Dereshi!|Dereshi!', 5, 0.14, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Dereshi.webp', NULL),
-('OP09', 'Dracule Mihawk|Dracule Mihawk', 5, 6.26, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Dracule-Mihawk.webp', NULL);
-INSERT INTO `productos` (`codExpansion`, `nombreProducto`, `idJuego`, `precio`, `tipo`, `urlImagen`, `descuento`) VALUES
+('OP09', 'Dracule Mihawk|Dracule Mihawk', 5, 6.26, 'carta', '../assets\\images\\product\\OP\\cards\\OP09\\Dracule-Mihawk.webp', NULL),
 ('OP09', 'Emperors in the New World Booster', 5, 2.20, 'sobre', '../assets\\images\\product\\OP\\packs\\OP09\\sobre-op09.webp', NULL),
 ('OP09', 'Emperors in the New World Booster Box', 5, 96.99, 'caja', '../assets\\images\\product\\OP\\tins\\OP09\\caja-op09.webp', NULL),
 ('OP09', 'Emperors in the New World Booster Box Case (12x Booster Box)', 5, 1125.36, 'caja', '../assets\\images\\product\\OP\\tins\\OP09\\caja2-op09.webp', NULL),
