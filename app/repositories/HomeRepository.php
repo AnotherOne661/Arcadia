@@ -32,7 +32,9 @@ class HomeRepository extends Repository
 
     $results = [];
     foreach ($rows as $row) {
-      $results[] = new ProductsWithExpansion($row['codExpansion'], $row['nombreProducto'], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento']);
+      $esName = explode("|", $row['nombreProducto']);
+
+      $results[] = new ProductsWithExpansion($row['codExpansion'], $esName[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento'], $esName[0]);
     }
     return $results;
   }
@@ -48,7 +50,8 @@ class HomeRepository extends Repository
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $results = [];
     foreach ($rows as $row) {
-      $results[] = new ProductsWithExpansion($row['codExpansion'], $row['nombreProducto'], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento']);
+      $esName = explode("|", $row['nombreProducto']);
+      $results[] = new ProductsWithExpansion($row['codExpansion'], $esName[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento'], $esName[0]);
     }
     return $results;
   }
@@ -68,7 +71,9 @@ LIMIT 6";
 
     $results = [];
     foreach ($rows as $row) {
-      $results[] = new ProductsWithExpansion($row['codExpansion'], $row['nombreProducto'], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento']);
+      $esName = explode("|", $row['nombreProducto']);
+
+      $results[] = new ProductsWithExpansion($row['codExpansion'], $esName[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $row['nombreExpansion'], $row['fechaLanzamiento'], $esName[0]);
     }
     return $results;
   }

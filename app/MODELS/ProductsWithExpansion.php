@@ -3,17 +3,20 @@ require_once __DIR__ . '/Model.php';
 class ProductsWithExpansion extends Model
 {
     private $codExpansion;
-    private $nombreProducto;
+    private $nombreProductoEs;
+    private $nombreProductoEn;
     private $idJuego;
     private $precio;
     private $tipo;
     private $urlImagen;
     private $nombreExpansion;
     private $releaseDate;
-    public function __construct($codExpansion, $nombreProducto, $idJuego, $precio, $tipo, $urlImagen, $nombreExpansion, $releaseDate)
+    public function __construct($codExpansion, $nombreProductoEn, $idJuego, $precio, $tipo, $urlImagen, $nombreExpansion, $releaseDate, $nombreProductoEs = null)
     {
+
         $this->codExpansion = $codExpansion;
-        $this->nombreProducto = $nombreProducto;
+        $this->nombreProductoEn = $nombreProductoEn;
+        $this->nombreProductoEs = $nombreProductoEs;
         $this->idJuego = $idJuego;
         $this->precio = $precio;
         $this->tipo = $tipo;
@@ -26,11 +29,14 @@ class ProductsWithExpansion extends Model
         return $this->codExpansion;
     }
 
-    public function getnombreProducto()
+    public function getnombreProductoEs()
     {
-        return $this->nombreProducto;
+        return $this->nombreProductoEs;
     }
-
+    public function getnombreProductoEn()
+    {
+        return $this->nombreProductoEn;
+    }
     public function getprecio()
     {
         return $this->precio;
@@ -47,10 +53,12 @@ class ProductsWithExpansion extends Model
     {
         return $this->urlImagen;
     }
-    public function getnombreExpansion(){
+    public function getnombreExpansion()
+    {
         return $this->nombreExpansion;
     }
-    public function getreleaseDate(){
+    public function getreleaseDate()
+    {
         return $this->releaseDate;
     }
 }

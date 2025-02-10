@@ -40,7 +40,6 @@ section {
   flex-wrap: wrap;
 }
 
-
 .trend {
   margin-top: 5em;
   display: flex;
@@ -120,9 +119,21 @@ section {
 .hidden {
   display: none;
 }
-.img-container{
+.img-container {
   width: 25%;
-  img{
+  img {
     width: 25%;
+  }
+}
+.product a {
+  color: var(--night);
+  text-decoration: none;
+}
+.product h3 {
+  &:hover {
+    color: var(--madder);
+    cursor: pointer;
+    transition: var(--transitionCool);
+    text-decoration: underline;
   }
 }
