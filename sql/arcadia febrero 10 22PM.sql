@@ -6,9 +6,9 @@ USE arcadia;
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2025 a las 13:01:21
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 10-02-2025 a las 22:19:41
+-- Versión del servidor: 10.4.32-MariaDB
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -561,10 +561,10 @@ INSERT INTO `eventos` (`idEvento`, `nombre_evento`, `fecha_evento`, `descripcion
 (3, 'Torneo One Piece TCG', '2025-01-20', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 15€. 3º Premio: 5 Booster Packs OP-11, Premio por participar: 1 Booster Pack OP-11', '../assets/images/product/OP/events/25-1-20-OP.webp'),
 (4, 'Preguntas y respuestas con Artista español de Wizards of The Coast \"Manuel Huedo\"', '2025-01-30', '', '../assets/images/product/MTG/events/25-1-30-interview.webp'),
 (5, 'Torneo Gratuito de Lorcana', '2025-02-01', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/25-2-1-tournament.webp'),
-(6, 'Torneo Commander', '2025-03-10', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 25€. 3º Premio: 3 Booster Packs Aetherdrift, Premio por participar: 1 Booster Pack Aetherdrift', 'placeholder'),
-(7, 'Presentación de Aetherdrift', '2025-03-07', 'Ven a por la nueva entrega de Magic: The Gathering', 'placeholder'),
-(8, 'Torneo Gratuito Lorcana', '2025-03-16', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', 'placeholder'),
-(9, 'Torneo Yu-Gi-Oh!', '2025-03-05', 'Inscripción: 6€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Alliance Insight, Premio por participar: 1 Booster Alliance Insight', 'placeholder'),
+(6, 'Torneo Commander', '2025-03-10', 'Inscripción: 10€. 1º Premio: 75€. 2º Premio: 25€. 3º Premio: 3 Booster Packs Aetherdrift, Premio por participar: 1 Booster Pack Aetherdrift', '../assets/images/product/MTG/events/torneo_commander.webp'),
+(7, 'Presentación de Aetherdrift', '2025-02-11', 'Ven a por la nueva entrega de Magic: The Gathering', '../assets/images/product/MTG/events/aetherdrift.webp'),
+(8, 'Torneo Gratuito Lorcana', '2025-03-16', 'Inscripción: 0€. 1º Premio: 1 Booster Pack Ursula\'s return', '../assets/images/product/LOR/events/torneo_lorcana.webp'),
+(9, 'Torneo Yu-Gi-Oh!', '2025-03-05', 'Inscripción: 6€. 1º Premio: 50€. 2º Premio: 10€. 3º Premio: 3 Booster Packs Alliance Insight, Premio por participar: 1 Booster Alliance Insight', '../assets/images/product/YGO/events/torneo_ygo.webp'),
 (10, 'Entrevista a Diversity & Dragons, con traductor', '2025-03-20', NULL, 'placeholder');
 
 -- --------------------------------------------------------
