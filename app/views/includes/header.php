@@ -50,15 +50,21 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                                Gathering</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Pokémon</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcan">Lorcana</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">One
+                                                Piece</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">General</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=all">General</a></li>
                                     </ul>
                                 </div>
 
@@ -74,8 +80,11 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                                Gathering</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
                                         <li><a class="dropdown-item" href="#">Pokémon</a></li>
                                         <li><a class="dropdown-item" href="#">Lorcana</a></li>
                                         <li><a class="dropdown-item" href="#">One Piece</a></li>

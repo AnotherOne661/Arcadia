@@ -57,7 +57,7 @@ class ProductController extends Controller
     $name = $this->request->get('name');
     $game = $this->request->get('game') ?? 'all';
     $expansion = $this->request->get('expansion') ?? 'all';
-    $page = $this->request->get('page') ?? -1;
+    $page = $this->request->get('page') ?? 1;
 
     $gameNames = $this->productRepository->getGameNames();
     $expansions = $this->productRepository->getExpansionsByGame($game);

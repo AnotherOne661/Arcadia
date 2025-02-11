@@ -1,6 +1,6 @@
 - Calendario (añadir dinamismo) !low
 - Llenar DB (almost done) !low
 - Implementar rol de Administrador !low
-- Filtrado y búsqueda de productos !high
+- Solucionar enlaces del cuerpo ahora que hay filtrado !HIGH
 - Arreglar color enlaces productos !high
-- AÑADIR IMAGENES A EVENTOS !HIGH
+- AÑADIR IMAGENES A EVENTOS !medium

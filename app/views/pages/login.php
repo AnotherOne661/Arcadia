@@ -1,7 +1,7 @@
 <body>
-  
+
   <form action="/login-form" method="POST" id="form_login">
-    <?php 
+    <?php
     if (isset($_SESSION['login_error'])) {
       echo '<p class="error" style="text-align: center;"> El email o la contraseña introducidos no son los correctos</p>';
       unset($_SESSION['login_error']);
