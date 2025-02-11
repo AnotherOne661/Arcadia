@@ -77,15 +77,34 @@ class ProductRepository extends Repository
     }
   }
 
-  public function findAll($page = -1, $limit = 10)
+  public function findAll($page = -1, $game = null, $expansion = null, $limit = 10)
   {
-    $query = "SELECT * FROM $this->tableName";
+    $gg = $game == 'all' ? null : $game;
+    $ee = $expansion == 'all' ? null : $expansion;
+
+    $query = "SELECT p.* FROM $this->tableName p JOIN juegos j ON p.idJuego = j.idJuego JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE 1 = 1";
+    if ($gg != null) {
+      $query .= " AND j.nombre_juego = :game";
+    }
+
+    if ($ee != null) {
+      $query .= " AND e.nombreExpansion = :expansion";
+    }
+
     if ($page > -1) {
       $offset = ($page - 1) * $limit;
       $query .= " LIMIT :limit OFFSET :offset";
     }
 
     $stmt = $this->pdo->prepare($query);
+
+    if ($gg != null) {
+      $stmt->bindParam(':game', $gg, PDO::PARAM_STR);
+    }
+
+    if ($ee != null) {
+      $stmt->bindParam(':expansion', $ee, PDO::PARAM_STR);
+    }
 
     if ($page > -1) {
       $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
@@ -146,5 +165,55 @@ class ProductRepository extends Repository
     $stmt->execute();
 
     return $stmt->fetchColumn();
+  }
+
+  public function countAll($game = null, $expansion = null)
+  {
+    $gg = $game == 'all' ? null : $game;
+    $ee = $expansion == 'all' ? null : $expansion;
+
+    $query = "SELECT COUNT(*) FROM $this->tableName p JOIN juegos j ON p.idJuego = j.idJuego JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE 1 = 1";
+
+    if ($gg != null) {
+      $query .= " AND j.nombre_juego = :game";
+    }
+
+    if ($ee != null) {
+      $query .= " AND e.nombreExpansion = :expansion";
+    }
+
+    $stmt = $this->pdo->prepare($query);
+
+    if ($gg != null) {
+      $stmt->bindParam(':game', $gg, PDO::PARAM_STR);
+    }
+
+    if ($ee != null) {
+      $stmt->bindParam(':expansion', $ee, PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
+
+    return $stmt->fetchColumn();
+  }
+  public function getGameNames()
+  {
+    $query = "SELECT nombre_juego FROM juegos";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+
+    $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+
+    return $rows;
+  }
+  public function getExpansionsByGame($game)
+  {
+    $query = "SELECT nombreExpansion FROM expansiones WHERE idJuego = (SELECT idJuego FROM juegos WHERE nombre_juego = :game)";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(':game', $game, PDO::PARAM_STR);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    return $rows;
   }
 }

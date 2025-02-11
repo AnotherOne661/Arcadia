@@ -19,7 +19,7 @@
         <div class="collection-pok">
           <div class="collection-pok-cont">
             <?php $esName = explode("|", $collection_pok->getnombreExpansion()) ?>
-            <a href="/<?= $collection_pok->getnombreExpansion() ?>"><?php
+            <a href="/filteredproducts?name=<?= $collection_pok->getnombreExpansion() ?>"><?php
               if (count($esName) < 2) {
                 print_r($esName[1]);
               } else {
@@ -39,7 +39,7 @@
           <?php $esName = explode("|", $collection_ygo->getnombreExpansion()) ?>
 
           <div class="collection-ygo-cont">
-            <a href="/<?= $collection_ygo->getnombreExpansion() ?>"><?php
+            <a href="/filteredproducts?name=<?= $collection_ygo->getnombreExpansion() ?>"><?php
               if (count($esName) < 2) {
                 print_r($esName[1]);
               } else {
@@ -58,7 +58,7 @@
         <div class="collection-mtg">
           <?php $esName = explode("|", $collection_mtg->getnombreExpansion()) ?>
           <div class="collection-mtg-cont">
-            <a href="/<?= $collection_mtg->getnombreExpansion() ?>"><?php
+            <a href="/filteredproducts?name=<?= $collection_mtg->getnombreExpansion() ?>"><?php
               if (count($esName) < 2) {
                 print_r($esName[1]);
               } else {
@@ -77,7 +77,7 @@
         <?php $esName = explode("|", $collection_lor->getnombreExpansion()) ?>
         <div class="collection-lor">
           <div class="collection-lor-cont">
-            <a href="/<?= $collection_lor->getnombreExpansion() ?>"><?php
+            <a href="/filteredproducts?name=<?= $collection_lor->getnombreExpansion() ?>"><?php
               if (count($esName) < 2) {
                 print_r($esName[1]);
               } else {
@@ -97,7 +97,7 @@
 
         <div class="collection-op">
           <div class="collection-op-cont">
-            <a href="/<?= $collection_op->getnombreExpansion() ?>"><?php
+            <a href="/filteredproducts?name=<?= $collection_op->getnombreExpansion() ?>"><?php
               if (count($esName) < 2) {
                 print_r($esName[1]);
               } else {

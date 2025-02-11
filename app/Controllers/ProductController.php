@@ -44,7 +44,8 @@ class ProductController extends Controller
       'title' => $product->getnombreProductoEn(),
       'cssFile' => 'product.css',
       'jsFile' => 'product.js',
-      'product' => $product
+      'product' => $product,
+
 
       // Siempre le enviaremos (por lo general) su título propio, su css propio y, en caso de tenerlo
       // un js propio.
@@ -54,15 +55,22 @@ class ProductController extends Controller
   public function findMany()
   {
     $name = $this->request->get('name');
+    $game = $this->request->get('game') ?? 'all';
+    $expansion = $this->request->get('expansion') ?? 'all';
     $page = $this->request->get('page') ?? -1;
 
+    $gameNames = $this->productRepository->getGameNames();
+    $expansions = $this->productRepository->getExpansionsByGame($game);
+
+    $products = [];
     $totalProducts = -1;
 
-    if ($name) {
+    if ($name && strlen($name) > 0) {
       $totalProducts = $this->productRepository->findTotalProducts($name);
       $products = $this->productRepository->findMany($name, $page);
     } else {
-      $products = $this->productRepository->findAll($page);
+      $totalProducts = $this->productRepository->countAll($game, $expansion);
+      $products = $this->productRepository->findAll($page, $game, $expansion);
     }
 
     return $this->render(
@@ -73,6 +81,8 @@ class ProductController extends Controller
         'jsFile' => 'filteredproducts.js',
         'products' => $products,
         'totalProducts' => $totalProducts,
+        'games' => $gameNames,
+        'expansions' => $expansions,
       ]
     );
   }

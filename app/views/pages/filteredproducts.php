@@ -1,51 +1,87 @@
 <?php
-/** * @var Product[]|Box[]|Booster[]|Card[] $products
- * @var int $totalProducts */
+/**
+ * @var Product[]|Box[]|Booster[]|Card[] $products
+ * @var int $totalProducts
+ * @var string[] $games 
+ * @var string[] $expansions
+ */
 
 $limit = 10;
-$totalPages = ceil($totalProducts / $limit);
+$totalPages = ceil($totalProducts / $limit) ?: 1;
+
 $page = $_GET['page'] ?? 1;
-$previousPage = $page - 1;
+
+$previousPage = $page > 1 ? $page - 1 : 1;
 $nextPage = $page < $totalPages ? $page + 1 : $totalPages;
+
+$name = isset($_GET['name']) ? $_GET['name'] : '';
+$game = isset($_GET['game']) ? $_GET['game'] : 'all';
 ?>
 <main>
-  <div class="products-container">
-    <?php foreach ($products as $product): ?>
-      <div class="product-card">
-        <input type="hidden" class="idJuego" value="<?php echo $product->getIdJuego(); ?>">
+  <div>
+    <form class="filter" method="GET">
+      <select name="game" id="game">
+        <option value="all">Todos los juegos</option>
+        <?php foreach ($games as $game): ?>
+          <option value="<?php echo $game; ?>" <?php echo isset($_GET['game']) && $_GET['game'] === $game ? 'selected' : ''; ?>>
+            <?php echo $game; ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <select name="expansion" id="expansion" <?php echo $game === 'all' ? "disabled='disabled'" : ''; ?>>
+        <option value="all">Todas las expansiones</option>
+        <?php foreach ($expansions as $expansion): ?>
+          <option value="<?php echo $expansion; ?>" <?php echo isset($_GET['expansion']) && $_GET['expansion'] === $expansion ? 'selected' : ''; ?>>
+            <?php echo $expansion; ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+      <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">
+      <button type="submit">Buscar</button>
+    </form>
+    <div class="results">
+      <h1>Resultados de búsqueda</h1>
+      <p>Se encontraron <?php echo $totalProducts; ?> resultados</p>
+    </div>
+    <div class="products-container">
+      <?php foreach ($products as $product): ?>
+        <div class="product-card">
+          <input type="hidden" class="idJuego" value="<?php echo $product->getIdJuego(); ?>">
 
-        <figure class="product-image">
-          <img src="<?php echo $product->getUrlImagen(); ?>"
-            alt="<?php echo htmlspecialchars($product->getNombreProductoEs()); ?>">
-        </figure>
+          <figure class="product-image">
+            <img src="<?php echo $product->getUrlImagen(); ?>"
+              alt="<?php echo htmlspecialchars($product->getNombreProductoEs()); ?>">
+          </figure>
 
-        <div class="product-info">
-          <a
-            href="/product?code=<?php echo urlencode($product->getcodExpansion()); ?>&name=<?php echo urlencode($product->getNombreProductoEn()); ?>">
-            <h2 class="product-title"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
-          </a>
-          <a href="/filteredproducts?name=<?php echo urlencode($product->getcodExpansion()); ?>">
-            <p class="product-set"><small>Set: <?php echo htmlspecialchars($product->getcodExpansion()); ?></small></p>
-          </a>
+          <div class="product-info">
+            <a
+              href="/product?code=<?php echo urlencode($product->getcodExpansion()); ?>&name=<?php echo urlencode($product->getNombreProductoEn()); ?>">
+              <h2 class="product-title"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
+            </a>
+            <a href="/filteredproducts?name=<?php echo urlencode($product->getcodExpansion()); ?>">
+              <p class="product-set"><small>Set: <?php echo htmlspecialchars($product->getcodExpansion()); ?></small></p>
+            </a>
 
 
-          <div class="product-pricing">
-            <p class="old-product-price"><?php echo number_format($product->getPrecio(), 2); ?> ¥</p>
-            <p class="product-price"></p> <!-- Dynamic price placeholder -->
+            <div class="product-pricing">
+              <p class="old-product-price"><?php echo number_format($product->getPrecio(), 2); ?> ¥</p>
+              <p class="product-price"></p> <!-- Dynamic price placeholder -->
+            </div>
           </div>
         </div>
-      </div>
-    <?php endforeach; ?>
+      <?php endforeach; ?>
+    </div>
+
   </div>
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item <?php echo $page == 1 ? 'disabled' : ''; ?>">
-        <a class="page-link" href="/filteredproducts?name=<?php echo $_GET['name'] ?>&page=<?php echo $previousPage ?>"
+        <a class="page-link" href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $previousPage ?>"
           tabindex="-1">Anterior</a>
       </li>
       <li class="page-item <?php echo $page == $totalPages ? 'disabled' : ''; ?>">
         <a class="page-link"
-          href="/filteredproducts?name=<?php echo $_GET['name'] ?>&page=<?php echo $nextPage ?>">Siguiente</a>
+          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $nextPage ?>">Siguiente</a>
       </li>
     </ul>
   </nav>
