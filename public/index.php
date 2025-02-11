@@ -144,6 +144,10 @@ switch ($requestUri) {
   case 'product':
     $controller = new ProductController($request, $response);
     echo $response->sendHtml($controller->index());
+  case 'filteredproducts':
+    $controller = new ProductController($request, $response);
+    echo $response->sendHtml($controller->findMany());
+    break;
   case 'error':
   default:
     $controller = new ErrorController($request, $response);

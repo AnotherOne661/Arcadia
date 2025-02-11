@@ -76,4 +76,75 @@ class ProductRepository extends Repository
 
     }
   }
+
+  public function findAll($page = -1, $limit = 10)
+  {
+    $query = "SELECT * FROM $this->tableName";
+    if ($page > -1) {
+      $offset = ($page - 1) * $limit;
+      $query .= " LIMIT :limit OFFSET :offset";
+    }
+
+    $stmt = $this->pdo->prepare($query);
+
+    if ($page > -1) {
+      $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+      $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    }
+
+    $stmt->execute();
+    $products = [];
+    while ($row = $stmt->fetch()) {
+      $names = $row['nombreProducto'];
+      $names = explode("|", $names);
+
+      $names[1] = isset($names[1]) ? $names[1] : $names[0];
+
+      $products[] = new Product($row['codExpansion'], $names[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $names[0]);
+    }
+    return $products;
+  }
+
+  public function findMany($name, $page = -1, $limit = 10)
+  {
+    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, p.descuento FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
+    if ($page > -1) {
+      $offset = ($page - 1) * $limit;
+      $query .= " LIMIT :limit OFFSET :offset";
+    }
+
+    $name = strtolower($name);
+    $name = '%' . $name . '%';
+
+    $stmt = $this->pdo->prepare($query);
+
+    if ($page > -1) {
+      $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+      $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    }
+
+    $stmt->bindParam(':nombre', $name, PDO::PARAM_STR);
+
+    $stmt->execute();
+    $products = [];
+    while ($row = $stmt->fetch()) {
+      $names = $row['nombreProducto'];
+      $names = explode("|", $names);
+      $names[1] = isset($names[1]) ? $names[1] : $names[0];
+      $products[] = new Product($row['codExpansion'], $names[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $names[0]);
+    }
+    return $products;
+  }
+
+  public function findTotalProducts($name)
+  {
+    $query = "SELECT COUNT(*) FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
+    $name = '%' . $name . '%';
+
+    $stmt = $this->pdo->prepare($query);
+    $stmt->bindParam(':nombre', $name, PDO::PARAM_STR);
+    $stmt->execute();
+
+    return $stmt->fetchColumn();
+  }
 }

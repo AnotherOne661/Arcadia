@@ -5,8 +5,10 @@
             <a href="/home"><img src="<?php echo $ABS_URL; ?>images/altern.png" alt=""></a>
         </div>
         <div id="search">
-            <form>
-                <input type="search" placeholder="Buscar">
+            <form action="/filteredproducts" method="GET">
+                <input type="search" name="name" id="name" placeholder="Buscar"
+                    value="<?= isset($_GET['name']) ? $_GET['name'] : ''; ?>">
+                <input type="hidden" name="page" value="1">
                 <button type="submit"><i class="bi bi-search"></i></button>
             </form>
         </div>

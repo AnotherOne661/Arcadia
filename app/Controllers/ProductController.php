@@ -51,4 +51,29 @@ class ProductController extends Controller
       // Dado que es una página dinámica, también le mandaremos la variable tests, conteniendo el array de objetos Test
     ]);
   }
+  public function findMany()
+  {
+    $name = $this->request->get('name');
+    $page = $this->request->get('page') ?? -1;
+
+    $totalProducts = -1;
+
+    if ($name) {
+      $totalProducts = $this->productRepository->findTotalProducts($name);
+      $products = $this->productRepository->findMany($name, $page);
+    } else {
+      $products = $this->productRepository->findAll($page);
+    }
+
+    return $this->render(
+      'filteredproducts',
+      [
+        'title' => 'Productos',
+        'cssFile' => 'filteredproducts.css',
+        'jsFile' => 'filteredproducts.js',
+        'products' => $products,
+        'totalProducts' => $totalProducts,
+      ]
+    );
+  }
 }
