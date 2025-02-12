@@ -2,22 +2,24 @@
 <header>
     <div id="nav1">
         <div id="logo">
-            <a href="/home"><img src="<?php echo $ABS_URL; ?>images/altern.png" alt=""></a>
+            <a href="/home" aria-label="logo"><img src="<?php echo $ABS_URL; ?>images/altern.png"
+                    alt="Arcadia Logo"></a>
         </div>
         <div id="search">
             <form action="/filteredproducts" method="GET">
                 <input type="search" name="name" id="name" placeholder="Buscar"
                     value="<?= isset($_GET['name']) ? $_GET['name'] : ''; ?>">
                 <input type="hidden" name="page" value="1">
-                <button type="submit"><i class="bi bi-search"></i></button>
+                <button type="submit" aria-label="search"><i class="bi bi-search"></i></button>
             </form>
         </div>
         <div id="icons">
-            <button class="btn btn-primary">
-                <a href="/mypage"><i class="bi bi-person"></i></a>
+            <button class="btn btn-primary" aria-label="my page">
+                <a href="/mypage" aria-label="Mi cuenta"><i class="bi bi-person"></i></a>
             </button>
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight" onclick="hideMenu()"><i class="bi bi-cart"></i></button>
+                aria-controls="offcanvasRight" onclick="hideMenu()" aria-label="cart"><i
+                    class="bi bi-cart"></i></button>
 
         </div>
 
@@ -25,7 +27,8 @@
 
         <div id="menu">
             <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight" onclick="hideCart()"><i class="bi bi-list"></i></button>
+                aria-controls="offcanvasRight" onclick="hideCart()" aria-label="menu"><i
+                    class="bi bi-list"></i></button>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
                 aria-labelledby="offcanvasRightLabel">
@@ -33,7 +36,7 @@
                     <h5 id="offcanvasRightLabel" class="menuTitle"></h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                         aria-label="Close"><img src="<?php echo
-                            $ABS_URL; ?>image/icons/close.jpg" alt=""></button>
+                            $ABS_URL; ?>image/icons/close.jpg" alt="Cerrar"></button>
 
 
                 </div>
@@ -50,14 +53,14 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Magic: The Gathering"
+                                                aria-label="Magic: The Gathering Products">Magic: The
                                                 Gathering</a></li>
                                         <li><a class="dropdown-item"
                                                 href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
                                         <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Pokémon</a>
                                         </li>
-                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcan">Lorcana</a>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Lorcana</a>
                                         </li>
                                         <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">One
                                                 Piece</a></li>
@@ -80,18 +83,19 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item"
-                                                href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                        <li><a class="dropdown-item" href="/calendar">Magic: The
                                                 Gathering</a></li>
-                                        <li><a class="dropdown-item"
-                                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
-                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li><a class="dropdown-item" href="/calendar">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="/calendar">Pokémon</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/calendar">Lorcana</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/calendar">One
+                                                Piece</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Otros Eventos</a></li>
+                                        <li><a class="dropdown-item" href="/calendar">Otros Eventos</a></li>
                                     </ul>
                                 </div>
 
@@ -108,20 +112,30 @@
                                         <span class="visually-hidden">Toggle Dropdown</span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li><a class="dropdown-item" href="/collections">Magic: The
+                                                Gathering</a></li>
+                                        <li><a class="dropdown-item" href="/collections">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="/collections">Pokémon</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/collections">Lorcana</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/collections">One
+                                                Piece</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
                                         <p>Productos generales</p>
-                                        <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                                        <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                                        <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                                        <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                                        <li><a class="dropdown-item" href="#">One Piece</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                                Gathering</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Pokémon</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Lorcana</a>
+                                        </li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">One
+                                                Piece</a></li>
                                     </ul>
                                 </div>
 
@@ -139,12 +153,17 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/collections"
                                                 data-collections>Colecciones</a></li>
-                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Accesorios</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Productos sueltos</a>
+                                        </li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Magic: The Gathering">Con Descuento</a>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -162,12 +181,15 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/collections"
                                                 data-collections>Colecciones</a></li>
-                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Yu-Gi-Oh!">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Productos
+                                                sueltos</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Con
+                                                Descuento</a></li>
                                     </ul>
                                 </div>
 
@@ -185,12 +207,15 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/collections"
                                                 data-collections>Colecciones</a></li>
-                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Lorcana">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Productos
+                                                sueltos</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Con
+                                                Descuento</a></li>
                                     </ul>
                                 </div>
 
@@ -208,12 +233,15 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/collections"
                                                 data-collections>Colecciones</a></li>
-                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=Pokémon">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Productos
+                                                sueltos</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Con
+                                                Descuento</a></li>
                                     </ul>
                                 </div>
 
@@ -231,12 +259,15 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="/collections"
                                                 data-collections>Colecciones</a></li>
-                                        <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                                        <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="/filteredproducts?game=One Piece">Accesorios</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">Productos
+                                                sueltos</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                                        <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">Con
+                                                Descuento</a></li>
                                     </ul>
                                 </div>
 
@@ -273,35 +304,37 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                    <li><a class="dropdown-item" href="#">One Piece</a></li>
+                    <li><a class="dropdown-item" href="/collections">Magic: The
+                            Gathering</a></li>
+                    <li><a class="dropdown-item" href="/collections">Yu-Gi-Oh!</a></li>
+                    <li><a class="dropdown-item" href="/collections">Pokémon</a></li>
+                    <li><a class="dropdown-item" href="/collections">Lorcana</a></li>
+                    <li><a class="dropdown-item" href="/collections">One Piece</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Productos generales</a></li>
+                    <li><a class="dropdown-item" href="/collections">Colecciones generales</a></li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Accesorios</button-->
-                <a href="/accessories">Accesorios</a>
+                <a href="//filteredproducts?game=all">Accesorios</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                    <li><a class="dropdown-item" href="#">One Piece</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                            Gathering</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Pokémon</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Lorcana</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">One Piece</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">General</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=all">General</a></li>
                 </ul>
             </div>
 
@@ -313,101 +346,104 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Magic: The Gathering</a></li>
-                    <li><a class="dropdown-item" href="#">Yu-Gi-Oh!</a></li>
-                    <li><a class="dropdown-item" href="#">Pokémon</a></li>
-                    <li><a class="dropdown-item" href="#">Lorcana</a></li>
-                    <li><a class="dropdown-item" href="#">One Piece</a></li>
+                    <li><a class="dropdown-item" href="/calendar">Magic: The
+                            Gathering</a></li>
+                    <li><a class="dropdown-item" href="/calendar">Yu-Gi-Oh!</a></li>
+                    <li><a class="dropdown-item" href="/calendar">Pokémon</a></li>
+                    <li><a class="dropdown-item" href="/calendar">Lorcana</a></li>
+                    <li><a class="dropdown-item" href="/calendar">One Piece</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Otros Eventos</a></li>
+                    <li><a class="dropdown-item" href="/calendar">Otros Eventos</a></li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Magic The Gathering</button-->
-                <a href="mtg">Magic The Gathering</a>
+                <a href="/filteredproducts?game=Magic: The Gathering">Magic The Gathering</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
-                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Magic: The Gathering">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Magic: The Gathering">Productos
+                            sueltos</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Magic: The Gathering">Con Descuento</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Yu-Gi-Oh!</button-->
-                <a href="ygo">Yu-Gi-Oh!</a>
+                <a href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
-                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Productos sueltos</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Yu-Gi-Oh!">Con Descuento</a></li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Lorcana</button-->
-                <a href="lor">Lorcana</a>
+                <a href="/filteredproducts?game=Lorcana">Lorcana</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
-                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Productos sueltos</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Lorcana">Con Descuento</a></li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Pokémon</button-->
-                <a href="pok">Pokémon</a>
+                <a href="/filteredproducts?game=Pokémon">Pokémon</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
-                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Productos sueltos</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-                    <li><a class="dropdown-item" href="#">Con Descuento</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=Pokémon">Con Descuento</a></li>
                 </ul>
             </div>
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">One Piece TCG</button-->
-                <a href="op">One Piece TCG</a>
+                <a href="/filteredproducts?game=One Piece">One Piece TCG</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/collections" data-collections>Colecciones</a></li>
-                    <li><a class="dropdown-item" href="#">Accesorios</a></li>
-                    <li><a class="dropdown-item" href="#">Productos sueltos</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="/filteredproducts?game=One Piece">Productos sueltos</a></li>
                     <li>
                         <hr class="dropdown-divider">
                     </li>

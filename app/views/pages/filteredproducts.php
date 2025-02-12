@@ -8,7 +8,6 @@
 
 $limit = 10;
 $totalPages = ceil($totalProducts / $limit) ?: 1;
-
 $page = $_GET['page'] ?? 1;
 
 $previousPage = $page > 1 ? $page - 1 : 1;
@@ -22,9 +21,9 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
     <form class="filter" method="GET">
       <select name="game" id="game">
         <option value="all">Todos los juegos</option>
-        <?php foreach ($games as $game): ?>
-          <option value="<?php echo $game; ?>" <?php echo isset($_GET['game']) && $_GET['game'] === $game ? 'selected' : ''; ?>>
-            <?php echo $game; ?>
+        <?php foreach ($games as $gg): ?>
+          <option value="<?php echo $gg; ?>" <?php echo isset($_GET['game']) && $_GET['game'] === $gg ? 'selected' : ''; ?>>
+            <?php echo $gg; ?>
           </option>
         <?php endforeach; ?>
       </select>
@@ -76,12 +75,13 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
       <li class="page-item <?php echo $page == 1 ? 'disabled' : ''; ?>">
-        <a class="page-link" href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $previousPage ?>"
+        <a class="page-link"
+          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $previousPage ?>&game=<?php echo $game ?>"
           tabindex="-1">Anterior</a>
       </li>
       <li class="page-item <?php echo $page == $totalPages ? 'disabled' : ''; ?>">
         <a class="page-link"
-          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $nextPage ?>">Siguiente</a>
+          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $nextPage ?>&game=<?= $game ?>">Siguiente</a>
       </li>
     </ul>
   </nav>
