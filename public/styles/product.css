@@ -76,11 +76,15 @@ main {
     margin-bottom: 3em;
     border: solid 15px var(--af-white);
   }
+  .product-info{
+    order: 1 !important;
+  }
   .productQuantity{
     max-width: 5em;
   }
   .product-image{
     width: 80% !important;
+    order: 0 !important;
     margin: 0;
     padding: 0;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
@@ -90,5 +94,14 @@ main {
   }
   .productPrice{
     font-size: 1em;   
+   }
+   .product-subtitle{
+    font-size: 0.8em !important;
+   }
+   .productTitle{
+    font-size: 1.2em;
+   }
+   .product-set{
+    font-size: 1em !important;
    }
 }
