@@ -42,7 +42,7 @@
   --saffron: #eec643;
   --night: #141414;
   --af-white: #eef0f2;
-  --madder: #a41623;
+  --madder: #E04855;/*E04855=Mayor contrasete para titulos| a41623=color original*/
   --sub-text: #b8b8b8;
 
   --magic-bold: "planeswalker-bold";
@@ -129,12 +129,8 @@ header {
       width: 20%;
       display: flex;
       justify-content: end;
-      a {
-        width: 20%;
-        align-items: center;
-        img {
-          width: 100%;
-        }
+      button{
+        font-size: 24px;
       }
     }
     #menu {
@@ -273,7 +269,7 @@ footer {
       width: 60%;
       border: inherit;
       padding: 2em;
-      h4 {
+      h2 {
         font-size: xx-large;
       }
       p {
@@ -290,7 +286,8 @@ footer {
       list-style-type: none;
 
     }
-    h4 {
+    h2 {
+      font-size: 1.5rem;
       margin: 2em;
     }
     a {
@@ -625,6 +622,13 @@ footer {
   font-size: 1.5em;
   margin-bottom: 0.5em;
   color: var(--night);
+}
+.ofertas{
+  .productTitle {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: var(--af-white);
+  } 
 }
 .productSubTitle{
   margin-bottom: 0.5em;

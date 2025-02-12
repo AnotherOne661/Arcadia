@@ -17,7 +17,7 @@
         <div class="carousel-inner">
             <?php foreach ($events_images as $index => $event): ?>
                 <div class="carousel-item <?= $index === 0 ? 'active' : ''; ?>">
-                    <img src="<?= $event->geturlImagen(); ?>" class="slider_image" alt="Slide <?= $index + 1; ?>">
+                    <img loading="lazy" src="<?= $event->geturlImagen(); ?>" class="slider_image" alt="Slide <?= $index + 1; ?>">
                 </div>
             <?php endforeach; ?>
         </div>
@@ -59,16 +59,17 @@
 
 
 
-                        <h5 class="expansion"><?php
+                        <h4 class="expansion"><?php
                         $expansion = $new_product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
                         echo $expansionArray[1];
                         ?> <input class="hidden idExpansion" value="<?= $new_product->getcodExpansion(); ?>"></input>
-                        </h5>
+                        </h4>
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
                         <div>
-                            <input type="number" class="productQuantity" value="1" min="1">
-                            <h6 class="productPrice"><?= $new_product->getprecio(); ?>€</h6>
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1"  aria-label="Ingresa la cantidad deseada">
+                            <h5 class="productPrice"><?= $new_product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
                         </div>
@@ -101,15 +102,17 @@
                             ?></h3>
                         </a>
 
-                        <h5 class="expansion"><?php
+                        <h4 class="expansion"><?php
                         $expansion = $product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
                         echo $expansionArray[1];
-                        ?><input class="hidden idExpansion" value="<?= $product->getcodExpansion(); ?>"></input></h5>
+                        ?><input class="hidden idExpansion" value="<?= $product->getcodExpansion(); ?>"></input>
+                        </h4>
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
-                            <input type="number" class="productQuantity" value="1" min="1">
-                            <h6 class="productPrice"><?= $product->getprecio(); ?>€</h6>
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1" title="Ingresa la cantidad deseada" >
+                            <h5 class="productPrice"><?= $product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
                         </div>
@@ -141,17 +144,18 @@
                             ?></h3>
                         </a>
 
-                        <h5 class="expansion"><?php
+                        <h4 class="expansion"><?php
                         $expansion = $trending_product->getnombreExpansion();
                         $expansionArray = explode("|", $expansion);
                         echo $expansionArray[1];
                         ?> <input class="hidden idExpansion"
                                 value="<?= $trending_product->getcodExpansion(); ?>"></input>
-                        </h5>
+                        </h4>
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
                         <div>
-                            <input type="number" class="productQuantity" value="1" min="1">
-                            <h6 class="productPrice"><?= $trending_product->getprecio(); ?>€</h6>
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1" title="Ingresa la cantidad deseada">
+                            <h5 class="productPrice"><?= $trending_product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
                         </div>

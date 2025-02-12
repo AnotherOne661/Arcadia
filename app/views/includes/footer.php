@@ -1,7 +1,7 @@
 <footer>
   <div id="first-row">
     <div id="socialmedia">
-      <h4>¡Sígenos para ser el primero en enterarte!</h4>
+      <h2>¡Sígenos para ser el primero en enterarte!</h2>
       <div>
         <a href="https://www.facebook.com/arcadiatcg" class="icoholder fc"><img
             src="../assets/images/icons/facebook.svg" alt="facebook"></a>
@@ -16,7 +16,7 @@
       </div>
     </div>
     <div id="contact">
-      <h4>¡Ponte en contacto con nosotros!</h4>
+      <h2>¡Ponte en contacto con nosotros!</h2>
       <div>
         <p><span><img src="/assets/images/icons/mail.svg" alt="email"></span>placeholder@holder.com</p>
         <p><span><img src="/assets/images/icons/phone.svg" alt="numero telefono"></span>916 40 46 96</p>
@@ -32,49 +32,49 @@
   <div id="second-row">
     <div class="footer-column footer-column-1">
       <div>
-        <h4>Aprende a jugar:</h4>
+        <h2>Aprende a jugar:</h2>
       </div>
       <div class="learn">
 
         <a href="/learn-ygo" class="learnbutton">
           <div class="learnbutton">
             <p>Yu Gi Oh!</p>
-            <img src="assets/images/struc/land_footer/dark-magician.png" alt="Yu-Gi-Oh!" />
+            <img src="assets/images/struc/land_footer/dark-magician.png" alt="aprende a jugar Yu-Gi-Oh!" />
           </div>
         </a>
 
         <a href="/learn-lor" class="learnbutton">
           <div class="learnbutton">
             <p>Lorcana</p>
-            <img src="assets/images/struc/land_footer/lorcana.webp" alt="Lorcana" />
+            <img src="assets/images/struc/land_footer/lorcana.webp" alt="aprende a jugar  Lorcana" />
           </div>
         </a>
 
         <a href="/learn-mtg" class="learnbutton">
           <div class="learnbutton">
             <p>Magic</p>
-            <img src="assets/images/struc/land_footer/mtg.webp" alt="Magic: The Gathering" />
+            <img src="assets/images/struc/land_footer/mtg.webp" alt="aprende a jugar  Magic: The Gathering" />
           </div>
         </a>
 
         <a href="/learn-pok" class="learnbutton">
           <div class="learnbutton">
             <p>Pokémon</p>
-            <img src="assets/images/struc/land_footer/pokemon.webp" alt="Pokémon" />
+            <img src="assets/images/struc/land_footer/pokemon.webp" alt="aprende a jugar  Pokémon" />
           </div>
         </a>
 
         <a href="/learn-op" class="learnbutton">
           <div class="learnbutton">
             <p>One Piece TCG</p>
-            <img src="assets/images/struc/land_footer/op_logo.webp" alt="One Piece" />
+            <img src="assets/images/struc/land_footer/op_logo.webp" alt="aprende a jugar One Piece" />
           </div>
         </a>
       </div>
     </div>
     <div class="footer-column footer-column-2">
       <div>
-        <h4>Descubre:</h4>
+        <h2>Descubre:</h2>
       </div>
       <div>
         <ul class="links-footer">
@@ -91,7 +91,7 @@
     </div>
     <div class="footer-column footer-column-3">
       <div>
-        <h4>Sobre nosotros:</h4>
+        <h2>Sobre nosotros:</h2>
       </div>
       <div>
         <ul class="links-footer">
@@ -105,7 +105,7 @@
     </div>
     <div class="footer-column footer-column-4">
       <div>
-        <h4>¡Únete a la comunidad!</h4>
+        <h2>¡Únete a la comunidad!</h2>
       </div>
       <div>
         <ul class="links-footer">
@@ -117,6 +117,6 @@
     </div>
   </div>
   <div id="third-row">
-    <h6>© Arcadia <span data-curdate></span>. Todos los derechos reservados</h6>
+    <p>© Arcadia <span data-curdate></span>. Todos los derechos reservados</p>
   </div>
 </footer>
