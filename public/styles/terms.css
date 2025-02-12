@@ -35,3 +35,18 @@ main {
     border: solid 25px var(--af-white);
     padding: 1em;
 }
+@media only screen and (max-width: 480px) {
+  .terms-conditions{
+    text-align: center;
+    width: 95%;
+    border: solid 15px var(--af-white);
+
+  }
+  ul{
+    padding: 0;
+  }
+  ul li{
+    list-style-type: none;
+    
+  }
+}

@@ -2,7 +2,7 @@
 <header>
     <div id="nav1">
         <div id="logo">
-            <a href="/home" aria-label="logo"><img src="<?php echo $ABS_URL; ?>images/altern.png"
+            <a href="/home" aria-label="logo"><img src="<?php echo $ABS_URL; ?>images/altern.webp"
                     alt="Arcadia Logo"></a>
         </div>
         <div id="search">

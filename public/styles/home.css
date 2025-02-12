@@ -136,3 +136,43 @@ section {
     text-decoration: underline;
   }
 }
+@media only screen and (max-width: 480px) {
+  #carouselExampleIndicators{
+    height: 30vh;
+  }
+  .productQuantity{
+    max-width: 5em;
+  }
+  .product{
+    flex-direction: column;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    min-width: 15em;
+    min-height: 15em;
+    gap: 1em;
+    figcaption{
+      order: 1 !important;
+    }
+  }
+  .productTitle{
+    font-size: 1em;
+  }
+  .productcont{
+    gap: 2em;
+  }
+  .expansion{
+    font-size: 0.7em;
+  }
+  .img-container{
+    order: 0 !important;
+    width: 75% !important;
+    img{
+      width: 100% !important;
+    }
+  }
+}

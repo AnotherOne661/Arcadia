@@ -78,12 +78,12 @@
       </div>
       <div>
         <ul class="links-footer">
-          <li><a href="">Magic: The Gathering</a></li>
-          <li><a href="">Lorcana</a></li>
-          <li><a href="">Yu-Gi-Oh!</a></li>
-          <li><a href="">Pokémon</a></li>
-          <li><a href="">One Piece TCG</a></li>
-          <li><a href="">Accesorios</a></li>
+          <li><a href="/filteredproducts?game=Magic: The Gathering">Magic: The Gathering</a></li>
+          <li><a href="/filteredproducts?game=Lorcana">Lorcana</a></li>
+          <li><a href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></li>
+          <li><a href="/filteredproducts?game=Pokémon">Pokémon</a></li>
+          <li><a href="/filteredproducts?game=One Piece">One Piece TCG</a></li>
+          <li><a href="/filteredproducts?game=all">Accesorios</a></li>
           <li><a href="/collections">Colecciones</a></li>
           <li><a href="/calendar">Eventos</a></li>
         </ul>

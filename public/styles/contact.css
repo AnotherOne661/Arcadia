@@ -85,3 +85,16 @@ strong {
 .red {
   color: var(--madder);
 }
+@media only screen and (max-width: 480px) {
+  .about {
+    width: 95%;
+    flex-direction: column;
+  }
+  .contact{
+    flex-direction: column;
+  }
+  #map {
+    width: 25em;
+    height: 25em;
+  }
+}

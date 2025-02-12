@@ -51,3 +51,8 @@ a {
     color: var(--madder);
   }
 }
+@media only screen and (max-width: 480px) {
+   #registration-form{
+    width: 85%;
+   }
+}

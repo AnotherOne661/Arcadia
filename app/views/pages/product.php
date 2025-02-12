@@ -10,8 +10,7 @@
       <a href="#" class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
 
       <div class="product-pricing">
-        <h4 class="productPrice"><?php echo $product->getPrecio(); ?> €
-        </h4>
+        <h4 class="productPrice"><?php echo $product->getPrecio(); ?> €</h4>
         <input type="number" name="" id="" class="productQuantity" value="1" min="1">
         <h4 class="discount-product-price"></h4> <!-- Dynamic price placeholder -->
       </div>

@@ -50,3 +50,28 @@ a {
 .card-example img {
   width: 25%;
 }
+@media only screen and (max-width: 480px) {
+  .learn-ygo{
+    text-align: center;
+    width: 95%;
+    border: solid 15px var(--af-white);
+
+  }
+  ul{
+    padding: 0;
+  }
+  ul li{
+    list-style-type: none;
+    
+  }
+  .video-tutorial{
+    .video-container{
+      width: 50%;
+    }
+  }
+  .card-example{
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+}

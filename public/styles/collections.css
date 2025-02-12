@@ -194,3 +194,12 @@ main {
     font-size: 0.8em;
   }
 }
+@media only screen and (max-width: 480px) {
+  .collection-container{
+    flex-direction: column;
+    gap: 2em;
+    .pok,.mtg,.lor,.ygo,.op{
+      width: 100% !important;
+    }
+  }
+}
