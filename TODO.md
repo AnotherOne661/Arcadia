@@ -8,5 +8,4 @@
 - Adaptar a móvil !high
 - Desplegar con apache!high
 - DNS !high
-- Cambiar el layout del Carrito !high
 

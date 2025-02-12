@@ -26,9 +26,15 @@ function isValidPostalCode(postalCode) {
 function main() {
   populateCart();
 
+  if (document.getElementById("#card-element") != null) {
   const elements = stripe.elements();
   const cardElement = elements.create("card");
   cardElement.mount('#card-element');
+  cardElement.on('change', function(event) {
+    const displayError = document.getElementById('card-errors');
+    displayError.textContent = event.error ? event.error.message : '';
+  });
+  }
   const buyNow = document.querySelector(".buyNow");
   buyNow.classList.add("hidden");   
   if (!localStorage.getItem("cart")){
@@ -63,10 +69,7 @@ function main() {
     });
   }
  
-  cardElement.on('change', function(event) {
-    const displayError = document.getElementById('card-errors');
-    displayError.textContent = event.error ? event.error.message : '';
-  });
+
 
   const form = document.querySelector(".details");
   if (form) {

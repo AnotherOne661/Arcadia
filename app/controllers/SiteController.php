@@ -30,14 +30,7 @@ class SiteController extends Controller
       'cssFile' => 'mysteriousstranger.css'
     ]);
   }
-  public function cart()
-  {
-    return $this->render('cart', [
-      'title' => 'Carrito',
-      'cssFile' => 'cart.css',
-      'jsFile' => 'cart.js'
-    ]);
-  }
+
   public function login()
   {
     return $this->render('login', [

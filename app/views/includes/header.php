@@ -35,8 +35,7 @@
                 <div class="offcanvas-header">
                     <h5 id="offcanvasRightLabel" class="menuTitle"></h5>
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                        aria-label="Close"><img src="<?php echo
-                            $ABS_URL; ?>image/icons/close.jpg" alt="Cerrar"></button>
+                        aria-label="Close"></button>
 
 
                 </div>
@@ -47,7 +46,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Accesorios</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/filteredproducts?game=all">Accesorios</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -77,7 +77,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Eventos</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/calendar">Eventos</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -145,7 +146,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Magic: The Gathering</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/filteredproducts?game=Magic: The Gathering">Magic: The Gathering</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -173,7 +175,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Yu-Gi-Oh!</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -199,7 +202,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Lorcana</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/filteredproducts?game=Lorcana">Lorcana</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -225,7 +229,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">Pokémon</button>
+                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                href="/filteredproducts?game=Pokémon">Pokémon</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -251,7 +256,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-danger">One Piece</button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=One Piece">One Piece</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -319,7 +325,7 @@
 
             <div class="btn-group">
                 <!--button type="button" class="btn btn-danger">Accesorios</button-->
-                <a href="//filteredproducts?game=all">Accesorios</a>
+                <a href="/filteredproducts?game=all">Accesorios</a>
                 <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     <span class="visually-hidden">Toggle Dropdown</span>

@@ -6,7 +6,7 @@
 
     <div class="product-info">
       <h2 class="product-subtitle"><?php echo htmlspecialchars($product->getNombreProductoEs()); ?></h2>
-      <h2 class="productTitle"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
+      <h2 class="productTitle productSubTitle"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
       <a href="#" class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
 
       <div class="product-pricing">
