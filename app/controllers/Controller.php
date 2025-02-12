@@ -40,7 +40,7 @@ abstract class Controller
 
     // Volvemos a empezar a escribir la vista que incluye la layout
     ob_start();
-    require_once __DIR__ . "/../Views/includes/layout/$this->layout.php";
+    require_once __DIR__ . "/../views/includes/layout/$this->layout.php";
     // Dado que los demás controladores Extienden de Controller, tendrán la variable $content con su contenido
     return ob_get_clean();
   }
