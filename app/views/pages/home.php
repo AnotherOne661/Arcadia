@@ -35,7 +35,7 @@
     </div>
 
     <section>
-        <div class="novedades">
+        <div class="novedades productcont">
             <h2 class="secTitle">NOVEDADES</h2>
             <?php foreach ($new_products as $new_product): ?>
                 <div class="newproducts product">
@@ -81,7 +81,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="ofertas">
+        <div class="ofertas productcont">
             <h2 class="secTitle">OFERTAS</h2>
             <?php foreach ($sale_products as $product): ?>
                 <div class="saleproducts product">
@@ -122,7 +122,7 @@
             <?php endforeach; ?>
         </div>
 
-        <div class="trend">
+        <div class="trend productcont">
             <h2 class="secTitle">TENDENCIA</h2>
             <?php foreach ($trending_products as $trending_product): ?>
                 <div class="trendproducts product">

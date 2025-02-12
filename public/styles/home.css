@@ -136,3 +136,18 @@ section {
     text-decoration: underline;
   }
 }
+@media only screen and (max-width: 480px) {
+  .product{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    min-width: 15em;
+    min-height: 15em;
+  }
+  .productcont{
+    gap: 2em;
+  }
+}

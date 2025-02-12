@@ -60,3 +60,32 @@ main {
     font-size: 1.3em;
   }
 }
+@media only screen and (max-width: 480px) {
+  .product{
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 0;
+    width: 85%;
+    padding: 2em;
+    margin: 0;
+    gap: 2em;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border: solid 15px var(--af-white);
+  }
+  .productQuantity{
+    max-width: 5em;
+  }
+  .product-image{
+    width: 80% !important;
+    margin: 0;
+    padding: 0;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.8));
+    img{
+      width: 100%;
+    }
+  }
+}
