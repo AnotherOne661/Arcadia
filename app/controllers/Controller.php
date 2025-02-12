@@ -35,7 +35,7 @@ abstract class Controller
     // Empezamos a escribir la vista
     ob_start();
     // Requerimos la página en sí, y la almacenamos en content
-    require_once __DIR__ . "/../Views/pages/$view.php";
+    require_once __DIR__ . "/../views/pages/$view.php";
     $content = ob_get_clean();
 
     // Volvemos a empezar a escribir la vista que incluye la layout
