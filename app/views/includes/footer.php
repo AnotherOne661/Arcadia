@@ -18,11 +18,13 @@
     <div id="contact">
       <h4>¡Ponte en contacto con nosotros!</h4>
       <div>
-        <p><span><img src="/assets/images/icons/mail.svg" alt=""></span>placeholder@holder.com</p>
-        <p><span><img src="/assets/images/icons/phone.svg" alt=""></span>916 40 46 96</p>
-        <p><span><img src="/assets/images/icons/location-a.svg"></span>Calle Mirador de Montepinar, 1 - 28015, Madrid
+        <p><span><img src="/assets/images/icons/mail.svg" alt="email"></span>placeholder@holder.com</p>
+        <p><span><img src="/assets/images/icons/phone.svg" alt="numero telefono"></span>916 40 46 96</p>
+        <p><span><img src="/assets/images/icons/location-a.svg" alt="localizacion"></span>Calle Mirador de Montepinar, 1
+          - 28015, Madrid
         </p>
-        <p><span><img src="/assets/images/icons/time.svg"></span>De lúnes a viernes ; 11:30 - 15:00 & 17:00 - 19:00
+        <p><span><img src="/assets/images/icons/time.svg" alt="horario"></span>De lúnes a viernes ; 11:30 - 15:00 &
+          17:00 - 19:00
         </p>
       </div>
     </div>
@@ -37,35 +39,35 @@
         <a href="/learn-ygo" class="learnbutton">
           <div class="learnbutton">
             <p>Yu Gi Oh!</p>
-            <img src="assets/images/struc/land_footer/dark-magician.png" alt="" />
+            <img src="assets/images/struc/land_footer/dark-magician.png" alt="Yu-Gi-Oh!" />
           </div>
         </a>
 
         <a href="/learn-lor" class="learnbutton">
           <div class="learnbutton">
             <p>Lorcana</p>
-            <img src="assets/images/struc/land_footer/lorcana.webp" alt="" />
+            <img src="assets/images/struc/land_footer/lorcana.webp" alt="Lorcana" />
           </div>
         </a>
 
         <a href="/learn-mtg" class="learnbutton">
           <div class="learnbutton">
             <p>Magic</p>
-            <img src="assets/images/struc/land_footer/mtg.webp" alt="" />
+            <img src="assets/images/struc/land_footer/mtg.webp" alt="Magic: The Gathering" />
           </div>
         </a>
 
         <a href="/learn-pok" class="learnbutton">
           <div class="learnbutton">
             <p>Pokémon</p>
-            <img src="assets/images/struc/land_footer/pokemon.webp" alt="" />
+            <img src="assets/images/struc/land_footer/pokemon.webp" alt="Pokémon" />
           </div>
         </a>
 
         <a href="/learn-op" class="learnbutton">
           <div class="learnbutton">
             <p>One Piece TCG</p>
-            <img src="assets/images/struc/land_footer/op_logo.webp" alt="" />
+            <img src="assets/images/struc/land_footer/op_logo.webp" alt="One Piece" />
           </div>
         </a>
       </div>
@@ -74,7 +76,7 @@
       <div>
         <h4>Descubre:</h4>
       </div>
-      <div >
+      <div>
         <ul class="links-footer">
           <li><a href="">Magic: The Gathering</a></li>
           <li><a href="">Lorcana</a></li>

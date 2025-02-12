@@ -64,6 +64,7 @@
 }
 body {
   background-image: url(/../assets/images/hieloglyphs3_c.webp);
+  width: 100%;
 }
 header {
   display: flex;
@@ -111,16 +112,7 @@ header {
         input:placeholder-shown + button img {
           visibility: visible;
         }
-        input::-webkit-search-cancel-button {
-          -webkit-appearance: none;
-          height: 16px;
-          width: 16px;
-          background: url("../images/icons/cancel-cross.svg") no-repeat center
-            center;
-          background-size: contain;
-          position: relative;
-          color: black;
-        }
+
         button {
           width: 10%;
           background-color: transparent;
@@ -295,7 +287,8 @@ footer {
     display: flex;
     justify-content: center;
     ul {
-      margin: 2em;
+      list-style-type: none;
+
     }
     h4 {
       margin: 2em;
@@ -631,6 +624,10 @@ footer {
 .productTitle {
   font-size: 1.5em;
   margin-bottom: 0.5em;
+  color: var(--night);
+}
+.productSubTitle{
+  margin-bottom: 0.5em;
   color: var(--madder);
 }
 .expansion {
@@ -673,4 +670,66 @@ footer {
 }
 .hidden {
   display: none !important;
+}
+@media only screen and (max-width: 480px) {
+  header{
+    #nav1{
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      #logo{
+        width: 25%;
+        img{
+          width: 100%;
+        }
+      }
+      #icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+      }
+      #search{
+        display: none;
+      }
+    }
+    #nav2{
+      display: none;
+    }
+  }
+  footer{
+    width: 99%;
+    text-align: center;
+    #first-row{
+      width: 100%;
+      flex-direction: column;
+      #socialmedia{
+        padding: 0;
+        width: 100%;
+        div{
+          padding: 0;
+          width: 100%;
+
+        }
+      }
+      #contact{
+        width: 100%;
+        padding: 0;
+      }
+    }
+    #second-row{
+      flex-direction: column;
+      .footer-column{
+        text-align: center;
+        width: 100%;
+      }
+      .links-footer{
+        width: 100%;
+        gap:1;
+        padding: 0;
+      }
+    }
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
 }

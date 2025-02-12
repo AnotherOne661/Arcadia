@@ -1,7 +1,8 @@
+<html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../assets/styles/login.css">
   <link rel="stylesheet" href="\styles\lib\bootstrap.min.css">
   <script defer src="\js\lib\bootstrap.bundle.min.js"></script>
   <script defer src="\js\lib\sweetalert2.all.min.js"></script>

@@ -1,6 +1,11 @@
 - Calendario (añadir dinamismo) !low
 - Llenar DB (almost done) !low
 - Implementar rol de Administrador !low
-- Solucionar enlaces del cuerpo ahora que hay filtrado !HIGH
 - Arreglar color enlaces productos !high
 - AÑADIR IMAGENES A EVENTOS !medium
+- Comprobar Tamaño y ppi de las imagenes que no sean productos
+- Guia de Estilos !mediumn
+- Adaptar a móvil !high
+- Desplegar con apache!high
+- DNS !high
+

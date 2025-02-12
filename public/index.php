@@ -10,6 +10,7 @@ require_once __DIR__ . '/../app/controllers/ContactController.php';
 require_once __DIR__ . '/../app/controllers/ProductController.php';
 require_once __DIR__ . '/../app/controllers/LandingController.php';
 require_once __DIR__ . '/../app/controllers/ErrorController.php';
+require_once __DIR__ . '/../app/controllers/CartController.php';
 require_once __DIR__ . '/../app/core/http/Request.php';
 require_once __DIR__ . '/../app/core/http/Response.php';
 
@@ -51,7 +52,7 @@ switch ($requestUri) {
     echo $response->sendHtml($controller->secret());
     break;
   case 'cart':
-    $controller = new SiteController($request, $response);
+    $controller = new CartController($request, $response);
     echo $response->sendHtml($controller->cart());
     break;
   case 'login':
@@ -144,6 +145,7 @@ switch ($requestUri) {
   case 'product':
     $controller = new ProductController($request, $response);
     echo $response->sendHtml($controller->index());
+    break;
   case 'filteredproducts':
     $controller = new ProductController($request, $response);
     echo $response->sendHtml($controller->findMany());
