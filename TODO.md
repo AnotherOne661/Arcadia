@@ -4,3 +4,4 @@
 - Solucionar enlaces del cuerpo ahora que hay filtrado !HIGH
 - Arreglar color enlaces productos !high
 - AÑADIR IMAGENES A EVENTOS !medium
+- fix everything
