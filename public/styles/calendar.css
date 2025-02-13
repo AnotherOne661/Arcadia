@@ -64,3 +64,9 @@
   padding: 5px;
   margin: 5px;
 }
+.popup-title {
+  font-family: var(--ygo-bold) !important;
+  font-size: 1.5em;
+  color: var(--night);
+  margin-bottom: 0.5em;
+}

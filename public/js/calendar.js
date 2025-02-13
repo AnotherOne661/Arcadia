@@ -53,14 +53,17 @@ function renderCalendar(month, year, events) {
             day.addEventListener("click", () => {
               console.log(event.urlImagen)
                 Swal.fire({
-                    title: event.nombre_evento,
+                    title: `<span class="popup-title">${event.nombre_evento}</span>`, 
                     confirmButtonText: "Ok",
                     html: `
-                        <p><strong>Fecha:</strong> ${event.fecha_evento}</p>
+                        <p class="popup-title"><strong>Fecha:</strong> ${event.fecha_evento}</p>
                         
-                        <p><strong>Descripción:</strong> ${event.descripcion}</p>
+                        <p class="popup-title"><strong>Descripción:</strong> ${event.descripcion}</p>
                         <img src="${event.urlImagen}" alt="Evento" style="width: 100%; margin-top: 10px;"/>
-                    ` 
+                    ` ,
+                    confirmButtonColor: "#eec643",
+                    confirmTextColor: "#141414",
+
                 })
             })
         }

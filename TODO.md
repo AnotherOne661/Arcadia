@@ -8,4 +8,4 @@
 - Adaptar a móvil !high
 - Desplegar con apache!high
 - DNS !high
-
+- Blur en el registro e inicio de sesión

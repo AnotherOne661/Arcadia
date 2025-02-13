@@ -447,7 +447,7 @@ footer {
   }
 }
 .btn-primary {
-  background-color: var(--saffron);
+  background-color: transparent;
   color: var(--night);
   border: none;
   &:hover {
@@ -455,7 +455,7 @@ footer {
     color: var(--saffron);
   }
   &:active {
-    background-color: var(--night);
+    background-color: var(--madder);
     color: var(--saffron);
     transform: translateY(3px);
     transition: var(--transitionCool);
@@ -698,6 +698,11 @@ footer {
     }
     #nav2 {
       display: none;
+    }
+  }
+  .btn-primary {
+    i {
+      font-size: 1em;
     }
   }
   footer {

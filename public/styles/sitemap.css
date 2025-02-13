@@ -58,6 +58,7 @@ h1 {
 .links-ul {
   list-style-type: none;
   display: flex;
+  padding: 0;
   flex-direction: column;
   flex-wrap: wrap;
   gap: 1em;
@@ -66,15 +67,14 @@ h2 {
   color: var(--saffron);
 }
 @media only screen and (max-width: 480px) {
-  .sitemapcont{
+  .sitemapcont {
     width: 95%;
     border: solid 15px var(--af-white);
-
   }
-  .links{
+  .links {
     gap: 1;
   }
-  .links-ul{
+  .links-ul {
     padding: 0;
   }
 }

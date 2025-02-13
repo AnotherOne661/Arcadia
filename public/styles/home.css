@@ -137,13 +137,13 @@ section {
   }
 }
 @media only screen and (max-width: 480px) {
-  #carouselExampleIndicators{
-    height: 30vh;
+  #carouselExampleIndicators {
+    display: none;
   }
-  .productQuantity{
+  .productQuantity {
     max-width: 5em;
   }
-  .product{
+  .product {
     flex-direction: column;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -155,23 +155,23 @@ section {
     min-width: 15em;
     min-height: 15em;
     gap: 1em;
-    figcaption{
+    figcaption {
       order: 1 !important;
     }
   }
-  .productTitle{
+  .productTitle {
     font-size: 1em;
   }
-  .productcont{
+  .productcont {
     gap: 2em;
   }
-  .expansion{
+  .expansion {
     font-size: 0.7em;
   }
-  .img-container{
+  .img-container {
     order: 0 !important;
     width: 75% !important;
-    img{
+    img {
       width: 100% !important;
     }
   }

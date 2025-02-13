@@ -39,6 +39,7 @@
     margin: 3%;
     padding: 5em;
     border: 15px solid var(--night);
+    text-align: center;
   }
 
   #botones {
@@ -101,14 +102,14 @@
 .hidden {
   display: none;
 }
-.error{
+.error {
   font-size: medium !important;
   background-color: transparent !important;
   border: none !important;
 }
 @media only screen and (max-width: 480px) {
-  #mypage{
-    div{
+  #mypage {
+    div {
       padding: 2em;
       text-align: center;
       width: 95%;

@@ -135,28 +135,28 @@ const updateSubmitButtonState = () => {
 };
 
 // Event listeners for form fields
-nameInput.addEventListener('input', () => {
+nameInput.addEventListener('blur', () => {
     validateName();
     updateSubmitButtonState();
 });
 
-emailInput.addEventListener('input', () => {
+emailInput.addEventListener('blur', () => {
     validateEmail();
     updateSubmitButtonState();
 });
 
-passwordInput.addEventListener('input', () => {
+passwordInput.addEventListener('blur', () => {
     validatePassword();
     validateConfirmPassword();
     updateSubmitButtonState();
 });
 
-confirmPasswordInput.addEventListener('input', () => {
+confirmPasswordInput.addEventListener('blur', () => {
     validateConfirmPassword();
     updateSubmitButtonState();
 });
 
-phoneInput.addEventListener('input', () => {
+phoneInput.addEventListener('blur', () => {
     validatePhone();
     updateSubmitButtonState();
 });
