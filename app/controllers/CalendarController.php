@@ -25,10 +25,16 @@ class CalendarController extends Controller
   }
   public function renderBasic()
   {
+
     return $this->render('calendar', [
       'title' => 'Calendario De Eventos',
       'cssFile' => 'calendar.css',
       'jsFile' => 'calendar.js'
     ]);
+  }
+  public function events()
+  {
+    $events = $this->calendarRepository->getEvents();
+    return $this->response->sendJson($events);
   }
 }

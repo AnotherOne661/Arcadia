@@ -19,5 +19,12 @@ class CalendarRepository extends Repository
   }
 
   // Método para buscar un test por su ID y devolverlo como un objeto Test
-
+  public function getEvents()
+  {
+    $query = "SELECT idEvento, nombre_evento, fecha_evento, descripcion ,urlImagen FROM $this->tableName ORDER BY fecha_evento ASC";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $events;
+  }
 }
