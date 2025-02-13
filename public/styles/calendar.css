@@ -57,3 +57,10 @@
 .calendar-dates div:hover {
   background-color: var(--sub-text);
 }
+.event {
+  background-color: var(--sub-text);
+  color: var(--af-white);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}

@@ -134,6 +134,10 @@ switch ($requestUri) {
     $controller = new CalendarController($request, $response);
     echo $response->sendHtml($controller->renderBasic());
     break;
+  case 'events':
+    $controller = new CalendarController($request, $response);
+    echo $controller->events();
+    break;
   case 'contact':
     $controller = new ContactController($request, $response);
     echo $response->sendHtml($controller->index());

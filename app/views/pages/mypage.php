@@ -7,12 +7,12 @@
                 unset($_SESSION['signup_error_duplicate']);
             } ?>
             </p>
-            <p>Bienvenido,<?= $_SESSION['name'] ?>!</p>
-            <?php 
-    if (isset($_SESSION['profile-path'])) {
-        echo '<img class="profile" src="' . $_SESSION['profile-path'] . '" alt="">';
-    }
-?>
+            <p>Bienvenido,<?= htmlspecialchars($_SESSION['name']) ?>!</p>
+            <?php
+            if (isset($_SESSION['profile-path'])) {
+                echo '<img class="profile" src="' . htmlspecialchars($_SESSION['profile-path']) . '" alt="">';
+            }
+            ?>
             <button class="edit">Edit Profile</button>
             <form class="hidden edit-form" action="/edit-account" method="post" enctype="multipart/form-data">
                 <label for="name">Nuevo nombre de usuario:</label>

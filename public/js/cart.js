@@ -26,7 +26,7 @@ function isValidPostalCode(postalCode) {
 function main() {
   populateCart();
 
-  if (document.getElementById("#card-element") != null) {
+  if (document.getElementById("card-element") != null) {
   const elements = stripe.elements();
   const cardElement = elements.create("card");
   cardElement.mount('#card-element');
@@ -34,6 +34,8 @@ function main() {
     const displayError = document.getElementById('card-errors');
     displayError.textContent = event.error ? event.error.message : '';
   });
+  } else{
+    console.log(document.getElementById("card-element"))
   }
   const buyNow = document.querySelector(".buyNow");
   buyNow.classList.add("hidden");   

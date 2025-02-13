@@ -42,7 +42,7 @@
   --saffron: #eec643;
   --night: #141414;
   --af-white: #eef0f2;
-  --madder: #E04855;/*E04855=Mayor contrasete para titulos| a41623=color original*/
+  --madder: #a41623; /*E04855=Mayor contrasete para titulos| a41623=color original bf1927*/
   --sub-text: #b8b8b8;
 
   --magic-bold: "planeswalker-bold";
@@ -129,7 +129,7 @@ header {
       width: 20%;
       display: flex;
       justify-content: end;
-      button{
+      button {
         font-size: 24px;
       }
     }
@@ -284,7 +284,6 @@ footer {
     justify-content: center;
     ul {
       list-style-type: none;
-
     }
     h2 {
       font-size: 1.5rem;
@@ -311,7 +310,7 @@ footer {
       width: 30%;
       text-align: center;
     }
-    .links-footer{
+    .links-footer {
       display: flex;
       flex-direction: column;
       gap: 1em;
@@ -623,14 +622,14 @@ footer {
   margin-bottom: 0.5em;
   color: var(--night);
 }
-.ofertas{
+.ofertas {
   .productTitle {
     font-size: 1.5em;
     margin-bottom: 0.5em;
     color: var(--af-white);
-  } 
+  }
 }
-.productSubTitle{
+.productSubTitle {
   margin-bottom: 0.5em;
   color: var(--madder);
 }
@@ -676,60 +675,59 @@ footer {
   display: none !important;
 }
 @media only screen and (max-width: 480px) {
-  header{
-    #nav1{
+  header {
+    #nav1 {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      #logo{
+      #logo {
         width: 25%;
-        img{
+        img {
           width: 100%;
         }
       }
-      #icons{
+      #icons {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
       }
-      #search{
+      #search {
         display: none;
       }
     }
-    #nav2{
+    #nav2 {
       display: none;
     }
   }
-  footer{
+  footer {
     width: 99%;
     text-align: center;
-    #first-row{
+    #first-row {
       width: 100%;
       flex-direction: column;
-      #socialmedia{
+      #socialmedia {
         padding: 0;
         width: 100%;
-        div{
+        div {
           padding: 0;
           width: 100%;
-
         }
       }
-      #contact{
+      #contact {
         width: 100%;
         padding: 0;
       }
     }
-    #second-row{
+    #second-row {
       flex-direction: column;
-      .footer-column{
+      .footer-column {
         text-align: center;
         width: 100%;
       }
-      .links-footer{
+      .links-footer {
         width: 100%;
-        gap:1;
+        gap: 1;
         padding: 0;
       }
     }
