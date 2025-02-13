@@ -18,7 +18,7 @@
             <h2>Detalles de pago</h2>
 
             <label for="name">Nombre completo:</label>
-            <input type="text" id="name" name="name" placeholder="Yugi Muto" required>
+            <input class="name" type="text" id="name" name="name" placeholder="Yugi Muto" required>
 
             <label for="community">Comunidad autónoma:</label>
             <input type="text" id="community" name="community" placeholder="Comunidad de Madrid" required>

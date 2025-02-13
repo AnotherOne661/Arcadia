@@ -61,6 +61,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 body {
   background-image: url(/../assets/images/hieloglyphs3_c.webp);
@@ -675,11 +676,20 @@ footer {
   display: none !important;
 }
 @media only screen and (max-width: 480px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   header {
     #nav1 {
+      margin: 0;
+      padding: 0;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      width: 85%;
       #logo {
         width: 25%;
         img {

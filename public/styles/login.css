@@ -61,3 +61,11 @@ form button[type="submit"]:hover {
   background-color: var(--saffron) !important;
   color: var(--night) !important;
 }
+@media only screen and (max-width: 480px) {
+  #form_login {
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+}

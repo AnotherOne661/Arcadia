@@ -1,6 +1,6 @@
 
 const stripe = Stripe("pk_test_51Qp4LaPteoa4CQqLbmXU629PimI1Z1omu3gWI8tjDN9831EPOrHDvcfLCt1OdNEvWsEsobW5VvGVulQJ0DS5AT4F00WLcRC4bG");
-
+var cardElement;
 
 function isValidCommunity(community) {
   const communityLower = community.toLowerCase();
@@ -26,30 +26,31 @@ function isValidPostalCode(postalCode) {
 function main() {
   populateCart();
 
-  if (document.getElementById("card-element") != null) {
-  const elements = stripe.elements();
-  const cardElement = elements.create("card");
-  cardElement.mount('#card-element');
-  cardElement.on('change', function(event) {
-    const displayError = document.getElementById('card-errors');
-    displayError.textContent = event.error ? event.error.message : '';
-  });
-  } else{
-    console.log(document.getElementById("card-element"))
+  if (document.getElementById("card-element") !== null) {
+    const elements = stripe.elements();
+    cardElement = elements.create("card"); // Assign to the global variable
+    cardElement.mount('#card-element');
+    cardElement.on('change', function(event) {
+      const displayError = document.getElementById('card-errors');
+      displayError.textContent = event.error ? event.error.message : '';
+    });
   }
+
   const buyNow = document.querySelector(".buyNow");
   buyNow.classList.add("hidden");   
-  if (!localStorage.getItem("cart")){
+  if (!localStorage.getItem("cart")) {
     buyNow.classList.remove("hidden");   
   }
+
   const total = document.querySelector(".session");
   total.classList.add("hidden");
-  if (localStorage.getItem("cart")){
+  if (localStorage.getItem("cart")) {
     total.classList.remove("hidden");
   }
+
   const vaciarCarrito = document.querySelector(".clear-cart");
   vaciarCarrito.classList.add("hidden");
-  if(localStorage.getItem("cart")){
+  if (localStorage.getItem("cart")) {
     vaciarCarrito.classList.remove("hidden");
     vaciarCarrito.addEventListener("click", () => {
       Swal.fire({
@@ -60,8 +61,6 @@ function main() {
         denyIcon: 'warning',
         confirmButtonColor: '#eec643',
         denyButtonColor: '#a41623',
-        confirmButtonTextColor: '#141414',
-        cancelButtonTextColor: '#eef0f2',
       }).then((result) => {
         if (result.isConfirmed) {
           localStorage.removeItem("cart");
@@ -70,58 +69,43 @@ function main() {
       });
     });
   }
- 
-
 
   const form = document.querySelector(".details");
   if (form) {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      const name = document.getElementById('name').value;
       const community = document.getElementById('community').value;
       const localidad = document.getElementById('localidad').value;
       const address = document.getElementById('address').value;
       const postalCode = document.getElementById('postalCode').value;
 
       if (!isValidAddress(address)) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Por favor, introduce una dirección válida.'
-        });
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'Por favor, introduce una dirección válida.' });
         return;
       }
       
       if (!isValidCommunity(community)) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Por favor, introduce una comunidad válida.'
-        });
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'Por favor, introduce una comunidad válida.' });
         return;
       }
       
       if (!isValidPostalCode(postalCode)) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Por favor, introduce un código postal válido.'
-        });
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'Por favor, introduce un código postal válido.' });
+        return;
+      }
+
+      if (!cardElement) {
+        Swal.fire({ icon: 'error', title: 'Oops...', text: 'Error al procesar el pago. Inténtalo de nuevo.' });
         return;
       }
 
       const { paymentMethod, error } = await stripe.createPaymentMethod({
         type: 'card',
-        card: cardElement,
+        card: cardElement, // Now it is properly accessible
         billing_details: {
           name: name,
-          address: {
-            line1: address,
-            city: localidad,
-            postal_code: postalCode,
-            state: community,
-          },
+          address: { line1: address, city: localidad, postal_code: postalCode, state: community },
         },
       });
 
@@ -134,12 +118,12 @@ function main() {
   }
 }
 
-main();
+
 
 
 function processPayment() {
   // Get the form values
-  const name = document.getElementById('name').value;
+
   const community = document.getElementById('community').value;
   const localidad = document.getElementById('localidad').value;
   const address = document.getElementById('address').value;
@@ -147,7 +131,7 @@ function processPayment() {
 
 
   // Validate the inputs
-  if (name && community && localidad && address && postalCode) {
+  if ( community && localidad && address && postalCode) {
     // Trigger SweetAlert2 popup
     Swal.fire({
       title: '¡Pago exitoso!',
@@ -171,3 +155,4 @@ function processPayment() {
     });
   }
 }
+main();

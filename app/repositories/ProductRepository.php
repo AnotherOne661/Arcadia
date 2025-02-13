@@ -35,6 +35,9 @@ class ProductRepository extends Repository
     $product = $stmt->fetch();
     $names = $product['nombreProducto'];
     $names = explode("|", $names);
+
+    $names[1] = isset($names[1]) ? $names[1] : $names[0];
+
     return new Product($product['codExpansion'], $names[1], $product['idJuego'], $product['precio'], $product['tipo'], $product['urlImagen'], $names[0]);
   }
   // Método para buscar un producto por su ID y devolverlo como un objeto Product
@@ -124,9 +127,19 @@ class ProductRepository extends Repository
     return $products;
   }
 
-  public function findMany($name, $page = -1, $limit = 10)
+  public function findMany($name, $game = null, $expansion = null, $page = -1, $limit = 10)
   {
-    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, p.descuento FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
+    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, p.descuento FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion JOIN juegos j ON p.idJuego = j.idJuego WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
+
+
+    if ($game != null) {
+      $query .= " AND j.nombre_juego LIKE :game";
+    }
+
+    if ($expansion != null) {
+      $query .= " AND e.nombreExpansion LIKE :expansion";
+    }
+
     if ($page > -1) {
       $offset = ($page - 1) * $limit;
       $query .= " LIMIT :limit OFFSET :offset";
@@ -134,6 +147,9 @@ class ProductRepository extends Repository
 
     $name = strtolower($name);
     $name = '%' . $name . '%';
+    $game = '%' . $game . '%';
+    $expansion = '%' . $expansion . '%';
+
 
     $stmt = $this->pdo->prepare($query);
 
@@ -142,9 +158,18 @@ class ProductRepository extends Repository
       $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
     }
 
+    if ($game != null) {
+      $stmt->bindParam(':game', $game, PDO::PARAM_STR);
+    }
+
+    if ($expansion != null) {
+      $stmt->bindParam(':expansion', $expansion, PDO::PARAM_STR);
+    }
+
     $stmt->bindParam(':nombre', $name, PDO::PARAM_STR);
 
     $stmt->execute();
+
     $products = [];
     while ($row = $stmt->fetch()) {
       $names = $row['nombreProducto'];

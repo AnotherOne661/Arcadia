@@ -8,4 +8,7 @@
 - Adaptar a móvil !high
 - Desplegar con apache!high
 - DNS !high
-- Blur en el registro e inicio de sesión
+- Blur en el registro e inicio de sesión !high
+- Update product to show their data !high
+- Update other special chars
+- Arreglar filtrado producto por juego y nombre

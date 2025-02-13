@@ -17,31 +17,36 @@ $name = isset($_GET['name']) ? $_GET['name'] : '';
 $game = isset($_GET['game']) ? $_GET['game'] : 'all';
 ?>
 <main>
-  <div>
-    <form class="filter" method="GET">
-      <select name="game" id="game">
-        <option value="all">Todos los juegos</option>
-        <?php foreach ($games as $gg): ?>
-          <option value="<?php echo $gg; ?>" <?php echo isset($_GET['game']) && $_GET['game'] === $gg ? 'selected' : ''; ?>>
-            <?php echo $gg; ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-      <select name="expansion" id="expansion" <?php echo $game === 'all' ? "disabled='disabled'" : ''; ?>>
-        <option value="all">Todas las expansiones</option>
-        <?php foreach ($expansions as $expansion): ?>
-          <option value="<?php echo $expansion; ?>" <?php echo isset($_GET['expansion']) && $_GET['expansion'] === $expansion ? 'selected' : ''; ?>>
-            <?php echo $expansion; ?>
-          </option>
-        <?php endforeach; ?>
-      </select>
-      <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">
-      <button type="submit">Buscar</button>
-    </form>
-    <div class="results">
-      <h1>Resultados de búsqueda</h1>
-      <p>Se encontraron <?php echo $totalProducts; ?> resultados</p>
-    </div>
+  <div class="page-container">
+    <section class="filter">
+      <form class="formfilter" method="GET">
+        <input type="search" name="name" id="name" placeholder="Buscar"
+          value="<?= isset($_GET['name']) ? $_GET['name'] : ''; ?>">
+        <select name="game" id="game">
+          <option value="all">Todos los juegos</option>
+          <?php foreach ($games as $gg): ?>
+            <option value="<?php echo $gg; ?>" <?php echo isset($_GET['game']) && $_GET['game'] === $gg ? 'selected' : ''; ?>>
+              <?php echo $gg; ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+        <select name="expansion" id="expansion" <?php echo $game === 'all' ? "disabled='disabled'" : ''; ?>>
+          <option value="all">Todas las expansiones</option>
+          <?php foreach ($expansions as $expansion): ?>
+            <option value="<?php echo $expansion; ?>" <?php echo isset($_GET['expansion']) && $_GET['expansion'] === $expansion ? 'selected' : ''; ?>>
+              <?php echo $expansion; ?>
+            </option>
+          <?php endforeach; ?>
+        </select>
+        <input type="hidden" name="page" id="page" value="<?php echo $page; ?>">
+        <button class="filterproducts" type="submit">Buscar</button>
+      </form>
+      <div class="results">
+        <h1>Resultados de búsqueda</h1>
+        <p>Se encontraron <?php echo $totalProducts; ?> resultados</p>
+      </div>
+    </section>
+
     <div class="products-container">
       <?php foreach ($products as $product): ?>
         <div class="product-card">

@@ -9,6 +9,7 @@
             <form action="/filteredproducts" method="GET">
                 <input type="search" name="name" id="name" placeholder="Buscar"
                     value="<?= isset($_GET['name']) ? $_GET['name'] : ''; ?>">
+                <input type="hidden" name="game" value="all">
                 <input type="hidden" name="page" value="1">
                 <button type="submit" aria-label="search"><i class="bi bi-search"></i></button>
             </form>
@@ -46,8 +47,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/filteredproducts?game=all">Accesorios</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=all">Accesorios</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -77,8 +78,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/calendar">Eventos</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/calendar">Eventos</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -146,8 +147,9 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/filteredproducts?game=Magic: The Gathering">Magic: The Gathering</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=Magic: The Gathering">Magic: The
+                                            Gathering</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -175,8 +177,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -202,8 +204,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/filteredproducts?game=Lorcana">Lorcana</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=Lorcana">Lorcana</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
@@ -229,8 +231,8 @@
 
                                 <!-- Example split danger button -->
                                 <div class="btn-group">
-                                <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
-                                href="/filteredproducts?game=Pokémon">Pokémon</a></button>
+                                    <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                            href="/filteredproducts?game=Pokémon">Pokémon</a></button>
                                     <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split"
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <span class="visually-hidden">Toggle Dropdown</span>
