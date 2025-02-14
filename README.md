@@ -22,3 +22,29 @@
 ## El Script de creación e inserción se encuentra en /sql/arcadia[fecha más reciente].sql
 
 ### Desde el xampp, en phpmyadmin, en importar, y seleccionando el archivo
+
+
+#English
+
+>[!TIP]
+>Now,you can launch the run.bat/run.sh and it will be running on localhost directly
+
+>[!NOTE]
+>To launch the landing page of Arcadia's first sprint (without SQL) just download and extract `basic` and doble click `index.html`
+
+# To launch the page in localhost
+
+## xampp is required for running on local
+
+## Open the terminal and launch `php -S localhost:8000 -t public/` or `php -S localhost:8000` if you're already in public`
+
+### if this doesn't work, try adding "C:\xampp" to PATH 
+
+>[!WARNING]
+>It is required to import the database to xampp in order to run
+
+# To import the database:
+
+## The SQL script is located in sql/arcadia[most-recent-date].sql 
+
+### Open phpmyadmin from xampp,click on import and select the file
