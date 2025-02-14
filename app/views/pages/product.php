@@ -1,4 +1,21 @@
-<?php /** * @var Product|Box|Booster|Card $product * */ ?>
+<?php /** * @var Product|Box|Booster|Card $product * */
+switch (get_class($product)) {
+  case 'Box':
+    $numSobres = $product->getNumCartas();
+    break;
+  case 'Booster':
+    $numSobres = $product->getNumCartas();
+    break;
+  case 'Card':
+    $atributos = explode(",", $product->getAtributos());
+    var_dump($atributos);
+
+    break;
+  default:
+    $productType = 'Producto';
+    break;
+}
+?>
 <main>
   <div class="product">
     <input type="hidden" class="idJuego hidden idExpansion" value="<?= $product->getIdJuego(); ?>">
@@ -10,14 +27,15 @@
       <a href="#" class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
       <?php
       if ($product instanceof Card) {
-        echo '<p class="product-type">Carta</p>';
-        echo '<p class="product-attributes">' . $product->getAtributos() . '</p>';
+        echo '<div class="attributes">';
+        foreach ($atributos as $atributo) {
+          echo '<p class="product-attributes">' . $atributo . '</p>';
+        }
+        echo '</div>';
       } elseif ($product instanceof Box) {
-        echo '<p class="product-type">Caja</p>';
-        echo '<p class="product-attributes">' . $product->getNumCartas() . '</p>';
+        echo '<p class="product-attributes"> La caja contiene ' . $product->getNumCartas() . ' sobres</p>';
       } elseif ($product instanceof Booster) {
-        echo '<p class="product-type">Sobre</p>';
-        echo '<p class="product-attributes">' . $product->getNumCartas() . '</p>';
+        echo '<p class="product-attributes"> El sobre contiene ' . $product->getNumCartas() . ' cartas</p>';
       }
       ?>
       <div class="product-pricing">

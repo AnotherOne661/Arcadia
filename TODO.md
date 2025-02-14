@@ -7,6 +7,5 @@
 - Adaptar a móvil (ya casi está) !high /Aa
 - Desplegar con apache!high
 - DNS !high
-- Blur en el registro e inicio de sesión !high /Aa
 - Fix styles of Data of products !high /Aa
 - modificar nombre expansiones en filteredproducts /Aa !Medium
