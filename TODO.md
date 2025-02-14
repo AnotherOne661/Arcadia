@@ -1,14 +1,13 @@
-- Calendario (añadir dinamismo) !low
-- Llenar DB (almost done) !low
-- Implementar rol de Administrador !low
-- Arreglar color enlaces productos !high
-- AÑADIR IMAGENES A EVENTOS !medium
-- Comprobar Tamaño y ppi de las imagenes que no sean productos
+- Llenar DB (almost done) !low /AnC
+- Implementar rol de Administrador !low /Aa
+- Arreglar color enlaces productos !high /Aa
+- AÑADIR IMAGENES A EVENTOS !medium /AnC
+- Comprobar Tamaño y ppi de las imagenes que no sean productos /AnC
 - Guia de Estilos !mediumn
-- Adaptar a móvil !high
+- Adaptar a móvil (ya casi está) !high /Aa
 - Desplegar con apache!high
 - DNS !high
-- Blur en el registro e inicio de sesión !high
-- Update product to show their data !high
-- Update other special chars
-- Arreglar filtrado producto por juego y nombre
+- Blur en el registro e inicio de sesión !high /Aa
+- Update product to show their data !high /Aa
+- Update other special chars /Aa
+- Arreglar filtrado producto por juego y nombre !high /Aa
