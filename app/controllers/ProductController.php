@@ -65,13 +65,9 @@ class ProductController extends Controller
     $products = [];
     $totalProducts = -1;
 
-    if ($name && strlen($name) > 0) {
-      $totalProducts = $this->productRepository->findTotalProducts($name);
-      $products = $this->productRepository->findMany($name, $game, $expansion, $page);
-    } else {
-      $totalProducts = $this->productRepository->countAll($game, $expansion);
-      $products = $this->productRepository->findAll($page, $game, $expansion);
-    }
+    $result = $this->productRepository->findMany($name, $game, $expansion, $page);
+    $products = $result['products'];
+    $totalProducts = $result['total'];
 
     return $this->render(
       'filteredproducts',

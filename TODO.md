@@ -8,7 +8,5 @@
 - Desplegar con apache!high
 - DNS !high
 - Blur en el registro e inicio de sesión !high /Aa
-- Update product to show their data !high /Aa
-- Update other special chars /Aa
-- Arreglar filtrado producto por juego y nombre !high /Aa
+- Fix styles of Data of products !high /Aa
 - modificar nombre expansiones en filteredproducts /Aa !Medium

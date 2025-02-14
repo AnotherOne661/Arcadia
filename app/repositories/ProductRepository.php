@@ -47,180 +47,173 @@ class ProductRepository extends Repository
 
     $tipe = $product->gettipo();
     $cod = $product->getcodExpansion();
-    $nombre = $product->getNombreProductoEn();
-    $nombre = '%' . $nombre . '%';
+    $nombre = '%' . $product->getNombreProductoEn() . '%';
+
     switch ($tipe) {
       case 'carta':
-        $query = "SELECT 'codExpansion', 'nombreProducto', 'idJuego', 'atributos' FROM carta WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
+        $query = "SELECT codExpansion, nombreProducto, idJuego, atributos FROM carta WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':cod', $cod, PDO::PARAM_STR);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch();
-        // 
-        return new Card($product->getcodExpansion(), $product->getNombreProductoEn(), $product->getIdJuego(), $product->getprecio(), $product->gettipo(), $product->geturlImagen(), $result['atributos'], $product->getNombreProductoEs());
+        $result = $stmt->fetch(PDO::FETCH_ASSOC); // Ensure fetching associative array
+        return new Card(
+          $product->getcodExpansion(),
+          $product->getNombreProductoEn(),
+          $product->getIdJuego(),
+          $product->getprecio(),
+          $product->gettipo(),
+          $product->geturlImagen(),
+          $result['atributos'] ?? null, // Prevent errors if null
+          $product->getNombreProductoEs()
+        );
+
       case 'caja':
-        $query = "SELECT 'codExpansion', 'nombreProducto', 'numCartas', 'idJuego' FROM caja WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
+        $query = "SELECT codExpansion, nombreProducto, numSobres, idJuego FROM caja WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':cod', $cod, PDO::PARAM_STR);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch();
-        return new Box($product->getcodExpansion(), $product->getnombreProductoEn(), $product->getIdJuego(), $product->getprecio(), $product->gettipo(), $product->geturlImagen(), $result['numCartas'], $product->getnombreProductoEs());
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return new Box(
+          $product->getcodExpansion(),
+          $product->getNombreProductoEn(),
+          $product->getIdJuego(),
+          $product->getprecio(),
+          $product->gettipo(),
+          $product->geturlImagen(),
+          $result['numSobres'] ?? null, // Prevent errors if null
+          $product->getNombreProductoEs()
+        );
 
       case 'sobre':
-        $query = "SELECT 'codExpansion', 'nombreProducto', 'numCartas', 'idJuego' FROM sobre WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
+        $query = "SELECT codExpansion, nombreProducto, numCartas, idJuego FROM sobre WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
         $stmt = $this->pdo->prepare($query);
         $stmt->bindParam(':cod', $cod, PDO::PARAM_STR);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch();
-        return new Booster($product->getcodExpansion(), $product->getnombreProductoEn(), $product->getIdJuego(), $product->getprecio(), $product->gettipo(), $product->geturlImagen(), $result['numCartas'], $product->getnombreProductoEs());
-
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return new Booster(
+          $product->getcodExpansion(),
+          $product->getNombreProductoEn(),
+          $product->getIdJuego(),
+          $product->getprecio(),
+          $product->gettipo(),
+          $product->geturlImagen(),
+          $result['numCartas'] ?? null, // Prevent errors if null
+          $product->getNombreProductoEs()
+        );
     }
   }
 
-  public function findAll($page = -1, $game = null, $expansion = null, $limit = 10)
+
+  public function findMany($name = null, $game = null, $expansion = null, $page = -1, $limit = 10)
   {
     $gg = $game == 'all' ? null : $game;
     $ee = $expansion == 'all' ? null : $expansion;
 
-    $query = "SELECT p.* FROM $this->tableName p JOIN juegos j ON p.idJuego = j.idJuego JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE 1 = 1";
-    if ($gg != null) {
-      $query .= " AND j.nombre_juego = :game";
-    }
+    $baseQuery = "
+        FROM productos p
+        JOIN expansiones e ON p.codExpansion = e.codExpansion
+        JOIN juegos j ON p.idJuego = j.idJuego
+        WHERE 
+            (:game IS NULL OR j.nombre_juego LIKE :game)
+            AND (:expansion IS NULL OR e.nombreExpansion LIKE :expansion)
+            AND (
+                :name IS NULL OR p.nombreProducto LIKE :name
+                OR p.codExpansion LIKE :name
+                OR e.nombreExpansion LIKE :name
+            )
+    ";
 
-    if ($ee != null) {
-      $query .= " AND e.nombreExpansion = :expansion";
-    }
+    $countQuery = "SELECT COUNT(*) as total " . $baseQuery;
 
-    if ($page > -1) {
-      $offset = ($page - 1) * $limit;
-      $query .= " LIMIT :limit OFFSET :offset";
-    }
-
-    $stmt = $this->pdo->prepare($query);
-
-    if ($gg != null) {
-      $stmt->bindParam(':game', $gg, PDO::PARAM_STR);
-    }
-
-    if ($ee != null) {
-      $stmt->bindParam(':expansion', $ee, PDO::PARAM_STR);
-    }
-
-    if ($page > -1) {
-      $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-      $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
-    }
-
-    $stmt->execute();
-    $products = [];
-    while ($row = $stmt->fetch()) {
-      $names = $row['nombreProducto'];
-      $names = explode("|", $names);
-
-      $names[1] = isset($names[1]) ? $names[1] : $names[0];
-
-      $products[] = new Product($row['codExpansion'], $names[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $names[0]);
-    }
-    return $products;
-  }
-
-  public function findMany($name, $game = null, $expansion = null, $page = -1, $limit = 10)
-  {
-    $query = "SELECT p.codExpansion, p.nombreProducto, p.idJuego, p.precio, p.tipo, p.urlImagen, p.descuento FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion JOIN juegos j ON p.idJuego = j.idJuego WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
-
-
-    if ($game != null) {
-      $query .= " AND j.nombre_juego LIKE :game";
-    }
-
-    if ($expansion != null) {
-      $query .= " AND e.nombreExpansion LIKE :expansion";
-    }
+    $productQuery = "
+        SELECT 
+            p.codExpansion, 
+            p.nombreProducto, 
+            p.idJuego, 
+            p.precio, 
+            p.tipo, 
+            p.urlImagen, 
+            p.descuento
+    " . $baseQuery;
 
     if ($page > -1) {
       $offset = ($page - 1) * $limit;
-      $query .= " LIMIT :limit OFFSET :offset";
+      $productQuery .= " LIMIT :limit OFFSET :offset";
     }
 
-    $name = strtolower($name);
-    $name = '%' . $name . '%';
-    $game = '%' . $game . '%';
-    $expansion = '%' . $expansion . '%';
+    $stmtCount = $this->pdo->prepare($countQuery);
+    $stmtProducts = $this->pdo->prepare($productQuery);
 
+    $nameParam = ($name !== null) ? '%' . strtolower($name) . '%' : null;
 
-    $stmt = $this->pdo->prepare($query);
+    $gameParam = ($gg !== null) ? '%' . strtolower($gg) . '%' : null;
+    $expansionParam = ($ee !== null) ? '%' . strtolower($ee) . '%' : null;
+
+    if ($name !== null) {
+      $stmtCount->bindParam(':name', $nameParam, PDO::PARAM_STR);
+    } else {
+      $stmtCount->bindValue(':name', null, PDO::PARAM_NULL);
+    }
+
+    if ($game !== null) {
+      $stmtCount->bindParam(':game', $gameParam, PDO::PARAM_STR);
+    } else {
+      $stmtCount->bindValue(':game', null, PDO::PARAM_NULL);
+    }
+    if ($expansion !== null) {
+      $stmtCount->bindParam(':expansion', $expansionParam, PDO::PARAM_STR);
+    } else {
+      $stmtCount->bindValue(':expansion', null, PDO::PARAM_NULL);
+    }
+
+    $stmtProducts->bindParam(':name', $nameParam, PDO::PARAM_STR);
+    if ($game !== null) {
+      $stmtProducts->bindParam(':game', $gameParam, PDO::PARAM_STR);
+    } else {
+      $stmtProducts->bindValue(':game', null, PDO::PARAM_NULL);
+    }
+    if ($expansion !== null) {
+      $stmtProducts->bindParam(':expansion', $expansionParam, PDO::PARAM_STR);
+    } else {
+      $stmtProducts->bindValue(':expansion', null, PDO::PARAM_NULL);
+    }
 
     if ($page > -1) {
-      $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
-      $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+      $stmtProducts->bindParam(':limit', $limit, PDO::PARAM_INT);
+      $stmtProducts->bindParam(':offset', $offset, PDO::PARAM_INT);
     }
 
-    if ($game != null) {
-      $stmt->bindParam(':game', $game, PDO::PARAM_STR);
-    }
+    $stmtCount->execute();
+    $totalRow = $stmtCount->fetch(PDO::FETCH_ASSOC);
+    $total = $totalRow['total'];
 
-    if ($expansion != null) {
-      $stmt->bindParam(':expansion', $expansion, PDO::PARAM_STR);
-    }
-
-    $stmt->bindParam(':nombre', $name, PDO::PARAM_STR);
-
-    $stmt->execute();
-
+    $stmtProducts->execute();
     $products = [];
-    while ($row = $stmt->fetch()) {
-      $names = $row['nombreProducto'];
-      $names = explode("|", $names);
-      $names[1] = isset($names[1]) ? $names[1] : $names[0];
-      $products[] = new Product($row['codExpansion'], $names[1], $row['idJuego'], $row['precio'], $row['tipo'], $row['urlImagen'], $names[0]);
+
+    while ($row = $stmtProducts->fetch(PDO::FETCH_ASSOC)) {
+      $names = explode("|", $row['nombreProducto']);
+      $displayName = isset($names[1]) ? $names[1] : $names[0];
+
+      $products[] = new Product(
+        $row['codExpansion'],
+        $displayName,
+        $row['idJuego'],
+        $row['precio'],
+        $row['tipo'],
+        $row['urlImagen'],
+        $names[0]
+      );
     }
-    return $products;
+
+    return [
+      'products' => $products,
+      'total' => $total
+    ];
   }
 
-  public function findTotalProducts($name)
-  {
-    $query = "SELECT COUNT(*) FROM $this->tableName p JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE p.nombreProducto LIKE :nombre OR p.codExpansion LIKE :nombre OR e.nombreExpansion LIKE :nombre";
-    $name = '%' . $name . '%';
-
-    $stmt = $this->pdo->prepare($query);
-    $stmt->bindParam(':nombre', $name, PDO::PARAM_STR);
-    $stmt->execute();
-
-    return $stmt->fetchColumn();
-  }
-
-  public function countAll($game = null, $expansion = null)
-  {
-    $gg = $game == 'all' ? null : $game;
-    $ee = $expansion == 'all' ? null : $expansion;
-
-    $query = "SELECT COUNT(*) FROM $this->tableName p JOIN juegos j ON p.idJuego = j.idJuego JOIN expansiones e ON p.codExpansion = e.codExpansion WHERE 1 = 1";
-
-    if ($gg != null) {
-      $query .= " AND j.nombre_juego = :game";
-    }
-
-    if ($ee != null) {
-      $query .= " AND e.nombreExpansion = :expansion";
-    }
-
-    $stmt = $this->pdo->prepare($query);
-
-    if ($gg != null) {
-      $stmt->bindParam(':game', $gg, PDO::PARAM_STR);
-    }
-
-    if ($ee != null) {
-      $stmt->bindParam(':expansion', $ee, PDO::PARAM_STR);
-    }
-
-    $stmt->execute();
-
-    return $stmt->fetchColumn();
-  }
   public function getGameNames()
   {
     $query = "SELECT nombre_juego FROM juegos";

@@ -8,7 +8,18 @@
       <h2 class="product-subtitle"><?php echo htmlspecialchars($product->getNombreProductoEs()); ?></h2>
       <h2 class="productTitle productSubTitle"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
       <a href="#" class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
-
+      <?php
+      if ($product instanceof Card) {
+        echo '<p class="product-type">Carta</p>';
+        echo '<p class="product-attributes">' . $product->getAtributos() . '</p>';
+      } elseif ($product instanceof Box) {
+        echo '<p class="product-type">Caja</p>';
+        echo '<p class="product-attributes">' . $product->getNumCartas() . '</p>';
+      } elseif ($product instanceof Booster) {
+        echo '<p class="product-type">Sobre</p>';
+        echo '<p class="product-attributes">' . $product->getNumCartas() . '</p>';
+      }
+      ?>
       <div class="product-pricing">
         <h4 class="productPrice"><?php echo $product->getPrecio(); ?> €</h4>
         <input type="number" name="" id="" class="productQuantity" value="1" min="1">
