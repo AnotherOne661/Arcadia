@@ -9,3 +9,4 @@
 - DNS !high
 - Fix styles of Data of products !high /Aa
 - modificar nombre expansiones en filteredproducts /Aa !Medium
+- Se deja de aplicar el filtro después de la primera página en el imput en filtered products  /Aa !High
