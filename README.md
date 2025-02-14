@@ -36,7 +36,7 @@
 
 
 >[!TIP]
->Now,you can launch the run.bat/run.sh and it will be running on localhost directly
+>You can now launch the run.bat/run.sh and it will run directly locally
 
 >[!NOTE]
 >To launch the landing page of Arcadia's first sprint (without SQL) just download and extract `basic` and doble click `index.html`
