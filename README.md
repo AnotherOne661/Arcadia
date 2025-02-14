@@ -24,7 +24,16 @@
 ### Desde el xampp, en phpmyadmin, en importar, y seleccionando el archivo
 
 
-#English
+
+
+
+
+# English
+
+
+
+
+
 
 >[!TIP]
 >Now,you can launch the run.bat/run.sh and it will be running on localhost directly
