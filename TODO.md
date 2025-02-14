@@ -11,3 +11,4 @@
 - Update product to show their data !high /Aa
 - Update other special chars /Aa
 - Arreglar filtrado producto por juego y nombre !high /Aa
+- modificar nombre expansiones en filteredproducts /Aa !Medium
