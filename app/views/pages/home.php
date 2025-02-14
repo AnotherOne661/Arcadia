@@ -17,7 +17,8 @@
         <div class="carousel-inner">
             <?php foreach ($events_images as $index => $event): ?>
                 <div class="carousel-item <?= $index === 0 ? 'active' : ''; ?>">
-                    <img loading="lazy" src="<?= $event->geturlImagen(); ?>" class="slider_image" alt="Slide <?= $index + 1; ?>">
+                    <img loading="lazy" src="<?= $event->geturlImagen(); ?>" class="slider_image"
+                        alt="Slide <?= $index + 1; ?>">
                 </div>
             <?php endforeach; ?>
         </div>
@@ -68,7 +69,8 @@
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
-                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1"  aria-label="Ingresa la cantidad deseada">
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1"
+                                aria-label="Ingresa la cantidad deseada">
                             <h5 class="productPrice"><?= $new_product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
@@ -111,7 +113,8 @@
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
-                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1" title="Ingresa la cantidad deseada" >
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1"
+                                title="Ingresa la cantidad deseada">
                             <h5 class="productPrice"><?= $product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>
@@ -154,7 +157,8 @@
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
-                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1" title="Ingresa la cantidad deseada">
+                            <input type="number" id="quantity" name="quantity" class="productQuantity" value="1" min="1"
+                                title="Ingresa la cantidad deseada">
                             <h5 class="productPrice"><?= $trending_product->getprecio(); ?>€</h5>
                             <button class="productButton">Añadir <span><img src="/assets/images/icons/basket.png" alt=""
                                         class="basketIcon"></span></button>

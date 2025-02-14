@@ -8,8 +8,6 @@ switch (get_class($product)) {
     break;
   case 'Card':
     $atributos = explode(",", $product->getAtributos());
-    var_dump($atributos);
-
     break;
   default:
     $productType = 'Producto';
@@ -24,9 +22,11 @@ switch (get_class($product)) {
     <div class="product-info">
       <h2 class="product-subtitle"><?php echo htmlspecialchars($product->getNombreProductoEs()); ?></h2>
       <h2 class="productTitle productSubTitle"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
-      <a href="#" class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
+      <a href="/filteredproducts?name=<?= $product->getcodExpansion(); ?>"
+        class="product-set"><?php echo htmlspecialchars($product->getcodExpansion()); ?></a>
       <?php
       if ($product instanceof Card) {
+        echo '<p class="product-attributes">Atributos: </p>';
         echo '<div class="attributes">';
         foreach ($atributos as $atributo) {
           echo '<p class="product-attributes">' . $atributo . '</p>';

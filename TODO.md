@@ -7,6 +7,6 @@
 - Adaptar a móvil (ya casi está) !high /Aa
 - Desplegar con apache!high
 - DNS !high
-- Fix styles of Data of products !high /Aa
+- Fix styles !low /Aa
 - modificar nombre expansiones en filteredproducts /Aa !Medium
-- Se deja de aplicar el filtro después de la primera página en el imput en filtered products  /Aa !High
+- Se deja de aplicar el filtro después de la primera página en el imput en filtered products /Aa !High
