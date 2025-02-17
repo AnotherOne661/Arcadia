@@ -3,8 +3,6 @@
 - AÑADIR IMAGENES A EVENTOS !medium /AnC
 - Comprobar Tamaño y ppi de las imagenes que no sean productos /AnC
 - Guia de Estilos !mediumn
-- Adaptar a móvil (ya casi está) !high /Aa
 - Desplegar con apache!high
 - DNS !high
-- modificar nombre expansiones en filteredproducts /Aa !Medium
 - Se deja de aplicar el filtro después de la primera página en el imput en filtered products /Aa !High

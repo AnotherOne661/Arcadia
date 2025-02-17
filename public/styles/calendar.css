@@ -70,3 +70,45 @@
   color: var(--night);
   margin-bottom: 0.5em;
 }
+.mobile-calendar{
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  .calendar{
+    display: none;
+  }
+  .mobile-calendar{
+    display: block;
+    width: 100%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    background-color: var(--af-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .mobile-event{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .mobile-event-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-bottom: 2em;
+    font-family: var(--ygo-bold);
+  }
+  .event-title{
+    color: var(--madder);
+  }
+  .event-description{
+    color: var(--night);
+  }
+  .event-date{
+    color: var(--sub-text);
+  }
+}

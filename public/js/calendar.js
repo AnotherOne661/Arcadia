@@ -51,7 +51,6 @@ function renderCalendar(month, year, events) {
         if (event) {
             day.classList.add("event")
             day.addEventListener("click", () => {
-              console.log(event.urlImagen)
                 Swal.fire({
                     title: `<span class="popup-title">${event.nombre_evento}</span>`, 
                     confirmButtonText: "Ok",
@@ -92,11 +91,48 @@ function setupEvents(events) {
     })
 }
 
+function renderMobileEvents(events) {
+    const mobileEventsContainer = document.querySelector(".mobile-calendar");
+    const eventsDiv = mobileEventsContainer.querySelector(".events");
+    eventsDiv.innerHTML = ""
+    events.forEach((event) => {
+        const eventItem = document.createElement("div")
+        eventItem.classList.add("mobile-event")
+        eventItem.innerHTML = `
+            <img src="${event.urlImagen}" alt="Evento" style="width: 100%;"/>
+            <div class="mobile-event-content">
+                <h3 class="event-title">${event.nombre_evento}</h3>
+                <p class="event-description">${event.descripcion}</p>
+                <span class="event-date">${event.fecha_evento}</span>
+                <button class="buyButton-a">Ver más</button>
+                `
+        eventItem.querySelector(".buyButton-a").addEventListener("click", () => {
+            Swal.fire({
+                title: `<span class="popup-title">${event.nombre_evento}</span>`, 
+                confirmButtonText: "Ok",
+                html: `
+                    <p class="popup-title"><strong>Fecha:</strong> ${event.fecha_evento}</p>
+                    
+                    <p class="popup-title"><strong>Descripción:</strong> ${event.descripcion}</p>
+                    <img src="${event.urlImagen}" alt="Evento" style="width: 100%; margin-top: 10px;"/>
+                ` ,
+                confirmButtonColor: "#eec643",
+                confirmTextColor: "#141414",
+            })
+        })
+                mobileEventsContainer.appendChild(eventItem)
+    });
+
+    console.log(eventsDiv)
+    console.log(eventItem)
+}
+
 async function main() {
     const response = await fetch("/events")
     const events = await response.json()
     renderCalendar(currentMonth, currentYear, events)
     setupEvents(events)
+    renderMobileEvents(events);
 }
 
 main().catch(console.error)

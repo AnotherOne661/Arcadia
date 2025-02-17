@@ -34,7 +34,10 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
           <option value="all">Todas las expansiones</option>
           <?php foreach ($expansions as $expansion): ?>
             <option value="<?php echo $expansion; ?>" <?php echo isset($_GET['expansion']) && $_GET['expansion'] === $expansion ? 'selected' : ''; ?>>
-              <?php echo $expansion; ?>
+              <?php 
+              $esName = explode("|",$expansion);
+              echo $esName[1];
+               ?>
             </option>
           <?php endforeach; ?>
         </select>
@@ -58,18 +61,17 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
           </figure>
 
           <div class="product-info">
-            <a
+            <a class="product-title"
               href="/product?code=<?php echo urlencode($product->getcodExpansion()); ?>&name=<?php echo urlencode($product->getNombreProductoEn()); ?>">
               <h2 class="product-title"><?php echo htmlspecialchars($product->getNombreProductoEn()); ?></h2>
             </a>
-            <a href="/filteredproducts?name=<?php echo urlencode($product->getcodExpansion()); ?>">
+            <a class="product-set" href="/filteredproducts?name=<?php echo urlencode($product->getcodExpansion()); ?>">
               <p class="product-set"><small>Set: <?php echo htmlspecialchars($product->getcodExpansion()); ?></small></p>
             </a>
 
 
             <div class="product-pricing">
-              <p class="old-product-price"><?php echo number_format($product->getPrecio(), 2); ?> ¥</p>
-              <p class="product-price"></p> <!-- Dynamic price placeholder -->
+              <p class="product-price"><?php echo number_format($product->getPrecio(), 2); ?> €</p>
             </div>
           </div>
         </div>

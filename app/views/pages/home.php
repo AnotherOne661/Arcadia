@@ -60,12 +60,8 @@
 
 
 
-                        <h4 class="expansion"><?php
-                        $expansion = $new_product->getnombreExpansion();
-                        $expansionArray = explode("|", $expansion);
-                        echo $expansionArray[1];
-                        ?> <input class="hidden idExpansion" value="<?= $new_product->getcodExpansion(); ?>"></input>
-                        </h4>
+                        <a class="expansion-dark" href="/filteredproducts?name=<?= $new_product->getcodExpansion(); ?>"><?= $new_product->getnombreExpansion(); ?></a> 
+
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
@@ -104,12 +100,8 @@
                             ?></h3>
                         </a>
 
-                        <h4 class="expansion"><?php
-                        $expansion = $product->getnombreExpansion();
-                        $expansionArray = explode("|", $expansion);
-                        echo $expansionArray[1];
-                        ?><input class="hidden idExpansion" value="<?= $product->getcodExpansion(); ?>"></input>
-                        </h4>
+                        <a class="expansion" href="/filteredproducts?name=<?= $product->getcodExpansion(); ?>"><?= $product->getnombreExpansion(); ?></a>
+
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
@@ -146,14 +138,11 @@
                             echo $trending_product->getnombreProductoEs();
                             ?></h3>
                         </a>
-
-                        <h4 class="expansion"><?php
-                        $expansion = $trending_product->getnombreExpansion();
-                        $expansionArray = explode("|", $expansion);
-                        echo $expansionArray[1];
-                        ?> <input class="hidden idExpansion"
-                                value="<?= $trending_product->getcodExpansion(); ?>"></input>
-                        </h4>
+                        <?php 
+                        $esName = explode("|",$trending_product->getnombreExpansion());
+                        $enExpan = $esName[1];
+                        ?>
+                        <a class="expansion-dark" href="/filteredproducts?name=<?= $enExpan; ?>"><?= $enExpan; ?></a>
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
                         <div>
                             <label for="quantity">Cantidad:</label>
@@ -170,7 +159,7 @@
                     </figure>
                 </div>
             <?php endforeach; ?>
-
+                
         </div>
 
     </section>

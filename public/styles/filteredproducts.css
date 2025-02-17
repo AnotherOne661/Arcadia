@@ -108,12 +108,23 @@
   font-family: var(--ygo-bold);
   color: var(--night);
   margin: 0.5em 0;
+  text-decoration: none !important;
+  &:hover
+  {
+    color: var(--madder);
+    text-decoration: underline !important; 
+  }
 }
 
 .product-set {
   font-size: 0.9em;
   color: var(--madder);
   margin-bottom: 0.5em;
+  text-decoration: none !important;
+  &:hover{
+    color: var(--madder);
+    text-decoration: underline !important;
+  }
 }
 
 .product-pricing {

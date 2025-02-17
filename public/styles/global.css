@@ -639,6 +639,21 @@ footer {
   margin-bottom: 0.5em;
   color: var(--af-white);
   cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    color: var(--madder);
+    text-decoration: underline;
+  }
+}
+.expansion-dark{
+  color: var(--night);
+  font-size: 1em;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover{
+    color: var(--madder);
+    text-decoration: underline;
+  }
 }
 .productImage {
   width: 25%;
