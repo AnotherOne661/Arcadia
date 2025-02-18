@@ -41,6 +41,7 @@
             <?php foreach ($new_products as $new_product): ?>
                 <div class="newproducts product">
                     <input class="hidden idJuego" value="<?php echo $new_product->getIdJuego(); ?>">
+                    <input class="hidden idExpansion" value="<?php echo $new_product->getcodExpansion(); ?>">
                     <figcaption class="newproducts-desc">
 
                         <a
@@ -60,7 +61,8 @@
 
 
 
-                        <a class="expansion-dark" href="/filteredproducts?name=<?= $new_product->getcodExpansion(); ?>"><?= $new_product->getnombreExpansion(); ?></a> 
+                        <a class="expansion-dark"
+                            href="/filteredproducts?name=<?= $new_product->getcodExpansion(); ?>"><?= $new_product->getnombreExpansion(); ?></a>
 
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
                         <div>
@@ -85,7 +87,7 @@
             <?php foreach ($sale_products as $product): ?>
                 <div class="saleproducts product">
                     <input class="hidden idJuego" value="<?php echo $product->getIdJuego(); ?>">
-
+                    <input class="hidden idExpansion" value="<?php echo $product->getcodExpansion(); ?>">
                     <figcaption class="saleproducts-desc">
                         <a
                             href="/product?code=<?= urlencode($product->getcodExpansion()) ?>&name=<?= urlencode($product->getnombreProductoEn()); ?>">
@@ -100,7 +102,8 @@
                             ?></h3>
                         </a>
 
-                        <a class="expansion" href="/filteredproducts?name=<?= $product->getcodExpansion(); ?>"><?= $product->getnombreExpansion(); ?></a>
+                        <a class="expansion"
+                            href="/filteredproducts?name=<?= $product->getcodExpansion(); ?>"><?= $product->getnombreExpansion(); ?></a>
 
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
@@ -126,7 +129,7 @@
                 <div class="trendproducts product">
 
                     <input class="hidden idJuego" value="<?php echo $trending_product->getIdJuego(); ?>">
-
+                    <input class="hidden idExpansion" value="<?php echo $trending_product->getcodExpansion(); ?>">
                     <figcaption class="trendproducts-desc">
                         <a
                             href="/product?code=<?= urlencode($trending_product->getcodExpansion()) ?>&name=<?= urlencode($trending_product->getnombreProductoEn()); ?>">
@@ -138,8 +141,8 @@
                             echo $trending_product->getnombreProductoEs();
                             ?></h3>
                         </a>
-                        <?php 
-                        $esName = explode("|",$trending_product->getnombreExpansion());
+                        <?php
+                        $esName = explode("|", $trending_product->getnombreExpansion());
                         $enExpan = $esName[1];
                         ?>
                         <a class="expansion-dark" href="/filteredproducts?name=<?= $enExpan; ?>"><?= $enExpan; ?></a>
@@ -159,7 +162,7 @@
                     </figure>
                 </div>
             <?php endforeach; ?>
-                
+
         </div>
 
     </section>

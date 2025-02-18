@@ -15,6 +15,7 @@ $nextPage = $page < $totalPages ? $page + 1 : $totalPages;
 
 $name = isset($_GET['name']) ? $_GET['name'] : '';
 $game = isset($_GET['game']) ? $_GET['game'] : 'all';
+$expansionFil = isset($_GET['expansion']) ? $_GET['expansion'] : 'all';
 ?>
 <main>
   <div class="page-container">
@@ -34,10 +35,10 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
           <option value="all">Todas las expansiones</option>
           <?php foreach ($expansions as $expansion): ?>
             <option value="<?php echo $expansion; ?>" <?php echo isset($_GET['expansion']) && $_GET['expansion'] === $expansion ? 'selected' : ''; ?>>
-              <?php 
-              $esName = explode("|",$expansion);
+              <?php
+              $esName = explode("|", $expansion);
               echo $esName[1];
-               ?>
+              ?>
             </option>
           <?php endforeach; ?>
         </select>
@@ -83,12 +84,12 @@ $game = isset($_GET['game']) ? $_GET['game'] : 'all';
     <ul class="pagination justify-content-center">
       <li class="page-item <?php echo $page == 1 ? 'disabled' : ''; ?>">
         <a class="page-link"
-          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $previousPage ?>&game=<?php echo $game ?>"
+          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $previousPage ?>&game=<?php echo $game ?>&expansion=<?php echo $expansionFil ?>"
           tabindex="-1">Anterior</a>
       </li>
       <li class="page-item <?php echo $page == $totalPages ? 'disabled' : ''; ?>">
         <a class="page-link"
-          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $nextPage ?>&game=<?= $game ?>">Siguiente</a>
+          href="/filteredproducts?name=<?php echo $name ?>&page=<?php echo $nextPage ?>&game=<?= $game ?>&expansion=<?php echo $expansionFil ?>">Siguiente</a>
       </li>
     </ul>
   </nav>

@@ -48,7 +48,7 @@ function buyButton() {
 
   buyButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      const productBox = button.closest(".product"); // Parent container
+      const productBox = button.closest(".product"); 
       const codExpansionInput = productBox.querySelector(".idExpansion");
       const productName = productBox.querySelector(".productTitle");
       const productPrice = productBox.querySelector(".productPrice");
