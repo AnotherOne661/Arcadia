@@ -90,10 +90,10 @@
       <h2>Video Tutorial</h2>
       <p class="learn-p">Para aprender a jugar Pokémon TCG de manera más detallada, te dejamos este video tutorial:</p>
       <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/watch?v=eKC5PlYoboE&pp=ygUfbGVhcm4gdG8gcGxheSBwb2tlbW9uIHRjZyAyMDI1NA%3D%3D"
-          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/eKC5PlYoboE?si=bvU1lgTifzv-Ncer"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
   </section>

@@ -111,10 +111,10 @@
       <p class="learn-p">Para aprender a jugar Magic: The Gathering de manera más detallada, te dejamos este video
         tutorial:</p>
       <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/watch?v=pISs64CG6Tg&pp=ygUnbGVhcm4gdG8gcGxheSBtYWdpYyB0aGUgZ2F0aGVyaW5nIDIwMjU0"
-          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/pISs64CG6Tg?si=bKm0v9D5b6GSsHKA"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
     </section>
   </section>

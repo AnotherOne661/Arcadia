@@ -59,10 +59,13 @@
                             </h3>
                         </a>
 
+                        <?php
+                        $esName = explode("|", $new_product->getnombreExpansion());
+                        $enExpan = $esName[1];
+                        $enExpan = str_replace("|", "", $enExpan);
+                        ?>
 
-
-                        <a class="expansion-dark"
-                            href="/filteredproducts?name=<?= $new_product->getcodExpansion(); ?>"><?= $new_product->getnombreExpansion(); ?></a>
+                        <a class="expansion-dark" href="/filteredproducts?name=<?= $enExpan; ?>"><?= $enExpan; ?></a>
 
                         <pre><?= $new_product->getreleaseDate(); ?></pre>
                         <div>
@@ -101,9 +104,12 @@
                             <h3 class="productSubTitle"><?= $product->getnombreProductoEs();
                             ?></h3>
                         </a>
-
-                        <a class="expansion"
-                            href="/filteredproducts?name=<?= $product->getcodExpansion(); ?>"><?= $product->getnombreExpansion(); ?></a>
+                        <?php
+                        $esName = explode("|", $product->getnombreExpansion());
+                        $enExpan = $esName[1];
+                        $enExpan = str_replace("|", "", $enExpan);
+                        ?>
+                        <a class="expansion" href="/filteredproducts?name=<?= $enExpan; ?>"><?= $enExpan; ?></a>
 
                         <pre><?= $product->getreleaseDate(); ?></pre>
                         <div>
@@ -144,6 +150,7 @@
                         <?php
                         $esName = explode("|", $trending_product->getnombreExpansion());
                         $enExpan = $esName[1];
+                        $enExpan = str_replace("|", "", $enExpan);
                         ?>
                         <a class="expansion-dark" href="/filteredproducts?name=<?= $enExpan; ?>"><?= $enExpan; ?></a>
                         <pre><?= $trending_product->getreleaseDate(); ?></pre>
