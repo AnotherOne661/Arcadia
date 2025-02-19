@@ -1,7 +1,5 @@
-- Llenar DB (almost done) !low /AnC
+- Llenar DB (Accesorios) !high /AnC
 - Implementar rol de Administrador !low /Aa
-- AÑADIR IMAGENES A EVENTOS !medium /AnC
-- Comprobar Tamaño y ppi de las imagenes que no sean productos /AnC
-- Guia de Estilos !mediumn
+- AÑADIR IMAGENES A EVENTOS (Huedo) !high /AnC
+- Guia de Estilos !medium
 - DNS !high
-- Se deja de aplicar el filtro después de la primera página en el imput en filtered products /Aa !High
