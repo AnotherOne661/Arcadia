@@ -286,6 +286,40 @@
 
 
                     </div>
+                    <div class="menu-movil">
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=all">Accesorios</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/calendar">Eventos</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/collections">Colecciones</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=Magic: The Gathering">Magic: The Gathering</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=Yu-Gi-Oh!">Yu-Gi-Oh!</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=Lorcana">Lorcana</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=Pokémon">Pokémon</a></button>
+                        </div>
+                        <div class="menu-button">
+                            <button type="button" class="btn btn-danger" data-collections><a class="menu-a"
+                                    href="/filteredproducts?game=One Piece">One Piece</a></button>
+                        </div>
+                    </div>
                     <div class="cart">
                         <div id="cart">
                             <div class="cart-body">
@@ -300,6 +334,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 
     <div id="nav2">

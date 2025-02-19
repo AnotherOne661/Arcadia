@@ -150,6 +150,8 @@ section {
     align-items: center;
     justify-content: center;
     padding: 0;
+    padding-bottom: 1em;
+    padding-top: 1em;
     margin: 0;
     text-align: center;
     min-width: 15em;

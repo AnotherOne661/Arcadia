@@ -158,6 +158,9 @@ header {
           width: 80%;
           margin: 0.15em;
         }
+        .menu-movil {
+          display: none;
+        }
       }
     }
   }
@@ -228,6 +231,7 @@ footer {
     flex-direction: row;
     width: 100%;
     border: inherit;
+
     #socialmedia {
       display: flex;
       flex-direction: column;
@@ -640,17 +644,17 @@ footer {
   color: var(--af-white);
   cursor: pointer;
   text-decoration: none;
-  &:hover{
+  &:hover {
     color: var(--madder);
     text-decoration: underline;
   }
 }
-.expansion-dark{
+.expansion-dark {
   color: var(--night);
   font-size: 1em;
   cursor: pointer;
   text-decoration: none;
-  &:hover{
+  &:hover {
     color: var(--madder);
     text-decoration: underline;
   }
@@ -690,6 +694,7 @@ footer {
 .hidden {
   display: none !important;
 }
+
 @media only screen and (max-width: 480px) {
   body {
     display: flex;
@@ -702,9 +707,10 @@ footer {
       margin: 0;
       padding: 0;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       width: 85%;
+      flex-direction: row !important;
       #logo {
         width: 25%;
         img {
@@ -715,9 +721,28 @@ footer {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 100%;
       }
       #search {
+        display: none;
+      }
+      #menu {
+        width: 25%;
+        .offcanvas-body {
+          width: 100%;
+
+          .menu-movil {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            button {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .menu {
         display: none;
       }
     }
@@ -737,16 +762,18 @@ footer {
       width: 100%;
       flex-direction: column;
       #socialmedia {
-        padding: 0;
+        display: none;
+        /* padding: 0;
         width: 100%;
         div {
           padding: 0;
           width: 100%;
-        }
+        } */
       }
       #contact {
-        width: 100%;
-        padding: 0;
+        display: none;
+        /* width: 100%;
+        padding: 0; */
       }
     }
     #second-row {
@@ -754,6 +781,9 @@ footer {
       .footer-column {
         text-align: center;
         width: 100%;
+      }
+      .footer-column-1 {
+        display: none;
       }
       .links-footer {
         width: 100%;
