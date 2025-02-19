@@ -63,8 +63,9 @@
         video tutorial:
       </p>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/6gBhDjkTLm8" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/watch?v=CAddBy1nrpA&pp=ygUcbGVhcm4gdG8gcGxheSB5dSBnaSBvaCAyMDI1NA%3D%3D"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </section>
   </section>

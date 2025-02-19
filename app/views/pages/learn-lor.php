@@ -100,8 +100,10 @@
       <h2>Video Tutorial</h2>
       <p class="learn-p">Para aprender a jugar Lorcana TCG de manera más detallada, te dejamos este video tutorial:</p>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/MkmGnXMcmak" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe
+          src="https://www.youtube.com/watch?v=a295YQluLeY&pp=ygUfbGVhcm4gdG8gcGxheSBsb3JjYW5hIHRjZyAyMDI1NA%3D%3D"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </section>
   </section>

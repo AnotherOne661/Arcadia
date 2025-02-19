@@ -90,7 +90,20 @@ strong {
     width: 95%;
     flex-direction: column;
   }
-  .contact{
+  .contact {
+    flex-direction: column;
+  }
+  #map {
+    width: 25em;
+    height: 25em;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .about {
+    width: 95%;
+    flex-direction: column;
+  }
+  .contact {
     flex-direction: column;
   }
   #map {

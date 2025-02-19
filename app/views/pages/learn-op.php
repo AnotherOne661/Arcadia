@@ -90,8 +90,9 @@
       <p class="learn-p">Para aprender a jugar One Piece TCG de manera más detallada, te dejamos este video tutorial:
       </p>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/2lJ2tb9iPpE" frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/watch?v=DwY9TV5WfZY&pp=ygUhbGVhcm4gdG8gcGxheSBvbmUgcGllY2UgdGNnIDIwMjU0"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </section>
   </section>
