@@ -26,25 +26,7 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `addresses`
---
 
-CREATE TABLE `addresses` (
-  `idAddress` int(11) NOT NULL,
-  `comunidad` varchar(150) DEFAULT NULL,
-  `municipio` varchar(150) DEFAULT NULL,
-  `cp` int(5) DEFAULT NULL,
-  `calle` varchar(255) DEFAULT NULL,
-  `puerta` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `addresses`
---
-
-INSERT INTO `addresses` (`idAddress`, `comunidad`, `municipio`, `cp`, `calle`, `puerta`) VALUES
-(1, '[value-2]', '[value-3]', 0, '[value-5]', '[value-6]');
 
 -- --------------------------------------------------------
 
@@ -764,7 +746,7 @@ CREATE TABLE `productos` (
   `nombreProducto` varchar(255) NOT NULL,
   `idJuego` int(11) NOT NULL,
   `precio` decimal(10,2) NOT NULL,
-  `tipo` enum('carta','caja','sobre') DEFAULT NULL,
+  `tipo` enum('carta','caja','sobre', 'accesorio') DEFAULT NULL,
   `urlImagen` varchar(255) DEFAULT NULL,
   `descuento` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -1457,31 +1439,6 @@ INSERT INTO `users` (`email`, `username`, `password`, `phone`, `role`, `image-ur
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `user_addresses`
---
-
-CREATE TABLE `user_addresses` (
-  `email` varchar(255) NOT NULL,
-  `idAddress` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `user_addresses`
---
-
-INSERT INTO `user_addresses` (`email`, `idAddress`) VALUES
-('something@example.org', 1);
-
---
--- Índices para tablas volcadas
---
-
---
--- Indices de la tabla `addresses`
---
-ALTER TABLE `addresses`
-  ADD PRIMARY KEY (`idAddress`);
 
 --
 -- Indices de la tabla `caja`
@@ -1543,22 +1500,6 @@ ALTER TABLE `sobre`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`email`);
 
---
--- Indices de la tabla `user_addresses`
---
-ALTER TABLE `user_addresses`
-  ADD PRIMARY KEY (`email`,`idAddress`),
-  ADD KEY `idAddress` (`idAddress`);
-
---
--- AUTO_INCREMENT de las tablas volcadas
---
-
---
--- AUTO_INCREMENT de la tabla `addresses`
---
-ALTER TABLE `addresses`
-  MODIFY `idAddress` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `eventos`
@@ -1611,13 +1552,6 @@ ALTER TABLE `sobre`
   ADD CONSTRAINT `sobre_ibfk_1` FOREIGN KEY (`codExpansion`,`nombreProducto`) REFERENCES `productos` (`codExpansion`, `nombreProducto`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `sobre_ibfk_2` FOREIGN KEY (`idJuego`) REFERENCES `juegos` (`idJuego`);
 
---
--- Filtros para la tabla `user_addresses`
---
-ALTER TABLE `user_addresses`
-  ADD CONSTRAINT `user_addresses_ibfk_1` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE,
-  ADD CONSTRAINT `user_addresses_ibfk_2` FOREIGN KEY (`idAddress`) REFERENCES `addresses` (`idAddress`) ON DELETE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
