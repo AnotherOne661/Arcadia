@@ -23,6 +23,7 @@ class SiteController extends Controller
       'cssFile' => 'contact.css'
     ]);
   }
+  // Simplemente  una broma
   public function secret()
   {
     return $this->render('mysteriousstranger', [
@@ -30,7 +31,7 @@ class SiteController extends Controller
       'cssFile' => 'mysteriousstranger.css'
     ]);
   }
-
+  // Páginas de inicio de sesión, registro y perfil
   public function login()
   {
     return $this->render('login', [
@@ -54,6 +55,8 @@ class SiteController extends Controller
       'jsFile' => 'mypage.js'
     ]);
   }
+
+  // Páginas de tutoriales de los distintos juegos
   public function learnYgo()
   {
     return $this->render('learn-ygo', [
@@ -90,6 +93,8 @@ class SiteController extends Controller
       'cssFile' => 'learn-op.css',
     ]);
   }
+
+  // Páginas de términos y condiciones, política de privacidad, política de cookies, formulario de contacto y mapa del sitio
   public function terms()
   {
     return $this->render('terms', [
@@ -118,10 +123,11 @@ class SiteController extends Controller
       'cssFile' => 'contact-form.css',
     ]);
   }
-  public function siteMap(){
+  public function siteMap()
+  {
     return $this->render('sitemap', [
       'title' => 'Mapa del Sitio',
-      'cssFile' =>'sitemap.css',
+      'cssFile' => 'sitemap.css',
     ]);
   }
 }

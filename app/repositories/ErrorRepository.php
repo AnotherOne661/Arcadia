@@ -6,7 +6,7 @@ require_once __DIR__ . '/Repository.php';
 // Requerimos los modelos necesarios
 require_once __DIR__ . '/../models/Error.php';
 
-// Extendemos HomeRepository de Repository
+// Extendemos ErrorRepository de Repository
 class ErrorRepository extends Repository
 {
   public function __construct()

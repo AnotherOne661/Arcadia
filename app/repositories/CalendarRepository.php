@@ -6,7 +6,7 @@ require_once __DIR__ . '/Repository.php';
 // Requerimos los modelos necesarios
 require_once __DIR__ . '/../models/Collection.php';
 
-// Extendemos HomeRepository de Repository
+// Extendemos CalendarRepository de Repository
 class CalendarRepository extends Repository
 {
   public function __construct()
@@ -18,7 +18,7 @@ class CalendarRepository extends Repository
     $this->tableName = 'eventos';
   }
 
-  // Método para buscar un test por su ID y devolverlo como un objeto Test
+  // Método para todos los eventos
   public function getEvents()
   {
     $query = "SELECT idEvento, nombre_evento, fecha_evento, descripcion ,urlImagen FROM $this->tableName ORDER BY fecha_evento ASC";

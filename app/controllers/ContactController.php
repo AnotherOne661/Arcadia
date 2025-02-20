@@ -17,11 +17,11 @@ class ContactController extends Controller
     // Llamamos al constructor del padre para inicializar las propiedades del controlador
     parent::__construct($request, $response);
     $this->layout = 'contactLayout';
-    // Creamos instancia del repositorio de Test y lo asignamos a la variable de esta instancia de HomeController
+    // Creamos instancia del repositorio de Contact y lo asignamos a la variable de esta instancia de Contact Repository
     // $this->landingRepository = new LandingRepository();
   }
 
-  // Método que renderiza la vista home, también es donde ejecutaremos las querys dinámicas
+  // Método que renderiza la vista de contacto
   public function index()
   {
 

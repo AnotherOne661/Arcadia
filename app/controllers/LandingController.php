@@ -35,11 +35,9 @@ class LandingController extends Controller
       'cssFile' => 'landing.css',
       'jsFile' => 'landing.js',
       'landingProducts' => $landingProducts
-      // Siempre le enviaremos (por lo general) su título propio, su css propio y, en caso de tenerlo
-      // un js propio.
-      // Dado que es una página dinámica, también le mandaremos la variable tests, conteniendo el array de objetos Test
     ]);
   }
+  // Método para renderizar la vista sin base de datos
   public function indexNobd()
   {
     return $this->render('landing-alt', [

@@ -7,7 +7,7 @@ require_once __DIR__ . '/Repository.php';
 
 require_once __DIR__ . '/../models/ProductsWithExpansion.php';
 
-// Extendemos HomeRepository de Repository
+// Extendemos LandingRepository de Repository
 class LandingRepository extends Repository
 {
   public function __construct()

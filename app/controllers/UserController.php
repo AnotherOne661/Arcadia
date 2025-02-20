@@ -16,9 +16,10 @@ class UserController extends Controller
   {
     // Llamamos al constructor del padre para inicializar las propiedades del controlador
     parent::__construct($request, $response);
-    // Creamos instancia del repositorio de Collection y lo asignamos a la variable de esta instancia de HomeController
+    // Creamos instancia del repositorio de User y lo asignamos a la variable de esta instancia de UserRepository
     $this->userRepository = new UserRepository();
   }
+  // Método que renderiza la vista login, también es donde ejecutaremos las querys dinámicas
   public function loginForm()
   {
     $user = new User(null, $this->request->post('email'), $this->request->post('password'));
@@ -30,7 +31,7 @@ class UserController extends Controller
     $usrImg = $userRecord['image-url'];
     $usrNick = $userRecord['username'];
     if ($userRecord && password_verify($password, $userRecord['password'])) {
-      // Si la contraseña coincide, inicia sesión
+      // Si la contraseña coincide, inicia sesión y establece las variables de sesión pertinentes
       $_SESSION['name'] = $usrNick;
       $_SESSION['email'] = $email;
       $_SESSION['profile'] = ltrim($usrImg, '/');
@@ -40,16 +41,18 @@ class UserController extends Controller
     } else {
       // Contraseña incorrecta o usuario no encontrado
       var_dump("Login fallido: usuario o contraseña incorrectos.");
+      // Establecemos el error de login en la sesión y redirigimos a login de nuevo
       $_SESSION['login_error'] = true;
       $this->response->sendRedirect('/login');
     }
 
     return null;
   }
-
+  // función para borrar la cuenta
   public function deleteAccount()
   {
     try {
+      // Obtenemos el email de la sesión y lo pasamos al método de borrado
       $email = $_SESSION['email'];
       $this->userRepository->deleteUser($email);
       session_destroy();
@@ -60,6 +63,7 @@ class UserController extends Controller
     }
 
   }
+  // función para editar la cuenta
   public function editAccount()
   {
     // Obtén el email actual desde la sesión
@@ -74,7 +78,7 @@ class UserController extends Controller
       0
     );
 
-    // Asegúrate de que $user es un objeto válido de la clase User
+    // Se asegura de que $user es un objeto válido de la clase User
     if (!($user instanceof User)) {
       throw new InvalidArgumentException('El objeto $user debe ser una instancia válida de la clase User.');
     }
@@ -87,15 +91,19 @@ class UserController extends Controller
     $this->response->sendRedirect('/');
     return null;
   }
+  // función para cerrar la sesión
   public function logout()
   {
     session_destroy();
     $this->response->sendRedirect('/home');
   }
+
+  // función para registrar un nuevo usuario
   public function signUpForm()
   {
     $user = new User($this->request->post('username'), $this->request->post('email'), $this->request->post('password'), $this->request->post('phone'));
     $this->userRepository->saveUser($user);
+    // Si el registro es exitoso, elimina el error de registro de la sesión y redirige a la página principal
     if ($_SESSION['signup_error']) {
       echo "Error al crear cuenta: " . $_SESSION['signup_error'];
       $this->response->sendRedirect("/signup");

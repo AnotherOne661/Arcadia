@@ -16,7 +16,7 @@ class HomeController extends Controller
   {
     // Llamamos al constructor del padre para inicializar las propiedades del controlador
     parent::__construct($request, $response);
-    // Creamos instancia del repositorio de Test y lo asignamos a la variable de esta instancia de HomeController
+    // Creamos instancia del repositorio de HomeRepository y lo asignamos a la variable de esta instancia de HomeController
     $this->homeRepository = new HomeRepository();
   }
 

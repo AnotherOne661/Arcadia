@@ -17,12 +17,11 @@ class CalendarController extends Controller
   {
     // Llamamos al constructor del padre para inicializar las propiedades del controlador
     parent::__construct($request, $response);
-    // Creamos instancia del repositorio de Collection y lo asignamos a la variable de esta instancia de HomeController
+    // Creamos instancia del repositorio de Calendar y lo asignamos a la variable de esta instancia de CalendarRepository
     $this->calendarRepository = new CalendarRepository();
 
-    // Método que renderiza la vista home, también es donde ejecutaremos las querys dinámicas
-
   }
+  // Método que renderiza la vista home, también es donde ejecutaremos las querys dinámicas
   public function renderBasic()
   {
 
@@ -32,6 +31,7 @@ class CalendarController extends Controller
       'jsFile' => 'calendar.js'
     ]);
   }
+  // Método para obtener todos los eventos y mandarlos como un JSON para cumplir con la API REST
   public function events()
   {
     $events = $this->calendarRepository->getEvents();

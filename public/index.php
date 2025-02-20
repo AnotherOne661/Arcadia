@@ -1,5 +1,6 @@
 <?php
 
+// Añadimos los requisitos de los controladores, y las core para manejar las peticiones y respuestas
 require_once __DIR__ . '/../app/controllers/HomeController.php';
 require_once __DIR__ . '/../app/controllers/SiteController.php';
 require_once __DIR__ . '/../app/controllers/UserController.php';
@@ -14,15 +15,18 @@ require_once __DIR__ . '/../app/controllers/CartController.php';
 require_once __DIR__ . '/../app/core/http/Request.php';
 require_once __DIR__ . '/../app/core/http/Response.php';
 
-
+// Manejamos la URI y nos quedamos SOLO con la URL base
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 $requestUri = explode('?', $requestUri)[0];
 
+//Instanciamos tanto el controlador como la petición y la respuesta
 $controller = null;
 
 $request = new Request();
 $response = new Response($request);
 
+// Dependiendo de la URI, instanciamos un controlador u otro, siendo SiteController el encaregado de las páginas estáticas
+// y el controlador particular para las páginas dinámicas
 switch ($requestUri) {
   case '':
     $controller = new HomeController($request, $response);

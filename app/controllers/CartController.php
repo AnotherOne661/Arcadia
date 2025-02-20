@@ -14,11 +14,11 @@ class CartController extends Controller
   {
     // Llamamos al constructor del padre para inicializar las propiedades del controlador
     parent::__construct($request, $response);
-    // Creamos instancia del repositorio de Collection y lo asignamos a la variable de esta instancia de HomeController
+    // Sobreescribimos el layout del padre ya que cart tiene el suyo propio
     $this->layout = 'cartLayout';
   }
 
-  // Método que renderiza la vista home, también es donde ejecutaremos las querys dinámicas
+  // Método que renderiza la vista Del carrito
   public function cart()
   {
     return $this->render('cart', [
