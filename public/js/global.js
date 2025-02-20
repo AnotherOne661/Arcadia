@@ -1,10 +1,12 @@
 const c_year = new Date().getFullYear();
 
+// Función para obtener el año actual y actualizar el elemento correspondiente
 function getYear() {
   const spanYear = document.querySelector("[data-curdate]");
   spanYear.innerHTML = c_year;
 }
 
+// Función para manejar el clic en una imagen
 function handleImageClick(event) {
   // Obtener la URL de la imagen clickeada (está en el html element)
   const url = event.target.getAttribute("data-url");
@@ -12,6 +14,8 @@ function handleImageClick(event) {
     window.location.href = url;
   }
 }
+
+// Función para inicializar las imágenes clicables
 function initializeClickableImages() {
   // Recorre las imágenes y les agrega a cada una un evento de click que llama a la función handleImageClick
   document.querySelectorAll(".clickableimage").forEach((image) => {
@@ -19,6 +23,7 @@ function initializeClickableImages() {
   });
 }
 
+// Función para ocultar el carrito y mostrar el menú
 function hideCart() {
   const menuHeader = document.querySelector(".menuTitle");
   const cartContainer = document.querySelector(".cart");
@@ -28,6 +33,7 @@ function hideCart() {
   cartContainer.classList.add("hidden");
 }
 
+// Función para ocultar el menú y mostrar el carrito
 function hideMenu() {
   const menuHeader = document.querySelector(".menuTitle");
   const cartContainer = document.querySelector(".cart");
@@ -40,6 +46,7 @@ function hideMenu() {
   populateCart();
 }
 
+// Función para manejar el botón de compra
 function buyButton() {
   const buyButtons = document.querySelectorAll(".productButton");
   if (!buyButtons) {
@@ -64,10 +71,10 @@ function buyButton() {
         const productPrice = parseFloat(productPriceReal[0]);
         const total = productPrice * amount;
 
-        // Retrieve the current cart from localStorage
+        // Obtener el carrito actual de localStorage
         let cart = getLocalStorageCart();
 
-        // Add the new product to the cart
+        // Agregar el nuevo producto al carrito
         cart.push({
           codExpansion,
           nombreProducto,
@@ -76,7 +83,7 @@ function buyButton() {
           productPrice,
         });
 
-        // Update localStorage with the new cart
+        // Actualizar localStorage con el nuevo carrito
         updateLocalStorageCart(cart);
         const Toast = Swal.mixin({
           toast: true,
@@ -98,40 +105,43 @@ function buyButton() {
           text: `${nombreProducto}`,
         });
       } else {
-        console.warn("Product details not found for button:", button);
+        console.warn("No se encontraron detalles del producto para el botón:", button);
       }
     });
   });
 }
 
+// Función para actualizar el carrito en localStorage
 function updateLocalStorageCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// Función para obtener el carrito de localStorage
 function getLocalStorageCart() {
   const cart = localStorage.getItem("cart");
-  return cart ? JSON.parse(cart) : []; // Return parsed cart or empty array if it doesn't exist
+  return cart ? JSON.parse(cart) : []; // Devolver el carrito parseado o un array vacío si no existe
 }
 
+// Función para eliminar un producto del carrito
 function removeFromCart(codExpansion, nombreProducto) {
-  // Retrieve the cart from localStorage
+  // Obtener el carrito de localStorage
   let cart = getLocalStorageCart();
 
-  // Find the index of the item to remove
+  // Encontrar el índice del elemento a eliminar
   const index = cart.findIndex(
     (item) =>
       item.codExpansion === codExpansion &&
       item.nombreProducto === nombreProducto
   );
 
-  // Remove the item if it exists
+  // Eliminar el elemento si existe
   if (index >= 0) {
-    cart.splice(index, 1); // Remove the item from the cart array
+    cart.splice(index, 1); // Eliminar el elemento del array del carrito
 
-    // Update the cart in localStorage
+    // Actualizar el carrito en localStorage
     updateLocalStorageCart(cart);
 
-    // Update the UI
+    // Actualizar la interfaz de usuario
     populateCart();
     updateCartPrice();
   } else {
@@ -139,14 +149,15 @@ function removeFromCart(codExpansion, nombreProducto) {
   }
 }
 
+// Función para poblar el carrito con los productos de localStorage
 function populateCart() {
-  // Retrieve the current cart from localStorage
+  // Obtener el carrito actual de localStorage
   const cart = getLocalStorageCart();
 
-  // Get all elements with the class "cart-body"
+  // Obtener todos los elementos con la clase "cart-body"
   const cartBodies = document.querySelectorAll(".cart-body");
 
-  // Generate the cart HTML content
+  // Generar el contenido HTML del carrito
   const cartHTML = cart
     .map(
       (item, index) => `
@@ -169,58 +180,63 @@ function populateCart() {
     )
     .join("");
 
-  // Update all cart-body elements
+  // Actualizar todos los elementos cart-body
   cartBodies.forEach((cartBody) => {
     cartBody.innerHTML = cartHTML;
   });
 
-  // Add event listeners for quantity changes
+  // Agregar event listeners para cambios en la cantidad
   document.querySelectorAll(".cart-input").forEach((input) => {
     input.addEventListener("change", updateCartQuantity);
   });
 
-  // Update the total price
+  // Actualizar el precio total
   updateCartPrice();
 }
+
+// Función para actualizar la cantidad de productos en el carrito
 function updateCartQuantity(event) {
   const input = event.target;
-  const index = parseInt(input.getAttribute("data-index"), 10); // Get the product index
-  const newAmount = parseInt(input.value, 10); // Get the new quantity
+  const index = parseInt(input.getAttribute("data-index"), 10); // Obtener el índice del producto
+  const newAmount = parseInt(input.value, 10); // Obtener la nueva cantidad
 
   if (isNaN(newAmount) || newAmount <= 0) {
     alert("Por favor, ingresa una cantidad válida.");
-    input.value = getLocalStorageCart()[index].amount; // Reset to previous value
+    input.value = getLocalStorageCart()[index].amount; // Restablecer al valor anterior
     return;
   }
 
-  // Retrieve the cart from localStorage
+  // Obtener el carrito de localStorage
   let cart = getLocalStorageCart();
 
-  // Update the quantity and total price
+  // Actualizar la cantidad y el precio total
   cart[index].amount = newAmount;
   cart[index].total = cart[index].productPrice * newAmount;
 
-  // Update localStorage with the modified cart
+  // Actualizar localStorage con el carrito modificado
   updateLocalStorageCart(cart);
 
-  // Update the UI
+  // Actualizar la interfaz de usuario
   populateCart();
 }
 
+// Función para actualizar el precio total del carrito
 function updateCartPrice() {
   let total = 0;
 
-  // Calculate the total price
+  // Calcular el precio total
   const cart = getLocalStorageCart();
   cart.forEach((item) => {
     total += item.total;
   });
 
-  // Update all elements displaying the total price
+  // Actualizar todos los elementos que muestran el precio total
   document.querySelectorAll(".cart-total").forEach((totalElement) => {
     totalElement.textContent = total.toFixed(2);
   });
 }
+
+// Función para manejar la compra
 function buy() {
   const cart = getLocalStorageCart();
   if (cart.length === 0) {
@@ -231,6 +247,8 @@ function buy() {
   const totalNumber = parseFloat(total);
   const totalString = totalNumber.toFixed(2);
 }
+
+// Función para actualizar el estilo del conjunto de productos
 function updateSetStyle() {
   const products = document.querySelectorAll(".product");
 
@@ -261,10 +279,12 @@ function updateSetStyle() {
           break;
       }
     } else {
-      console.warn("No hidden field found for product:", product);
+      console.warn("No se encontró campo oculto para el producto:", product);
     }
   });
 }
+
+// Ejecutar las funciones al cargar la ventana
 window.onload = function () {
   getYear();
   initializeClickableImages();

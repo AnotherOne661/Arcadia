@@ -1,3 +1,4 @@
+// Añadimos los eventos que llevan a cabo la validación en los propios campos con errores
 function main() {
     document.querySelector(".edit").addEventListener("click", () => {
       document.querySelector(".edit").style.display = "none";

@@ -1,7 +1,4 @@
-/**
- * @file Form validation script for the registration form.
- */
-
+// Tomamos los valores que usaremos para las comprobaciones
 const form = document.getElementById('registration-form');
 const nameInput = document.querySelector('input[name="username"]');
 const emailInput = document.getElementById('email');
@@ -12,6 +9,7 @@ const ageCheckbox = document.getElementById('age');
 const termsCheckbox = document.getElementById('terms');
 const submitButton = form.querySelector('button[type="submit"]');
 
+// Funcion para poder crear el elemento con el mensaje de error en el siguiente hijo del que cree el error
 const createErrorElement = (inputElement) => {
     const errorElement = document.createElement('div');
     errorElement.style.color = 'red';
@@ -26,6 +24,7 @@ const passwordError = createErrorElement(passwordInput);
 const confirmPasswordError = createErrorElement(confirmPasswordInput);
 const phoneError = createErrorElement(phoneInput);
 
+// Tan solo verificamos que el nombre esté, en caso de que el required de html fallase
 const validateName = () => {
     if (nameInput.value.trim() === '') {
         nameError.textContent = 'El nombre es obligatorio.';
@@ -36,6 +35,7 @@ const validateName = () => {
     return true;
 };
 
+// Validamos que el email sea adecuado usando un regex
 const validateEmail = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput.value)) {
@@ -47,6 +47,7 @@ const validateEmail = () => {
     return true;
 };
 
+// Validamos la contraseña con los requisitos que se mencionan en el texto del error
 const validatePassword = () => {
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     if (!passwordRegex.test(passwordInput.value)) {
@@ -57,7 +58,7 @@ const validatePassword = () => {
     passwordError.style.display = 'none';
     return true;
 };
-
+// Validamos que las constraseñas coincidan además de la validación propia de html 
 const validateConfirmPassword = () => {
     if (confirmPasswordInput.value !== passwordInput.value) {
         confirmPasswordError.textContent = 'Las contraseñas no coinciden.';
@@ -67,7 +68,7 @@ const validateConfirmPassword = () => {
     confirmPasswordError.style.display = 'none';
     return true;
 };
-
+// Validamos el número telefónico para que sea uno válido para españa
 const validatePhone = () => {
     const phoneRegex = /^(\+34|0034|34)?[6789]\d{8}$/;
     if (!phoneRegex.test(phoneInput.value)) {
@@ -78,7 +79,7 @@ const validatePhone = () => {
     phoneError.style.display = 'none';
     return true;
 };
-
+// Confirmamso que el usuario acepte ser mayor de edad
 const validateAge = () => {
     if (!ageCheckbox.checked) {
         Swal.fire({
@@ -90,7 +91,7 @@ const validateAge = () => {
     }
     return true;
 };
-
+// Validamos que el usuario haya aceptado los términos y condiciones
 const validateTerms = () => {
     if (!termsCheckbox.checked) {
         Swal.fire({
@@ -102,7 +103,7 @@ const validateTerms = () => {
     }
     return true;
 };
-
+// Habilitamos el registro en caso de que todo funcione adecuadamente
 const updateSubmitButtonState = () => {
     let isFormValid = validateName() && validateEmail() && validatePassword() && validateConfirmPassword() && validatePhone();
     submitButton.disabled = !isFormValid;

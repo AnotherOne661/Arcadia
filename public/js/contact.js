@@ -1,13 +1,13 @@
 
 const form = document.querySelector(".contact-form");
 
-
+// Establecemos el mapa de leaflet
 function main(){
   const map = L.map("map").setView([40.4308263, -3.6740011], 20);
   let lanLong;
 
   const popup = L.popup();
-
+  // le ponemos las distintas capas teniendo en cuenta el satélite, topográfico y oscuro
   const tiles = L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution:
@@ -59,12 +59,12 @@ function main(){
     "Esri Satellite": esriSatellite,
     "Dark Theme": darkTheme,
   };
-
+  // Le establecmos la vista por defecto del mapa y su nivel de zoom
   const defaultView = {
     center: [40.4308263, -3.6740011],
     zoom: 10,
   };
-
+  // Añadimos un botón personalizado con su función propia que resetee la vista del mapa a los valores por defecto
   const resetViewButton = L.control({ position: "bottomleft" });
 
   resetViewButton.onAdd = function () {
@@ -84,11 +84,11 @@ function main(){
   resetViewButton.addTo(map);
 
   L.control.layers(baseMaps).addTo(map);
-
+  // Añadimos el marcador de la tienda
   const markers = [
     { coords: [40.4308263, -3.6740011], name: "Arcadia - Tienda TFG" },
   ];
-
+  // Metemos el marcador en el mapa con las coordenadas conseguidas previamente
   markers.forEach((marker) => {
     const leafletMarker = L.marker(marker.coords).addTo(map);
     leafletMarker.bindPopup(marker.name);

@@ -1,44 +1,44 @@
 function updatePrice() {
-    // Select all old and new prices
+    // Seleccionar todos los precios antiguos y nuevos
     const oldPrices = document.querySelectorAll('.old-product-price');
     const newPrices = document.querySelectorAll('.product-price');
 
-    // Check if the count of oldPrices and newPrices matches
+    // Verificar si la cantidad de oldPrices y newPrices coincide
     if (oldPrices.length !== newPrices.length) {
-        console.error('Mismatch in number of old and new price elements!');
+        console.error('¡Desajuste en el número de elementos de precios antiguos y nuevos!');
         return;
     }
 
     oldPrices.forEach((oldPrecio, index) => {
-        // Parse the old price as a number
+        // Analizar el precio antiguo como un número
         const oldPriceValue = parseFloat(oldPrecio.textContent || oldPrecio.value);
 
-        // Calculate the new price (25% of the old price)
+        // Calcular el nuevo precio (25% del precio antiguo)
         const newPriceValue = (oldPriceValue * 0.75).toFixed(2);
 
-        // Update the corresponding new price element
+        // Actualizar el elemento de precio nuevo correspondiente
         if (newPrices[index]) {
             if (newPrices[index].tagName === 'INPUT') {
-                newPrices[index].value = newPriceValue; // For input fields
+                newPrices[index].value = newPriceValue; // Para campos de entrada
             } else {
-                newPrices[index].textContent = `${newPriceValue}€`; // For spans or other elements
+                newPrices[index].textContent = `${newPriceValue}€`; // Para spans u otros elementos
             }
         }
     });
 }
 
 function updateSetStyle() {
-    // Select all products
+    // Seleccionar todos los productos
     const products = document.querySelectorAll('.product');
 
     products.forEach(product => {
-        // Find the hidden field for the product's game ID
+        // Encontrar el campo oculto para el ID del juego del producto
         const productGame = product.querySelector('.hidden');
         
         if (productGame) {
             const gameValue = productGame.value;
 
-            // Add the appropriate class based on the game ID
+            // Agregar la clase apropiada según el ID del juego
             switch (gameValue) {
                 case '1':
                     product.classList.add('MTG');
@@ -60,27 +60,27 @@ function updateSetStyle() {
                     break;
             }
         } else {
-            console.warn('No hidden field found for product:', product);
+            console.warn('No se encontró campo oculto para el producto:', product);
         }
     });
 }
 
 function initializeClickableImages() {
-    // Select all clickable images
+    // Seleccionar todas las imágenes clicables
     const clickableImages = document.querySelectorAll('.clickableimage');
 
-    // Add event listeners to each clickable image
+    // Agregar event listeners a cada imagen clicable
     clickableImages.forEach(image => {
-        // Add a click event listener
+        // Agregar un event listener de clic
         image.addEventListener('click', () => {
-            // Get the data-url attribute value
+            // Obtener el valor del atributo data-url
             const url = image.getAttribute('data-url');
 
-            // Check if the URL exists and navigate to it
+            // Verificar si la URL existe y navegar a ella
             if (url) {
                 window.location.href = url;
             } else {
-                console.warn('No data-url found for image:', image);
+                console.warn('No se encontró data-url para la imagen:', image);
             }
         });
     });
@@ -90,10 +90,10 @@ function initializeClickableImages() {
 function saveInfo(event) {
         event.preventDefault();
     
-        // Get the email value from the form
+        // Obtener el valor del correo electrónico del formulario
         const email = event.target.querySelector('#email').value;
     
-        // Email validation function
+        // Función de validación de correo electrónico
         const validateEmail = (email) => {
             return String(email)
                 .toLowerCase()
@@ -111,7 +111,7 @@ function saveInfo(event) {
     
     }
 
-// Run the functions on window load
+// Ejecutar las funciones al cargar la ventana
 window.onload = () => {
     updatePrice();
     updateSetStyle();

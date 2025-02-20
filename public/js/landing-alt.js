@@ -2,17 +2,16 @@
 const DATA_PATH = "../data/landingEx.json";
 
 function initializeClickableImages() {
-    // Select all clickable images
+    // Seleccionamos las imágenes clickables
     const clickableImages = document.querySelectorAll('.clickableimage');
 
-    // Add event listeners to each clickable image
+    // Le añadimos el evento a cada imagen del click
     clickableImages.forEach(image => {
-        // Add a click event listener
         image.addEventListener('click', () => {
-            // Get the data-url attribute value
+            // Cogemos el data tribute
             const url = image.getAttribute('data-url');
 
-            // Check if the URL exists and navigate to it
+            // Redireccionamos a esa url. Esto no se podía hacer en un anchor tag porque se estropea la animación del css
             if (url) {
                 window.location.href = url;
             } else {
@@ -89,13 +88,12 @@ async function renderJson(json){
 
         // Agregamos los elementos al div producto
         productDiv.append(productName, productSet, productImageContainer, productButton); 
-        productsDiv.append(productDiv); // Append the product div to the products div
+        productsDiv.append(productDiv); 
 
 
      });
 }
 
-// Function to update styles based on the game's class
 
 
 // Se ejecuta al cargar la página

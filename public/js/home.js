@@ -1,3 +1,5 @@
+// Funcion para actualizar los estilos de los productos dependiendo del juego al que pertenezcan, cambiando su fuente a
+// la adecuada
 function updateSetStyle() {
   const products = document.querySelectorAll(".product");
 
@@ -32,33 +34,10 @@ function updateSetStyle() {
     }
   });
 }
-function expansionEvent() {
-  const expansions = document.querySelectorAll(".expansion");
 
-  expansions.forEach((expansion) => {
-    // Find the sibling input with class 'idExpansion' for each .expansion
-    const idExpansionInput = expansion.querySelector(".idExpansion");
-
-    if (idExpansionInput) {
-      const codExpansion = idExpansionInput.value;
-
-      // Add the click event listener to redirect
-      expansion.addEventListener("click", () => {
-        if (codExpansion) {
-          window.location.href = `/${codExpansion}`;
-        } else {
-          console.warn("No codExpansion value found for expansion:", expansion);
-        }
-      });
-    } else {
-      console.warn("No idExpansion input found for expansion:", expansion);
-    }
-  });
-}
 
 function main() {
   updateSetStyle();
-  expansionEvent();
 }
 
 main();

@@ -1,7 +1,7 @@
-
 const stripe = Stripe("pk_test_51Qp4LaPteoa4CQqLbmXU629PimI1Z1omu3gWI8tjDN9831EPOrHDvcfLCt1OdNEvWsEsobW5VvGVulQJ0DS5AT4F00WLcRC4bG");
 var cardElement;
 
+// Función para validar la comunidad
 function isValidCommunity(community) {
   const communityLower = community.toLowerCase();
   const communities = [
@@ -14,21 +14,25 @@ function isValidCommunity(community) {
   ];
   return communities.includes(communityLower);
 }
+
+// Función para validar la dirección
 function isValidAddress(address) {
   return address.length > 15;
 }
 
+// Función para validar el código postal
 function isValidPostalCode(postalCode) {
   const regex = /^(?:0[1-9]\d{3}|[1-4]\d{4}|5[0-2]\d{3})$/;
   return regex.test(postalCode);
 }
 
+// Función principal
 function main() {
   populateCart();
 
   if (document.getElementById("card-element") !== null) {
     const elements = stripe.elements();
-    cardElement = elements.create("card"); // Assign to the global variable
+    cardElement = elements.create("card"); // Asignar a la variable global
     cardElement.mount('#card-element');
     cardElement.on('change', function(event) {
       const displayError = document.getElementById('card-errors');
@@ -102,7 +106,7 @@ function main() {
 
       const { paymentMethod, error } = await stripe.createPaymentMethod({
         type: 'card',
-        card: cardElement, // Now it is properly accessible
+        card: cardElement, // Ahora es accesible correctamente
         billing_details: {
           name: name,
           address: { line1: address, city: localidad, postal_code: postalCode, state: community },
@@ -118,21 +122,17 @@ function main() {
   }
 }
 
-
-
-
+// Función para procesar el pago
 function processPayment() {
-  // Get the form values
-
+  // Obtener los valores del formulario
   const community = document.getElementById('community').value;
   const localidad = document.getElementById('localidad').value;
   const address = document.getElementById('address').value;
   const postalCode = document.getElementById('postalCode').value;
 
-
-  // Validate the inputs
+  // Validar las entradas
   if ( community && localidad && address && postalCode) {
-    // Trigger SweetAlert2 popup
+    // Activar popup de SweetAlert2
     Swal.fire({
       title: '¡Pago exitoso!',
       text: 'Tu pedido ha sido procesado correctamente.',
@@ -140,13 +140,13 @@ function processPayment() {
       confirmButtonText: 'Aceptar'
     }).then((result) => {
       if (result.isConfirmed) {
-        // Redirect after closing the popup
+        // Redirigir después de cerrar el popup
         localStorage.removeItem("cart");
-        window.location.href = 'mypage';  // Change the URL to wherever you want to redirect
+        window.location.href = 'mypage';  // Cambiar la URL a donde quieras redirigir
       }
     });
   } else {
-    // Trigger error popup if fields are incomplete
+    // Activar popup de error si los campos están incompletos
     Swal.fire({
       title: 'Campos incompletos',
       text: 'Por favor, completa todos los campos de pago.',
@@ -155,4 +155,5 @@ function processPayment() {
     });
   }
 }
+
 main();

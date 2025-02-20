@@ -22,23 +22,24 @@ const months = [
     "Diciembre",
 ]
 
+// Función para renderizar el calendario
 function renderCalendar(month, year, events) {
     calendarDates.innerHTML = ""
     monthYear.textContent = `${months[month]} ${year}`
 
-    // Get the first day of the month
+    // Obtener el primer día del mes
     const firstDay = new Date(year, month, 1).getDay()
 
-    // Get the number of days in the month
+    // Obtener el número de días en el mes
     const daysInMonth = new Date(year, month + 1, 0).getDate()
 
-    // Create blanks for days of the week before the first day
+    // Crear espacios en blanco para los días de la semana antes del primer día
     for (let i = 0; i < firstDay; i++) {
         const blank = document.createElement("div")
         calendarDates.appendChild(blank)
     }
 
-    // Populate the days
+    // Rellenar los días
     for (let i = 1; i <= daysInMonth; i++) {
         const day = document.createElement("div")
         day.textContent = i
@@ -71,6 +72,7 @@ function renderCalendar(month, year, events) {
     }
 }
 
+// Función para configurar los eventos de navegación del calendario
 function setupEvents(events) {
     prevMonthBtn.addEventListener("click", () => {
         currentMonth--
@@ -91,6 +93,7 @@ function setupEvents(events) {
     })
 }
 
+// Función para renderizar los eventos en la vista móvil
 function renderMobileEvents(events) {
     const mobileEventsContainer = document.querySelector(".mobile-calendar");
     const eventsDiv = mobileEventsContainer.querySelector(".events");
@@ -123,10 +126,10 @@ function renderMobileEvents(events) {
                 mobileEventsContainer.appendChild(eventItem)
     });
 
-    console.log(eventsDiv)
-    console.log(eventItem)
+
 }
 
+// Función principal para obtener los eventos y renderizar el calendario
 async function main() {
     const response = await fetch("/events")
     const events = await response.json()
