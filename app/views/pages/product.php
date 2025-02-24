@@ -9,6 +9,9 @@ switch (get_class($product)) {
   case 'Card':
     $atributos = explode(",", $product->getAtributos());
     break;
+  case 'Accesory':
+    $productType = 'Accesorio';
+    break;
   default:
     $productType = 'Producto';
     break;
@@ -36,6 +39,8 @@ switch (get_class($product)) {
         echo '<p class="product-attributes"> La caja contiene ' . $product->getNumCartas() . ' sobres</p>';
       } elseif ($product instanceof Booster) {
         echo '<p class="product-attributes"> El sobre contiene ' . $product->getNumCartas() . ' cartas</p>';
+      } else if ($product instanceof Accesory) {
+        echo '<p class="product-attributes">Accesorio para juego TCG</p>';
       }
       ?>
       <div class="product-pricing">

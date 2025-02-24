@@ -1,5 +1,3 @@
-- Llenar DB (Accesorios) !high /AnC
 - Implementar rol de Administrador !low /Aa
-- AÑADIR IMAGENES A EVENTOS (Huedo) !high /AnC
 - Guia de Estilos !medium
 - DNS !high

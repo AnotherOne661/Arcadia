@@ -6,6 +6,7 @@ require_once __DIR__ . '/Repository.php';
 // Requerimos los modelos necesarios
 require_once __DIR__ . '/../models/Card.php';
 require_once __DIR__ . '/../models/Box.php';
+require_once __DIR__ . '/../models/Accesory.php';
 require_once __DIR__ . '/../models/Booster.php';
 require_once __DIR__ . '/../models/Product.php';
 
@@ -103,6 +104,15 @@ class ProductRepository extends Repository
           $result['numCartas'] ?? null,
           $product->getNombreProductoEs()
         );
+      case 'accesorio':
+        $query = "SELECT codExpansion, nombreProducto, idJuego, precio, tipo, urlImagen FROM productos WHERE codExpansion = :cod AND nombreProducto LIKE :nombre";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam(':cod', $cod, PDO::PARAM_STR);
+        $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return new Accesory($product->getcodExpansion(), $product->getNombreProductoEn(), $product->getIdJuego(), $product->getprecio(), $product->gettipo(), $product->geturlImagen(), $result['nombreProductoEs'] ?? null);
+
     }
   }
 
