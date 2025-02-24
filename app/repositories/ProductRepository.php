@@ -56,7 +56,7 @@ class ProductRepository extends Repository
         $stmt->bindParam(':cod', $cod, PDO::PARAM_STR);
         $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC); // Ensure fetching associative array
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return new Card(
           $product->getcodExpansion(),
           $product->getNombreProductoEn(),
@@ -64,7 +64,7 @@ class ProductRepository extends Repository
           $product->getprecio(),
           $product->gettipo(),
           $product->geturlImagen(),
-          $result['atributos'] ?? null, // Prevent errors if null
+          $result['atributos'] ?? null,
           $product->getNombreProductoEs()
         );
 
@@ -82,7 +82,7 @@ class ProductRepository extends Repository
           $product->getprecio(),
           $product->gettipo(),
           $product->geturlImagen(),
-          $result['numSobres'] ?? null, // Prevent errors if null
+          $result['numSobres'] ?? null,
           $product->getNombreProductoEs()
         );
 
@@ -100,11 +100,12 @@ class ProductRepository extends Repository
           $product->getprecio(),
           $product->gettipo(),
           $product->geturlImagen(),
-          $result['numCartas'] ?? null, // Prevent errors if null
+          $result['numCartas'] ?? null,
           $product->getNombreProductoEs()
         );
     }
   }
+
 
 
   public function findMany($name = null, $game = null, $expansion = null, $page = -1, $limit = 10)
@@ -112,6 +113,7 @@ class ProductRepository extends Repository
     $gg = $game == 'all' ? null : $game;
     $ee = $expansion == 'all' ? null : $expansion;
 
+    // Base de la consulta SQL
     $baseQuery = "
         FROM productos p
         JOIN expansiones e ON p.codExpansion = e.codExpansion
@@ -126,8 +128,10 @@ class ProductRepository extends Repository
             )
     ";
 
+    // Consulta para contar el total de productos
     $countQuery = "SELECT COUNT(*) as total " . $baseQuery;
 
+    // Consulta para obtener los productos
     $productQuery = "
         SELECT 
             p.codExpansion, 
@@ -139,19 +143,22 @@ class ProductRepository extends Repository
             p.descuento
     " . $baseQuery;
 
+    // Agregar límites y desplazamiento si se especifica la paginación
     if ($page > -1) {
       $offset = ($page - 1) * $limit;
       $productQuery .= " LIMIT :limit OFFSET :offset";
     }
 
+    // Preparar las consultas
     $stmtCount = $this->pdo->prepare($countQuery);
     $stmtProducts = $this->pdo->prepare($productQuery);
 
+    // Configurar los parámetros de búsqueda
     $nameParam = ($name !== null) ? '%' . strtolower($name) . '%' : null;
-
     $gameParam = ($gg !== null) ? '%' . strtolower($gg) . '%' : null;
     $expansionParam = ($ee !== null) ? '%' . strtolower($ee) . '%' : null;
 
+    // Vincular parámetros para la consulta de conteo
     if ($name !== null) {
       $stmtCount->bindParam(':name', $nameParam, PDO::PARAM_STR);
     } else {
@@ -169,6 +176,7 @@ class ProductRepository extends Repository
       $stmtCount->bindValue(':expansion', null, PDO::PARAM_NULL);
     }
 
+    // Vincular parámetros para la consulta de productos
     $stmtProducts->bindParam(':name', $nameParam, PDO::PARAM_STR);
     if ($game !== null) {
       $stmtProducts->bindParam(':game', $gameParam, PDO::PARAM_STR);
@@ -181,18 +189,22 @@ class ProductRepository extends Repository
       $stmtProducts->bindValue(':expansion', null, PDO::PARAM_NULL);
     }
 
+    // Vincular límites y desplazamiento si se especifica la paginación
     if ($page > -1) {
       $stmtProducts->bindParam(':limit', $limit, PDO::PARAM_INT);
       $stmtProducts->bindParam(':offset', $offset, PDO::PARAM_INT);
     }
 
+    // Ejecutar la consulta de conteo y obtener el total de productos
     $stmtCount->execute();
     $totalRow = $stmtCount->fetch(PDO::FETCH_ASSOC);
     $total = $totalRow['total'];
 
+    // Ejecutar la consulta de productos y obtener los resultados
     $stmtProducts->execute();
     $products = [];
 
+    // Procesar los resultados de la consulta de productos
     while ($row = $stmtProducts->fetch(PDO::FETCH_ASSOC)) {
       $names = explode("|", $row['nombreProducto']);
       $displayName = isset($names[1]) ? $names[1] : $names[0];
@@ -208,6 +220,7 @@ class ProductRepository extends Repository
       );
     }
 
+    // Devolver los productos y el total
     return [
       'products' => $products,
       'total' => $total
