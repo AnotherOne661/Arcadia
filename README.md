@@ -4,11 +4,6 @@
 >[!TIP]
 >Ahora puedes ejecutar desde la consola run.bat y lanzará la página automáticamente
 
->[!NOTE]
->Para obtener la versión sin PHP, JS, ni SQL, vale con descargar
->la carpeta `basic`, descomprimirla y hacer doble click al `index.html`
-
-
 # Para ejecutar en VSCode
 
 ## Ctrl+Shift+ñ
