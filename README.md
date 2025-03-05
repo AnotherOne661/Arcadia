@@ -1,6 +1,6 @@
 >[!IMPORTANT]
 > AWS temp website 
-> ec2-16-171-226-206.eu-north-1.compute.amazonaws.com
+> [ec2-16-171-226-206.eu-north-1.compute.amazonaws.com](https://ec2-16-171-226-206.eu-north-1.compute.amazonaws.com)
 
 >[!TIP]
 >Ahora puedes ejecutar desde la consola run.bat y lanzará la página automáticamente
